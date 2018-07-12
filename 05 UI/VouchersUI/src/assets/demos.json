@@ -1,0 +1,11 @@
+[
+    {"url": "cssbasics", "title": "CSS Basics", "component": "CSSBindingComponent"},
+    {"url": "bootstrap", "title": "Bootstrap", "component": "UsingBootstrapComponent"},
+    {"url": "material", "title": "Angular Material", "component": "UsingMaterialComponent"},
+    {"url": "material-table", "title": "Material Table", "component": "MaterialTableComponent"},
+    {"url": "material-dialog", "title": "Material Dialog", "component": "MaterialDialogComponent"},
+    {"url": "thirdparty", "title": "Charting", "component": "UsingThirdpartyComponent"},
+    {"url": "flexbox", "title": "CSS Flexbox", "component": "FlexboxComponent"},
+    {"url": "flexmediaq", "title": "Flexbox Media Query", "component": "FlexMediaQueryComponent"},
+    {"url": "flexlayout", "title": "Angular Flex Layout", "component": "FlexLayoutComponent"}    
+]

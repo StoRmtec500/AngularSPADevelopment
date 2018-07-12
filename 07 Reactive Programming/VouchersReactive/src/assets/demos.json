@@ -1,0 +1,32 @@
+[
+  {
+    "url": "observablescurd",
+    "title": "Observables CRUD",
+    "component": "ObservableCrudComponent"
+  },
+  {
+    "url": "simple",
+    "title": "Simple Observalbles",
+    "component": "SimpleObservableComponent"
+  },
+  {
+    "url": "observables",
+    "title": "Observable Streams",
+    "component": "ObservableStreamComponent"
+  },
+  {
+    "url": "operators",
+    "title": "Observable Operators",
+    "component": "OperatorsComponent"
+  },
+  {
+    "url": "mousedomobs",
+    "title": "Mouse & DOM Events",
+    "component": "MouseDomObservablesComponent"
+  },
+  {
+    "url": "flexlayoutapi",
+    "title": "Flex Layout Api",
+    "component": "FlexLayoutApiComponent"
+  }
+]

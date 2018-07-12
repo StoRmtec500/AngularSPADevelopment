@@ -1,0 +1,29 @@
+<div class="section">
+  <h4>Works with pure Mock Data</h4>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <h4>Observable Basics</h4>
+  <a (click)="useObsCreate()">Use Observable.create()</a>
+  <a (click)="useObsFrom()">Use Observerable.from()</a>
+  <a (click)="useOperator()">Use Operator()</a>
+  <a (click)="wrappingCallbacks()">Wrapping Callbacks</a>
+  <a (click)="usePromiseToObs()">Promise to Observable(</a>
+</div>
+
+<div class="section">
+  <div class='row'>
+    <div class='col-xs-12' style='vertical-align: top'>
+      <h5>Result: {{fName}}</h5>
+      <br> {{nbrObs | async}}
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class='row'>
+    <div class='col-xs-12' style='vertical-align: top'>
+      <pre> {{result | json}} </pre>
+    </div>
+  </div>
+</div>

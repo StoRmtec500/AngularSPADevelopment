@@ -1,0 +1,29 @@
+<div class="section">
+  <h4>Works with Mock Data - No Service needed</h4>
+  <br>
+</div>
+
+<div class="section">
+  <div fxLayout="column" fxLayoutGap="10px">
+    <h4>Mouse & DOM Events</h4>
+  </div>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <div>signPad - Mouse Moved at {{result | async}}</div>
+  <a (click)="useMouse()">Captcha Mouse Events as Observable in the SignPad</a>
+  <div class="signPad">
+  </div>
+  <a (click)="unsubscribeMouseEvt()">Unsubscribe Mouse Events</a>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <a (click)="handleClick()">Activate Handle Click as Observable</a>
+  <div>
+    <button id="mybutton">Click me to handle click using Observable</button>
+  </div>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <a (click)="useWatchLocation()">Watch Location using HTML 5 GPS</a>
+</div>

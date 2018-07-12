@@ -1,0 +1,66 @@
+@import "src/theme/style-vars";
+
+a {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
+// .panelBox {
+//     background-color: white;
+//     padding: 20px;
+// }
+
+.workbench {
+  min-height: 300px;
+  background-color: white;
+}
+
+.imgCell {
+  padding-top: 5px;
+  vertical-align: middle;
+}
+
+.demoContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.demoMenu {
+  min-width: 190px;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.demoWorkbench {
+  min-width: 400px;
+  flex: 4;
+  flex-grow: 4;
+}
+
+//Mixins
+
+@mixin big-font {
+  font-size: 18px;
+}
+
+@mixin box {
+  padding: 10px;
+  margin: 10px;
+}
+
+.sectionPanelBlue {
+  @include big-font();
+  @include box();
+  background-color: lightblue;
+}
+
+@mixin grid($flex) {
+  @if $flex {
+    @include flex;
+  } @else {
+    display: block;
+  }
+}

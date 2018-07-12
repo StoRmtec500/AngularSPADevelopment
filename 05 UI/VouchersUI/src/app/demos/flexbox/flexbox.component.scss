@@ -1,0 +1,28 @@
+@import "src/theme/style-vars";
+
+@mixin box {
+  margin: 10px 0;
+  padding: 20px;
+  border: 1px solid $cmdBackground;
+}
+
+.flex-container {
+  @include box();
+  display: flex;
+  // flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  flex-grow: 1;
+  min-width: 200px;
+  height: 100px;
+  margin: 5px;
+  background: $cmdBackground;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}

@@ -1,0 +1,6 @@
+[
+    {"url": "promise", "title": "Using Promises CRUD", "component": "PromiseComponent"},
+    {"url": "clients", "title": "Comparing HttpClients", "component": "HttpClientsComponent"},
+    {"url": "observablescurd", "title": "Observables CRUD", "component": "ObservableCrudComponent"},
+    {"url": "nosql", "title": "Using NoSQL", "component": "NoSQLInterceptorComponent"}    
+]

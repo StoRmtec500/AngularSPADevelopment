@@ -1,0 +1,34 @@
+<div class="section">
+  <h4>Make sure API is running: VouchersAPI -> src folder -> dotnet watch run</h4>
+</div>
+
+<div class="section" fxLayout="row" fxLayout.xs="column">
+  <div fxLayoutGap="10px" fxLayout="column" fxFlex="33">
+    <h4>Vouchers</h4>
+    <a (click)="getVouchers()">Get Vouchers</a>
+    <a (click)="getVouchersTask()">Get Vouchers Task</a>
+    <a (click)="getVoucher()">Get Voucher</a>
+    <a (click)="insertVoucher()">Insert Voucher</a>
+    <a (click)="updateVoucher()">Update Voucher</a>
+    <a (click)="deleteVoucher()">Delete Voucher</a>
+  </div>
+  <div fxLayoutGap="10px" fxLayout="column" fxFlex="33">
+    <h4>Custom Routes</h4>
+    <a (click)="getSum()">Custom Get Route, getSum()</a>
+    <a (click)="getVM()">View Model, getVM()</a>
+    <a (click)="doSave()">Custom Post Route, doSave()</a>
+  </div>
+  <div fxLayoutGap="10px" fxLayout="column" fxFlex=33>
+    <h4>Accounts</h4>
+    <a>Get Accounts</a>
+    <a>Get Account</a>
+    <a>Insert Account</a>
+    <a>Update Account</a>
+    <a>Delete Account</a>
+  </div>
+</div>
+
+<div *ngIf="fname!=null" class="section" fxLayout="column">
+  <h4>Function executed: {{fname}}</h4>
+  <pre>{{result | json}}</pre>
+</div>

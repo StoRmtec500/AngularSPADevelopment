@@ -1,0 +1,21 @@
+<div class="section">
+  <h4>Make sure API is running: VouchersAPI -> src folder -> dotnet watch run</h4>
+  <br>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <h4>Using Observable Operators</h4>
+  <a (click)="useMap()">Use map()</a>
+  <a (click)="useMapAndDo()">Use map() & do()</a>
+  <a (click)="usePipeAndMap()">Use pipe() and map()</a>
+  <a (click)="usePipeMapAndTap()">Use pipe(), map() & tap()</a>
+  <a (click)="errHandling()">With error handling</a>
+  <a (click)="getByID()">Using find() to filter by ID returning Singleton</a>
+  <a (click)="useFilter()">Use filter() to return an Array</a>
+  <hr>
+  <a (click)="unsbscribe()">Click to clear Subscription</a>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <mat-card *ngFor="let v of vouchers">{{ v.Label != null ? v.Label : v.Text }}</mat-card>
+</div>

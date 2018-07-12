@@ -1,0 +1,42 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <div fxFlex="70">
+      <span></span>
+    </div>
+    <div fxFlex="30" class="rightCell">
+      <button routerLink="/vouchers/0" mat-button>New</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="panelBox">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Text</th>
+        <th>Amount</th>
+        <th>Expense</th>
+        <th>Paid</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of vouchers" (click)="showVoucher(v.ID)">
+        <td>{{v.Date | date:'shortDate'}}</td>
+        <td>{{v.Text}}</td>
+        <td>{{v.Amount | currency:'EUR':true}} </td>
+        <td [innerHTML]="v.Expense | checked"></td>
+        <td [innerHTML]="v.Paid | checked"></td>
+        <td>
+          <a class="tblCMD" (click)="deleteVoucher(v.ID)">Delete</a>
+        </td>
+        <td>
+          <a class="tblCMD" [routerLink]="[ '/vouchers', v.ID ]">Edit</a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

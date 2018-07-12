@@ -1,0 +1,47 @@
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <div style="flex:8">
+            <span>Selected Detail:</span>
+        </div>
+        <div style="flex:4" class="rightCell">
+            <button (click)="saveDetail()" mat-button>Save Detail</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="form flexCol">
+
+    <div class="flexRow">
+
+        <div style="flex:6">
+            <mat-form-field class="form-default-width">
+                <input matInput [(ngModel)]="detail.Text" size="200" type="text" placeholder="Text:">
+            </mat-form-field>
+        </div>
+
+        <div style="flex:2">
+
+            <mat-form-field class="form-default-width">
+                <input matInput [(ngModel)]="detail.Amount" size="15" type="number" placeholder="Amount:">
+            </mat-form-field>
+        </div>
+
+        <div style="flex:4">
+
+            <mat-form-field class="form-default-width-r">
+                <mat-select [(ngModel)]="detail.AccountID" placeholder="Account">
+                    <mat-option *ngFor="let a of accounts" [value]="a.ID">{{a.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <div class="flexRow">
+
+        <mat-form-field class="form-full-width">
+            <textarea matInput [ngModel]="detail.Comment" placeholder="Comment" rows="4"></textarea>
+        </mat-form-field>
+
+    </div>
+</div>

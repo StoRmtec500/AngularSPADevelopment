@@ -1,0 +1,41 @@
+.flexRow {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flexCol {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.flexSpacer {
+  flex: 15;
+}
+
+.flexSide {
+  flex: 100;
+}
+
+.flexMainBig {
+  flex-grow: 2;
+}
+
+.flexMain {
+  flex: 800;
+  min-width: 550px;
+}
+
+.flexSideHidden {
+  display: none;
+}
+
+.spacer {
+  /* background-color: #f2f2f2; */
+  min-width: 15px;
+}

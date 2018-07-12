@@ -1,0 +1,44 @@
+a {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
+.panel {
+  background-color: white;
+  padding: 20px;
+  border: none;
+}
+
+.workbench {
+  min-height: 300px;
+}
+
+.imgCell {
+  padding-top: 5px;
+  vertical-align: middle;
+}
+
+.demoContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.demoMenu {
+  min-width: 190px;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.demoWorkbench {
+  min-width: 400px;
+  flex: 4;
+  flex-grow: 4;
+}
+
+.spacer {
+  background-color: #669900;
+  min-width: 15px;
+}

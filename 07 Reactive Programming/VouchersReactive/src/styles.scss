@@ -1,0 +1,36 @@
+@import "./theme/style-vars";
+@import "./theme/theme.scss";
+@import "./theme/mat-overrides.scss";
+@import "./theme/flex.scss";
+@import "./theme/form.scss";
+@import "./theme/boxes.scss";
+
+a {
+  cursor: pointer;
+}
+
+.spacedRow {
+  margin-top: 1rem;
+}
+
+body {
+  padding: 10px;
+  background-color: $spcaerBackground;
+}
+
+.sidebar-module,
+.navbar-inverse {
+  background-color: $cmdBackground;
+}
+
+.rightCell {
+  text-align: right;
+}
+
+.btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  background-color: $spcaerBackground;
+}

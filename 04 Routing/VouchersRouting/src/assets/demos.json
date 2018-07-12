@@ -1,0 +1,6 @@
+[
+    {"url": "routingbasics", "title": "Routing Basics", "component": "RoutingBasicsComponent"},
+    {"url": "childroutes", "title": "Child Routes", "component": "ChildRoutesComponent"},
+    {"url": "secondary", "title": "Secondary Routes", "component": "SecondaryRoutesComponent"},
+    {"url": "routegards", "title": "Route Gards", "component": "RouteGardsComponent"}    
+]

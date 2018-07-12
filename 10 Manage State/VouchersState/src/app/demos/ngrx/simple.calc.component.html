@@ -1,0 +1,10 @@
+<div class="section">
+    <div fxLayout="row" fxLayoutGap="20px">
+        <span>Enter amount in € to be converted: </span>
+        <input type="number" [ngModel]='amount$ | async' (ngModelChange)="onAmountChange($event)">
+    </div>
+    <div *ngFor="let currency of (currencyRates$ | async)" fxLayout="row" fxLayoutGap="20px" fxFlexFill>
+        <div fxFlex="5">{{currency.code}}:</div>
+        <div fxFlex="5" fxLayoutAlign="end center">{{currency.value * (amount$ | async )| number:'1.2-2'}}</div>
+    </div>
+</div>

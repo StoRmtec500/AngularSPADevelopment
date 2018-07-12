@@ -1,0 +1,24 @@
+<div class="section">
+  <h4>Make sure API is running: VouchersAPI -> src folder -> dotnet watch run</h4>
+</div>
+
+<div class="section" fxLayout="column" fxLayoutGap="10px">
+  <h4>Voucher</h4>
+  <a (click)="getVouchers()">Get Vouchers HttpClient</a>
+  <a (click)="getVouchersHttp()">Get Voucher Http</a>
+  <a (click)="insertVoucher()">Insert Voucher HttpClient</a>
+  <a (click)="observeResponse()">Observe Response HttpClient</a>
+  <a (click)="usingHeadersHttpClient()">Using Headers in HttpClient</a>
+  <a (click)="usingInterceptor()">Using Interceptor</a>
+  <div class="info" *ngIf="fname=='usingInterceptor()'">
+    Change app.module.ts:
+    <br>
+    <img src="/assets/images/interceptor.png">
+    <br> Watch console
+  </div>
+</div>
+
+<div *ngIf="fname!=null" class="section" fxLayout="column">
+  <h4>Function executed: {{fname}}</h4>
+  <pre>{{result | json}}</pre>
+</div>

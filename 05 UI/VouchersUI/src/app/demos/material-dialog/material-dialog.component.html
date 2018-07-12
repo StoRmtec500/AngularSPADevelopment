@@ -1,0 +1,16 @@
+<div class="section">
+  <h4>Currency Converter</h4>
+  <ol>
+    <li>
+      <mat-form-field>
+        <input type="number"  matInput [(ngModel)]="amount" placeholder="How much do you want to Exchange">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()" [disabled]="amount==undefined">Exchange</button>
+    </li>
+    <li *ngIf="calculated">
+      {{msg}}
+    </li>
+  </ol>
+</div>

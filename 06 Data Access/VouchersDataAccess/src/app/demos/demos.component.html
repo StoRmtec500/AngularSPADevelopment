@@ -1,0 +1,15 @@
+<div class="demoContainer" [MatchHeight]="'panelBox'">
+    <div class='panelBox demoMenu'>
+        <h4>{{title}}</h4>
+        <div>
+            <a *ngFor="let item of demos" [routerLink]="['', item.url]" [queryParams]="{title: item.title}">{{item.title}}</a>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class='panelBox demoWorkbench'>
+        <h4>{{demoName}}</h4>
+        <div class="workbench">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

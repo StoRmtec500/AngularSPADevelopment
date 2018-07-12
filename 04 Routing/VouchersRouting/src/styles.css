@@ -1,0 +1,60 @@
+.section {
+  margin: 10px 0px 10px 0px;
+  padding: 15px 10px;
+  border: 1px solid #ada0a0;
+  background-color: #ffffff;
+}
+
+body {
+  padding: 10px;
+  background-color: #669900;
+}
+
+.sidebar-module,
+.navbar-inverse {
+  background-color: #797474;
+}
+
+.spacedRow {
+  margin-top: 1rem;
+}
+
+.cmdPanel {
+  padding: 10px 10px;
+  color: white;
+  background-color: #797474;
+}
+
+.cmdPanelSmall {
+  padding: 5px;
+  margin: 10px 0px;
+  color: white;
+  background-color: #797474;
+}
+
+.rightCell {
+  text-align: right;
+}
+
+.btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+}
+
+.theme-green .bs-datepicker-head {
+  background-color: #797474;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: #797474;
+}
+
+.theme-green .bs-datepicker-body table td span.selected,
+.theme-green .bs-datepicker-body table td.selected span,
+.theme-green .bs-datepicker-body table td span[class*="select-"]:after,
+.theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+  background-color: #797474;
+}
