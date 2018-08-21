@@ -1,11 +1,6 @@
-.empBox {
+.navbar {
   font-size: 2rem;
   margin: 10px 0px;
   padding: 8px 5px;
   background-color: yellowgreen;
-}
-
-.empBody {
-  margin: 10px 0px;
-  background-color: whitesmoke;
 }
