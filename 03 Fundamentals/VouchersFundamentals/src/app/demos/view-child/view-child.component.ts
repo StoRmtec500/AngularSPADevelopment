@@ -1,19 +1,18 @@
-import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
-import { AlertComponent } from './alert/alert.component';
+import { Component, OnInit, ViewChildren, AfterViewInit } from "@angular/core";
+import { AlertComponent } from "./alert/alert.component";
 
 @Component({
-  selector: 'app-view-child',
-  templateUrl: './view-child.component.html',
-  styleUrls: ['./view-child.component.css']
+  selector: "app-view-child",
+  templateUrl: "./view-child.component.html",
+  styleUrls: ["./view-child.component.css"]
 })
 export class ViewChildComponent implements AfterViewInit {
-  
-  @ViewChildren(AlertComponent) alerts: QueryList<AlertComponent>
-  
-  constructor() { }
+  @ViewChildren(AlertComponent)
+  alerts: AlertComponent[];
+
+  constructor() {}
 
   ngAfterViewInit() {
     this.alerts.forEach(alertInstance => console.log(alertInstance));
   }
-
 }

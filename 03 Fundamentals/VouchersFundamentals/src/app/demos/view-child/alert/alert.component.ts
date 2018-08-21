@@ -1,18 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-alert',
+  selector: "app-alert",
   template: `
   <h1 (click)="alert()">{{type}}</h1>
 `,
-  styleUrls: ['./alert.component.css']
+  styleUrls: ["./alert.component.css"]
 })
 export class AlertComponent {
+  @Input()
+  type: string = "success";
 
-  @Input() type: string = "success";
-  
   alert() {
-    console.log("alert");
+    console.log("you clicked an alert component");
   }
-
 }
