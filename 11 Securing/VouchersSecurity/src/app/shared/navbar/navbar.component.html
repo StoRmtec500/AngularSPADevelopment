@@ -9,10 +9,11 @@
     <div style="min-width: 40px;"></div>
     <div flxFlex="3 1 auto" fxLayout="row" fxLayoutAlign="end center" fxLayout.lt-sm="column" fxLayoutGap="25px">
 
-      <div *ngFor="let route of rootRoutes" routerLink="{{'/' + route.path }}" routerLinkActive="navLink-active" [routerLinkActiveOptions]="{ exact: true }"
-        class="navLink">
+      <div *ngFor="let route of rootRoutes" routerLink="{{'/' + route.path }}" routerLinkActive="navLink-active"
+        [routerLinkActiveOptions]="{ exact: true }" class="navLink">
         {{route.data.title}}
       </div>
+      <div class="userName" *ngIf="currentUser!=null">{{currentUser.email}}</div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

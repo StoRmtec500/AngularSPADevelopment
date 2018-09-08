@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, Route } from "@angular/router";
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: "app-navbar",
@@ -8,8 +9,9 @@ import { Router, Route } from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
   rootRoutes: Route[];
+  currentUser: firebase.User;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private as: AuthService) {}
 
   ngOnInit() {
     this.rootRoutes = this.router.config.filter(
@@ -18,5 +20,6 @@ export class NavbarComponent implements OnInit {
         item.path.includes("*") == false &&
         item.outlet == null
     );
+    this.as.User.subscribe(user => (this.currentUser = user));
   }
 }

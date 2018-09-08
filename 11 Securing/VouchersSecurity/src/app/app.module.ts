@@ -65,7 +65,8 @@ export const firebaseConfig = {
     SharedModule,
     DemosModule,
     NgxChartsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "de-DE" },

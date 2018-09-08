@@ -39,7 +39,11 @@ export class AuthService {
   logOff() {
     this.afAuth.auth
       .signOut()
-      .then(loggedOut => console.log("Logged out", "Come back and visit soon"))
+      .then(loggedOut => {
+        this.fbUser = null;
+        this.User.next(null);
+        console.log("Logged out", "Come back and visit soon");
+      })
       .catch(err => console.log("Error logging out", err));
   }
 }
