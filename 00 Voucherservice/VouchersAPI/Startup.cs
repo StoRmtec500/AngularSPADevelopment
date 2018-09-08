@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +41,9 @@ namespace Vouchers
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<VouchersDBContext>(options => options.UseSqlServer(conStr));
             services.AddScoped<IVouchersRepository, VouchersRepository>();
+
+            //Simple Windows Auth
+            services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 
             //Identity 
             //

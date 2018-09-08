@@ -11,9 +11,7 @@ export class WinAuthComponent implements OnInit {
 
   user: string;
 
-  ngOnInit() {
-    this.useWinAuth();
-  }
+  ngOnInit() {}
 
   useWinAuth() {
     this.httpClient
