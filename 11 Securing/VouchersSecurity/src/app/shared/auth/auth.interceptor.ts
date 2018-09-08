@@ -8,27 +8,17 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import { AuthService } from "./auth.service";
+import { environment } from "../../../environments/environment";
 
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private as: AuthService) {}
-
-  bearer: string;
-
   public intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (this.as.token != "") {
-      let cloned = req.clone({
-        setHeaders: { Authorization: `Bearer ${this.as.token}` }
-      });
-      console.log(
-        "Vouchers-Interceptor added Bearer Token for request",
-        cloned
-      );
-      return next.handle(cloned);
-    } else {
-      return next.handle(req);
-    }
+    let cloned = req.clone({
+      setHeaders: { Authorization: `Bearer ${environment.token}` }
+    });
+    console.log("Vouchers-Interceptor added Bearer Token for request", cloned);
+    return next.handle(cloned);
   }
 }

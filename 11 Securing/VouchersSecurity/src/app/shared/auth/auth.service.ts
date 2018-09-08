@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { AngularFireAuth } from "angularfire2/auth";
 import { RequestOptions } from "@angular/http";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class AuthService {
@@ -12,15 +13,14 @@ export class AuthService {
         console.log("Current User: ", this.fbUser);
         this.User.next(this.fbUser);
         this.fbUser.getIdToken().then(token => {
-          this.token = token;
-          console.log("Token: ", this.token);
+          environment.token = token;
+          console.log("Token: ", environment.token);
         });
       }
     });
   }
 
   private fbUser: firebase.User = null;
-  public token: string;
 
   public User: BehaviorSubject<firebase.User> = new BehaviorSubject(
     this.fbUser
