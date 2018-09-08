@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 @Component({
   selector: "app-winauth",
   templateUrl: "./winauth.component.html",
-  styleUrls: ["./winauth.component.css"]
+  styleUrls: ["./winauth.component.scss"]
 })
 export class WinAuthComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
