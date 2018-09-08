@@ -1,21 +1,20 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Voucher } from "../shared
+
 import { Observable } from "rxjs/Observable";
 import { environment } from "../../environments/environment";
+import { Voucher } from "../shared";
 
 @Injectable()
 export class VouchersService {
   constructor(private httpClient: HttpClient) {}
 
   getVouchers(): Observable<Voucher[]> {
-    return this.httpClient
-      .get<Voucher[]>(environment.apiUrl + "api/vouchers");
+    return this.httpClient.get<Voucher[]>(environment.apiUrl + "api/vouchers");
   }
 
   getVoucher(id: number): Observable<Voucher> {
-    return this.httpClient
-      .get<any>(environment.apiUrl + "api/vouchers/" + id);
+    return this.httpClient.get<any>(environment.apiUrl + "api/vouchers/" + id);
   }
 
   insertVoucher(voucher: Voucher): void {
@@ -37,8 +36,8 @@ export class VouchersService {
   }
 
   deleteVoucher(id: number): void {
-    this.httpClient.delete(environment.apiUrl + "api/vouchers/" + id).subscribe(
-        () => console.log("deleting voucher with id " + id)
-    );
+    this.httpClient
+      .delete(environment.apiUrl + "api/vouchers/" + id)
+      .subscribe(() => console.log("deleting voucher with id " + id));
   }
 }

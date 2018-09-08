@@ -29,38 +29,21 @@ export class ReactiveValidationComponent implements OnInit {
     this.personForm = this.fb.group({
       name: [
         this.person.name,
-        [
-          Validators.required,
-          Validators.minLength(4),
-          this.validateNotHugo
-        ],
+        [Validators.required, Validators.minLength(4), this.validateNotHugo],
         this.validateNamesExist.bind(this)
       ],
       age: [this.person.age, [Validators.min(18), Validators.max(99)]],
       gender: [this.person.gender]
     });
 
-    this.personForm.valueChanges.subscribe(vals =>{
-      console.log("changes happening @form: ", vals)
-    })
+    this.personForm.valueChanges.subscribe(vals => {
+      console.log("changes happening @form: ", vals);
+    });
   }
 
   savePerson(formValues) {
     console.log("saving person with values: ");
     console.log(formValues);
-  }
-
-  violatesMinLenght() {
-    let result = false;
-    let errs : ValidationErrors =  this.personForm.controls.name.errors ;
-
-    if(errs!=null){
-      console.log("Errors in Name field: ", errs)
-      if(errs["minlength"]){
-        result = true;
-      }
-    }
-    return result;
   }
 
   validateNotHugo(control: FormControl): { [s: string]: boolean } {

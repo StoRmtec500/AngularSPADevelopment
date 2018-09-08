@@ -1,31 +1,42 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { VoucherDetail, BalanceAccount } from '../../../shared
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { VoucherDetail, BalanceAccount } from "../../../shared";
 
 @Component({
-  selector: 'app-voucher-detail',
-  templateUrl: './voucher-detail.component.html',
-  styleUrls: ['./voucher-detail.component.scss'],
+  selector: "app-voucher-detail",
+  templateUrl: "./voucher-detail.component.html",
+  styleUrls: ["./voucher-detail.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VoucherDetailComponent implements OnInit {
-  
   //detail changed to get / set - otherwise change is not propagated
-  private _detail: VoucherDetail;  
-  get detail(): VoucherDetail{return this._detail};
+  private _detail: VoucherDetail;
+  get detail(): VoucherDetail {
+    return this._detail;
+  }
 
-  @Input() set detail (item: VoucherDetail){
-      this._detail = item;      
-      this.initForm();
-      console.log("changed item from parent: ", item);
-  };
+  @Input()
+  set detail(item: VoucherDetail) {
+    this._detail = item;
+    this.initForm();
+    console.log("changed item from parent: ", item);
+  }
 
-  @Input() accounts: BalanceAccount[];
-  @Output() detailSaved : EventEmitter<VoucherDetail> = new EventEmitter();
+  @Input()
+  accounts: BalanceAccount[];
+  @Output()
+  detailSaved: EventEmitter<VoucherDetail> = new EventEmitter();
 
   vdForm: FormGroup;
-  
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     console.log("received accounts: ", this.accounts);
@@ -41,8 +52,7 @@ export class VoucherDetailComponent implements OnInit {
     });
   }
 
-  saveDetail(vd: VoucherDetail){
+  saveDetail(vd: VoucherDetail) {
     this.detailSaved.emit(vd);
   }
-
 }

@@ -3,7 +3,7 @@ import { LoginComponent } from "./login.component";
 import { MockAuthService } from "../auth/auth.service.mock";
 import { AuthService } from "../auth/auth.service";
 
-describe("Component: Login", () => {
+describe("Tested using Mock: Component: Login", () => {
   let component: LoginComponent;
   let service: MockAuthService;
 
