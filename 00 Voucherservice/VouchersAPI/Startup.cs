@@ -2,6 +2,7 @@
 using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using NLog.Extensions.Logging;
 using NLog.Web;
@@ -44,6 +46,22 @@ namespace Vouchers
 
             //Simple Windows Auth
             services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+
+            //Firebase
+            services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://securetoken.google.com/angulardemo-1a474";
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = "https://securetoken.google.com/angulardemo-1a474",
+                    ValidateAudience = true,
+                    ValidAudience = "angulardemo-1a474",
+                    ValidateLifetime = true
+                };
+            });
 
             //Identity 
             //

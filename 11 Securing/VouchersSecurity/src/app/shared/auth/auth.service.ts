@@ -49,18 +49,9 @@ export class AuthService {
       .signOut()
       .then(loggedOut => {
         this.fbUser = null;
-        this.User.next(null);
+        environment.token = "";
         console.log("Logged out", "Come back and visit soon");
       })
       .catch(err => console.log("Error logging out", err));
-  }
-
-  getTokenString() {
-    return this.fbUser.getIdToken().then(token => {
-      let tokenHeader = new Headers({
-        Authorization: token
-      });
-      console.log(tokenHeader);
-    });
   }
 }
