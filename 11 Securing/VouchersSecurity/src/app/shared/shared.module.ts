@@ -14,13 +14,13 @@ import { DataStoreService } from "./data-store/data-store-service";
 import { EditorComponent } from "./editor/editor.component";
 import { EventBusService } from "./event-bus/event-bus.service";
 import { KpiBarComponent } from "./kpi-bar/kpi-bar.component";
-import { LoginComponent } from "./login/login.component";
 import { ScreenService } from "./screen/screen.service";
 import { SidePanelComponent } from "./side-panel/side-panel.component";
 import { UploadComponent } from "./upload/upload.component";
+import { LoginComponent } from "./auth/login/login.component";
+import { RegisterComponent } from "./auth/register/register.component";
 
-const mods = [
-  LoginComponent,
+const sharedComponents = [
   UploadComponent,
   NavbarComponent,
   MatchHeightDirective,
@@ -29,7 +29,9 @@ const mods = [
   CheckPipe,
   SidePanelComponent,
   KpiBarComponent,
-  CKEditorComponent
+  CKEditorComponent,
+  LoginComponent,
+  RegisterComponent
 ];
 
 @NgModule({
@@ -40,8 +42,8 @@ const mods = [
     MaterialModule,
     FileUploadModule
   ],
-  declarations: mods,
-  exports: mods,
+  declarations: sharedComponents,
+  exports: sharedComponents,
   providers: [
     CurrencyService,
     DataStoreService,

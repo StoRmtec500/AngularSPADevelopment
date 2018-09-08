@@ -1,24 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-firebase',
-  templateUrl: './firebase.component.html',
-  styleUrls: ['./firebase.component.css']
+  selector: "app-firebase",
+  templateUrl: "./firebase.component.html",
+  styleUrls: ["./firebase.component.scss"]
 })
 export class FirebaseComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  logIn(){
-    
-  }
-
-  logOut(){
-
-  }
-
-
+  ngOnInit() {}
 }
