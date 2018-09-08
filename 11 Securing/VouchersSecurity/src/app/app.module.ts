@@ -1,5 +1,5 @@
 import { registerLocaleData } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import localeDe from "@angular/common/locales/de";
 import { LOCALE_ID, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -29,6 +29,7 @@ import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { ChartingService } from "./shared/charting/charting.service";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { AuthInterceptor } from "./shared/auth/auth.interceptor";
 
 registerLocaleData(localeDe);
 
@@ -75,8 +76,8 @@ export const firebaseConfig = {
     EventBusService,
     VouchersService,
     AccountsService,
-    ChartingService
-    // {provide: HTTP_INTERCEPTORS, useClass: VouchersInterceptor, multi: true},
+    ChartingService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
