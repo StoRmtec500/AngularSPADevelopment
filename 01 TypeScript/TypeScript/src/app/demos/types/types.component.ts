@@ -191,6 +191,8 @@ export class TypesComponent implements OnInit {
       }
     }
 
+    var newVoucher = new Voucher();
+
     let v: Voucher = <Voucher>{
       ID: 1,
       Text: "Media Markt",
@@ -313,6 +315,10 @@ export class TypesComponent implements OnInit {
     var total: number = arr.reduce(function(a, b) {
       return a + b;
     });
+
+    var total: number = arr.reduce(function(a, b) {
+      return a + b;
+    }, 0);
     console.log("total is : " + total);
 
     var rockets = [
