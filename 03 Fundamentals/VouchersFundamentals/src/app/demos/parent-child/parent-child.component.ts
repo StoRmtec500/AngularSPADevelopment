@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../persons/person.service';
-import { Person } from '../persons/person';
+import { Component, OnInit } from "@angular/core";
+import { PersonService } from "../persons/person.service";
+import { Person } from "../persons/person";
 
 @Component({
-  selector: 'app-parent-child',
-  templateUrl: './parent-child.component.html',
-  styleUrls: ['./parent-child.component.css']
+  selector: "app-parent-child",
+  templateUrl: "./parent-child.component.html",
+  styleUrls: ["./parent-child.component.css"]
 })
 export class ParentChildComponent implements OnInit {
+  constructor(private ps: PersonService) {}
 
-  persons : Person[];
-  constructor(private ps: PersonService) { }
+  persons: Person[];
+  current: Person;
 
   ngOnInit() {
-    this.ps.getPersons().then(data=>{
+    this.ps.getPersons().then(data => {
       this.persons = data;
-    })
+    });
   }
 
+  onPersonSelected(p: Person) {
+    this.current = p;
+  }
+
+  onPersonSaved(p: Person) {
+    console.log("saving to service:", p);
+  }
 }

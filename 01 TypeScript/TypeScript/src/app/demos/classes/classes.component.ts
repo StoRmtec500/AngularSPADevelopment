@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-classes',
-  templateUrl: './classes.component.html',
-  styleUrls: ['./classes.component.css']
+  selector: "app-classes",
+  templateUrl: "./classes.component.html",
+  styleUrls: ["./classes.component.css"]
 })
 export class ClassesComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   basicClasses() {
     debugger;
-    
+
     class Voucher {
       ID: number;
       Text: string;
@@ -30,9 +28,19 @@ export class ClassesComponent implements OnInit {
     console.log("vouchertext is:" + v["Text"]);
 
     var vouchers = new Array<Voucher>();
-    var voucherA: Voucher = { ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() };
+    var voucherA: Voucher = {
+      ID: 1,
+      Text: "Media Markt",
+      Amount: 22,
+      Date: new Date()
+    };
     vouchers.push(voucherA);
-    var voucherB: Voucher = { ID: 2, Text: "Amazon", Amount: 44, Date: new Date() };
+    var voucherB: Voucher = {
+      ID: 2,
+      Text: "Amazon",
+      Amount: 44,
+      Date: new Date()
+    };
     vouchers.push(voucherB);
 
     for (var i = 0; i < vouchers.length; i++) {
@@ -40,8 +48,8 @@ export class ClassesComponent implements OnInit {
       console.log(v.Text);
     }
 
-    for (let v in vouchers) {     
-        console.log(v);     
+    for (let v in vouchers) {
+      console.log(v);
     }
 
     //try changing: let v -> var v ... think why
@@ -66,6 +74,21 @@ export class ClassesComponent implements OnInit {
     let jim = new Person("Jim", true);
     console.log(jim.name + " is alive: " + jim.alive);
 
+    class Dog {
+      constructor(private name: string, public breed: string) {}
+      barkName() {
+        return "Wuff, my name is " + this.name + ", I am a " + this.breed;
+      }
+      sayName() {
+        return "Wuff, my name is " + name; // Wuff, my name is
+      }
+    }
+
+    let dog = new Dog("Soi", "Whippet");
+    console.log(dog.barkName());
+    console.log(dog.sayName());
+    console.log(dog.breed);
+
     class Invoice {
       text: string;
       paid: boolean;
@@ -81,23 +104,6 @@ export class ClassesComponent implements OnInit {
 
     console.log("b1 with Text: " + b1.text + " was " + b1.paid);
     console.log("b2 with Text: " + b2.text + " was " + b2.paid);
-
-    class Dog {
-      constructor(private name: string, public breed: string) {
-      }
-      barkName() {
-        return "Wuff, my name is " + this.name + ", I am a " + this.breed;
-      }
-      sayName() {
-        return "Wuff, my name is " + name;  // Wuff, my name is 
-      }
-    }
-
-    let dog = new Dog("Soi", "Whippet");
-    console.log(dog.barkName());
-    console.log(dog.sayName());
-    console.log(dog.breed);
-
 
     class Smurf {
       readonly name: string;
@@ -125,9 +131,9 @@ export class ClassesComponent implements OnInit {
         return this._fullName;
       }
 
-      set fullName(newName: string) {        
-          this._fullName = `Citizen ${newName}` ;
-          console.log("name changed to " + newName);        
+      set fullName(newName: string) {
+        this._fullName = `Citizen ${newName}`;
+        console.log("name changed to " + newName);
       }
     }
 
@@ -142,10 +148,9 @@ export class ClassesComponent implements OnInit {
   inheritance() {
     debugger;
 
-    class Dog {      
-      
+    class Dog {
       constructor(public name: string) {}
-      
+
       move(meters: number) {
         console.log(this.name + " moved " + meters + "m. " + this.speed);
       }
@@ -154,11 +159,12 @@ export class ClassesComponent implements OnInit {
     }
 
     class Sighthound extends Dog {
-      
-      constructor(name: string) { super(name); } //super -> C# .base
-      
+      constructor(name: string) {
+        super(name);
+      } //super -> C# .base
+
       public speed: string = "with up to 110 km/h";
-      
+
       //method override
       move(meters = 500) {
         console.log("Running ..." + meters + "m. " + this.speed);
@@ -180,24 +186,26 @@ export class ClassesComponent implements OnInit {
 
     class Person {
       protected name: string;
-      constructor(name: string) { this.name = name; }
+      constructor(name: string) {
+        this.name = name;
+      }
     }
 
     class Employee extends Person {
-      
       constructor(name: string, public department: string) {
         super(name); //base c#
       }
 
       public introduceSelf() {
-        return `Hello, my name is ${this.name} and I work in ${this.department} department.`;
+        return `Hello, my name is ${this.name} and I work in ${
+          this.department
+        } department.`;
       }
     }
 
     let howard = new Employee("Howard", "Sales");
     console.log(howard.introduceSelf());
     //console.log(howard.name); // error
-
   }
 
   staticProperties() {
@@ -209,18 +217,16 @@ export class ClassesComponent implements OnInit {
     }
 
     class Grid {
-      
-      constructor(public scale: number) { } 
-      
-      static origin: ICoordinate = <ICoordinate> { x: 0, y: 0, z: 0 };
+      constructor(public scale: number) {}
 
-      calculateDistanceFromOrigin(point: { x: number; y: number; }) {
-        var xDist = (point.x - Grid.origin.x);
-        var yDist = (point.y - Grid.origin.y);
-        
+      static origin: ICoordinate = <ICoordinate>{ x: 0, y: 0, z: 0 };
+
+      calculateDistanceFromOrigin(point: { x: number; y: number }) {
+        var xDist = point.x - Grid.origin.x;
+        var yDist = point.y - Grid.origin.y;
+
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
       }
-     
     }
 
     var grid = new Grid(3);
@@ -230,8 +236,7 @@ export class ClassesComponent implements OnInit {
     console.log("Grid result: " + result);
   }
 
-  casting(){
-
+  casting() {
     class Voucher {
       ID: number;
       Text: string;
@@ -239,20 +244,30 @@ export class ClassesComponent implements OnInit {
       Date: Date;
     }
 
-    interface IAccount{
+    interface IAccount {
       Number: number;
       Name: string;
       Balance: number;
     }
-    
-    //Assertion
-    var v =  { ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() } as Voucher;
 
-    //Casting 
+    //Assertion
+    var v = {
+      ID: 1,
+      Text: "Media Markt",
+      Amount: 22,
+      Date: new Date()
+    } as Voucher;
+
+    //Casting
     v = <Voucher>{ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() };
 
-    let a : IAccount = <IAccount> {Number: 400, Name: "Kasse", Balance: 20, TimeBound: false} //Needs cast because of TimeBound prop
-    
+    let a: IAccount = <IAccount>{
+      Number: 400,
+      Name: "Kasse",
+      Balance: 20,
+      TimeBound: false
+    }; //Needs cast because of TimeBound prop
+
     //Numbers
     var x = "32";
     var y = +x;
@@ -260,20 +275,18 @@ export class ClassesComponent implements OnInit {
     //Date
     var dt: Date = new Date("2014-08-23T11:00:00Z");
     console.log(dt);
-    
+
     //string
     var nbr = 22;
     var nbrSTring: string = String(nbr);
-
   }
 
   abstractClasses() {
-    
     debugger; //Classes used see blow
 
     let department: Department; // ok to create a reference to an abstract type
     //department = new Department(); // error: cannot create an instance of an abstract class
-    
+
     department = new AccountingDepartment(); // ok to create and assign a non-abstract subclass
     department.printName();
     //department.generateReports(); // error: method doesn't exist on declared abstract type
@@ -281,28 +294,25 @@ export class ClassesComponent implements OnInit {
 }
 
 abstract class Department {
-
-  constructor(public name: string) {
-  }
+  constructor(public name: string) {}
 
   printName(): void {
-    console.log('Department name: ' + this.name);
+    console.log("Department name: " + this.name);
   }
 
   abstract printMeeting(): void; // must be implemented in derived classes
 }
 
 class AccountingDepartment extends Department {
-
   constructor() {
-    super('Accounting and Auditing'); // constructors in derived classes must call super()
+    super("Accounting and Auditing"); // constructors in derived classes must call super()
   }
 
   printMeeting(): void {
-    console.log('The Accounting Department meets each Monday at 10am.');
+    console.log("The Accounting Department meets each Monday at 10am.");
   }
 
   generateReports(): void {
-    console.log('Generating accounting reports...');
+    console.log("Generating accounting reports...");
   }
 }
