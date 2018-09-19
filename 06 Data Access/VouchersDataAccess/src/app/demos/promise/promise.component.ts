@@ -17,10 +17,10 @@ export class PromiseComponent implements OnInit {
   ngOnInit() {}
 
   getVouchers() {
-    this.fname =  "getVouchers()";
+    this.fname = "getVouchers()";
 
     this.httpClient
-      .get("http://localhost:5000/api/vouchers")
+      .get<Voucher[]>("http://localhost:5000/api/vouchers")
       .toPromise()
       .then(data => {
         this.result = data;
@@ -29,7 +29,7 @@ export class PromiseComponent implements OnInit {
   }
 
   getVouchersTask() {
-    this.fname =  "getVouchersTask()";
+    this.fname = "getVouchersTask()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/asyncArray")
@@ -41,7 +41,7 @@ export class PromiseComponent implements OnInit {
   }
 
   getVoucher() {
-    this.fname =  "getVoucher()";
+    this.fname = "getVoucher()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/2")
@@ -53,10 +53,10 @@ export class PromiseComponent implements OnInit {
   }
 
   insertVoucher() {
-    this.fname =  "insertVoucher()";
+    this.fname = "insertVoucher()";
 
     var voucher = { Text: "Inserted by Angular", Date: new Date() };
-    console.log("Voucher to insert: ", voucher)
+    console.log("Voucher to insert: ", voucher);
     this.httpClient
       .post("http://localhost:5000/api/vouchers", voucher)
       .toPromise()
@@ -66,7 +66,7 @@ export class PromiseComponent implements OnInit {
   }
 
   updateVoucher() {
-    this.fname =  "updateVoucher()";
+    this.fname = "updateVoucher()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/2")
@@ -74,18 +74,18 @@ export class PromiseComponent implements OnInit {
       .then(data => {
         let vtu: Voucher = <Voucher>data;
         vtu.Text = "Updated by Angular";
-        console.log("Voucher to update: ", vtu)
+        console.log("Voucher to update: ", vtu);
         this.httpClient
           .put("http://localhost:5000/api/vouchers", vtu)
           .toPromise()
           .then(data => {
-            this.result ="voucher updated";
+            this.result = "voucher updated";
           });
       });
   }
 
   deleteVoucher() {
-    this.fname =  "deleteVoucher()";
+    this.fname = "deleteVoucher()";
 
     var id = 1002;
     var url = "http://localhost:5000/api/vouchers/" + id;
@@ -99,7 +99,7 @@ export class PromiseComponent implements OnInit {
   }
 
   getSum() {
-    this.fname =  "getSum()";
+    this.fname = "getSum()";
 
     //Notice that we are using http here instead of HttpClient
     //HttpClient has a bug expecting Json - here a string is returned from api - public string GetSum(bool expenses)
@@ -111,10 +111,10 @@ export class PromiseComponent implements OnInit {
       .then(response => {
         this.result = response;
       });
-  } 
+  }
 
   getVM() {
-    this.fname =  "getVM()";
+    this.fname = "getVM()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/getvm/1")
@@ -125,7 +125,7 @@ export class PromiseComponent implements OnInit {
   }
 
   doSave() {
-    this.fname =  "doSave()";
+    this.fname = "doSave()";
 
     let voucher = {
       ID: 2,
@@ -137,8 +137,8 @@ export class PromiseComponent implements OnInit {
       Remark: true
     };
 
-    console.log("Saving voucher ", voucher)
-    
+    console.log("Saving voucher ", voucher);
+
     this.httpClient
       .post("http://localhost:5000/api/vouchers/save", voucher)
       .toPromise()
