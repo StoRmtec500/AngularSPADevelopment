@@ -8,9 +8,9 @@ describe("Using beforeEach and Spy: HeroComponent", () => {
 
   beforeEach(() => {
     HEROES = [
-      { id: 1, name: "SpiderDude", strength: 8 },
-      { id: 2, name: "Wonderful Woman", strength: 24 },
-      { id: 3, name: "SuperDude", strength: 55 }
+      { id: 1, name: "Superman", strength: 4 },
+      { id: 2, name: "Node.js-Man", strength: 6 },
+      { id: 3, name: "Angular-Man", strength: 9 }
     ];
 
     mockHeroService = jasmine.createSpyObj([
