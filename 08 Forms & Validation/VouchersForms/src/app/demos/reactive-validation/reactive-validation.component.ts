@@ -29,8 +29,7 @@ export class ReactiveValidationComponent implements OnInit {
     this.personForm = this.fb.group({
       name: [
         this.person.name,
-        [Validators.required, Validators.minLength(4), this.validateNotHugo],
-        this.validateNamesExist.bind(this)
+        [Validators.required, Validators.minLength(4), this.validateNotHugo]
       ],
       age: [this.person.age, [Validators.min(18), Validators.max(99)]],
       gender: [this.person.gender]
@@ -51,6 +50,19 @@ export class ReactiveValidationComponent implements OnInit {
       return { hugoNotAllowed: true };
     }
     return null;
+  }
+
+  violatesMinLenght() {
+    let result = false;
+    let errs : ValidationErrors =  this.personForm.controls.name.errors ;
+
+    if(errs!=null){
+      console.log("Errors in Name field: ", errs)
+      if(errs["minlength"]){
+        result = true;
+      }
+    }
+    return result;
   }
 
   validateNamesExist(control: FormControl): Promise<any> | Observable<any> {
