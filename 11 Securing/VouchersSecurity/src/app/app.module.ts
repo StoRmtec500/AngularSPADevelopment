@@ -34,12 +34,12 @@ import { AuthInterceptor } from "./shared/auth/auth.interceptor";
 registerLocaleData(localeDe);
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCWCgJvOQ-AbrNV0MlvPw5IbdJFQOKsOxw",
-  authDomain: "angulardemo-1a474.firebaseapp.com",
-  databaseURL: "https://angulardemo-1a474.firebaseio.com",
-  projectId: "angulardemo-1a474",
-  storageBucket: "angulardemo-1a474.appspot.com",
-  messagingSenderId: "759305248623"
+  apiKey: "AIzaSyAOdenXy2X7kx9LWwVHk9zn3Humr2Cl9Tc",
+  authDomain: "vouchers-c334a.firebaseapp.com",
+  databaseURL: "https://vouchers-c334a.firebaseio.com",
+  projectId: "vouchers-c334a",
+  storageBucket: "vouchers-c334a.appspot.com",
+  messagingSenderId: "269739409229"
 };
 
 @NgModule({

@@ -25,12 +25,14 @@
     </div>
     <div class="form-group">
       <label>Gender</label>
-      <br/>
+      <br />
       <input type="radio" value="male" formControlName="gender"> Male
       <input type="radio" value="female" formControlName="gender"> Female
     </div>
     <div>
       <button type="submit" class="btn btn-primary" (click)="savePerson(personForm)">Submit</button>
+
+      <button type="submit" class="btn btn-primary" (click)="validateForm(personForm)">Validate</button>
     </div>
   </form>
 </div>
@@ -43,7 +45,7 @@
     Name Fld is valid: {{personForm.controls['name']?.valid}}<br>
     Name Fld is invalid: {{personForm.controls['name']?.invalid}}<br>
     Name Fld is touched: {{personForm.controls['name']?.touched}}<br>
-    Name Fld is untouched: {{personForm.controls['name']?.untouched}}<br>  
+    Name Fld is untouched: {{personForm.controls['name']?.untouched}}<br>
   </div>
   <div class="col-md-6">
     <h4>Control State - "Age" Field</h4><br>
@@ -52,7 +54,7 @@
     Age Fld is valid: {{personForm.controls['age']?.valid}}<br>
     Age Fld is invalid: {{personForm.controls['age']?.invalid}}<br>
     Age Fld is touched: {{personForm.controls['age']?.touched}}<br>
-    Age Fld is untouched: {{personForm.controls['age']?.untouched}}<br>      
+    Age Fld is untouched: {{personForm.controls['age']?.untouched}}<br>
   </div>
 </div>
 <div class="row section">
@@ -64,5 +66,5 @@
     Form is invalid: {{personForm.invalid}}<br>
     Form is touched: {{personForm.touched}}<br>
     Form is untouched: {{personForm.untouched}}<br>
-  </div> 
+  </div>
 </div>
