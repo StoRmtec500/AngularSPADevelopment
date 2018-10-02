@@ -7,7 +7,6 @@ import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 
 @Injectable()
 export class ScreenService {
-  
   //isDemo
   private demo: BehaviorSubject<boolean> = new BehaviorSubject(false);
   isDemo: Observable<boolean> = this.demo.asObservable();
@@ -42,7 +41,6 @@ export class ScreenService {
 
   subscribeIsPhone() {
     this.watcher = this.obsMedia.subscribe((change: MediaChange) => {
-      console.log("Current Device Screen: " + change.mqAlias);
       switch (change.mqAlias) {
         case "xs":
           this.isPhone = true;

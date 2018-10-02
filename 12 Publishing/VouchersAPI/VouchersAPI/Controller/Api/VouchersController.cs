@@ -123,7 +123,7 @@ namespace Vouchers.Api
                 ctx.Remove(v);
                 ctx.SaveChanges();
             }
-            return Ok("Voucher deleted: " + id);
+            return Ok();
         }
 
         //Custom Routes

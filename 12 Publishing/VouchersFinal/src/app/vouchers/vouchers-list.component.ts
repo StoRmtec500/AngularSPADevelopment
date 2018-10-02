@@ -6,6 +6,7 @@ import { DataStoreService } from "../shared/data-store/data-store-service";
 import { EventBusService } from "../shared/event-bus/event-bus.service";
 import { VOUCHER_ADD } from "../shared/event-bus/action.types";
 import { IconAdd } from "../shared/table/cmd.type";
+import { MatSnackBar } from "../../../node_modules/@angular/material";
 
 @Component({
   selector: "app-vouchers-list",
@@ -18,7 +19,8 @@ export class VouchersListComponent implements OnInit {
   constructor(
     private router: Router,
     private ds: DataStoreService,
-    private ebus: EventBusService
+    private ebus: EventBusService,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -41,6 +43,10 @@ export class VouchersListComponent implements OnInit {
   }
 
   deleteVoucher(id: number) {
-    this.ds.deleteVoucher(id);
+    this.ds.deleteVoucher(id).then(() =>
+      this.snackBar.open("Voucher deleted", "Vouchers", {
+        duration: 500
+      })
+    );
   }
 }

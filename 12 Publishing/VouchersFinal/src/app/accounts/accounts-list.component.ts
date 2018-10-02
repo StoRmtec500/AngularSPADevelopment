@@ -7,6 +7,7 @@ import { EventBusService } from "../shared/event-bus/event-bus.service";
 import { BalanceAccount } from "../shared/model/model";
 import { IconAdd } from "../shared/table/cmd.type";
 import { AccountsService } from "./account.service";
+import { MatSnackBar } from "../../../node_modules/@angular/material";
 
 @Component({
   selector: "app-accounts-list",
@@ -18,9 +19,9 @@ export class AccountsListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    // private service: AccountsService,
     private store: DataStoreService,
-    private ebus: EventBusService
+    private ebus: EventBusService,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -36,12 +37,14 @@ export class AccountsListComponent implements OnInit {
   }
 
   deleteAcccount(acct: BalanceAccount) {
-    this.service.deleteAccount(acct);
-    this.router.navigate(["/accounts/"]);
+    this.store.deleteAccount(acct).then(() =>
+      this.snackBar.open("Accout deleted", "Vouchers", {
+        duration: 500
+      })
+    );
   }
 
   addAccount() {
-    console.log("adding account");
     this.router.navigate(["/accounts/" + 0]);
   }
 }
