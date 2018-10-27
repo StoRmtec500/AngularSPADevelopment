@@ -17,10 +17,7 @@ export class ScreenService {
   isPhone: boolean;
   isTablet: boolean;
 
-  constructor(private router: Router, private obsMedia: ObservableMedia) {
-    this.subscribeDemo();
-    this.subscribeIsPhone();
-  }
+  constructor(private router: Router, private obsMedia: ObservableMedia) {}
 
   subscribeDemo() {
     let children = this.router.config[0].children.map((item: Route) => {

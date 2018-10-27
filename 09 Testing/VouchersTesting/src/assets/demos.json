@@ -1,7 +1,7 @@
 [
   {
-    "url": "reactivevalidation",
-    "title": "Reactive Validaiton",
-    "component": "ReativeValidationComponent"
+    "url": "heros",
+    "title": "Heros Component",
+    "component": "HerosComponent"
   }
 ]

@@ -7,11 +7,11 @@
       <div class="navTitle">smart Angular Single Page Application Development</div>
     </div>
     <div style="min-width: 40px;"></div>
-    <div flxFlex="3 1 auto" fxLayout="row" fxLayoutAlign="end center" fxLayout.lt-sm="column" fxLayoutGap="25px">
+    <div flxFlex="3 1 auto" fxLayout="row" fxLayoutAlign="end center" fxLayout.lt-sm="column" fxLayoutGap="1rem">
 
-      <div *ngFor="let route of rootRoutes" routerLink="{{'/' + route.path }}" routerLinkActive="navLink-active" [routerLinkActiveOptions]="{ exact: true }"
-        class="navLink">
-        {{route.data.title}}
+      <div *ngFor="let route of rootRoutes" routerLink="{{'/' + route.path }}" routerLinkActive="navLink-active"
+        [routerLinkActiveOptions]="{ exact: true }" class="navLink">
+        {{route.data?.title}}
       </div>
     </div>
   </mat-toolbar-row>
