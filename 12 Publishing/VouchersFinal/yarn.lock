@@ -4606,6 +4606,11 @@ lie@~3.1.0:
   dependencies:
     immediate "~3.0.5"
 
+linqts@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/linqts/-/linqts-1.12.0.tgz#a30067ab701c997fbd1f4c292935369a97fa96d9"
+  integrity sha512-U+bEoiitUnqYdYu1deG3+Kg2WyKaHTjHctQ/3RyJJodlSSDp+5mRsm8WQFwfPVlZjQXSAQZ9MFBkYxp48A42iA==
+
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"

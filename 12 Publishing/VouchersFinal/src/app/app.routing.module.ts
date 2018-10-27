@@ -10,16 +10,9 @@ import { UploadComponent } from "./shared/upload/upload.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
-import { SimpleCalcComponent } from "./demos/ngrx/simple.calc.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
-  {
-    path: "",
-    component: DemosComponent,
-    data: { title: "Demos" },
-    children: [{ path: "ngrx", component: SimpleCalcComponent }]
-  },
   {
     path: "vouchers",
     data: { title: "Vouchers" },
@@ -27,6 +20,7 @@ const appRoutes: Routes = [
   },
   {
     path: "vouchers/:id",
+    data: { title: "Vouchers" },
     component: VoucherComponent
   },
   {
@@ -48,6 +42,11 @@ const appRoutes: Routes = [
     loadChildren: "./admin/admin.module#AdminModule",
     data: { title: "Admin" },
     canActivate: [RouteGuard]
+  },
+  {
+    path: "",
+    redirectTo: "vouchers",
+    pathMatch: "full"
   },
   { path: "showeditor", component: EditorComponent, outlet: "sidebarOutlet" },
   { path: "upload", component: UploadComponent, outlet: "sidebarOutlet" },
