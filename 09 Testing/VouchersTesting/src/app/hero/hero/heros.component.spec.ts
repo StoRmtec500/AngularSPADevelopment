@@ -1,5 +1,5 @@
 import { of } from "rxjs/observable/of";
-import { HeroComponent } from "./hero.component";
+import { HeroComponent } from "./heros.component";
 
 describe("Using beforeEach and Spy: HeroComponent", () => {
   let component: HeroComponent;

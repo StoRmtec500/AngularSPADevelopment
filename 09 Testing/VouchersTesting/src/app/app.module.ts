@@ -28,6 +28,7 @@ import { StatisticsComponent } from "./statistics/statistics.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { ChartingService } from "./shared/charting/charting.service";
 import { LoginComponent } from "./shared/login/login.component";
+import { HerosComponent } from "./hero/hero/heros.component";
 import { HeroComponent } from "./hero/hero/hero.component";
 
 registerLocaleData(localeDe);
@@ -42,6 +43,7 @@ registerLocaleData(localeDe);
     VoucherDetailsListComponent,
     StatisticsComponent,
     LoginComponent,
+    HerosComponent,
     HeroComponent
   ],
   imports: [
