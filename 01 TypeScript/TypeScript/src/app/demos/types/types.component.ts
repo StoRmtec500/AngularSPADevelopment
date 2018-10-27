@@ -345,6 +345,26 @@ export class TypesComponent implements OnInit {
     console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar whistler", "magyar agar"]
     dogs.splice(3, 1);
     console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar agar"]
+
+    //flatmap
+    // const orders = [
+    //   {
+    //     orderId: 1,
+    //     items: [
+    //       {name: "abc", price: 2.22},
+    //       {name: "ded", price: 4.22}
+    //     ]
+    //   },
+    //   {
+    //     orderId: 2,
+    //     items: [
+    //       {name: "asdfbc", price: 6.22},
+    //       {name: "sdf", price: 8.22}
+    //     ]
+    //   }
+    // ]
+
+    // const items = orders.flatMap(o => o.items.map(i=>i.name));
   }
 
   chainingArrayHelpers() {
