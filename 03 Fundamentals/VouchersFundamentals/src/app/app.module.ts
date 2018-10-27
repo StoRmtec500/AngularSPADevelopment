@@ -1,46 +1,49 @@
-import { MatchHeightDirective } from "./shared/match-height/match-height.directive";
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { registerLocaleData } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import localeDe from "@angular/common/locales/de";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
 import { AccountsComponent } from "./accounts/accounts.component";
+import { AdminComponent } from "./admin/admin.component";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing.module";
 import { BindingComponent } from "./demos/binding/binding.component";
-import { BrowserModule } from "@angular/platform-browser";
+import { ContentProjectionComponent } from "./demos/content-projection/content-projection.component";
+import { DemoNavComponent } from "./demos/content-projection/demo-nav/demo-nav.component";
+import { EmployeeComponent } from "./demos/content-projection/employee/employee.component";
 import { CustomDirectivesComponent } from "./demos/custom-directives/custom-directives.component";
+import { HighlightDirective } from "./demos/custom-directives/highlight.directive";
+import { UnderlineDirective } from "./demos/custom-directives/underline.directive";
 import { CustomPipesComponent } from "./demos/custom-pipes/custom-pipes.component";
+import { VoucherFilterPipe } from "./demos/custom-pipes/voucher-filter.pipe";
 import { DemosComponent } from "./demos/demos.component";
 import { DirectivesComponent } from "./demos/directives/directives.component";
+import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
 import { ExpressionsComponent } from "./demos/expressions/expressions.component";
-import { FormsModule } from "@angular/forms";
-import { HighlightDirective } from "./demos/custom-directives/highlight.directive";
-import { HttpClientModule } from "@angular/common/http";
 import { InlineComponent } from "./demos/inline/inline.component";
 import { InternationalizationComponent } from "./demos/internationalization/internationalization.component";
-import { LOCALE_ID, NgModule } from "@angular/core";
-import { PipesComponent } from "./demos/pipes/pipes.component";
-import { RouterModule, Routes } from "@angular/router";
-import { StructDirectivesComponent } from "./demos/struct-directives/struct-directives.component";
-import { TemplateComponent } from "./demos/template/template.component";
-import { VoucherComponent } from "./vouchers/voucher/voucher.component";
-import { VoucherFilterPipe } from "./demos/custom-pipes/voucher-filter.pipe";
-import { VouchersListComponent } from "./vouchers/vouchers-list.component";
-import { VoucherDetailComponent } from "./vouchers/voucher/voucher-detail/voucher-detail.component";
-import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-list/voucher-details-list.component";
-import { VouchersService } from "./vouchers/voucher.service";
-import { UnderlineDirective } from "./demos/custom-directives/underline.directive";
-import { ContentProjectionComponent } from "./demos/content-projection/content-projection.component";
-import { EmployeeComponent } from "./demos/content-projection/employee/employee.component";
-import { NavbarComponent } from "./shared/index";
-import { PersonsListComponent } from "./demos/persons/persons-list/persons-list.component";
+import { ParentChildComponent } from "./demos/parent-child/parent-child.component";
 import { PersonEditComponent } from "./demos/persons/person-edit/person-edit.component";
 import { PersonService } from "./demos/persons/person.service";
+import { PersonsListComponent } from "./demos/persons/persons-list/persons-list.component";
+import { PipesComponent } from "./demos/pipes/pipes.component";
 import { RepeaterComponent } from "./demos/repeater/repeater.component";
-import { ParentChildComponent } from "./demos/parent-child/parent-child.component";
-
-import { registerLocaleData } from "@angular/common";
-import localeDe from "@angular/common/locales/de";
-import { ViewChildComponent } from "./demos/view-child/view-child.component";
+import { StructDirectivesComponent } from "./demos/struct-directives/struct-directives.component";
+import { TemplateComponent } from "./demos/template/template.component";
 import { AlertComponent } from "./demos/view-child/alert/alert.component";
-import { AdminComponent } from "./admin/admin.component";
-import { DemoNavComponent } from "./demos/content-projection/demo-nav/demo-nav.component";
+import { ViewChildComponent } from "./demos/view-child/view-child.component";
+import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
+import { NavbarComponent } from "./shared/index";
+import { MatchHeightDirective } from "./shared/match-height/match-height.directive";
+import { VouchersService } from "./vouchers/voucher.service";
+import { VoucherDetailComponent } from "./vouchers/voucher/voucher-detail/voucher-detail.component";
+import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-list/voucher-details-list.component";
+import { VoucherComponent } from "./vouchers/voucher/voucher.component";
+import { VouchersListComponent } from "./vouchers/vouchers-list.component";
+
 registerLocaleData(localeDe);
 
 @NgModule({
@@ -76,14 +79,17 @@ registerLocaleData(localeDe);
     ViewChildComponent,
     AlertComponent,
     AdminComponent,
-    DemoNavComponent
+    DemoNavComponent,
+    DragDropComponent,
+    VirtualScrollComponent
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [
     VouchersService,

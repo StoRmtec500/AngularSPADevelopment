@@ -1,0 +1,32 @@
+<div class="dragRow">
+  <div class="col">
+
+    <div class="text-white">
+      <h2> To do</h2>
+    </div>
+
+    <div cdkDropList class="dragCol" [cdkDropListData]="todo" (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="done" #todo="cdkDropList">
+      <div *ngFor="let item of todo" cdkDrag>
+        <p class="mb-1"> {{ item.title | titlecase }} </p>
+        <small class="text-muted"> {{ item.dateAdded | date:'short' }} </small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col">
+
+    <div class="text-white">
+      <h2>Done</h2>
+    </div>
+    <div cdkDropList class="dragCol" [cdkDropListData]="done" (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="todo" #done="cdkDropList">
+      <div *ngFor="let item of done" cdkDrag>
+        <p class="mb-1"> {{ item.title | titlecase }} </p>
+        <small class="text-muted"> {{ item.dateAdded | date:'short' }} </small>
+      </div>
+    </div>
+  </div>
+
+</div>

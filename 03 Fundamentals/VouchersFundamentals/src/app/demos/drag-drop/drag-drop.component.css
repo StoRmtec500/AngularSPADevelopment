@@ -1,0 +1,11 @@
+.dragCol {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dragRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
