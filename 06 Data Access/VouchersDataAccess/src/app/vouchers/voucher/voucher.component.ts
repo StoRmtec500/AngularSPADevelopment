@@ -2,8 +2,6 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { VouchersService } from "../voucher.service";
 import { Voucher, VoucherDetail, BalanceAccount } from "../../shared/index";
-import { Guid } from "guid-typescript";
-import { compareObjects } from "../../shared/utils";
 
 @Component({
   selector: "app-voucher",
@@ -37,11 +35,10 @@ export class VoucherComponent implements OnInit {
     this.router.navigate(["", { outlets: { sidebarOutlet: "upload" } }]);
   }
 
-  findAcct(id: number){        
-    
+  findAcct(id: number) {
     let result: string = "";
 
-    if(this.accounts!=null){
+    if (this.accounts != null) {
       result = this.accounts.find(a => a.ID == id).Name;
     }
     return result;
@@ -80,14 +77,14 @@ export class VoucherComponent implements OnInit {
   addDetail() {
     this.currentDetail = <VoucherDetail>{
       ID: 0,
-      VoucherID: this.voucher.ID,      
+      VoucherID: this.voucher.ID,
       Account: null,
       Text: "",
       Comment: ""
-    };    
+    };
   }
 
-  deleteDetail(vd : VoucherDetail){
+  deleteDetail(vd: VoucherDetail) {
     const idx = this.voucher.Details.indexOf(vd);
     this.voucher.Details.splice(idx, 1);
   }

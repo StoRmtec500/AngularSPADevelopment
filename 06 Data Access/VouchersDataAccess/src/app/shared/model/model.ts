@@ -1,5 +1,3 @@
-import { BOOL_TYPE } from '@angular/compiler/src/output/output_ast';
-import { Guid } from 'guid-typescript';
 
 export class VoucherDetail {
     ID: number;
