@@ -14,9 +14,9 @@ import {
 export class DragDropComponent implements OnInit {
   constructor() {}
 
-  public todo: Todo[];
+  public todo: Todo[] = [];
 
-  public done: Todo[];
+  public done: Todo[]= [];
 
   ngOnInit() {
     this.todo = [
