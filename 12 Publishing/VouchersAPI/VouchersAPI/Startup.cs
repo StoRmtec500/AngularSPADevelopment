@@ -71,7 +71,7 @@ namespace Vouchers
             // For specific URL ie. your Angular CLI Frontend use: 
             // corsBuilder.WithOrigins("http://localhost:4200")
             corsBuilder.AllowCredentials();
-            
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
@@ -111,7 +111,7 @@ namespace Vouchers
 
             DefaultFilesOptions options = new DefaultFilesOptions();
             options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("crud.html");
+            options.DefaultFileNames.Add("index.html");
             app.UseDefaultFiles(options);
 
             if (env.IsDevelopment())
