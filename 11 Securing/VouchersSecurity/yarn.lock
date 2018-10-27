@@ -4787,6 +4787,11 @@ lie@~3.1.0:
   dependencies:
     immediate "~3.0.5"
 
+linqts@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/linqts/-/linqts-1.12.0.tgz#a30067ab701c997fbd1f4c292935369a97fa96d9"
+  integrity sha512-U+bEoiitUnqYdYu1deG3+Kg2WyKaHTjHctQ/3RyJJodlSSDp+5mRsm8WQFwfPVlZjQXSAQZ9MFBkYxp48A42iA==
+
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -4863,30 +4868,10 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash.get@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
-
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-
-lodash.merge@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
-  integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
-
 lodash.mergewith@^4.6.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
   integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
-
-lodash.set@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
-  integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
 lodash.tail@^4.1.1:
   version "4.1.1"
@@ -5339,18 +5324,6 @@ ngx-ckeditor@^0.2.0:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/ngx-ckeditor/-/ngx-ckeditor-0.2.3.tgz#5e0a49141d3f639dd72ac5cd83ea2f963f7ab7a5"
   integrity sha1-XgpJFB0/Y53XKsXNg+ovlj96t6U=
-
-ngx-store@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-store/-/ngx-store-2.0.0.tgz#29b7b4ae3a926191c25cf4ade930b192be5af2f5"
-  integrity sha512-LuuejkTJfl8gTwmGQJdgaH+6JtNLQPCwjEb3Uh9k8DepF4MMTplhxhGdSdexrMwIIEp1lmkyVAH35jyRsGI7xw==
-  dependencies:
-    lodash.get "^4.4.2"
-    lodash.isequal "^4.5.0"
-    lodash.merge "^4.6.1"
-    lodash.set "^4.3.2"
-    ts-debug "^1.1.2"
-    tslib "^1.9.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -7612,11 +7585,6 @@ trim-right@^1.0.1:
   integrity sha512-m6s2OdQe5wgpFMC+pAJ+q9djG82O2jcHPOI6RNg1yy9rCYR+WD6Nbpl32fDpfC56nirdRy+opFa/Vk7HYhqaew==
   dependencies:
     glob "^7.1.2"
-
-ts-debug@^1.1.2:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ts-debug/-/ts-debug-1.2.0.tgz#b6adf9c9b72071557f3078748dcedd1801f4c1de"
-  integrity sha512-wG6ZqaG4TIb07ncyKoVlkQ0mw26FBVDhYQnF575FDYioYVwGzEn+8p3FqatNEiNmTrczDp8eA7sUAbH7tapZgg==
 
 ts-node@~5.0.1:
   version "5.0.1"
