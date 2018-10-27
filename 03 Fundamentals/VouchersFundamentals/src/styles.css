@@ -58,3 +58,6 @@ body {
 .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
   background-color: #797474;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

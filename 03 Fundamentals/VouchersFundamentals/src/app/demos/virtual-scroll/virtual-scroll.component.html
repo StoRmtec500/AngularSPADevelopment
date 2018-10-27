@@ -1,3 +1,13 @@
-<p>
-  virtual-scroll works!
-</p>
+<cdk-virtual-scroll-viewport [itemSize]="18 * 7">
+
+  <div style="margin: 0.5rem; padding: 1rem; background-color: green; color: white" *cdkVirtualFor="let item of items;
+                       let index = index;
+                       let even = even;
+                       let odd = odd;"
+    [class.example-alternate]="odd">
+    <div class="example-item-detail">Item: {{item}}</div>
+    <div class="example-item-detail">Index: {{index}}</div>
+    <div class="example-item-detail">Event: {{even ? 'Yes' : 'No'}}</div>
+    <div class="example-item-detail">Odd: {{odd ? 'Yes' : 'No'}}</div>
+  </div>
+</cdk-virtual-scroll-viewport>

@@ -1,10 +1,12 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { ScrollingModule } from "@angular/cdk/scrolling";
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import localeDe from "@angular/common/locales/de";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { AccountsComponent } from "./accounts/accounts.component";
 import { AdminComponent } from "./admin/admin.component";
@@ -89,7 +91,9 @@ registerLocaleData(localeDe);
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    ScrollingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     VouchersService,
