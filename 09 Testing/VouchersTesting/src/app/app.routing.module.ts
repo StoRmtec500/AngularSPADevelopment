@@ -4,23 +4,20 @@ import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { AccountsComponent } from "./accounts/accounts.component";
 import { RouterModule, Routes } from "@angular/router";
 import { NgModule, ViewChild } from "@angular/core";
-import { AdminComponent } from "./admin/admin.component";
 import { RouteGuard } from "./route.guard.service";
 import { EditorComponent } from "./shared/editor/editor.component";
 import { UploadComponent } from "./shared/upload/upload.component";
 import { VoucherResolver } from "./vouchers/voucher/voucher-resolver.service";
 import { AccountResolver } from "./accounts/account-resolver.service";
-import { ReactiveValidationComponent } from "./demos/reactive-validation/reactive-validation.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
+import { HerosComponent } from "./hero/hero/heros.component";
 
 const appRoutes: Routes = [
   {
     path: "",
     component: DemosComponent,
     data: { title: "Demos" },
-    children: [
-      { path: "reactivevalidation", component: ReactiveValidationComponent }
-    ]
+    children: [{ path: "heros", component: HerosComponent }]
   },
   {
     path: "vouchers",

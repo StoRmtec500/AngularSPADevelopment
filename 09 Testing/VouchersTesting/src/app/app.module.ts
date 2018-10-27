@@ -30,6 +30,7 @@ import { ChartingService } from "./shared/charting/charting.service";
 import { LoginComponent } from "./shared/login/login.component";
 import { HerosComponent } from "./hero/hero/heros.component";
 import { HeroComponent } from "./hero/hero/hero.component";
+import { HeroService } from "./hero/hero.service";
 
 registerLocaleData(localeDe);
 
@@ -67,7 +68,8 @@ registerLocaleData(localeDe);
     // {provide: HTTP_INTERCEPTORS, useClass: VouchersInterceptor, multi: true},
     VoucherResolver,
     AccountResolver,
-    ChartingService
+    ChartingService,
+    HeroService
   ],
   bootstrap: [AppComponent]
 })
