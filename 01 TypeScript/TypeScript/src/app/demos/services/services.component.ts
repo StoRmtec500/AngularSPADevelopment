@@ -110,10 +110,14 @@ export class ServicesComponent implements OnInit {
   usingFetch() {
     debugger;
 
-    fetch(this.url).then(response => {
-      console.log("Response received from fetch", response);
-      console.log("Promise received from fetch", response.json());
-    });
+    fetch(this.url)
+      .then<Voucher[]>((resp: Response) => {
+        console.log("Response received from fetch", resp);
+        return resp.json();
+      })
+      .then((data: Voucher[]) => {
+        console.log("Data received from fetch", data);
+      });
   }
 
   usingFetchAwait() {
@@ -131,20 +135,26 @@ export class ServicesComponent implements OnInit {
   postFetch() {
     debugger;
 
-    let body = {
-      description: "Fetch API Post example",
-      public: true,
-      files: {
-        "test.js": {
-          content: "Abc"
-        }
+    let vouchersapi = "http://localhost:5000/api/vouchers";
+
+    let data = {
+      ID: 1000,
+      Date: "01.01.2016",
+      Amount: 100,
+      Text: "Posted Voucher",
+      Paid: false
+    };
+
+    let options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     };
 
-    fetch("https://api.github.com/gists", {
-      method: "post",
-      body: JSON.stringify(body)
-    })
+    fetch(vouchersapi, options)
       .then(function(response) {
         return response.json();
       })
