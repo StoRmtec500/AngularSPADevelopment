@@ -86,20 +86,16 @@ namespace Vouchers
 
             //CORS
             //Required if you develop Angular on a seperate proj
-            var corsBuilder = new CorsPolicyBuilder();
-            corsBuilder.AllowAnyHeader();
-            corsBuilder.AllowAnyMethod();
-            corsBuilder.AllowAnyOrigin();
             // For specific URL ie. your Angular CLI Frontend use: 
-            // corsBuilder.WithOrigins("http://localhost:4200")
-            corsBuilder.AllowCredentials();
-            
+            // corsBuilder.WithOrigins("http://localhost:4200")           
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
                     builder => builder.AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader()
+                        .AllowAnyOrigin()
                         .AllowCredentials());
             });
 

@@ -138,7 +138,6 @@ export class ServicesComponent implements OnInit {
     let vouchersapi = "http://localhost:5000/api/vouchers";
 
     let data = {
-      ID: 1000,
       Date: "01.01.2016",
       Amount: 100,
       Text: "Posted Voucher",
@@ -155,12 +154,15 @@ export class ServicesComponent implements OnInit {
     };
 
     fetch(vouchersapi, options)
-      .then(function(response) {
-        return response.json();
+      .then(function(res) {
+        if (res.ok) {
+          return res.statusText;
+        } else {
+          throw Error(`Request rejected with status ${res.status}`);
+        }
       })
-      .then(function(data) {
-        console.log("Created Gist");
-      });
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
   consumeService() {

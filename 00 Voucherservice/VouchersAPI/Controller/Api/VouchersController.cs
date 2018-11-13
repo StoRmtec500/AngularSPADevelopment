@@ -69,7 +69,7 @@ namespace Vouchers.Api
 
         // http://localhost:PORT/api/vouchers -> Create
         [HttpPost]
-        public void Post([FromBody]Voucher value)
+        public ActionResult Post([FromBody]Voucher value)
         {
             if (value.Details != null)
             {
@@ -80,11 +80,12 @@ namespace Vouchers.Api
             }
             ctx.Vouchers.Add(value);
             ctx.SaveChanges();
+            return Ok(value);
         }
 
         // http://localhost:PORT/api/vouchers -> Update
         [HttpPut()]
-        public void Put([FromBody]Voucher value) //Classic .NET Core WebApi pattern: public void Put(int id, [FromBody]Voucher value)
+        public ActionResult Put([FromBody]Voucher value) //Classic .NET Core WebApi pattern: public void Put(int id, [FromBody]Voucher value)
         {
             ctx.Vouchers.Attach(value);
             ctx.Entry(value).State = EntityState.Modified;
@@ -110,10 +111,11 @@ namespace Vouchers.Api
             }
 
             ctx.SaveChanges();
+            return Ok(value);
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             var v = Get(id);
             if (v != null)
@@ -121,6 +123,7 @@ namespace Vouchers.Api
                 ctx.Remove(v);
                 ctx.SaveChanges();
             }
+            return Ok();
         }
 
         //Custom Routes
