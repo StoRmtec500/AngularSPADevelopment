@@ -58,33 +58,6 @@ export class SimpleObservableComponent implements OnInit {
     // );
   }
 
-  useOperator() {
-    this.fName = "useOperator()";
-
-    this.nbrObs = Observable.create(observer => {
-      let index = 0;
-
-      let getNumber = () => {
-        observer.next(this.numbers[index++]);
-
-        if (index < this.numbers.length) {
-          setTimeout(getNumber, 250);
-        } else {
-          observer.complete();
-        }
-      };
-
-      getNumber();
-    });
-
-    this.nbrObs
-      .pipe(
-        filter(n => n > 6),
-        map(n => n * 2)
-      )
-      .subscribe((data: number) => console.log("useOperator: ", data));
-  }
-
   wrapXMLHttpRequest(): Observable<any> {
     return Observable.create(observer => {
       let xhr = new XMLHttpRequest();
@@ -131,5 +104,32 @@ export class SimpleObservableComponent implements OnInit {
     let pObs = from(this.mockPromise(true)).subscribe(data =>
       console.log("usePromiseToObs:", data)
     );
+  }
+
+  useOperator() {
+    this.fName = "useOperator()";
+
+    this.nbrObs = Observable.create(observer => {
+      let index = 0;
+
+      let getNumber = () => {
+        observer.next(this.numbers[index++]);
+
+        if (index < this.numbers.length) {
+          setTimeout(getNumber, 250);
+        } else {
+          observer.complete();
+        }
+      };
+
+      getNumber();
+    });
+
+    this.nbrObs
+      .pipe(
+        filter(n => n > 6),
+        map(n => n * 2)
+      )
+      .subscribe((data: number) => console.log("useOperator: ", data));
   }
 }

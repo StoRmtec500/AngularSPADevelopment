@@ -145,7 +145,8 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
     });
   }
 
-  showDashboardDetails() {
+  useObsOperator() {
+    this.currentView = CurrentView.Dashboard;
     this.movieObs = this.ms.getMovieBehaviourSubject();
     let dt = new Date();
 
