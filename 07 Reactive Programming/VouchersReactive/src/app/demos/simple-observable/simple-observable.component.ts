@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription, Observable, from } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, filter } from "rxjs/operators";
 import { Voucher } from "../../shared/index";
 
 @Component({
@@ -11,7 +11,7 @@ import { Voucher } from "../../shared/index";
 export class SimpleObservableComponent implements OnInit {
   fName: string;
   url = "/assets/vouchers.json";
-  numbers = [1, 5, 10, 18, 22];
+  numbers = [2, 5, 9, 12, 22];
 
   nbrObs: Observable<number>;
   result: Voucher[];
@@ -77,9 +77,12 @@ export class SimpleObservableComponent implements OnInit {
       getNumber();
     });
 
-    this.nbrObs.map(n => n * 2).filter(n => n > 4);
-
-    this.nbrObs.subscribe((data: number) => console.log("useOperator: ", data));
+    this.nbrObs
+      .pipe(
+        filter(n => n > 6),
+        map(n => n * 2)
+      )
+      .subscribe((data: number) => console.log("useOperator: ", data));
   }
 
   wrapXMLHttpRequest(): Observable<any> {
@@ -125,7 +128,7 @@ export class SimpleObservableComponent implements OnInit {
 
   usePromiseToObs() {
     this.fName = "see console for output";
-    let pObs = Observable.fromPromise(this.mockPromise(true)).subscribe(data =>
+    let pObs = from(this.mockPromise(true)).subscribe(data =>
       console.log("usePromiseToObs:", data)
     );
   }

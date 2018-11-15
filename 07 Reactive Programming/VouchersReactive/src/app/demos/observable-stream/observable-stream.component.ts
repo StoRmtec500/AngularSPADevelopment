@@ -4,6 +4,7 @@ import { OnDestroy } from "@angular/core/src/metadata/lifecycle_hooks";
 import { Http } from "@angular/http";
 import * as moment from "moment";
 import { Observable, Observer, Subscription } from "rxjs";
+import { map } from "rxjs/operators";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { Movie } from "../movie";
 import { MovieService } from "../movie.service";
@@ -148,11 +149,11 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
     this.movieObs = this.ms.getMovieBehaviourSubject();
     let dt = new Date();
 
-    this.playing = this.movieObs.map(mis =>
-      mis.filter(mi => mi.startTime < new Date())
+    this.playing = this.movieObs.pipe(
+      map(mis => mis.filter(mi => mi.startTime < new Date()))
     );
-    this.upcoming = this.movieObs.map(mis =>
-      mis.filter(mi => mi.startTime >= new Date())
+    this.upcoming = this.movieObs.pipe(
+      map(mis => mis.filter(mi => mi.startTime >= new Date()))
     );
   }
 

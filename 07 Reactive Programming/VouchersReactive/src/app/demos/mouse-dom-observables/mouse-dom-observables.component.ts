@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable, Subscription, fromEvent } from "rxjs";
+import { Observable, Subscription, fromEvent, pipe, from } from "rxjs";
+import { map } from "rxjs/operators";
 import { Movie } from "../movie";
 import { MovieService } from "../movie.service";
 
@@ -24,15 +25,15 @@ export class MouseDomObservablesComponent implements OnInit {
 
   useMouse() {
     let pad = document.querySelector(".signPad");
-    let mouse = fromEvent(pad, "mousemove");
-
-    this.mouseSubs = mouse
-      .map((evt: MouseEvent) => {
+    let mouse = fromEvent(pad, "mousemove").pipe(
+      map((evt: MouseEvent) => {
         return { X: evt.clientX, Y: evt.clientY };
       })
-      .subscribe(point => {
-        console.log("Mouse Moved @: ", point);
-      });
+    );
+
+    mouse.subscribe(point => {
+      console.log("Mouse Moved @: ", point);
+    });
   }
 
   unsubscribeMouseEvt() {
@@ -41,10 +42,7 @@ export class MouseDomObservablesComponent implements OnInit {
   }
 
   handleClick() {
-    let buttonClick = Observable.fromEvent(
-      document.getElementById("mybutton"),
-      "click"
-    );
+    let buttonClick = fromEvent(document.getElementById("mybutton"), "click");
     this.buttonClickSubs = buttonClick.subscribe(evt =>
       console.log("Button Clicked")
     );
@@ -66,7 +64,7 @@ export class MouseDomObservablesComponent implements OnInit {
   }
 
   useWatchLocation() {
-    let obsLocation = Observable.fromPromise(this.watchLocation());
+    let obsLocation = from(this.watchLocation());
     obsLocation.subscribe(data => console.log(data));
   }
 }
