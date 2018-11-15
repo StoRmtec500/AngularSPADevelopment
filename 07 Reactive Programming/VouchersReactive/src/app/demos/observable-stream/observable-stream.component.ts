@@ -147,6 +147,7 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
     });
   }
 
+  //Think about difference between this and ES6 Filter
   useObsOperator() {
     this.currentView = CurrentView.Dashboard;
     this.movieObs = this.ms.getMoviesBS();

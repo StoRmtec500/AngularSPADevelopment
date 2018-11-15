@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Subscription, Observable, throwError } from "rxjs";
-import { map, tap, catchError, finalize, find } from "rxjs/operators";
+import { Subscription, Observable, throwError, interval } from "rxjs";
+import { map, tap, catchError, finalize, find, take } from "rxjs/operators";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { Voucher } from "../../shared";
 import { isArray } from "util";
@@ -44,20 +44,6 @@ export class OperatorsComponent implements OnInit {
       .subscribe(data => this.log("use map() - RxJS 5 pattern", data));
   }
 
-  useMapAndTap() {
-    this.vs
-      .getVouchers()
-      .pipe(
-        tap(data => console.log("logged by do(): ", data)),
-        //Obs Operator map()
-        map(vs => {
-          //ES6 array.map()
-          return vs.map(this.setLabel);
-        })
-      )
-      .subscribe(data => this.log("use map() & do() - RxJS 5 pattern", data));
-  }
-
   usePipeMapAndTap() {
     //RxJS 6 pattern
     // tap() is the RxJS replacement for do() to ensure ES compatibility
@@ -67,9 +53,7 @@ export class OperatorsComponent implements OnInit {
         tap(data => console.log("logged by tap(): ", data)),
         map(vs => vs.map(this.setLabel))
       )
-      .subscribe(data =>
-        this.log("use pipe(), map() & tap() - RxJS 6 pattern", data)
-      );
+      .subscribe(data => this.log("use pipe(), map() & tap()", data));
   }
 
   errHandling() {
@@ -97,6 +81,18 @@ export class OperatorsComponent implements OnInit {
     this.vs
       .getVouchers()
       .pipe(map(v => v.filter((v: Voucher) => v.Paid)))
-      .subscribe(data => this.log("getByID - using find()", data));
+      .subscribe(data => this.log("useFilter", data));
+  }
+
+  //Compare the two outputs
+  useTake() {
+    this.vs
+      .getVouchers()
+      .pipe(take(3))
+      .subscribe(data => this.log("useTake", data));
+
+    interval(1000)
+      .pipe(take(3))
+      .subscribe(x => console.log(x));
   }
 }

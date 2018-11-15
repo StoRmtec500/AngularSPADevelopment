@@ -1,19 +1,16 @@
 <div class="section">
   <h4>Works with Mock Data - No Service needed</h4>
-  <br>
+  <br />
 </div>
 
 <div class="section">
-  <div fxLayout="column" fxLayoutGap="10px">
-    <h4>Mouse & DOM Events</h4>
-  </div>
+  <div fxLayout="column" fxLayoutGap="10px"><h4>Mouse & DOM Events</h4></div>
 </div>
 
 <div class="section" fxLayout="column" fxLayoutGap="10px">
-  <div>signPad - Mouse Moved at {{result | async}}</div>
+  <div>signPad - Mouse Moved at {{ result | async }}</div>
   <a (click)="useMouse()">Captcha Mouse Events as Observable in the SignPad</a>
-  <div class="signPad">
-  </div>
+  <canvas class="signPad"></canvas>
   <a (click)="unsubscribeMouseEvt()">Unsubscribe Mouse Events</a>
 </div>
 

@@ -31,8 +31,12 @@ export class MouseDomObservablesComponent implements OnInit {
       })
     );
 
-    mouse.subscribe(point => {
+    var drawpad = <HTMLCanvasElement>document.querySelector(".signPad");
+    var ctxDraw = drawpad.getContext("2d");
+
+    this.mouseSubs = mouse.subscribe(point => {
       console.log("Mouse Moved @: ", point);
+      // http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
     });
   }
 
