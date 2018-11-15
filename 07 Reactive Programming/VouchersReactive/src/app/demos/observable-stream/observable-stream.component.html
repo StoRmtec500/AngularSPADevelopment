@@ -17,8 +17,9 @@
     >Get Movie Array Observable from Service</a
   >
   <a (click)="useES6Filter()">Use ES6 array.filter()</a>
-  <a (click)="useObsOperator()">Use Observalbe Operator</a> <br />
-  Also watch console for output
+  <a (click)="useObsOperator()">Use Observalbe Operator</a>
+  <a (click)="addMovie()" *ngIf="addMovieVisible">Add Movie</a> <br />Also watch
+  console for output
 </div>
 
 <div [ngSwitch]="currentView">
@@ -37,26 +38,6 @@
         *ngFor="let mi of movies"
         [item]="mi"
         [isPlaying]="true"
-      ></app-movie-renderer>
-    </div>
-  </div>
-
-  <div *ngSwitchCase="view.ES6Filter" class="section">
-    <div><h4>Now Playing</h4></div>
-    <div fxLayout="row wrap">
-      <app-movie-renderer
-        *ngFor="let mi of playingArray"
-        [item]="mi"
-        [isPlaying]="true"
-      ></app-movie-renderer>
-    </div>
-
-    <div><h4>Upcoming</h4></div>
-    <div fxLayout="row wrap">
-      <app-movie-renderer
-        *ngFor="let mi of upcomingArray"
-        [item]="mi"
-        [isPlaying]="false"
       ></app-movie-renderer>
     </div>
   </div>

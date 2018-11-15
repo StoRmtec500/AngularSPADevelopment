@@ -26,6 +26,8 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
   currentView: CurrentView;
   view = CurrentView;
 
+  addMovieVisible = false;
+
   stop: boolean = false;
   MovieSubscription: Subscription;
   MovieSingleton: Observable<Movie>;
@@ -131,7 +133,7 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
 
   useES6Filter() {
     this.movies = [];
-    this.currentView = CurrentView.ES6Filter;
+    this.currentView = CurrentView.Dashboard;
     this.movieObs = this.ms.getMovieStream();
 
     this.movieObs.subscribe((data: Movie[]) => {
@@ -147,20 +149,24 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
 
   useObsOperator() {
     this.currentView = CurrentView.Dashboard;
-    this.movieObs = this.ms.getMovieBehaviourSubject();
+    this.movieObs = this.ms.getMoviesBS();
     let dt = new Date();
 
-    this.playing = this.movieObs.pipe(
-      map(mis => mis.filter(mi => mi.startTime < new Date()))
-    );
-    this.upcoming = this.movieObs.pipe(
-      map(mis => mis.filter(mi => mi.startTime >= new Date()))
-    );
+    this.movieObs
+      .pipe(map(mis => mis.filter(mi => mi.startTime < dt)))
+      .subscribe(data => (this.playingArray = data));
+
+    this.movieObs
+      .pipe(map(mis => mis.filter(mi => mi.startTime >= dt)))
+      .subscribe(data => (this.upcomingArray = data));
+
+    setTimeout(() => (this.addMovieVisible = true), 8000);
   }
 
-  showDetail(item: Movie) {
-    item != null
-      ? console.log("hovering over: ", item)
-      : console.log("hovering out");
+  addMovie() {
+    this.ms.addMovie(<Movie>{
+      title: "The added Movie",
+      startTime: new Date()
+    });
   }
 }

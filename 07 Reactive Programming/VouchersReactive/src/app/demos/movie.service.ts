@@ -6,23 +6,26 @@ import { Movie } from "./Movie";
 @Injectable()
 export class MovieService {
   // private intervalSec = 3;
-  private movies: Movie[] = [];
+  private arrMovies: Movie[] = [];
+  private movies: BehaviorSubject<Movie[]> = new BehaviorSubject(
+    this.arrMovies
+  );
 
   constructor() {}
 
   getMovies(itemCount: number = 10): Observable<Movie[]> {
     console.log("using: getMovies()");
     console.log("reset movies");
-    this.movies = [];
+    this.arrMovies = [];
 
     let movieGenerator = MovieGenerator(itemCount);
 
     let mediaObservableArray: Observable<Movie[]> = Observable.create(
       (observer: Observer<Movie[]>) => {
         for (let i = 0; i < itemCount; i++) {
-          this.movies.push(movieGenerator.next().value);
+          this.arrMovies.push(movieGenerator.next().value);
         }
-        observer.next(this.movies);
+        observer.next(this.arrMovies);
         observer.complete();
       }
     );
@@ -35,7 +38,7 @@ export class MovieService {
   ): Observable<Movie[]> {
     console.log("using: getMovieStream()");
     console.log("reset movies");
-    this.movies = [];
+    this.arrMovies = [];
 
     let movieGenerator = MovieGenerator(itemCount);
 
@@ -56,26 +59,34 @@ export class MovieService {
     observer: Observer<Movie[]>
   ): void {
     setTimeout(() => {
-      this.movies.push(item);
-      observer.next(this.movies);
+      this.arrMovies.push(item);
+      observer.next(this.arrMovies);
     }, (idx + intervalSec) * 1000);
   }
 
-  private buildMedia(initialCount: number): Movie[] {
+  private buildMediaWithDelay(initialCount: number): Movie[] {
     let movieGenerator = MovieGenerator(initialCount);
 
-    this.movies = new Array();
+    this.arrMovies = new Array();
     for (let i = 0; i < initialCount; i++) {
-      this.movies.push(movieGenerator.next().value);
+      setTimeout(() => {
+        this.arrMovies.push(movieGenerator.next().value);
+        this.movies.next(this.arrMovies);
+      }, i * 500);
     }
+    return this.arrMovies;
+  }
+
+  getMoviesBS(): Observable<Movie[]> {
+    if (this.arrMovies.length == 0) {
+      this.buildMediaWithDelay(8);
+    }
+
     return this.movies;
   }
 
-  getMovieBehaviourSubject(initialCount: number = 8): Observable<Movie[]> {
-    console.log("using: getObservableUsingBehaviorSubj()");
-    let bs: BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]>(
-      this.buildMedia(initialCount)
-    );
-    return bs.asObservable();
+  addMovie(m: Movie) {
+    this.arrMovies.push(m);
+    this.movies.next(this.arrMovies);
   }
 }
