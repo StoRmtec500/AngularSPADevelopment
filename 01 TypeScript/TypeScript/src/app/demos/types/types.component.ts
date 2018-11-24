@@ -347,24 +347,18 @@ export class TypesComponent implements OnInit {
     console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar agar"]
 
     //flatmap
-    // const orders = [
-    //   {
-    //     orderId: 1,
-    //     items: [
-    //       {name: "abc", price: 2.22},
-    //       {name: "ded", price: 4.22}
-    //     ]
-    //   },
-    //   {
-    //     orderId: 2,
-    //     items: [
-    //       {name: "asdfbc", price: 6.22},
-    //       {name: "sdf", price: 8.22}
-    //     ]
-    //   }
-    // ]
+    const orders = [
+      {
+        orderId: 1,
+        items: [{ name: "abc", price: 2.22 }, { name: "ded", price: 4.22 }]
+      },
+      {
+        orderId: 2,
+        items: [{ name: "asdfbc", price: 6.22 }, { name: "sdf", price: 8.22 }]
+      }
+    ];
 
-    // const items = orders.flatMap(o => o.items.map(i=>i.name));
+    const items = orders.flatMap(o => o.items.map(i => i.name));
   }
 
   chainingArrayHelpers() {
@@ -446,27 +440,6 @@ export class TypesComponent implements OnInit {
 
     playLotto("Hannes", 3, 12, 45, 48);
     playLotto("Hugo", 3, 12, 45, 48, 55, 22);
-
-    var shop: any = new Array();
-    shop.category = new Map();
-
-    shop.add = function(categoryName, ...products) {
-      var row = shop.category[categoryName];
-      if (row == undefined) {
-        shop.category.set(categoryName, new Array());
-      }
-
-      products.forEach(function(item) {
-        shop.category.get(categoryName).push(item);
-      });
-    };
-
-    shop.add("fruits", "apple");
-    shop.add("dairy", "milk", "cheese", "yoghurt");
-    shop.add("pastries", "donuts", "croissants");
-    shop.add("cleaning", "soap", "body lotion", "shampoo", "tooth brush");
-
-    console.log("There are the following products in the store", shop);
   }
 
   spreadOperator() {
@@ -491,6 +464,7 @@ export class TypesComponent implements OnInit {
     playLotto("Hannes", 3, 12, 45, 48);
 
     let numbers = [3, 12, 45, 48];
+
     //calling a function with ...rest param using ...spread
     playLotto("Hannes", ...numbers);
   }
@@ -617,8 +591,5 @@ export class TypesComponent implements OnInit {
 
     // without pipeline operator
     double(increment(double(double(5)))); // 42
-
-    // with pipeline operator
-    // 5 |> double |> double |> increment |> double; // 42
   }
 }
