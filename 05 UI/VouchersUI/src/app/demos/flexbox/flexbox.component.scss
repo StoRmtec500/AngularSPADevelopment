@@ -3,7 +3,7 @@
 @mixin box {
   margin: 10px 0;
   padding: 20px;
-  border: 1px solid $cmdBackground;
+  border: 1px solid $darkBackground;
 }
 
 .flex-container {
@@ -20,7 +20,7 @@
   min-width: 200px;
   height: 100px;
   margin: 5px;
-  background: $cmdBackground;
+  background: $darkBackground;
   color: white;
   font-weight: bold;
   font-size: 3em;

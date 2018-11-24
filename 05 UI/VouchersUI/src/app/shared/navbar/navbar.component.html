@@ -1,46 +1,78 @@
-<nav class="navbar navbar-inverse">
-  <div class="navbar-header">
-    <a class="navbar-brand">
-      <div class='row'>
-        <div class='col-xs-1'>
-          <img width="50" src="/assets/images/angular.svg">
+<!--
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        <div class="row">
+          <div class="col-xs-1">
+            <img width="50" src="/assets/images/angular.svg" />
+          </div>
+          <div class="col-xs-11">
+            <h4 class="nav-heading-text">
+              smart Angular Single Page Application Development
+            </h4>
+          </div>
         </div>
-        <div class='col-xs-11'>
-          <h4 class="nav-heading-text">smart Angular Single Page Application Development</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-      <li>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Demos</a>
-      </li>
-      <li>
-        <a routerLink="/vouchers" routerLinkActive="active">Vouchers</a>
-      </li>
-      <li>
-        <a routerLink="/accounts" routerLinkActive="active">Accounts</a>
-      </li>
-      <li>
-        <a routerLink="/admin" routerLinkActive="active">Admin</a>
-      </li>
-    </ul>
-    <div class="navbar-header navbar-right">
-      <ul class="nav navbar-nav">
-        <li>
-          <a (click)="showUpload()" title="Upload Files" >
-            <i class="material-icons">cloud_upload</i>
-          </a>
-        </li>
-        <li>
-          <a (click)="toggleEditor()" title="Take Notes" >
-            <i class="material-icons">create</i>
-          </a>
-        </li>
-      </ul>
+      </a>
     </div>
-  </div>
 
-</nav>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Demos</a
+          >
+        </li>
+        <li><a routerLink="/vouchers" routerLinkActive="active">Vouchers</a></li>
+        <li><a routerLink="/accounts" routerLinkActive="active">Accounts</a></li>
+        <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
+      </ul>
+      <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav">
+          <li>
+            <a (click)="showUpload()" title="Upload Files">
+              <i class="material-icons">cloud_upload</i>
+            </a>
+          </li>
+          <li>
+            <a (click)="toggleEditor()" title="Take Notes">
+              <i class="material-icons">create</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+-->
+<mat-toolbar>
+  <mat-toolbar-row fxLayoutAlign="start center" class="mainNav">
+    <div flxFlex="1 1 auto">
+      <img width="50px" src="/assets/images/angular.svg" />
+    </div>
+    <div flxFlex="2 1 auto" fxHide.lt-md="true">
+      <div class="navTitle">
+        smart Angular Single Page Application Development
+      </div>
+    </div>
+    <div style="min-width: 40px;"></div>
+    <div
+      flxFlex="3 1 auto"
+      fxLayout="row"
+      fxLayoutAlign="end center"
+      fxLayout.lt-sm="column"
+      fxLayoutGap="25px"
+    >
+      <div
+        *ngFor="let route of rootRoutes"
+        routerLink="{{'/' + route.path }}"
+        routerLinkActive="navLink-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="navLink"
+      >
+        {{ route.data.title }}
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

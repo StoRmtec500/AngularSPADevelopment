@@ -1,11 +1,17 @@
-<mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side">
-        Sidenav content
-    </mat-sidenav>
-    <div class="sideCommands">
-
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <div fxFlex="30" fxHide.lt-lg="true">
+      <span class="toolbarHeading">Actions</span>
     </div>
-    <mat-sidenav-content>
-
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    <div fxFlex="70">
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+        <button mat-fab (click)="showUpload()">
+          <mat-icon fxFlexAlign="center" class="cmdIcon">cloud_upload</mat-icon>
+        </button>
+        <button mat-fab (click)="toggleEditor()">
+          <mat-icon fxFlexAlign="center" class="cmdIcon">create</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

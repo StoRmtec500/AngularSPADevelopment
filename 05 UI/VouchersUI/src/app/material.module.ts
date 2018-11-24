@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import "hammerjs";
 
 import {
   MatTableModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSidenav,
-  MatSidenavContainer,
-  MatList,
-  MatToolbar,
   MatSidenavModule,
   MatListModule,
   MatToolbarModule,
@@ -18,20 +17,13 @@ import {
   MatMenuModule,
   MatCardModule,
   MatDialogModule,
-  MatDatepicker,
-  MatDatepickerToggle,
   MatSelectModule,
   MatOptionModule,
-  MatSlideToggle,
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,
-  MatRadioModule,
-  MatRadioButton,
-  MatRadioGroup
+  MatRadioModule
 } from "@angular/material";
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const mods = [
   CommonModule,
@@ -56,7 +48,7 @@ const mods = [
   MatDatepickerModule,
   MatSlideToggleModule,
   MatRadioModule,
-  FlexLayoutModule,
+  FlexLayoutModule
 ];
 
 @NgModule({
@@ -64,4 +56,4 @@ const mods = [
   declarations: [],
   exports: mods
 })
-export class MaterialModule { }
+export class MaterialModule {}

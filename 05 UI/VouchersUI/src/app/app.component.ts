@@ -1,14 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { RouterEvent, NavigationEnd, Route } from "@angular/router";
+import { RouterEvent, Route } from "@angular/router";
 
 @Component({
   selector: "vouchers-app",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  
   children: string[];
   hideSideBarOnDemo: boolean = false;
   isDemo: boolean;
@@ -20,7 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   evalScreen() {
-    if(this.hideSideBarOnDemo){
+    if (this.hideSideBarOnDemo) {
       this.children = this.router.config[0].children.map((item: Route) => {
         return item.path;
       });

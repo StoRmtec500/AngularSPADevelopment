@@ -1,5 +1,7 @@
-@import "./theme/style-vars";
+@import "./theme/style-vars.scss";
+@import "./theme/mixins.scss";
 @import "./theme/theme.scss";
+@import "./theme/bars.scss";
 @import "./theme/mat-overrides.scss";
 @import "./theme/flex.scss";
 @import "./theme/form.scss";
@@ -15,12 +17,12 @@ a {
 
 body {
   padding: 10px;
-  background-color: $spcaerBackground;
+  background-color: $lightBackground;
 }
 
 .sidebar-module,
 .navbar-inverse {
-  background-color: $cmdBackground;
+  background-color: $darkBackground;
 }
 
 .rightCell {
@@ -32,5 +34,5 @@ body {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
-  background-color: $spcaerBackground;
+  background-color: $lightBackground;
 }

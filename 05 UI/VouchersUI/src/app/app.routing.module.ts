@@ -1,7 +1,6 @@
 import { CSSBindingComponent } from "./demos/cssbinding/binding.component";
 import { UsingBootstrapComponent } from "./demos/using-bootstrap/using-bootstrap.component";
 import { UsingMaterialComponent } from "./demos/using-material/using-material.component";
-import { UsingThirdpartyComponent } from "./demos/using-thirdparty/using-thirdparty.component";
 import { DemosComponent } from "./demos/demos.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
@@ -19,31 +18,34 @@ import { VoucherResolver } from "./vouchers/voucher/voucher-resolver.service";
 import { AccountResolver } from "./accounts/account-resolver.service";
 import { FlexMediaQueryComponent } from "./demos/flex-media-query/flex-media-query.component";
 import { FlexLayoutComponent } from "./demos/flex-layout/flex-layout.component";
+import { ChartingComponent } from "./demos/charting/charting.component";
 
 const appRoutes: Routes = [
   {
     path: "",
     component: DemosComponent,
+    data: { title: "Demos" },
     children: [
       { path: "cssbasics", component: CSSBindingComponent },
       { path: "bootstrap", component: UsingBootstrapComponent },
       { path: "material", component: UsingMaterialComponent },
       { path: "material-table", component: MaterialTableComponent },
       { path: "material-dialog", component: MaterialDialogComponent },
-      { path: "flexbox", component: FlexboxComponent },      
+      { path: "flexbox", component: FlexboxComponent },
       { path: "flexmediaq", component: FlexMediaQueryComponent },
       { path: "flexlayout", component: FlexLayoutComponent },
-      { path: "thirdparty", component: UsingThirdpartyComponent }
+      { path: "thirdparty", component: ChartingComponent }
     ]
   },
   {
     path: "vouchers",
+    data: { title: "Vouchers" },
     component: VouchersListComponent
   },
   {
     path: "vouchers/:id",
     component: VoucherComponent,
-    resolve: { voucher : VoucherResolver, accounts : AccountResolver}
+    resolve: { voucher: VoucherResolver, accounts: AccountResolver }
   },
   {
     path: "accounts",
@@ -53,7 +55,7 @@ const appRoutes: Routes = [
   {
     path: "admin",
     loadChildren: "./admin/admin.module#AdminModule",
-    data: { title: "The protected Admin page, lazy loaded as Module" },
+    data: { title: "Admin" },
     canActivate: [RouteGuard]
   },
   { path: "showeditor", component: EditorComponent, outlet: "sidebarOutlet" },
