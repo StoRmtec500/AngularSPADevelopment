@@ -1,25 +1,23 @@
-import { VouchersService } from './voucher.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Voucher } from '../shared/model/model';
-import { Component, OnInit } from '@angular/core';
-
+import { VouchersService } from "./voucher.service";
+import { Router } from "@angular/router";
+import { Voucher } from "../shared/model/model";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-vouchers-list',
-  templateUrl: './vouchers-list.component.html',
-  styleUrls: ['./vouchers-list.component.css']
+  selector: "app-vouchers-list",
+  templateUrl: "./vouchers-list.component.html",
+  styleUrls: ["./vouchers-list.component.scss"]
 })
 export class VouchersListComponent implements OnInit {
-  
   vouchers: Voucher[];
-  
-  constructor(private router: Router, private vs: VouchersService) {  }
 
-  ngOnInit() {   
-    this.vs.getVouchers().then(data => this.vouchers = data)
+  constructor(private router: Router, private vs: VouchersService) {}
+
+  ngOnInit() {
+    this.vs.getVouchers().then(data => (this.vouchers = data));
   }
 
-  showVoucher(id: number){
-    this.router.navigate(['/vouchers/' + id]);
+  showVoucher(id: number) {
+    this.router.navigate(["/vouchers/" + id]);
   }
 }
