@@ -1,22 +1,28 @@
 <div class="section">
   <h4>Class Binding</h4>
-  <button class="myButton" [class.extraClass]="addClass">Call to Action</button>  
+  <button class="myButton" [class.extraClass]="addClass">
+    Bind class using boolean & prop binding
+  </button>
 </div>
 
 <div class="section">
   <h4>Multible Class Binding</h4>
-  <button class="myButton" [ngClass]="setClasses()">Call to Action</button>  
+  <button class="myButton" [ngClass]="setClasses()">
+    Bind class using method
+  </button>
 </div>
 
 <div class="section">
-  <h4>Style Binding</h4>
-  <button class="my-btn" [style.border]="addStyle ? '5px solid yellow' : 'none'">Call to Action 2</button>
-  
+  <h4>Prop Style Binding</h4>
+  <button
+    class="my-btn"
+    [style.border]="addStyle ? '5px solid yellow' : 'none'"
+  >
+    If then else
+  </button>
 </div>
 
 <div class="section">
   <h4>Multible Style Binding</h4>
-  <button class="my-btn" [ngStyle]="setStyles()">Call to Action</button>
-  
+  <button class="my-btn" [ngStyle]="setStyles()">Set styles using JSON</button>
 </div>
-
