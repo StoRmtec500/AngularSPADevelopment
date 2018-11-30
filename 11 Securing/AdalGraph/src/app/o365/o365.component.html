@@ -4,5 +4,8 @@
   <a (click)="uploadPDF()">Upload Pdf</a>
 </div>
 <div class="files" *ngIf="recentFiles">
-  <div *ngFor="let f of recentFiles" class="items">{{ f.remoteItem.name }}</div>
+  <div *ngFor="let f of recentFiles" class="items">
+    <span>{{ f.remoteItem.createdDateTime }}</span
+    ><span>{{ f.remoteItem.name }}</span>
+  </div>
 </div>
