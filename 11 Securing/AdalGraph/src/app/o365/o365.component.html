@@ -1,0 +1,8 @@
+<div class="cmd">
+  <a (click)="logIn()">Login</a>
+  <a (click)="getRecentFiles()">Get Recent Files</a>
+  <a (click)="uploadPDF()">Upload Pdf</a>
+</div>
+<div class="files" *ngIf="recentFiles">
+  <div *ngFor="let f of recentFiles" class="items">{{ f.remoteItem.name }}</div>
+</div>
