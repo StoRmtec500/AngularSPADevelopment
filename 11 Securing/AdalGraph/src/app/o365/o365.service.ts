@@ -25,7 +25,7 @@ export class O365Service {
   }
 
   query(endpoint: any, query: string, callback) {
-    let ep = eps;
+    let ep = endpoint.toString();
 
     this.adalSvc.acquireToken("graphApiUri").subscribe((token: string) => {
       console.log("Aquired Ressource Token:", token);
