@@ -91,10 +91,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log("Logging Save from host", data.detail)
   );
 });
-
-function processSave(data) {
-  console.log(data);
-}
 ```
 
 ## Readings
