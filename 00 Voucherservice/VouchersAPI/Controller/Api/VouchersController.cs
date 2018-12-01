@@ -55,7 +55,7 @@ namespace Vouchers.Api
             }
             catch (Exception exp)
             {
-                return BadRequest(new ApiResponse { Status = false });
+                return BadRequest(new ApiResponse { Status = false, Data = exp.Message });
             }
         }
 

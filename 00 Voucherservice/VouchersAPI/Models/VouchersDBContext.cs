@@ -10,8 +10,6 @@ namespace Vouchers
 
     public class VouchersDBContext : IdentityDbContext //Use DbContext if not using Identity
     {
-        private VouchersConfig config;
-
         public VouchersDBContext(DbContextOptions<VouchersDBContext> options) : base(options)
         {
         }
