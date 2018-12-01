@@ -1,0 +1,10 @@
+<div>
+  <input type="text" placeholder="Type Skill to add and press enter" />
+</div>
+<div>
+  <h1>{{ title }}:</h1>
+  <ul>
+    <li *ngFor="let i of skills"></li>
+  </ul>
+</div>
+<button (click)="getSkills()"></button>

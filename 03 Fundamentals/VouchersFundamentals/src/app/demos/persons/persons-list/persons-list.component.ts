@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Person } from "../person";
-import { PersonService } from "../person.service";
 
 @Component({
   selector: "app-persons-list",
