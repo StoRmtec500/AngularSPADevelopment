@@ -20,8 +20,6 @@ export class O365Component implements OnInit {
   }
 
   getRecentFiles() {
-    let ep = eps.graphApiUri.toString();
-
     this.service.query(eps.graphApiUri, "/v1.0/me/drive/recent", response => {
       this.recentFiles = response.value.slice(0, 9);
       console.log(
@@ -31,5 +29,23 @@ export class O365Component implements OnInit {
     });
   }
 
-  uploadPDF() {}
+  createEvent() {
+    var evt = {
+      Subject: "A Graph Event",
+      Body: {
+        ContentType: "HTML",
+        Content: "The Super Fancy MS Graph Event"
+      },
+      Start: {
+        DateTime: "2018-10-13T00:00:00",
+        TimeZone: "UTC"
+      },
+      End: {
+        DateTime: "2018-10-14T00:00:00",
+        TimeZone: "UTC"
+      }
+    };
+
+    this.service.createEvent(evt, "/v1.0/me/calendar/events");
+  }
 }

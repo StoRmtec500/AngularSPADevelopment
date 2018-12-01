@@ -25,8 +25,6 @@ export class O365Service {
   }
 
   query(endpoint: any, query: string, callback) {
-    let ep = endpoint.toString();
-
     this.adalSvc.acquireToken("graphApiUri").subscribe((token: string) => {
       console.log("Aquired Ressource Token:", token);
       let opts = {
@@ -36,8 +34,23 @@ export class O365Service {
         }
       };
       this.httpClient
-        .get(`${eps.graphApiUri}${query}`, opts)
+        .get(`${endpoint}${query}`, opts)
         .subscribe(data => callback(data));
+    });
+  }
+
+  createEvent(item, cal) {
+    this.adalSvc.acquireToken("graphApiUri").subscribe((token: string) => {
+      console.log("Aquired Ressource Token:", token);
+      let opts = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json"
+        }
+      };
+      this.httpClient
+        .post(`${eps.graphApiUri}${cal}`, opts)
+        .subscribe(data => console.log(data));
     });
   }
 }
