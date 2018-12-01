@@ -1,10 +1,13 @@
-<div>
-  <input type="text" placeholder="Type Skill to add and press enter" />
-</div>
-<div>
+<div class="main">
   <h1>{{ title }}:</h1>
-  <ul>
-    <li *ngFor="let i of skills"></li>
-  </ul>
+  <div>
+    <input type="text" placeholder="Type Skill to add and press enter" />
+  </div>
+
+  <div>
+    <ul>
+      <li *ngFor="let i of skills">{{ i }}</li>
+    </ul>
+  </div>
+  <button (click)="getSkills()">Save Skills</button>
 </div>
-<button (click)="getSkills()"></button>

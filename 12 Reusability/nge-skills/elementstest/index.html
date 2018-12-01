@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <nge-skills title="Learning Angular @ETC rocks"></nge-skills>
+    <div>Your custom Element:</div>
+    <ngx-skills
+      title="Learning Angular @ETC rocks"
+      onSaveSkills="processSave()"
+    ></ngx-skills>
     <script type="text/javascript" src="/elements/nge-skills.js"></script>
+    <script type="text/javascript" src="/elementstest/index.js"></script>
   </body>
 </html>

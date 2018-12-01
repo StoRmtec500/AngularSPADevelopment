@@ -8,7 +8,7 @@ Add Elements: `ng add @angular/elements --project=nge-skills`
 
 Create your Component: `ng g c skills-list -v Native`
 
-Implement your Component
+Add it to AppComponent & Implement your Custom Element
 
 Delete AppComponent
 
