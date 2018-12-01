@@ -1,13 +1,20 @@
 <div class="main">
   <h1>{{ title }}:</h1>
   <div>
-    <input type="text" placeholder="Type Skill to add and press enter" />
+    <input
+      type="text"
+      style="width:400px"
+      placeholder="Type Skill to add and hit enter to add"
+      [(ngModel)]="skillToAdd"
+    />
+    <a (click)="addSkill()">Add Skill</a>
   </div>
 
   <div>
     <ul>
-      <li *ngFor="let i of skills">{{ i }}</li>
+      <li *ngFor="let s of skills" (click)="removeSkill(s)">{{ s }}</li>
     </ul>
+    <div><span>Click on skill to remove</span></div>
   </div>
-  <button (click)="getSkills()">Save Skills</button>
+  <a (click)="getSkills()">Save Skills</a>
 </div>

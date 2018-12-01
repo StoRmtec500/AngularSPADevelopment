@@ -1,11 +1,12 @@
 import { Injector, NgModule } from "@angular/core";
 import { createCustomElement } from "@angular/elements";
 import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 import { SkillsListComponent } from "./skills-list/skills-list.component";
 
 @NgModule({
   declarations: [SkillsListComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   providers: [],
   entryComponents: [SkillsListComponent]
 })
