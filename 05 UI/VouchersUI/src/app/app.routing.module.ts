@@ -6,8 +6,7 @@ import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { AccountsComponent } from "./accounts/accounts.component";
 import { RouterModule, Routes } from "@angular/router";
-import { NgModule, ViewChild } from "@angular/core";
-import { AdminComponent } from "./admin/admin.component";
+import { NgModule } from "@angular/core";
 import { RouteGuard } from "./route.guard.service";
 import { FlexboxComponent } from "./demos/flexbox/flexbox.component";
 import { MaterialTableComponent } from "./demos/material-table/material-table.component";
@@ -19,6 +18,8 @@ import { AccountResolver } from "./accounts/account-resolver.service";
 import { FlexMediaQueryComponent } from "./demos/flex-media-query/flex-media-query.component";
 import { FlexLayoutComponent } from "./demos/flex-layout/flex-layout.component";
 import { ChartingComponent } from "./demos/charting/charting.component";
+import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
+import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
 
 const appRoutes: Routes = [
   {
@@ -34,7 +35,9 @@ const appRoutes: Routes = [
       { path: "flexbox", component: FlexboxComponent },
       { path: "flexmediaq", component: FlexMediaQueryComponent },
       { path: "flexlayout", component: FlexLayoutComponent },
-      { path: "thirdparty", component: ChartingComponent }
+      { path: "thirdparty", component: ChartingComponent },
+      { path: "dragdrop", component: DragDropComponent },
+      { path: "virtualscroll", component: VirtualScrollComponent }
     ]
   },
   {

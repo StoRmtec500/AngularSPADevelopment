@@ -26,12 +26,6 @@ Checkout specifix Branch `git checkout -b <new_branch> <commit_sha>`
 
 Merge Branch: `git merge [branch_to_merge]`
 
-## Useful Github VS Code Extensions
-
-[Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-
-[Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)
-
 ## Configure ignored files
 
 Add a `.gitignore` file to the root of your project. A valid `.gitignore` file can be generated at https://www.gitignore.io/

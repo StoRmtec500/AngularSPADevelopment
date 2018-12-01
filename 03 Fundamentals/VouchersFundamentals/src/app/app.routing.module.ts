@@ -20,8 +20,6 @@ import { TemplateComponent } from "./demos/template/template.component";
 import { ViewChildComponent } from "./demos/view-child/view-child.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
-import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
-import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
 
 const appRoutes: Routes = [
   {
@@ -41,9 +39,7 @@ const appRoutes: Routes = [
       { path: "custompipes", component: CustomPipesComponent },
       { path: "international", component: InternationalizationComponent },
       { path: "expressions", component: ExpressionsComponent },
-      { path: "viewchild", component: ViewChildComponent },
-      { path: "dragdrop", component: DragDropComponent },
-      { path: "virtualscroll", component: VirtualScrollComponent }
+      { path: "viewchild", component: ViewChildComponent }
     ]
   },
   {

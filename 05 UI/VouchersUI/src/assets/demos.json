@@ -24,11 +24,6 @@
     "title": "Material Dialog",
     "component": "MaterialDialogComponent"
   },
-  {
-    "url": "thirdparty",
-    "title": "Charting",
-    "component": "ChartingComponent"
-  },
   { "url": "flexbox", "title": "CSS Flexbox", "component": "FlexboxComponent" },
   {
     "url": "flexmediaq",
@@ -39,5 +34,20 @@
     "url": "flexlayout",
     "title": "Angular Flex Layout",
     "component": "FlexLayoutComponent"
+  },
+  {
+    "url": "dragdrop",
+    "title": "Drag & Drop",
+    "component": "DragDropComponent"
+  },
+  {
+    "url": "virtualscroll",
+    "title": "VirtualScroll",
+    "component": "VirtualScrollComponent"
+  },
+  {
+    "url": "thirdparty",
+    "title": "Charting",
+    "component": "ChartingComponent"
   }
 ]

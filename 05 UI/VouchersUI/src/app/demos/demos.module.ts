@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { ScrollingModule } from "@angular/cdk/scrolling";
+
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 import { MaterialModule } from "../material.module";
@@ -22,6 +25,8 @@ import { PersonService } from "./person.service";
 import { UsingBootstrapComponent } from "./using-bootstrap/using-bootstrap.component";
 import { UsingMaterialComponent } from "./using-material/using-material.component";
 import { ChartingComponent } from "./charting/charting.component";
+import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.component";
+import { DragDropComponent } from "./drag-drop/drag-drop.component";
 
 @NgModule({
   imports: [
@@ -33,6 +38,8 @@ import { ChartingComponent } from "./charting/charting.component";
     RouterModule,
     SharedModule,
     MaterialModule,
+    DragDropModule,
+    ScrollingModule,
     NgxChartsModule
   ],
   declarations: [
@@ -45,7 +52,9 @@ import { ChartingComponent } from "./charting/charting.component";
     MaterialDialogComponent,
     ChartingComponent,
     FlexboxComponent,
-    FlexMediaQueryComponent
+    FlexMediaQueryComponent,
+    DragDropComponent,
+    VirtualScrollComponent
   ],
   entryComponents: [MaterialDialogComponent, CalculatorComponent],
   providers: [DemoService, MovieService, PersonService]

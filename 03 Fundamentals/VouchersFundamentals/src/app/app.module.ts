@@ -1,5 +1,3 @@
-import { DragDropModule } from "@angular/cdk/drag-drop";
-import { ScrollingModule } from "@angular/cdk/scrolling";
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import localeDe from "@angular/common/locales/de";
@@ -23,7 +21,7 @@ import { CustomPipesComponent } from "./demos/custom-pipes/custom-pipes.componen
 import { VoucherFilterPipe } from "./demos/custom-pipes/voucher-filter.pipe";
 import { DemosComponent } from "./demos/demos.component";
 import { DirectivesComponent } from "./demos/directives/directives.component";
-import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
+
 import { ExpressionsComponent } from "./demos/expressions/expressions.component";
 import { InlineComponent } from "./demos/inline/inline.component";
 import { InternationalizationComponent } from "./demos/internationalization/internationalization.component";
@@ -37,7 +35,7 @@ import { StructDirectivesComponent } from "./demos/struct-directives/struct-dire
 import { TemplateComponent } from "./demos/template/template.component";
 import { AlertComponent } from "./demos/view-child/alert/alert.component";
 import { ViewChildComponent } from "./demos/view-child/view-child.component";
-import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
+
 import { NavbarComponent } from "./shared/index";
 import { MatchHeightDirective } from "./shared/match-height/match-height.directive";
 import { VouchersService } from "./vouchers/voucher.service";
@@ -81,9 +79,7 @@ registerLocaleData(localeDe);
     ViewChildComponent,
     AlertComponent,
     AdminComponent,
-    DemoNavComponent,
-    DragDropComponent,
-    VirtualScrollComponent
+    DemoNavComponent
   ],
   imports: [
     FormsModule,
@@ -91,8 +87,6 @@ registerLocaleData(localeDe);
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    DragDropModule,
-    ScrollingModule,
     BrowserAnimationsModule
   ],
   providers: [

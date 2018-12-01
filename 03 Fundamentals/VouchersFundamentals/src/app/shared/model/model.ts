@@ -26,8 +26,3 @@ export class Voucher {
   Readonly?: boolean;
   Details?: VoucherDetail[];
 }
-
-export interface Todo {
-  title: string;
-  dateAdded: string;
-}

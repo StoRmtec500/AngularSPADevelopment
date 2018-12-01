@@ -60,15 +60,5 @@
     "url": "viewchild",
     "title": "View Child",
     "component": "ViewChildComponent"
-  },
-  {
-    "url": "dragdrop",
-    "title": "Drag & Drop",
-    "component": "DragDropComponent"
-  },
-  {
-    "url": "virtualscroll",
-    "title": "VirtualScroll",
-    "component": "VirtualScrollComponent"
   }
 ]
