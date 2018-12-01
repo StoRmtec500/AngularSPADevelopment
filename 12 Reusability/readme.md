@@ -96,3 +96,7 @@ function processSave(data) {
   console.log(data);
 }
 ```
+
+## Readings
+
+[Getting Started with Angular Elements](https://www.telerik.com/blogs/getting-started-with-angular-elements)

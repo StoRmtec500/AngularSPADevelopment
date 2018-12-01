@@ -1,6 +1,7 @@
 {
   "name": "nge-skills",
   "version": "0.0.0",
+  "author": "alexander.pajer@integrations.at",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
