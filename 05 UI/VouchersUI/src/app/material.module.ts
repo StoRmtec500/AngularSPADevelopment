@@ -12,6 +12,8 @@ import {
   MatSidenavModule,
   MatListModule,
   MatToolbarModule,
+  MatBadgeModule,
+  MatButtonToggleModule,
   MatIconModule,
   MatButtonModule,
   MatMenuModule,
@@ -22,18 +24,22 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTreeModule
 } from "@angular/material";
 
 const mods = [
   CommonModule,
   BrowserModule,
+  MatTreeModule,
   BrowserAnimationsModule,
   MatSidenavModule,
   MatListModule,
+  MatButtonToggleModule,
   MatToolbarModule,
   MatIconModule,
   MatTableModule,
+  MatBadgeModule,
   MatToolbarModule,
   MatIconModule,
   MatButtonModule,

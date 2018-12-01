@@ -1,28 +1,36 @@
 body {
-    padding: 2em 24em;
-    background:gray;
+  padding: 2em 24em;
+  background: gray;
 }
 
 .spacer {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .red-color {
-    color:red;
+  color: red;
 }
 
 .md-slider-horizontal {
-    width:100%;
+  width: 100%;
 }
 
 label {
-    font-weight:bold;
-    margin:1.5em 0;
-    display:block;
+  font-weight: bold;
+  margin: 1.5em 0;
+  display: block;
 }
 
 #page-padding {
-    padding: 0 1.5em 1.5em 1.5em;
+  padding: 0 1.5em 1.5em 1.5em;
+}
+
+.mat-badge-content {
+  z-index: 1;
+}
+
+.btnLbls {
+  margin-right: 1.5rem;
 }
