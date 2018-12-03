@@ -1,3 +1,7 @@
+#Typescript
+
+[Javascript Reference](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference)
+
 ## Debugging in VS Code using launch.json - Angular Projects
 
 Add to .vscode -> launch.json
@@ -26,6 +30,7 @@ Add to .vscode -> launch.json
             "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
             "protocol": "inspector",
             "args": ["${workspaceRoot}/protractor.conf.js"]
-          }     
+          }
     ]
 }
+```
