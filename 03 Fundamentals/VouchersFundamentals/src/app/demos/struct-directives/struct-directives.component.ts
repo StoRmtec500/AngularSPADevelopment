@@ -1,4 +1,3 @@
-import { Router } from "@angular/router";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { Voucher } from "../../shared/model/model";
 import { Component, OnInit } from "@angular/core";
@@ -9,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./struct-directives.component.css"]
 })
 export class StructDirectivesComponent implements OnInit {
-  constructor(private router: Router, private vs: VouchersService) {}
+  constructor(private vs: VouchersService) {}
 
   persons = [{ name: "Heinz" }, { name: "Brunhilde" }, { name: "Susi" }];
   selectedPerson: string = this.persons[0].name;
@@ -22,7 +21,9 @@ export class StructDirectivesComponent implements OnInit {
   direction = DirectionEnum;
 
   ngOnInit() {
-    this.vs.getVouchers().then(data => (this.vouchers = data));
+    this.vs.getVouchers().then(data => {
+      this.vouchers = data;
+    });
   }
 
   showVoucher(v: Voucher) {
