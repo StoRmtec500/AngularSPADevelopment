@@ -50,6 +50,7 @@ registerLocaleData(localeDe);
   declarations: [
     AppComponent,
     HighlightDirective,
+    MatchHeightDirective,
     VouchersListComponent,
     AccountsComponent,
     VoucherComponent,
