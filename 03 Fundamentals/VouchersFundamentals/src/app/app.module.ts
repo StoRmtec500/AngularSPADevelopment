@@ -1,7 +1,7 @@
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import localeDe from "@angular/common/locales/de";
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -92,7 +92,7 @@ registerLocaleData(localeDe);
   providers: [
     VouchersService,
     PersonService
-    // {provide: LOCALE_ID, useValue: "de-DE"}
+    // ,    { provide: LOCALE_ID, useValue: "en" }
   ],
   bootstrap: [AppComponent]
 })
