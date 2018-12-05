@@ -116,7 +116,6 @@ export class TypesComponent implements OnInit {
           ct++;
         }
       }
-
       console.log(`ct: ${ct}`);
 
       return ct;
@@ -312,12 +311,10 @@ export class TypesComponent implements OnInit {
     }
     // sum = 10
 
-    var total: number = arr.reduce(function(a, b) {
-      return a + b;
-    });
+    var total: number = arr.reduce((prev, item) => prev + item);
 
-    var total: number = arr.reduce(function(a, b) {
-      return a + b;
+    var total: number = arr.reduce(function(prev, item) {
+      return prev + item;
     }, 0);
     console.log("total is : " + total);
 
