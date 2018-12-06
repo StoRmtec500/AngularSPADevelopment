@@ -1,16 +1,17 @@
-
 export interface Person {
-    age: number
-    name: string;
-    lastname?: string;
-    gender: string;
-    married?: boolean;
-    imgUrl?: string;
-    email?: string;
+  age: number;
+  name: string;
+  wealth: string;
+  state: WorkLifeBalance;
+  lastname?: string;
+  gender: string;
+  married?: boolean;
+  imgUrl?: string;
+  email?: string;
 }
 
 export enum WorkLifeBalance {
-    Happy,
-    Unsatisfied,
-    ReadyForRevolution
+  Happy,
+  Unsatisfied,
+  ReadyForRevolution
 }
