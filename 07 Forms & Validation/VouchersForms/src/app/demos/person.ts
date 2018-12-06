@@ -1,8 +1,8 @@
 export interface Person {
   age: number;
   name: string;
-  wealth: string;
-  state: WorkLifeBalance;
+  wealth?: string;
+  state?: WorkLifeBalance;
   lastname?: string;
   gender: string;
   married?: boolean;

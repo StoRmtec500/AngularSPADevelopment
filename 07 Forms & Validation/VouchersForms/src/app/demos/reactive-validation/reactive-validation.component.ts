@@ -7,7 +7,7 @@ import {
 } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { ValidationErrors } from "@angular/forms/src/directives/validators";
-import { Person } from "../person";
+import { Person, WorkLifeBalance } from "../person";
 
 @Component({
   selector: "app-reactive-validation",
@@ -18,6 +18,8 @@ export class ReactiveValidationComponent implements OnInit {
   personForm: FormGroup;
   person: Person = {
     name: "Heinz",
+    state: WorkLifeBalance.Happy,
+    wealth: "rich",
     gender: "male",
     age: 20,
     email: "derschoeneheinz@xyz.at"
@@ -54,11 +56,11 @@ export class ReactiveValidationComponent implements OnInit {
 
   violatesMinLenght() {
     let result = false;
-    let errs : ValidationErrors =  this.personForm.controls.name.errors ;
+    let errs: ValidationErrors = this.personForm.controls.name.errors;
 
-    if(errs!=null){
-      console.log("Errors in Name field: ", errs)
-      if(errs["minlength"]){
+    if (errs != null) {
+      console.log("Errors in Name field: ", errs);
+      if (errs["minlength"]) {
         result = true;
       }
     }
