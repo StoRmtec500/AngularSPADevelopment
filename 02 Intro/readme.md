@@ -2,7 +2,13 @@
 
 [Angular CLI Reference](https://angular.io/cli)
 
-## Debug Config
+Update Project
+
+```autong
+ng update  @angular/core @angular/cli
+```
+
+Debug Config
 
 ```
 {

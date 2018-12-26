@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { AuthService } from "../auth.service";
 import { SnackbarService } from "../../snackbar/snackbar.service";
 
