@@ -1,4 +1,4 @@
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs";
 import { Error } from "tslint/lib/error";
 import {
   HttpEvent,

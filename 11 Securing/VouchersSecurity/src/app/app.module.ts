@@ -27,8 +27,8 @@ import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { ChartingService } from "./shared/charting/charting.service";
-import { AngularFireModule } from "angularfire2";
-import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthInterceptor } from "./shared/auth/auth.interceptor";
 
 registerLocaleData(localeDe);

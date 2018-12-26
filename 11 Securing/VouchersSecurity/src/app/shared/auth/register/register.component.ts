@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AuthService } from "../auth.service";
-import { SnackbarService } from "../../snackbar.service";
+import { SnackbarService } from "../../snackbar/snackbar.service";
 
 @Component({
   selector: "app-register",

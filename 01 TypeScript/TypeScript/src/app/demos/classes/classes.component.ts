@@ -281,6 +281,10 @@ export class ClassesComponent implements OnInit {
     var nbrSTring: string = String(nbr);
   }
 
+  composition(){
+    
+  }
+
   abstractClasses() {
     debugger; //Classes used see blow
 
