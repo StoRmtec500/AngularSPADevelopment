@@ -41,3 +41,5 @@ ng add @angular/material
 [Material Icons](https://material.io/tools/icons/)
 
 [Material Tools](https://material.io/tools/)
+
+[Material Typography](https://material.angular.io/guide/typography)
