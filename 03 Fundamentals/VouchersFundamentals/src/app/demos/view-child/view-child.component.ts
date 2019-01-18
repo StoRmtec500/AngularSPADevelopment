@@ -13,6 +13,6 @@ export class ViewChildComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    this.alerts.forEach(alertInstance => console.log(alertInstance));
+    this.alerts.forEach(item => console.log("Found View Child: ", item));
   }
 }
