@@ -8,35 +8,30 @@ Update Project
 ng update  @angular/core @angular/cli
 ```
 
-Debug Config
+# VS Code Debug Config
+
+launch.json
 
 ```
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
+      "name": "ng serve",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:4200/#",
+      "url": "http://localhost:4200/",
       "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "Attach Chrome",
-      "type": "chrome",
-      "request": "attach",
-      "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "Launch Chrome (Test)",
+      "name": "ng test",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:9876/debug.html",
       "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "Launch Chrome (E2E)",
+      "name": "ng e2e",
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
