@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   ViewChildren,
   AfterViewInit,
   ViewChild,

@@ -2,33 +2,20 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Voucher } from "../shared/index";
 import { environment } from "environments/environment";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class VouchersService {
   constructor(private http: HttpClient) {}
 
-  delay: number = 0;
-
-  vouchers = null;
-
-  getVouchers(): Promise<any> {
-    return this.http.get(environment.vouchersAPI).toPromise();
+  getVouchers(): Observable<Voucher[]> {
+    return this.http.get<Voucher[]>(environment.vouchersAPI);
   }
 
-  getVoucher(id: number): Promise<any> {
-    return new Promise<Voucher>((resolve, reject) => {
-      setTimeout(() => {
-        this.http
-          .get(environment.vouchersAPI)
-          .toPromise()
-          .then((data: Voucher[]) => {
-            var v = data.find(item => {
-              return item.ID == id;
-            });
-            resolve(v);
-          })
-          .catch(err => reject(err));
-      }, 1000 * this.delay);
-    });
+  getVoucher(id: number): Observable<Voucher> {
+    return this.getVouchers().pipe(
+      map(v => v.find((v: Voucher) => v.ID == id))
+    );
   }
 }
