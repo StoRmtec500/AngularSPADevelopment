@@ -1,8 +1,8 @@
 import { Component, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { MaterialDialogComponent } from "../../demos/material-dialog/material-dialog.component";
 import { CurrencyService } from "./currency.service";
 import { RatesParam } from "./rates";
+import { MaterialDialogComponent } from "../material-dialog.component";
 
 @Component({
   selector: "app-calculator",

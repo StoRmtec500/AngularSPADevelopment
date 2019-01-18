@@ -2,10 +2,12 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { RatesResponse } from "./rates";
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../../environments/environment";
 
 @Injectable()
 export class CurrencyService {
+  //Using https://fixer.io - Register your own key
+
   url: string = `http://data.fixer.io/api/latest?access_key=${
     environment.fixerAPIKey
   }`;

@@ -10,7 +10,6 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 import { MaterialModule } from "../material.module";
-import { CalculatorComponent } from "../shared/calculator/calculator.component";
 import { SharedModule } from "../shared/shared.module";
 import { CSSBindingComponent } from "./cssbinding/binding.component";
 import { DemoService } from "./demo.service";
@@ -27,6 +26,8 @@ import { UsingMaterialComponent } from "./using-material/using-material.componen
 import { ChartingComponent } from "./charting/charting.component";
 import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.component";
 import { DragDropComponent } from "./drag-drop/drag-drop.component";
+import { CalculatorComponent } from "./material-dialog/calculator/calculator.component";
+import { CurrencyService } from "./material-dialog/calculator/currency.service";
 
 @NgModule({
   imports: [
@@ -54,9 +55,10 @@ import { DragDropComponent } from "./drag-drop/drag-drop.component";
     FlexboxComponent,
     FlexMediaQueryComponent,
     DragDropComponent,
-    VirtualScrollComponent
+    VirtualScrollComponent,
+    CalculatorComponent
   ],
   entryComponents: [MaterialDialogComponent, CalculatorComponent],
-  providers: [DemoService, MovieService, PersonService]
+  providers: [DemoService, MovieService, PersonService, CurrencyService]
 })
 export class DemosModule {}
