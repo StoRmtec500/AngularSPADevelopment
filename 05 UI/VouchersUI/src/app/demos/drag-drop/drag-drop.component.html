@@ -1,32 +1,36 @@
 <div class="dragRow">
   <div class="col">
+    <div class="text-white"><h2>To do</h2></div>
 
-    <div class="text-white">
-      <h2> To do</h2>
-    </div>
-
-    <div cdkDropList class="dragCol" #todoList="cdkDropList" [cdkDropListData]="todo" (cdkDropListDropped)="drop($event)"
-      [cdkDropListConnectedTo]="[doneList]">
-      <div *ngFor="let item of todo" cdkDrag>
-        <p> {{ item.title | titlecase }} </p>
-        <small class="text-muted"> {{ item.dateAdded | date:'short' }} </small>
+    <div
+      cdkDropList
+      class="dragCol"
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="[doneList]"
+    >
+      <div *ngFor="let item of todo" cdkDrag class="item">
+        <p>{{ item.title | titlecase }}</p>
+        <small class="text-muted"> {{ item.dateAdded | date: "short" }} </small>
       </div>
     </div>
-
   </div>
 
   <div class="col">
-
-    <div class="text-white">
-      <h2>Done</h2>
-    </div>
-    <div cdkDropList class="dragCol" #doneList="cdkDropList" [cdkDropListData]="done" (cdkDropListDropped)="drop($event)"
-      [cdkDropListConnectedTo]="[todoList]">
-      <div *ngFor="let item of done" cdkDrag>
-        <p> {{ item.title | titlecase }} </p>
-        <small class="text-muted"> {{ item.dateAdded | date:'short' }} </small>
+    <div class="text-white"><h2>Done</h2></div>
+    <div
+      cdkDropList
+      class="dragCol"
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="[todoList]"
+    >
+      <div *ngFor="let item of done" cdkDrag class="drop-item">
+        <p>{{ item.title | titlecase }}</p>
+        <small class="text-muted"> {{ item.dateAdded | date: "short" }} </small>
       </div>
     </div>
   </div>
-
 </div>

@@ -9,14 +9,14 @@ import {
 @Component({
   selector: "app-drag-drop",
   templateUrl: "./drag-drop.component.html",
-  styleUrls: ["./drag-drop.component.css"]
+  styleUrls: ["./drag-drop.component.scss"]
 })
 export class DragDropComponent implements OnInit {
   constructor() {}
 
   public todo: Todo[] = [];
 
-  public done: Todo[]= [];
+  public done: Todo[] = [];
 
   ngOnInit() {
     this.todo = [
