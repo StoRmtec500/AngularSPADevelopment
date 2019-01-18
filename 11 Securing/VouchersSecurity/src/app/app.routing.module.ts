@@ -11,8 +11,6 @@ import { StatisticsComponent } from "./statistics/statistics.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { WinAuthComponent } from "./demos/winauth/winauth.component";
-import { JwtComponent } from "./demos/jwt/jwt.component";
-import { FacebookAuthComponent } from "./demos/fbauth/fbauth.component";
 import { FirebaseComponent } from "./demos/firebase/firebase.component";
 
 const appRoutes: Routes = [
@@ -22,9 +20,7 @@ const appRoutes: Routes = [
     data: { title: "Demos" },
     children: [
       { path: "winauth", component: WinAuthComponent },
-      { path: "firebase", component: FirebaseComponent },
-      { path: "jwt", component: JwtComponent },
-      { path: "fbauth", component: FacebookAuthComponent }
+      { path: "firebase", component: FirebaseComponent }
     ]
   },
   {

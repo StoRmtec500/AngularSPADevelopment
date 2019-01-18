@@ -1,7 +1,7 @@
-import { DemoItem } from "./demoItem";
-import { DemoService } from "./demo.service";
-import { ActivatedRoute, Params, Router, RouterState } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
+import { DemoService } from "./demo.service";
+import { DemoItem } from "./demoItem";
 
 @Component({
   selector: "app-demos",
@@ -15,11 +15,7 @@ export class DemosComponent implements OnInit {
   componentName: string = "";
   demos: DemoItem[];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private demoService: DemoService
-  ) {
+  constructor(private route: ActivatedRoute, private demoService: DemoService) {
     this.title = "Data Access";
   }
 

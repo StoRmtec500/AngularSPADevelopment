@@ -8,10 +8,8 @@ import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
-import { FacebookAuthComponent } from "./fbauth/fbauth.component";
-import { JwtComponent } from "./jwt/jwt.component";
 import { WinAuthComponent } from "./winauth/winauth.component";
-import { FirebaseComponent } from './firebase/firebase.component';
+import { FirebaseComponent } from "./firebase/firebase.component";
 
 @NgModule({
   imports: [
@@ -24,13 +22,7 @@ import { FirebaseComponent } from './firebase/firebase.component';
     SharedModule,
     MaterialModule
   ],
-  declarations: [
-    DemosComponent,
-    FacebookAuthComponent,
-    JwtComponent,
-    WinAuthComponent,
-    FirebaseComponent
-  ],
+  declarations: [DemosComponent, WinAuthComponent, FirebaseComponent],
   providers: [DemoService]
 })
 export class DemosModule {}

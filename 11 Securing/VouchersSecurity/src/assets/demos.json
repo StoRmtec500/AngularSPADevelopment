@@ -8,15 +8,5 @@
     "url": "firebase",
     "title": "Use Tokens from Firebase",
     "component": "firebase"
-  },
-  {
-    "url": "jwt",
-    "title": "Understanding Jwt Token",
-    "component": "JwtComponent"
-  },
-  {
-    "url": "fbauth",
-    "title": "Using Facebook Auth",
-    "component": "FBAuthComponent"
   }
 ]
