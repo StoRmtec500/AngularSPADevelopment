@@ -2,11 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { RatesResponse } from "./rates";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class CurrencyService {
-  url: string =
-    "http://data.fixer.io/api/latest?access_key=6c36c303e33169dd7102897259fc93be";
+  url: string = `http://data.fixer.io/api/latest?access_key=${
+    environment.fixerAPIKey
+  }`;
+
   rates: Map<string, number>;
 
   constructor(private httpClient: HttpClient) {}

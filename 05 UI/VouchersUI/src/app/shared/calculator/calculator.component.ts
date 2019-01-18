@@ -17,7 +17,7 @@ export class CalculatorComponent {
   converted: number;
 
   constructor(
-    private currency: CurrencyService,
+    private cs: CurrencyService,
     public dialogRef: MatDialogRef<MaterialDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: RatesParam
   ) {}
@@ -27,7 +27,7 @@ export class CalculatorComponent {
   }
 
   ngOnInit() {
-    let rates = this.currency.getRates().subscribe(data => {
+    let rates = this.cs.getRates().subscribe(data => {
       this.getCurrencies(data.rates);
       this.calculate();
     });
