@@ -1,3 +1,11 @@
-<p>
-  adal works!
-</p>
+<div class="cmd">
+  <a (click)="logIn()">Login</a>
+  <a (click)="getRecentFiles()">Get Recent Files</a>
+  <a (click)="createEvent()">Create Event</a>
+</div>
+<div class="files" *ngIf="recentFiles">
+  <div *ngFor="let f of recentFiles" class="items">
+    <span>{{ f.remoteItem.createdDateTime }}</span
+    ><span>{{ f.remoteItem.name }}</span>
+  </div>
+</div>
