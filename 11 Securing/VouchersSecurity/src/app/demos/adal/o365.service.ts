@@ -49,7 +49,7 @@ export class O365Service {
         }
       };
       this.httpClient
-        .post(`${environment.o365Endpoints.graphApiUri}${cal}`, opts)
+        .post(`${environment.o365Config.endpoints.graphApiUri}${cal}`, opts)
         .subscribe(data => console.log(data));
     });
   }

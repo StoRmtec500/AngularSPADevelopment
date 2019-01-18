@@ -21,7 +21,7 @@ export class AdalComponent implements OnInit {
 
   getRecentFiles() {
     this.service.query(
-      environment.o365Endpoints.graphApiUri,
+      environment.o365Config.endpoints.graphApiUri,
       "/v1.0/me/drive/recent",
       response => {
         this.recentFiles = response.value.slice(0, 9);
