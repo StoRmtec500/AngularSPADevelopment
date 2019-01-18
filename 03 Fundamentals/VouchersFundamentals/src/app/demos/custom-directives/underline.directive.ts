@@ -1,29 +1,41 @@
-import { Directive,  Renderer, ElementRef, Input, HostListener } from '@angular/core';
+import {
+  Directive,
+  Renderer,
+  ElementRef,
+  Input,
+  HostListener
+} from "@angular/core";
 
 @Directive({
-    selector: '[doUnderline]'
+  selector: "[doUnderline]"
 })
-export class UnderlineDirective{
-    @Input() doUnderline : string;
+export class UnderlineDirective {
+  @Input() doUnderline: string;
 
-    constructor(
-        private renderer: Renderer,
-        private el: ElementRef
-    ){}
-      
-    @HostListener('mouseenter') onMouseEnter() {
-        this.hover(true);
-    }
+  constructor(private renderer: Renderer, private el: ElementRef) {}
 
-    @HostListener('mouseleave') onMouseLeave() {
-        this.hover(false);
-    }   
-    
-    hover(underline: boolean){
-        if(underline){
-            this.renderer.setElementStyle(this.el.nativeElement, 'text-decoration', 'underline');
-        } else {
-            this.renderer.setElementStyle(this.el.nativeElement, 'text-decoration', 'none');
-        }
+  @HostListener("mouseenter") onMouseEnter() {
+    this.hover(true);
+  }
+
+  @HostListener("mouseleave") onMouseLeave() {
+    this.hover(false);
+  }
+
+  hover(underline: boolean) {
+    if (underline) {
+      this.renderer.setElementStyle(
+        this.el.nativeElement,
+        "text-decoration",
+        "underline"
+      );
+      this.renderer.setElementStyle(this.el.nativeElement, "cursor", "pointer");
+    } else {
+      this.renderer.setElementStyle(
+        this.el.nativeElement,
+        "text-decoration",
+        "none"
+      );
     }
+  }
 }

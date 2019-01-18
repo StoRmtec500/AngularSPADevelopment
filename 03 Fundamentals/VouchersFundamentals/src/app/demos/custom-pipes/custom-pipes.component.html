@@ -1,4 +1,16 @@
 <div class="section">
+  <h4>Checked Pipe</h4>
+  <label>Is Checked:</label> <input type="checkbox" [(ngModel)]="checked" />
+  <hr />
+  <span>Is selected: </span><span [innerHTML]="checked | checked"></span>
+</div>
+
+<div class="section">
+  <h4>Cust Currency Pipe</h4>
+  <label>Price: {{ price | toEuro }} </label>
+</div>
+
+<div class="section">
   <h4>Table</h4>
   <label style="width: 5%;">Filter:</label>
   <input type="text" [(ngModel)]="currentFilter" style="width: 94%;" />

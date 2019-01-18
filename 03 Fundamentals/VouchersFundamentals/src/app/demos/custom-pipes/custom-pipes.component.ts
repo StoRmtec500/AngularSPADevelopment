@@ -8,6 +8,8 @@ import { VouchersService } from "../../vouchers/voucher.service";
   styleUrls: ["./custom-pipes.component.css"]
 })
 export class CustomPipesComponent implements OnInit {
+  checked: boolean = false;
+  price: number = 12.33;
   vouchers: Voucher[];
 
   currentFilter: string;

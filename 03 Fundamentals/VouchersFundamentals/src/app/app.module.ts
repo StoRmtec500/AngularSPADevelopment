@@ -14,7 +14,6 @@ import { ContentProjectionComponent } from "./demos/content-projection/content-p
 import { DemoNavComponent } from "./demos/content-projection/demo-nav/demo-nav.component";
 import { EmployeeComponent } from "./demos/content-projection/employee/employee.component";
 import { CustomDirectivesComponent } from "./demos/custom-directives/custom-directives.component";
-import { HighlightDirective } from "./demos/custom-directives/highlight.directive";
 import { UnderlineDirective } from "./demos/custom-directives/underline.directive";
 import { CustomPipesComponent } from "./demos/custom-pipes/custom-pipes.component";
 import { VoucherFilterPipe } from "./demos/custom-pipes/voucher-filter.pipe";
@@ -38,14 +37,16 @@ import { VoucherDetailComponent } from "./vouchers/voucher/voucher-detail/vouche
 import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-list/voucher-details-list.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
+import { CheckPipe } from "./demos/custom-pipes/check.pipe";
 
 import localeDe from "@angular/common/locales/de";
+import { ToEuroPipe } from "./demos/custom-pipes/to-euro.pipe";
+import { EuroDirective } from "./demos/custom-directives/euro.directive";
 registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective,
     VouchersListComponent,
     AccountsComponent,
     VoucherComponent,
@@ -74,7 +75,10 @@ registerLocaleData(localeDe);
     ViewChildComponent,
     AlertComponent,
     AdminComponent,
-    DemoNavComponent
+    DemoNavComponent,
+    CheckPipe,
+    ToEuroPipe,
+    EuroDirective
   ],
   imports: [
     FormsModule,
