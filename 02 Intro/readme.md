@@ -48,29 +48,10 @@ launch.json
 ng serve --port 4300
 ```
 
-## Sample angular.json setting Sass & default spec options
+# Yarn
+
+Set cache location
 
 ```
-...
-"defaults": {
-    "styleExt": "scss",
-    "class": {
-      "spec": true
-    },
-    "component": {
-      "spec": false
-    },
-    "directive": {
-      "spec": false
-    },
-    "module": {
-      "spec": false
-    },
-    "pipe": {
-      "spec": false
-    },
-    "service": {
-      "spec": true
-    }
-  }
+yarn config set cache-folder <path>
 ```

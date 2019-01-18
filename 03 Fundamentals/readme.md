@@ -4,7 +4,7 @@
 npm i -g @angular/cli
 ```
 
-## No \*.spec creation
+## Sample angular.json setting Sass & default spec options
 
 Method 1:
 
@@ -41,12 +41,4 @@ Method 2: Permanently disable in `angular.json` file. You can edit the schematic
       "spec": false
     }
   }, ...
-```
-
-# Yarn
-
-Set cache location
-
-```
-yarn config set cache-folder <path>
 ```

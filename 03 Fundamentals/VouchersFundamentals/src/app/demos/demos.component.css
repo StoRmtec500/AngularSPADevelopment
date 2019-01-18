@@ -1,16 +1,39 @@
 a {
-    display: block;
-    text-decoration: none;    
-    cursor: pointer;
-    padding-bottom: 3px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 3px;
 }
 
-.panel {
-    background-color: white;    
-    padding: 20px;
+.spacer {
+  /* background-color: #f2f2f2; */
+  min-width: 15px;
 }
 
-.imgCell{
-    padding-top: 5px;
-    vertical-align: middle;
+.panelBox {
+  background-color: white;
+  padding: 20px;
+}
+
+.workbench {
+  min-height: 300px;
+  background-color: white;
+}
+
+.demoContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.demoMenu {
+  min-width: 190px;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.demoWorkbench {
+  min-width: 400px;
+  flex: 4;
+  flex-grow: 4;
 }

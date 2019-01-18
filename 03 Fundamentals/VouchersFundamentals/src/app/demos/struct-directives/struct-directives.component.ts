@@ -21,7 +21,7 @@ export class StructDirectivesComponent implements OnInit {
   direction = DirectionEnum;
 
   ngOnInit() {
-    this.vs.getVouchers().then(data => {
+    this.vs.getVouchers().subscribe(data => {
       this.vouchers = data;
     });
   }

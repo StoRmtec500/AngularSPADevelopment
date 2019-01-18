@@ -1,13 +1,13 @@
 [
   {
-    "url": "inline",
-    "title": "Inline Component",
-    "component": "InlineComponent"
-  },
-  {
     "url": "template",
     "title": "Template Component",
     "component": "TemplateComponent"
+  },
+  {
+    "url": "inline",
+    "title": "Inline Component",
+    "component": "InlineComponent"
   },
   {
     "url": "expressions",

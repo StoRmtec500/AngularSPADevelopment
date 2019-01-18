@@ -91,7 +91,6 @@ registerLocaleData(localeDe);
     BrowserAnimationsModule
   ],
   providers: [
-    VouchersService,
     PersonService
     // ,    { provide: LOCALE_ID, useValue: "en" }
   ],

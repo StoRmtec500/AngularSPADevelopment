@@ -20,7 +20,7 @@ export class DemosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.demoService.getItems().then(result => {
+    this.demoService.getItems().subscribe(result => {
       this.demos = result;
     });
 

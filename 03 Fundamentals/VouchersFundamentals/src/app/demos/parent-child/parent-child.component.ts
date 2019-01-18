@@ -14,7 +14,7 @@ export class ParentChildComponent implements OnInit {
   current: Person;
 
   ngOnInit() {
-    this.ps.getPersons().then(data => {
+    this.ps.getPersons().subscribe(data => {
       this.persons = data;
     });
   }

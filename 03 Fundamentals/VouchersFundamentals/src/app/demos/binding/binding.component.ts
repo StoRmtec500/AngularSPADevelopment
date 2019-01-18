@@ -1,43 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { Person } from '../persons/person';
-import { PersonService } from '../persons/person.service';
+import { Component, OnInit } from "@angular/core";
+import { Person } from "../persons/person";
+import { PersonService } from "../persons/person.service";
 
 @Component({
-  selector: 'app-binding',
-  templateUrl: './binding.component.html',
-  styleUrls: ['./binding.component.css']
+  selector: "app-binding",
+  templateUrl: "./binding.component.html",
+  styleUrls: ["./binding.component.css"]
 })
 export class BindingComponent implements OnInit {
+  constructor(private ps: PersonService) {}
 
-  constructor(private ps: PersonService) { }
-
-  hide: boolean = false;   
-  persons : Person[];
+  hide: boolean = false;
+  persons: Person[];
   selectedPerson: Person;
-  latePerson : Person;
+  latePerson: Person;
   isActive: boolean = false;
-  
-  ngOnInit() {   
-    this.ps.getPersons().then(data=>{
+
+  ngOnInit() {
+    this.ps.getPersons().subscribe(data => {
       this.persons = data;
       this.selectedPerson = this.persons[0];
-    })
-    setTimeout(()=>{
-      this.latePerson = {name: "Heidi", age: 13, gender:'female'};
-    }, 4000)
+    });
+    setTimeout(() => {
+      this.latePerson = { name: "Heidi", age: 13, gender: "female" };
+    }, 4000);
   }
 
-  toggleDisplay(){
+  toggleDisplay() {
     this.hide = !this.hide;
   }
 
-  handleChange(p: Person){
-    console.log("value received from eventbinding", p);    
+  handleChange(p: Person) {
+    console.log("value received from eventbinding", p);
   }
 
-  logChange(val){
+  logChange(val) {
     console.log(val);
   }
 }
-
-

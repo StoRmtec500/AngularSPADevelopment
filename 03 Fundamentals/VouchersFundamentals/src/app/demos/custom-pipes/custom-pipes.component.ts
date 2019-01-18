@@ -1,6 +1,6 @@
-import { VouchersService } from "../../vouchers/voucher.service";
-import { Voucher } from "../../shared/model/model";
 import { Component, OnInit } from "@angular/core";
+import { Voucher } from "../../shared/model/model";
+import { VouchersService } from "../../vouchers/voucher.service";
 
 @Component({
   selector: "app-custom-pipes",
@@ -15,7 +15,7 @@ export class CustomPipesComponent implements OnInit {
   constructor(private vs: VouchersService) {}
 
   ngOnInit() {
-    this.vs.getVouchers().then(data => (this.vouchers = data));
+    this.vs.getVouchers().subscribe(data => (this.vouchers = data));
   }
 
   showVoucher(id: number) {
