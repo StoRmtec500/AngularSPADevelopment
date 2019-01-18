@@ -15,7 +15,11 @@
     "title": "Angular Flex Layout",
     "component": "FlexLayoutComponent"
   },
-
+  {
+    "url": "cssgrid",
+    "title": "CSS Grid",
+    "component": "CssgridComponent"
+  },
   {
     "url": "material",
     "title": "Angular Material",

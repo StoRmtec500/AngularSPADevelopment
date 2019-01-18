@@ -20,6 +20,7 @@ import { FlexLayoutComponent } from "./demos/flex-layout/flex-layout.component";
 import { ChartingComponent } from "./demos/charting/charting.component";
 import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
 import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
+import { CssgridComponent } from "./demos/cssgrid/cssgrid.component";
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     children: [
       { path: "cssbasics", component: CSSBindingComponent },
       { path: "bootstrap", component: UsingBootstrapComponent },
+      { path: "cssgrid", component: CssgridComponent },
       { path: "material", component: UsingMaterialComponent },
       { path: "material-table", component: MaterialTableComponent },
       { path: "material-dialog", component: MaterialDialogComponent },

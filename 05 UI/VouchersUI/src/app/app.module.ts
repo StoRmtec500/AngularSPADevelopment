@@ -23,6 +23,7 @@ import { VoucherDetailsListComponent } from './vouchers/voucher/voucher-details-
 import { VoucherResolver } from './vouchers/voucher/voucher-resolver.service';
 import { VoucherComponent } from './vouchers/voucher/voucher.component';
 import { VouchersListComponent } from './vouchers/vouchers-list.component';
+import { CssgridComponent } from './demos/cssgrid/cssgrid.component';
 
 registerLocaleData(localeDe);
 
@@ -33,7 +34,8 @@ registerLocaleData(localeDe);
     AccountsComponent,
     VoucherComponent,
     VoucherDetailComponent,
-    VoucherDetailsListComponent  
+    VoucherDetailsListComponent,
+    CssgridComponent  
   ],
   imports: [
     FormsModule,
