@@ -1,12 +1,10 @@
-import { Http } from "@angular/http";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/filter";
-import { Voucher } from "../../shared/index";
 import { HttpResponse } from "@angular/common/http/src/response";
+import { Component, OnInit } from "@angular/core";
+import { Http } from "@angular/http";
+import { Voucher } from "../../shared/index";
 
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-http-clients",
@@ -14,7 +12,6 @@ import { HttpResponse } from "@angular/common/http/src/response";
   styleUrls: ["./http-clients.component.css"]
 })
 export class HttpClientsComponent implements OnInit {
-  
   result: any;
   fname: string;
 
@@ -23,7 +20,7 @@ export class HttpClientsComponent implements OnInit {
   ngOnInit() {}
 
   getVouchers() {
-    this.fname =  "getVouchers()";
+    this.fname = "getVouchers()";
 
     this.httpClient
       .get<Voucher[]>("http://localhost:5000/api/vouchers")
@@ -33,18 +30,18 @@ export class HttpClientsComponent implements OnInit {
   }
 
   getVouchersHttp() {
-    this.fname =  "getVouchersHttp()";
+    this.fname = "getVouchersHttp()";
 
     this.http
       .get("http://localhost:5000/api/vouchers")
-      .map(response => response.json())
+      .pipe(map(response => response.json()))
       .subscribe(data => {
         this.result = data;
       });
   }
 
   insertVoucher() {
-    this.fname =  "insertVoucher()";
+    this.fname = "insertVoucher()";
 
     var voucher = { Text: "Inserted by Angular HttpClient", Date: new Date() };
     this.httpClient
@@ -54,48 +51,48 @@ export class HttpClientsComponent implements OnInit {
       });
   }
 
-  observeResponse(){
-    this.fname =  "observeResponse()";
+  observeResponse() {
+    this.fname = "observeResponse()";
 
-      this.httpClient
-    .get("http://localhost:5000/api/vouchers", {      
-      observe: "response"
-    })
-    .toPromise()
-    .then((response : HttpResponse<any>) => {
-      console.log('Response using {observe: "response"}: ',response);
-      this.result = response;
-      let data = response.body;
-    });
+    this.httpClient
+      .get("http://localhost:5000/api/vouchers", {
+        observe: "response"
+      })
+      .toPromise()
+      .then((response: HttpResponse<any>) => {
+        console.log('Response using {observe: "response"}: ', response);
+        this.result = response;
+        let data = response.body;
+      });
   }
 
   usingHeadersHttpClient() {
-    this.fname =  "usingHeadersHttpClient()";
+    this.fname = "usingHeadersHttpClient()";
 
     var h = new HttpHeaders({
-      'Content-Type':  'application/json',
-      'UserEmail': 'alexander.pajer@integrations.at',
-      'SomeHeader' : 'SomeVal'
+      "Content-Type": "application/json",
+      UserEmail: "alexander.pajer@integrations.at",
+      SomeHeader: "SomeVal"
     });
-    
+
     h.set("abc", "def");
-    
+
     this.httpClient
-      .get("http://localhost:5000/api/vouchers", {headers: h})
+      .get("http://localhost:5000/api/vouchers", { headers: h })
       .toPromise()
       .then(data => {
-        console.log('Response using headers variable: ', data);
+        console.log("Response using headers variable: ", data);
         this.result = data;
       });
   }
 
-  usingInterceptor(){
-    this.fname =  "usingInterceptor()";
+  usingInterceptor() {
+    this.fname = "usingInterceptor()";
 
     this.httpClient
-    .get<Voucher[]>("http://localhost:5000/api/vouchers")
-    .subscribe(data => {
-      this.result = data;
-    });
+      .get<Voucher[]>("http://localhost:5000/api/vouchers")
+      .subscribe(data => {
+        this.result = data;
+      });
   }
 }

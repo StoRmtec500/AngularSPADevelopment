@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Http } from "@angular/http";
 import { VouchersService } from "../../vouchers/voucher.service";
-import { Observable } from "rxjs/Observable";
-import { Observer } from "rxjs";
 import { Voucher } from "../../shared/index";
 
 @Component({
@@ -16,7 +14,7 @@ export class ObservableCrudComponent implements OnInit {
     private httpClient: HttpClient,
     private http: Http,
     private vs: VouchersService
-  ) {  }
+  ) {}
 
   result: any;
   fname: string;
@@ -24,7 +22,7 @@ export class ObservableCrudComponent implements OnInit {
   ngOnInit() {}
 
   getVouchers() {
-    this.fname =  "getVouchers()";
+    this.fname = "getVouchers()";
 
     this.httpClient
       .get<Voucher[]>("http://localhost:5000/api/vouchers")
@@ -34,7 +32,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   getVoucher() {
-    this.fname =  "getVoucher()";
+    this.fname = "getVoucher()";
 
     this.httpClient
       .get<Voucher>("http://localhost:5000/api/vouchers/2")
@@ -44,7 +42,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   getVouchersTask() {
-    this.fname =  "getVouchersTask()";
+    this.fname = "getVouchersTask()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/asyncArray")
@@ -55,7 +53,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   insertVoucher() {
-    this.fname =  "insertVoucher()";
+    this.fname = "insertVoucher()";
 
     var voucher = { Text: "Inserted by Angular", Date: new Date() };
     console.log("Voucher to insert: ", voucher);
@@ -67,7 +65,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   updateVoucher() {
-    this.fname =  "updateVoucher()";
+    this.fname = "updateVoucher()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/2")
@@ -84,7 +82,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   deleteVoucher() {
-    this.fname =  "deleteVoucher()";
+    this.fname = "deleteVoucher()";
 
     var id = 1002;
     var url = "http://localhost:5000/api/vouchers/" + id;
@@ -95,7 +93,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   getSum() {
-    this.fname =  "getSum()";
+    this.fname = "getSum()";
 
     this.http
       .get("http://localhost:5000/api/vouchers/getsum/true")
@@ -106,7 +104,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   getVM() {
-    this.fname =  "getVM()";
+    this.fname = "getVM()";
 
     this.httpClient
       .get("http://localhost:5000/api/vouchers/getvm/1")
@@ -116,7 +114,7 @@ export class ObservableCrudComponent implements OnInit {
   }
 
   doSave() {
-    this.fname =  "doSave()";
+    this.fname = "doSave()";
 
     let voucher = {
       ID: 2,

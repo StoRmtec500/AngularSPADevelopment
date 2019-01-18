@@ -7,7 +7,6 @@ import { RouterModule } from "@angular/router";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 import { MaterialModule } from "../material.module";
-import { CalculatorComponent } from "../shared/calculator/calculator.component";
 import { SharedModule } from "../shared/shared.module";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
