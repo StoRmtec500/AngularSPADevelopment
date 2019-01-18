@@ -1,24 +1,17 @@
 .cmd {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: lavender;
+  flex-direction: column;
   cursor: pointer;
 }
 
 .files {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
-  padding: 0.5rem;
-  background-color: lavender;
+  margin-top: 1rem;
 
   .items {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0.5rem;
   }
 }

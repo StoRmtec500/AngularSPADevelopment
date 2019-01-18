@@ -9,9 +9,8 @@ import { AuthService } from "../auth/auth.service";
 })
 export class NavbarComponent implements OnInit {
   rootRoutes: Route[];
-  currentUser: firebase.User;
 
-  constructor(private router: Router, private as: AuthService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.rootRoutes = this.router.config.filter(
@@ -20,6 +19,5 @@ export class NavbarComponent implements OnInit {
         item.path.includes("*") == false &&
         item.outlet == null
     );
-    this.as.User.subscribe(user => (this.currentUser = user));
   }
 }

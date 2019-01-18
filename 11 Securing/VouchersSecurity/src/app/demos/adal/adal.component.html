@@ -5,7 +5,7 @@
 </div>
 <div class="files" *ngIf="recentFiles">
   <div *ngFor="let f of recentFiles" class="items">
-    <span>{{ f.remoteItem.createdDateTime }}</span
-    ><span>{{ f.remoteItem.name }}</span>
+    <span>{{ f.remoteItem.name }}</span
+    ><span>{{ f.remoteItem.createdDateTime | date: "long" }}</span>
   </div>
 </div>

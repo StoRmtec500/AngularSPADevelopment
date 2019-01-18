@@ -26,25 +26,19 @@ export class O365Service {
 
   query(endpoint: any, query: string, callback) {
     this.adalSvc.acquireToken("graphApiUri").subscribe((token: string) => {
-      console.log("Aquired Ressource Token:", token);
-      let opts = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/json"
-        }
-      };
+      environment.token = token;
       this.httpClient
-        .get(`${endpoint}${query}`, opts)
+        .get(`${endpoint}${query}`)
         .subscribe(data => callback(data));
     });
   }
 
   createEvent(item, cal) {
     this.adalSvc.acquireToken("graphApiUri").subscribe((token: string) => {
-      console.log("Aquired Ressource Token:", token);
+      environment.token = token;
       let opts = {
         headers: {
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
           Accept: "application/json"
         }
       };

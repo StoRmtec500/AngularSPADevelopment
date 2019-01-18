@@ -19,7 +19,6 @@ import { SidePanelComponent } from "./side-panel/side-panel.component";
 import { UploadComponent } from "./upload/upload.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
-import { LogoffComponent } from "./auth/logoff/logoff.component";
 
 const sharedComponents = [
   UploadComponent,
@@ -32,8 +31,7 @@ const sharedComponents = [
   KpiBarComponent,
   CKEditorComponent,
   LoginComponent,
-  RegisterComponent,
-  LogoffComponent
+  RegisterComponent
 ];
 
 @NgModule({
