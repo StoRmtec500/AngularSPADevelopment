@@ -5,11 +5,17 @@ import { PersonService } from "../person.service";
 @Component({
   selector: "app-flex-layout",
   templateUrl: "./flex-layout.component.html",
-  styleUrls: ["./flex-layout.component.css"]
+  styleUrls: ["./flex-layout.component.scss"]
 })
 export class FlexLayoutComponent implements OnInit {
   persons: Person[];
-  current: Person = <Person>{id: 0, name: "", age: 0, gender:'female', email: ''};
+  current: Person = <Person>{
+    id: 0,
+    name: "",
+    age: 0,
+    gender: "female",
+    email: ""
+  };
 
   constructor(private ps: PersonService) {}
 

@@ -4,11 +4,18 @@
     "title": "CSS Basics",
     "component": "CSSBindingComponent"
   },
+  { "url": "flexbox", "title": "CSS Flexbox", "component": "FlexboxComponent" },
   {
-    "url": "bootstrap",
-    "title": "Bootstrap",
-    "component": "UsingBootstrapComponent"
+    "url": "flexmediaq",
+    "title": "Flexbox Media Query",
+    "component": "FlexMediaQueryComponent"
   },
+  {
+    "url": "flexlayout",
+    "title": "Angular Flex Layout",
+    "component": "FlexLayoutComponent"
+  },
+
   {
     "url": "material",
     "title": "Angular Material",
@@ -24,17 +31,7 @@
     "title": "Material Dialog",
     "component": "MaterialDialogComponent"
   },
-  { "url": "flexbox", "title": "CSS Flexbox", "component": "FlexboxComponent" },
-  {
-    "url": "flexmediaq",
-    "title": "Flexbox Media Query",
-    "component": "FlexMediaQueryComponent"
-  },
-  {
-    "url": "flexlayout",
-    "title": "Angular Flex Layout",
-    "component": "FlexLayoutComponent"
-  },
+
   {
     "url": "dragdrop",
     "title": "Drag & Drop",
@@ -44,6 +41,11 @@
     "url": "virtualscroll",
     "title": "VirtualScroll",
     "component": "VirtualScrollComponent"
+  },
+  {
+    "url": "bootstrap",
+    "title": "Bootstrap",
+    "component": "UsingBootstrapComponent"
   },
   {
     "url": "thirdparty",
