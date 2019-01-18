@@ -9,11 +9,13 @@ import { HttpClient } from "@angular/common/http";
 export class FirebaseComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
+  auth: boolean = true;
+
   ngOnInit() {}
 
   resp: any;
 
-  callWS() {
+  callCoreApi() {
     this.resp = null;
     this.httpClient
       .get("http://localhost:5000/api/secure")

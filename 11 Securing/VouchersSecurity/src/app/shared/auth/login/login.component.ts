@@ -26,8 +26,4 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-
-  logOut() {
-    this.auth.logOff();
-  }
 }

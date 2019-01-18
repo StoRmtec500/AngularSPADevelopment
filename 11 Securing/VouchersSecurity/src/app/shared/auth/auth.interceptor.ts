@@ -1,13 +1,10 @@
-import { Observable } from "rxjs";
-import { Error } from "tslint/lib/error";
 import {
   HttpEvent,
   HttpHandler,
-  HttpHeaders,
   HttpInterceptor,
   HttpRequest
 } from "@angular/common/http";
-import { AuthService } from "./auth.service";
+import { Observable } from "rxjs";
 import { environment } from "../../../environments/environment";
 
 export class AuthInterceptor implements HttpInterceptor {
