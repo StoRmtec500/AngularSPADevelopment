@@ -1,26 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { BehaviorSubject, Subject } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
-import { CmdItem } from '../side-panel/cmd-item';
-
+import { BehaviorSubject, Subject, Observable } from "rxjs";
+import { CmdItem } from "../side-panel/cmd-item";
 
 @Injectable()
 export class EventBusService {
-  
-  private commands: BehaviorSubject<CmdItem[] | null> = new BehaviorSubject(null);
+  private commands: BehaviorSubject<CmdItem[] | null> = new BehaviorSubject(
+    null
+  );
   Commands: Observable<CmdItem[]> = this.commands.asObservable();
 
-  private panel: Subject<string> = new Subject<string>()
+  private panel: Subject<string> = new Subject<string>();
   Panel = this.panel.asObservable();
 
-  constructor() { }
+  constructor() {}
 
-  setCmds(items: CmdItem[]){
+  setCmds(items: CmdItem[]) {
     this.commands.next(items);
   }
 
-  triggerCmd(action: string){
+  triggerCmd(action: string) {
     this.panel.next(action);
   }
 }

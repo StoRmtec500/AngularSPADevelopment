@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { map, filter, skip, count } from "rxjs/operators";
 
 import { lateVoucher } from "./late-voucher";

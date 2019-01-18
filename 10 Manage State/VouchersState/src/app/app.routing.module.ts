@@ -12,13 +12,19 @@ import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { SimpleCalcComponent } from "./demos/ngrx/simple.calc.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { StatefulComponent } from "./demos/stateful/stateful.component";
+import { EvtBusComponent } from "./demos/evt-bus/evt-bus.component";
 
 const appRoutes: Routes = [
   {
     path: "",
     component: DemosComponent,
     data: { title: "Demos" },
-    children: [{ path: "ngrx", component: SimpleCalcComponent }]
+    children: [
+      { path: "stateful", component: StatefulComponent },
+      { path: "evtbus", component: EvtBusComponent },
+      { path: "ngrx", component: SimpleCalcComponent }
+    ]
   },
   {
     path: "vouchers",

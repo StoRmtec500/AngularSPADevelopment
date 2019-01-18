@@ -1,3 +1,13 @@
 [
-    {"url": "ngrx", "title": "Using NgRX Store", "component": "SimpleCalcComponent"}
+  {
+    "url": "stateful",
+    "title": "Stateful Service",
+    "component": "StatefulComponent"
+  },
+  { "url": "evtbus", "title": "Event Bus", "component": "EvtBusComponent" },
+  {
+    "url": "ngrx",
+    "title": "Using NgRX Store",
+    "component": "SimpleCalcComponent"
+  }
 ]
