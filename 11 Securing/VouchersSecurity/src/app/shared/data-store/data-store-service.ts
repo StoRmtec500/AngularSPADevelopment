@@ -1,12 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { BehaviorSubject } from "rxjs";
-import { map, filter, skip, count } from "rxjs/operators";
-
-import { lateVoucher } from "./late-voucher";
-import { VouchersService } from "../../vouchers/voucher.service";
-import { Voucher, BalanceAccount } from "..";
+import { BehaviorSubject, Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { BalanceAccount, Voucher } from "..";
 import { AccountsService } from "../../accounts/account.service";
+import { VouchersService } from "../../vouchers/voucher.service";
+import { lateVoucher } from "./late-voucher";
 
 @Injectable()
 export class DataStoreService {

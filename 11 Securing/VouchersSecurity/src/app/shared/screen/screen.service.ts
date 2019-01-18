@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Route, Router, RouterEvent } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
-import { Observable } from "rxjs/Observable";
-import { Subscription } from "rxjs/Subscription";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 
 @Injectable()
