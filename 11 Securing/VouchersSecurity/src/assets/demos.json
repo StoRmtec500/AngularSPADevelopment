@@ -7,6 +7,11 @@
   {
     "url": "firebase",
     "title": "Use Tokens from Firebase",
-    "component": "firebase"
+    "component": "FirebaseComponent"
+  },
+  {
+    "url": "adal",
+    "title": "Use Office 365 - ADAL",
+    "component": "AdalComponent"
   }
 ]

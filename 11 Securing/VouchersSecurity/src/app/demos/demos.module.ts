@@ -10,6 +10,7 @@ import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
 import { WinAuthComponent } from "./winauth/winauth.component";
 import { FirebaseComponent } from "./firebase/firebase.component";
+import { AdalComponent } from './adal/adal.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { FirebaseComponent } from "./firebase/firebase.component";
     SharedModule,
     MaterialModule
   ],
-  declarations: [DemosComponent, WinAuthComponent, FirebaseComponent],
+  declarations: [DemosComponent, WinAuthComponent, FirebaseComponent, AdalComponent],
   providers: [DemoService]
 })
 export class DemosModule {}

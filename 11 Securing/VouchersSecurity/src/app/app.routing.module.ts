@@ -12,6 +12,7 @@ import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { WinAuthComponent } from "./demos/winauth/winauth.component";
 import { FirebaseComponent } from "./demos/firebase/firebase.component";
+import { AdalComponent } from "./demos/adal/adal.component";
 
 const appRoutes: Routes = [
   {
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     data: { title: "Demos" },
     children: [
       { path: "winauth", component: WinAuthComponent },
-      { path: "firebase", component: FirebaseComponent }
+      { path: "firebase", component: FirebaseComponent },
+      { path: "adal", component: AdalComponent }
     ]
   },
   {
