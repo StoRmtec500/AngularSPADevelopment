@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
-import { Observable } from "rxjs/Observable";
+import { Voucher } from "../shared/index";
+import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
-import { Voucher } from "../shared";
 
 @Injectable()
 export class VouchersService {

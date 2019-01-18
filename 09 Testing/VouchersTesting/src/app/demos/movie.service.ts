@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 
 import { MovieGenerator } from "./movie-generator";
-import { Observable } from "rxjs/Observable";
 import { Observer, BehaviorSubject } from "rxjs";
 import { Movie } from "./movie";
 

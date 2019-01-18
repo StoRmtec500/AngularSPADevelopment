@@ -5,15 +5,12 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-
 import { MaterialModule } from "../material.module";
-import { CalculatorComponent } from "../shared/calculator/calculator.component";
 import { SharedModule } from "../shared/shared.module";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
 import { MovieService } from "./movie.service";
 import { PersonService } from "./person.service";
-import { ReactiveValidationComponent } from "./reactive-validation/reactive-validation.component";
 
 @NgModule({
   imports: [
@@ -27,10 +24,7 @@ import { ReactiveValidationComponent } from "./reactive-validation/reactive-vali
     MaterialModule,
     NgxChartsModule
   ],
-  declarations: [
-    DemosComponent,    
-    ReactiveValidationComponent,
-  ],
+  declarations: [DemosComponent],
   providers: [DemoService, MovieService, PersonService]
 })
 export class DemosModule {}

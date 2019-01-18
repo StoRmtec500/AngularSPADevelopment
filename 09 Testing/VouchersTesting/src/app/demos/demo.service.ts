@@ -1,19 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import * as url from 'url';
-import { DemoItem } from './demoItem';
-import { Injectable } from '@angular/core';
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient } from "@angular/common/http";
+import { DemoItem } from "./demoItem";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class DemoService {
+  private items: DemoItem[];
 
-    private items: DemoItem [] ;
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) { }
-
-    getItems() : Promise<any> {
-        return this.http.get('/assets/demos.json').toPromise();          
-    }
+  getItems(): Promise<any> {
+    return this.http.get("/assets/demos.json").toPromise();
+  }
 }
