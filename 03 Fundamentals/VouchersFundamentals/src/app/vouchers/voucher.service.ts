@@ -10,8 +10,6 @@ import { map } from "rxjs/operators";
 export class VouchersService {
   constructor(private http: HttpClient) {}
 
-  vouchers = null;
-
   getVouchers(): Observable<Voucher[]> {
     return this.http.get<Voucher[]>("/assets/vouchers.json");
   }

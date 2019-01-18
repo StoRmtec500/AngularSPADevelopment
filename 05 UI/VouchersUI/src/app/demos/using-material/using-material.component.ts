@@ -1,18 +1,4 @@
-import { Http } from "@angular/http";
-import { Component, ElementRef, ViewChild, OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import {
-  MatSidenav,
-  MatSidenavContainer,
-  MatList,
-  MatToolbar,
-  MatIcon,
-  MatMenu,
-  MatCard,
-  MatFormField
-} from "@angular/material";
-import { Voucher } from "../../shared/index";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-using-material",
@@ -24,7 +10,7 @@ export class UsingMaterialComponent implements OnInit {
   count = 3;
   public images = ["giraffe", "monkey", "elefant"];
 
-  constructor(private http: Http) {}
+  constructor() {}
 
   ngOnInit() {}
 
