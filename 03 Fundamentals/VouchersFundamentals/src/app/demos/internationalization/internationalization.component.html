@@ -1,9 +1,11 @@
 <div class="section">
-  <h4>Person Card - Internationalization</h4>
+  <h4>Internationalization</h4>
   Person: {{ person.name }}, {{ person.age }}<br />
   Salery: {{ person.salery | currency }}<br />
-  Salery: {{ person.salery | currency: "EUR":true }}<br />
-  Salery: € {{ person.salery | number: "1.2-2" }}<br />
+  Salery with fixed Currency Symbol: {{ person.salery | currency: "EUR":true
+  }}<br />
+  Salery with fixed Currency Symbol: € {{ person.salery | number: "1.2-2"
+  }}<br />
   DoB: {{ person.dateOfBirth | date: "longDate" }}<br />
 
   <hr />

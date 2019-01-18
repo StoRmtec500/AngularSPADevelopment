@@ -1,6 +1,5 @@
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-import localeDe from "@angular/common/locales/de";
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -21,7 +20,6 @@ import { CustomPipesComponent } from "./demos/custom-pipes/custom-pipes.componen
 import { VoucherFilterPipe } from "./demos/custom-pipes/voucher-filter.pipe";
 import { DemosComponent } from "./demos/demos.component";
 import { DirectivesComponent } from "./demos/directives/directives.component";
-
 import { ExpressionsComponent } from "./demos/expressions/expressions.component";
 import { InlineComponent } from "./demos/inline/inline.component";
 import { InternationalizationComponent } from "./demos/internationalization/internationalization.component";
@@ -35,22 +33,19 @@ import { StructDirectivesComponent } from "./demos/struct-directives/struct-dire
 import { TemplateComponent } from "./demos/template/template.component";
 import { AlertComponent } from "./demos/view-child/alert/alert.component";
 import { ViewChildComponent } from "./demos/view-child/view-child.component";
-
 import { NavbarComponent } from "./shared/index";
-import { MatchHeightDirective } from "./shared/match-height/match-height.directive";
-import { VouchersService } from "./vouchers/voucher.service";
 import { VoucherDetailComponent } from "./vouchers/voucher/voucher-detail/voucher-detail.component";
 import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-list/voucher-details-list.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 
+import localeDe from "@angular/common/locales/de";
 registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    MatchHeightDirective,
     VouchersListComponent,
     AccountsComponent,
     VoucherComponent,
@@ -74,7 +69,6 @@ registerLocaleData(localeDe);
     ContentProjectionComponent,
     EmployeeComponent,
     NavbarComponent,
-    MatchHeightDirective,
     RepeaterComponent,
     ParentChildComponent,
     ViewChildComponent,
@@ -90,10 +84,8 @@ registerLocaleData(localeDe);
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [
-    PersonService
-    // ,    { provide: LOCALE_ID, useValue: "en" }
-  ],
+  // providers: [PersonService],
+  providers: [PersonService, { provide: LOCALE_ID, useValue: "de" }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

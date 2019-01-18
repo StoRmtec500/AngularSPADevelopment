@@ -1,15 +1,19 @@
 <div class="section">
-    <h4>
-        <a (click)="changeColor()">Change Color</a>
-    </h4>
-    <div [ngStyle]="{'margin-top': '10px', 'color': 'white', 'background-color': bgcolor}">{{msg}}</div>
+  <h4>
+    <a (click)="changeColor()">Change Color using ngStyle and prop (bgcolor)</a>
+  </h4>
+  <div
+    [ngStyle]="{
+      'margin-top': '10px',
+      color: 'white',
+      'background-color': bgcolor
+    }"
+  >
+    {{ msg }}
+  </div>
 
-    <h4>
-        <a (click)="changeClass()">Change CSS Class</a>
-    </h4>
-    <div>
-        <div [ngClass]="getClass()"></div>
-    </div>
-
-
+  <h4>
+    <a (click)="changeClass()">Change CSS Class using ngClass and method</a>
+  </h4>
+  <div><div [ngClass]="getClass()"></div></div>
 </div>

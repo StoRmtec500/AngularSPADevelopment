@@ -1,8 +1,14 @@
 <div *ngIf="selectedPerson != null">
   <div class="section">
-    <h4>Person Card - One way binding</h4>
+    <h4>Simple Person Card - One way binding</h4>
     <div>
-      <span> <img width="30%" [src]="selectedPerson.imgUrl" /> </span>
+      <span>
+        <img
+          width="120px"
+          *ngIf="selectedPerson.imgUrl"
+          [src]="selectedPerson.imgUrl"
+        />
+      </span>
       <span> Person: {{ selectedPerson.name }}, {{ selectedPerson.age }} </span>
     </div>
   </div>
@@ -35,26 +41,6 @@
 
     <input type="text" id="lblTwoWay" [(ngModel)]="selectedPerson.name" />
     <label for="lblTwoWay">Two Way (Model) Binding</label> <br />
-
-    <!--
-      <input
-        type="text"
-        id="lblngModelChange"
-        [ngModel]="selectedPerson.name"
-        (ngModelChange)="logChange($event)"
-      />
-      <label for="lblOneWayModel">Track Change using ngModelChange</label> <br />
-
-      <input
-        type="text"
-        id="lblEvtBinding"
-        [value]="selectedPerson.name"
-        (keyup.enter)="person.name = $event.target.value"
-      />
-      <label for="lblEvtBinding"
-        >Two way using Evt Binding with expression - depends on enter key</label
-      >
-    -->
   </div>
 
   <div class="section">
@@ -74,6 +60,15 @@
     />
     Female <br />
     {{ selectedPerson.name }} is {{ selectedPerson.gender }}
+  </div>
+
+  <div class="section">
+    <h4>Bindings Select</h4>
+    <select [(ngModel)]="selectedPerson">
+      <option *ngFor="let p of persons" [ngValue]="p">{{ p.name }}</option>
+    </select>
+    <br />
+    You selected: {{ selectedPerson.name }}
   </div>
 
   <div class="section">
@@ -100,14 +95,5 @@
     <h4>Bindings Checkboxes</h4>
     <input type="checkbox" name="isActive" [(ngModel)]="isActive" /> <br />
     Current State: {{ isActive }}
-  </div>
-
-  <div class="section">
-    <h4>Bindings Select</h4>
-    <select [(ngModel)]="selectedPerson">
-      <option *ngFor="let p of persons" [ngValue]="p">{{ p.name }}</option>
-    </select>
-    <br />
-    You selected: {{ selectedPerson.name }}
   </div>
 </div>
