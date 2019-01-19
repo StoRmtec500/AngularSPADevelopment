@@ -2,10 +2,11 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { BehaviorSubject, Observable, of } from "rxjs";
 import { environment } from "../../../environments/environment";
+import { SnackbarService } from "../snackbar/snackbar.service";
 
 @Injectable()
 export class AuthService {
-  constructor(private fireAuth: AngularFireAuth) {
+  constructor(private fireAuth: AngularFireAuth, private sns: SnackbarService) {
     this.fireAuth.auth.onAuthStateChanged(user => {
       this.setUserToken(user);
     });
@@ -63,9 +64,9 @@ export class AuthService {
   logOff() {
     this.fireAuth.auth
       .signOut()
-      .then(loggedOut => {
+      .then(() => {
         this.setUserToken(null);
-        console.log("Logged out", "Come back and visit soon");
+        this.sns.displayAlert("Logged out", "Come back and visit soon");
       })
       .catch(err => console.log("Error logging out", err));
   }

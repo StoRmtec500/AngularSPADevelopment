@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { SnackbarService } from "../../shared/snackbar/snackbar.service";
 
 @Component({
   selector: "app-using-material",
@@ -10,11 +11,15 @@ export class UsingMaterialComponent implements OnInit {
   count = 3;
   public images = ["giraffe", "monkey", "elefant"];
 
-  constructor() {}
+  constructor(private sns: SnackbarService) {}
 
   ngOnInit() {}
 
   incrementCt() {
     this.count = this.count + 1;
+  }
+
+  onLike() {
+    this.sns.displayAlert("Great", "Thank you for liking ...");
   }
 }
