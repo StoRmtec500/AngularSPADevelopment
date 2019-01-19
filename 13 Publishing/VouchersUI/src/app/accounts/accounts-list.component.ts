@@ -37,9 +37,10 @@ export class AccountsListComponent implements OnInit {
   }
 
   deleteAcccount(acct: BalanceAccount) {
-    this.store.deleteAccount(acct).then(() =>
+    this.store.deleteAccount(acct).then(() => {
       this.sns.displayAlert("Accout deleted", "Vouchers");
       this.router.navigate(["/accounts/"]);
+    });
   }
 
   addAccount() {
