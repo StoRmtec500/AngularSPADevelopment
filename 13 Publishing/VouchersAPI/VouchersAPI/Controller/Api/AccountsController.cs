@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Vouchers
 {
+    // [Authorize]
     [Route("api/[controller]")]
     public class AccountsController : Microsoft.AspNetCore.Mvc.Controller
     {

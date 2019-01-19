@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Vouchers.Controller.Api
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class FilesController : Microsoft.AspNetCore.Mvc.Controller
     {
