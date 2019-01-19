@@ -48,17 +48,19 @@ namespace Vouchers
             services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 
             //Firebase
+            var fbrealm = configuration["Authentication:Firebase:Realm"];
+
             services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
-                options.Authority = "https://securetoken.google.com/angulardemo-1a474";
+                options.Authority = "https://securetoken.google.com/" + fbrealm;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
-                    ValidIssuer = "https://securetoken.google.com/angulardemo-1a474",
+                    ValidIssuer = "https://securetoken.google.com/" + fbrealm,
                     ValidateAudience = true,
-                    ValidAudience = "angulardemo-1a474",
+                    ValidAudience = fbrealm,
                     ValidateLifetime = true
                 };
             });

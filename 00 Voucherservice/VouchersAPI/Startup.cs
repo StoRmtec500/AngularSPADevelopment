@@ -154,7 +154,7 @@ namespace Vouchers
             app.UseCors("AllowAll");
 
             //Auth
-            app.UseAuthentication();
+            // app.UseAuthentication();
 
             app.UseMvc();
         }
