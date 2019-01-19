@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { BalanceAccount } from '../../shared';
-import { DataStoreService } from '../../shared/data-store/data-store-service';
-import { ACCOUNT_CANCEL, ACCOUNT_SAVE } from '../../shared/event-bus/action.types';
-import { EventBusService } from '../../shared/event-bus/event-bus.service';
-import { IconCancel, IconSave } from '../../shared/table/cmd.type';
-import { AccountsService } from '../account.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { BalanceAccount } from "../../shared";
+import { DataStoreService } from "../../shared/data-store/data-store-service";
+import {
+  ACCOUNT_CANCEL,
+  ACCOUNT_SAVE
+} from "../../shared/event-bus/action.types";
+import { EventBusService } from "../../shared/event-bus/event-bus.service";
+import { IconCancel, IconSave } from "../../shared/table/cmd.type";
+import { SnackbarService } from "src/app/shared/snackbar/snackbar.service";
 
 @Component({
   selector: "app-account-detail",
@@ -16,12 +18,12 @@ import { AccountsService } from '../account.service';
 })
 export class AccountDetailComponent implements OnInit {
   constructor(
-    private service: AccountsService,
     private store: DataStoreService,
     private eb: EventBusService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sns: SnackbarService
   ) {}
 
   acctForm: FormGroup;
@@ -64,7 +66,7 @@ export class AccountDetailComponent implements OnInit {
 
   getAcct() {
     let id = this.route.snapshot.params["id"];
-    this.store.getAccountById(id).subscribe(data=> this.account = data);
+    this.store.getAccountById(id).subscribe(data => (this.account = data));
   }
 
   initForm() {
@@ -75,7 +77,9 @@ export class AccountDetailComponent implements OnInit {
     });
   }
 
-  saveAccount(){
-
+  private saveAccount() {
+    this.store
+      .saveAccount(<BalanceAccount>this.acctForm.value)
+      .then(() => this.sns.displayAlert("Accout saved", "Vouchers"));
   }
 }

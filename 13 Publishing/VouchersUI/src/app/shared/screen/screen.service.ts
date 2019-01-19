@@ -16,26 +16,26 @@ export class ScreenService {
   isTablet: boolean;
 
   constructor(private router: Router, private obsMedia: ObservableMedia) {
-    this.subscribeDemo();
+    // this.subscribeDemo();
     this.subscribeIsPhone();
   }
 
-  subscribeDemo() {
-    let children = this.router.config[0].children.map((item: Route) => {
-      return item.path;
-    });
+  // subscribeDemo() {
+  //   let children = this.router.config[0].children.map((item: Route) => {
+  //     return item.path;
+  //   });
 
-    this.router.events.subscribe((evt: RouterEvent) => {
-      if (evt.url != undefined) {
-        let isChildRoute =
-          children.find(item => evt.url.includes(item)) != undefined;
+  //   this.router.events.subscribe((evt: RouterEvent) => {
+  //     if (evt.url != undefined) {
+  //       let isChildRoute =
+  //         children.find(item => evt.url.includes(item)) != undefined;
 
-        evt.url == "/" || isChildRoute
-          ? this.demo.next(true)
-          : this.demo.next(false);
-      }
-    });
-  }
+  //       evt.url == "/" || isChildRoute
+  //         ? this.demo.next(true)
+  //         : this.demo.next(false);
+  //     }
+  //   });
+  // }
 
   subscribeIsPhone() {
     this.watcher = this.obsMedia.subscribe((change: MediaChange) => {

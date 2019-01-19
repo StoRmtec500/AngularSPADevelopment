@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-
 import { AccountDetailComponent } from "./accounts/account-detail/account-detail.component";
 import { AccountsListComponent } from "./accounts/accounts-list.component";
 import { DemosComponent } from "./demos/demos.component";
@@ -10,21 +9,8 @@ import { UploadComponent } from "./shared/upload/upload.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
-import { WinAuthComponent } from "./demos/winauth/winauth.component";
-import { FirebaseComponent } from "./demos/firebase/firebase.component";
-import { AdalComponent } from "./demos/adal/adal.component";
 
 const appRoutes: Routes = [
-  {
-    path: "",
-    component: DemosComponent,
-    data: { title: "Demos" },
-    children: [
-      { path: "winauth", component: WinAuthComponent },
-      { path: "firebase", component: FirebaseComponent },
-      { path: "adal", component: AdalComponent }
-    ]
-  },
   {
     path: "vouchers",
     data: { title: "Vouchers" },
@@ -53,6 +39,11 @@ const appRoutes: Routes = [
     loadChildren: "./admin/admin.module#AdminModule",
     data: { title: "Admin" },
     canActivate: [RouteGuard]
+  },
+  {
+    path: "",
+    redirectTo: "vouchers",
+    pathMatch: "full"
   },
   { path: "showeditor", component: EditorComponent, outlet: "sidebarOutlet" },
   { path: "upload", component: UploadComponent, outlet: "sidebarOutlet" },

@@ -22,21 +22,17 @@ export class AccountsService {
     );
   }
 
-  insertAccount(acct: BalanceAccount): void {
-    this.httpClient
-      .post(environment.apiUrl + "api/accounts", acct)
-      .subscribe(() => console.log("acct inserted"));
+  insertAccount(acct: BalanceAccount): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "api/accounts", acct);
   }
 
-  updateAccount(acct: BalanceAccount) {
-    this.httpClient
-      .put(environment.apiUrl + "api/accounts", acct)
-      .subscribe(() => console.log("acct updated"));
+  updateAccount(acct: BalanceAccount): Observable<any> {
+    return this.httpClient.put(environment.apiUrl + "api/accounts", acct);
   }
 
-  deleteAccount(acct: BalanceAccount): void {
-    this.httpClient
-      .delete(environment.apiUrl + "api/accounts/" + acct.ID)
-      .subscribe(() => console.log("acct deleted"));
+  deleteAccount(acct: BalanceAccount): Observable<any> {
+    return this.httpClient.delete(
+      environment.apiUrl + "api/accounts/" + acct.ID
+    );
   }
 }

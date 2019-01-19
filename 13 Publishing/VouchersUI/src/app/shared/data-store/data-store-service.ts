@@ -43,16 +43,40 @@ export class DataStoreService {
     return this.vouchers.pipe(map(m => m.find(mi => mi.ID == id)));
   }
 
-  insertVoucher(v: Voucher): any {
-    throw new Error("Method not implemented.");
-  }
-  updateVoucher(v: Voucher): any {
-    throw new Error("Method not implemented.");
+  insertVoucher(v: Voucher): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.insertVoucher(v).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
   }
 
-  deleteVoucher(id: number) {
-    this.vs.deleteVoucher(id);
-    this.initVouchers();
+  updateVoucher(v: Voucher): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.updateVoucher(v).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
+  }
+
+  deleteVoucher(id: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.deleteVoucher(id).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
   }
 
   //Accounts
@@ -76,13 +100,39 @@ export class DataStoreService {
     return this.accounts.pipe(map(m => m.find(mi => mi.ID == id)));
   }
 
-  saveAccount(account: BalanceAccount) {
-    console.log(account);
+  deleteAccount(account: BalanceAccount): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.as.deleteAccount(account).subscribe(
+        () => {
+          this.initAccounts();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
+  }
+
+  saveAccount(account: BalanceAccount): Promise<void> {
     if (account.ID == 0) {
-      this.as.insertAccount(account);
+      return new Promise<void>((resolve, reject) => {
+        this.as.insertAccount(account).subscribe(
+          () => {
+            this.initAccounts();
+            resolve();
+          },
+          err => reject(err)
+        );
+      });
     } else {
-      this.as.updateAccount(account);
+      return new Promise<void>((resolve, reject) => {
+        this.as.updateAccount(account).subscribe(
+          () => {
+            this.initAccounts();
+            resolve();
+          },
+          err => reject(err)
+        );
+      });
     }
-    this.initAccounts();
   }
 }

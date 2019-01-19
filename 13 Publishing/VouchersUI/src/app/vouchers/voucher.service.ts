@@ -18,27 +18,21 @@ export class VouchersService {
     );
   }
 
-  insertVoucher(voucher: Voucher): void {
-    this.httpClient
-      .post<Voucher>(environment.apiUrl + "api/vouchers", voucher)
-      .subscribe(
-        () => console.log(`voucher with id ${voucher.ID} inserted`),
-        err => console.log(err)
-      );
+  insertVoucher(voucher: Voucher): Observable<any> {
+    return this.httpClient.post<Voucher>(
+      environment.apiUrl + "api/vouchers",
+      voucher
+    );
   }
 
-  updateVoucher(voucher: Voucher): void {
-    this.httpClient
-      .put<Voucher>(environment.apiUrl + "api/vouchers", voucher)
-      .subscribe(
-        () => console.log("voucher with updated", voucher),
-        err => console.log(err)
-      );
+  updateVoucher(voucher: Voucher): Observable<any> {
+    return this.httpClient.put<Voucher>(
+      environment.apiUrl + "api/vouchers",
+      voucher
+    );
   }
 
-  deleteVoucher(id: number): void {
-    this.httpClient
-      .delete(environment.apiUrl + "api/vouchers/" + id)
-      .subscribe(() => console.log("deleting voucher with id " + id));
+  deleteVoucher(id: number): Observable<any> {
+    return this.httpClient.delete(environment.apiUrl + "api/vouchers/" + id);
   }
 }
