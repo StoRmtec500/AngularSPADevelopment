@@ -13,10 +13,31 @@ export class AdalComponent implements OnInit {
 
   ngOnInit() {}
 
+  evt = {
+    Subject: "A Graph Event",
+    Body: {
+      ContentType: "HTML",
+      Content: "The Super Fancy MS Graph Event"
+    },
+    Start: {
+      DateTime: "2019-04-02T00:00:00",
+      TimeZone: "UTC"
+    },
+    End: {
+      DateTime: "2019-04-02T23:00:00",
+      TimeZone: "UTC"
+    }
+  };
+
   recentFiles: RecentFile[];
 
   logIn() {
     this.service.logIn();
+  }
+
+  logOff() {
+    this.service.logOut();
+    environment.token = null;
   }
 
   getRecentFiles() {
@@ -34,22 +55,6 @@ export class AdalComponent implements OnInit {
   }
 
   createEvent() {
-    var evt = {
-      Subject: "A Graph Event",
-      Body: {
-        ContentType: "HTML",
-        Content: "The Super Fancy MS Graph Event"
-      },
-      Start: {
-        DateTime: "2018-10-13T00:00:00",
-        TimeZone: "UTC"
-      },
-      End: {
-        DateTime: "2018-10-14T00:00:00",
-        TimeZone: "UTC"
-      }
-    };
-
-    this.service.createEvent(evt, "/v1.0/me/calendar/events");
+    this.service.createEvent(this.evt, "/v1.0/me/calendar/events");
   }
 }

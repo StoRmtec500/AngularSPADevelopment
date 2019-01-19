@@ -6,7 +6,7 @@
   },
   {
     "url": "firebase",
-    "title": "Jwt Tokens Firebase",
+    "title": "Firebase Jwt Token Auth ",
     "component": "FirebaseComponent"
   },
   {
