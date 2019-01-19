@@ -6,12 +6,12 @@
   },
   {
     "url": "firebase",
-    "title": "Use Tokens from Firebase",
+    "title": "Jwt Tokens Firebase",
     "component": "FirebaseComponent"
   },
   {
     "url": "adal",
-    "title": "Use Office 365 - ADAL",
+    "title": "Azure AD - ADAL",
     "component": "AdalComponent"
   }
 ]
