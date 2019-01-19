@@ -1,33 +1,49 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { RequestOptions } from "@angular/http";
+import { BehaviorSubject, Observable, of } from "rxjs";
 import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class AuthService {
   constructor(private fireAuth: AngularFireAuth) {
     this.fireAuth.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.fbUser = user;
-        console.log("Current User: ", this.fbUser);
-        this.User.next(this.fbUser);
-        this.fbUser.getIdToken().then(token => {
-          environment.token = token;
-          console.log("Token: ", environment.token);
-        });
-      }
+      this.setUserToken(user);
     });
   }
 
-  private fbUser: firebase.User = null;
+  private usrToken: string;
+  public Token: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
+  private fbUser: firebase.User = null;
   public User: BehaviorSubject<firebase.User> = new BehaviorSubject(
     this.fbUser
   );
 
-  isAuthenticated(): boolean {
-    return this.fbUser == null;
+  private setUserToken(user) {
+    this.fbUser = user;
+    this.User.next(this.fbUser);
+
+    if (user != null) {
+      this.fbUser.getIdToken().then(token => {
+        environment.token = token;
+        this.setToken(token);
+      });
+    } else {
+      this.setToken(null);
+    }
+  }
+
+  private setToken(token) {
+    this.usrToken = token;
+    this.Token.next(this.usrToken);
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    this.User.subscribe(user => {
+      let auth: boolean = user == null ? false : true;
+      return of(auth);
+    });
+    return of(false);
   }
 
   createUser(email: string, password: string): Promise<any> {
@@ -48,8 +64,7 @@ export class AuthService {
     this.fireAuth.auth
       .signOut()
       .then(loggedOut => {
-        this.fbUser = null;
-        environment.token = "";
+        this.setUserToken(null);
         console.log("Logged out", "Come back and visit soon");
       })
       .catch(err => console.log("Error logging out", err));

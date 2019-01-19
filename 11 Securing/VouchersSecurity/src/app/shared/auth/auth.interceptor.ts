@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
     let cloned = req.clone({
       setHeaders: { Authorization: `Bearer ${environment.token}` }
     });
-    console.log("Vouchers-Interceptor added Bearer Token for request", cloned);
+    console.log(`Interceptor added Token to request ${req.url}`, cloned);
     return next.handle(cloned);
   }
 }

@@ -10,11 +10,12 @@ import { AuthService } from "src/app/shared/auth/auth.service";
 export class FirebaseComponent implements OnInit {
   constructor(private httpClient: HttpClient, public as: AuthService) {}
 
-  auth: boolean = true;
   currentUser: firebase.User;
 
   ngOnInit() {
-    this.as.User.subscribe(user => (this.currentUser = user));
+    this.as.User.subscribe(user => {
+      this.currentUser = user;
+    });
   }
 
   resp: any;
