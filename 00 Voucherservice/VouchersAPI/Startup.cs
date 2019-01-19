@@ -119,8 +119,6 @@ namespace Vouchers
 
             if (env.IsDevelopment())
             {
-                loggerFactory.AddConsole();
-                loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
             }
@@ -133,6 +131,7 @@ namespace Vouchers
             app.UseDefaultFiles(options);
 
             if (env.IsDevelopment())
+            {
                 app.UseStaticFiles(new StaticFileOptions
                 {
                     OnPrepareResponse = context =>
@@ -142,9 +141,11 @@ namespace Vouchers
                         context.Context.Response.Headers["Expires"] = "-1";
                     }
                 });
+            }
             else
+            {
                 app.UseStaticFiles();
-
+            }
 
             //Cors
             app.UseCors("AllowAll");
@@ -152,7 +153,6 @@ namespace Vouchers
             //Auth
             // app.UseAuthentication();
 
-            //app.UseMvcWithDefaultRoute();
             app.UseMvc();
         }
 

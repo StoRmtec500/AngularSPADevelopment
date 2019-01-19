@@ -28,24 +28,22 @@ namespace Vouchers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]BalanceAccount value)
+        public void Post([FromBody]BalanceAccount value)
         {
             ctx.BalanceAccounts.Add(value);
             ctx.SaveChanges();
-            return Ok(value);
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody]BalanceAccount value)
+        public void Put([FromBody]BalanceAccount value)
         {
             ctx.BalanceAccounts.Attach(value);
             ctx.Entry(value).State = EntityState.Modified;
             ctx.SaveChanges();
-            return Ok(value);
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public void Delete(int id)
         {
             var v = Get(id);
             if (v != null)
@@ -53,7 +51,6 @@ namespace Vouchers
                 ctx.Remove(v);
                 ctx.SaveChanges();
             }
-            return Ok();
         }
     }
 }

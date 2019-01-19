@@ -55,7 +55,7 @@ namespace Vouchers.Api
             }
             catch (Exception exp)
             {
-                return BadRequest(new ApiResponse { Status = false, Message = exp });
+                return BadRequest(new ApiResponse { Status = false, Data = exp.Message });
             }
         }
 
@@ -153,7 +153,7 @@ namespace Vouchers.Api
         // POST: http://localhost:PORT/api/vouchers/save
         [HttpPost]
         [Route("Save")]
-        public ActionResult Save([FromBody] Voucher value)
+        public int Save([FromBody] Voucher value)
         {
             if (value.ID == 0)
             {
@@ -186,7 +186,7 @@ namespace Vouchers.Api
                 }
             }
             ctx.SaveChanges();
-            return Ok(value.ID);
+            return value.ID;
         }
     }
 }

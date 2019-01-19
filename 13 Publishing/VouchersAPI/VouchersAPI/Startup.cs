@@ -2,14 +2,17 @@
 using JSNLog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using NLog.Extensions.Logging;
 using NLog.Web;
@@ -41,6 +44,25 @@ namespace Vouchers
                 .AddDbContext<VouchersDBContext>(options => options.UseSqlServer(conStr));
             services.AddScoped<IVouchersRepository, VouchersRepository>();
 
+            //Simple Windows Auth
+            services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+
+            //Firebase
+            services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://securetoken.google.com/angulardemo-1a474";
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = "https://securetoken.google.com/angulardemo-1a474",
+                    ValidateAudience = true,
+                    ValidAudience = "angulardemo-1a474",
+                    ValidateLifetime = true
+                };
+            });
+
             //Identity 
             //
             //services.AddIdentity<VoucherUser, VoucherRole>()
@@ -64,13 +86,8 @@ namespace Vouchers
 
             //CORS
             //Required if you develop Angular on a seperate proj
-            var corsBuilder = new CorsPolicyBuilder();
-            corsBuilder.AllowAnyHeader();
-            corsBuilder.AllowAnyMethod();
-            corsBuilder.AllowAnyOrigin();
             // For specific URL ie. your Angular CLI Frontend use: 
-            // corsBuilder.WithOrigins("http://localhost:4200")
-            corsBuilder.AllowCredentials();
+            // corsBuilder.WithOrigins("http://localhost:4200")           
 
             services.AddCors(options =>
             {
@@ -78,6 +95,7 @@ namespace Vouchers
                     builder => builder.AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader()
+                        .AllowAnyOrigin()
                         .AllowCredentials());
             });
 
@@ -101,8 +119,6 @@ namespace Vouchers
 
             if (env.IsDevelopment())
             {
-                loggerFactory.AddConsole();
-                loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
             }
@@ -111,10 +127,11 @@ namespace Vouchers
 
             DefaultFilesOptions options = new DefaultFilesOptions();
             options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("index.html");
+            options.DefaultFileNames.Add("crud.html");
             app.UseDefaultFiles(options);
 
             if (env.IsDevelopment())
+            {
                 app.UseStaticFiles(new StaticFileOptions
                 {
                     OnPrepareResponse = context =>
@@ -124,17 +141,18 @@ namespace Vouchers
                         context.Context.Response.Headers["Expires"] = "-1";
                     }
                 });
+            }
             else
+            {
                 app.UseStaticFiles();
-
+            }
 
             //Cors
             app.UseCors("AllowAll");
 
             //Auth
-            app.UseAuthentication();
+            // app.UseAuthentication();
 
-            //app.UseMvcWithDefaultRoute();
             app.UseMvc();
         }
 
