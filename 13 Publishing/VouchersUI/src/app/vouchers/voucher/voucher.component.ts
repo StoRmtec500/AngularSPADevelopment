@@ -2,12 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
-  Validators,
-  ValidationErrors
+  ValidationErrors,
+  Validators
 } from "@angular/forms";
 import { MatSnackBar, MatSnackBarConfig } from "@angular/material";
 import { ActivatedRoute, Router } from "@angular/router";
-
 import { BalanceAccount, Voucher, VoucherDetail } from "../../shared";
 import { DataStoreService } from "../../shared/data-store/data-store-service";
 import {

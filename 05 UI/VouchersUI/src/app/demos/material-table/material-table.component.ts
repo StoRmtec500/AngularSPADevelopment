@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material";
 import { Voucher } from "../../shared/index";
 import { HttpClient } from "@angular/common/http";
-import { Http } from "@angular/http";
 
 @Component({
   selector: "app-material-table",
@@ -14,17 +13,12 @@ export class MaterialTableComponent implements OnInit {
   dataSource: MatTableDataSource<Voucher>;
   displayedColumns = ["ID", "Text", "Date", "Amount"];
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http
-      .get("./assets/vouchers.json")
-      .toPromise()
-      .then(data => {
-        this.vouchers = data.json();
-        console.log(this.vouchers);
-        this.dataSource = new MatTableDataSource(data.json());
-      });
+    this.http.get<Voucher[]>("./assets/vouchers.json").subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
   applyFilter(filterValue: string) {

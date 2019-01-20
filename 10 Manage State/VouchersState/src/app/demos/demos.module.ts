@@ -20,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CurrencyEffects } from './ngrx/effects/currencyEffects';
 import { StatefulComponent } from './stateful/stateful.component';
 import { EvtBusComponent } from './evt-bus/evt-bus.component';
+import { SimpleDataStoreComponent } from './simple-data-store/simple-data-store.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { EvtBusComponent } from './evt-bus/evt-bus.component';
     EffectsModule.forRoot([CurrencyEffects])    
   ],
   declarations: [
-    DemosComponent, SimpleCalcComponent, StatefulComponent, EvtBusComponent   
+    DemosComponent, SimpleCalcComponent, StatefulComponent, EvtBusComponent, SimpleDataStoreComponent   
   ],
   providers: [DemoService, MovieService, PersonService, FixerService]
 })

@@ -1,0 +1,10 @@
+@import "./../../../theme/theme.scss";
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-row:hover {
+  background-color: mat-color($custom-accent);
+  cursor: pointer;
+}

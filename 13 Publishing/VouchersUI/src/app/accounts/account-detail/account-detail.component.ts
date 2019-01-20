@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { SnackbarService } from "src/app/shared/snackbar/snackbar.service";
 import { BalanceAccount } from "../../shared";
 import { DataStoreService } from "../../shared/data-store/data-store-service";
 import {
@@ -9,7 +10,6 @@ import {
 } from "../../shared/event-bus/action.types";
 import { EventBusService } from "../../shared/event-bus/event-bus.service";
 import { IconCancel, IconSave } from "../../shared/table/cmd.type";
-import { SnackbarService } from "src/app/shared/snackbar/snackbar.service";
 
 @Component({
   selector: "app-account-detail",

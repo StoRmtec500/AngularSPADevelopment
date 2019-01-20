@@ -1,13 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-
 import { DataStoreService } from "../shared/data-store/data-store-service";
 import { ACCOUNT_ADD } from "../shared/event-bus/action.types";
 import { EventBusService } from "../shared/event-bus/event-bus.service";
 import { BalanceAccount } from "../shared/model/model";
-import { IconAdd } from "../shared/table/cmd.type";
-import { AccountsService } from "./account.service";
 import { SnackbarService } from "../shared/snackbar/snackbar.service";
+import { IconAdd } from "../shared/table/cmd.type";
 
 @Component({
   selector: "app-accounts-list",

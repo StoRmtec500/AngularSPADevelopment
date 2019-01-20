@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Voucher } from "..";
 import { DataStoreService } from "../data-store/data-store-service";
-import { List } from "linqts";
 
 @Component({
   selector: "app-kpi-bar",
@@ -17,18 +16,7 @@ export class KpiBarComponent implements OnInit {
 
   ngOnInit() {
     this.dataStore.getAllVouchers().subscribe((vouchers: Voucher[]) => {
-      this.runningSum = 0;
-      vouchers.forEach(item => {
-        if (this.log) {
-          console.log(
-            `Adding ${item.Amount}€ from voucher with text '${
-              item.Text
-            }' to current Total ${this.runningSum} - New Total: ${item.Amount +
-              this.runningSum}`
-          );
-        }
-        this.runningSum += item.Amount;
-      });
+      this.runningSum = vouchers.reduce((prev, item) => prev + item.Amount, 0);
     });
   }
 }

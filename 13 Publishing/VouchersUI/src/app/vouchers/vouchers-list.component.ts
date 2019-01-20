@@ -1,10 +1,9 @@
-import { VouchersService } from "./voucher.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Voucher } from "../shared/model/model";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { DataStoreService } from "../shared/data-store/data-store-service";
-import { EventBusService } from "../shared/event-bus/event-bus.service";
 import { VOUCHER_ADD } from "../shared/event-bus/action.types";
+import { EventBusService } from "../shared/event-bus/event-bus.service";
+import { Voucher } from "../shared/model/model";
 import { IconAdd } from "../shared/table/cmd.type";
 
 @Component({

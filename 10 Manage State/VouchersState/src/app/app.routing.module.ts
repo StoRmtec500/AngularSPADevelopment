@@ -14,6 +14,7 @@ import { SimpleCalcComponent } from "./demos/ngrx/simple.calc.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { StatefulComponent } from "./demos/stateful/stateful.component";
 import { EvtBusComponent } from "./demos/evt-bus/evt-bus.component";
+import { SimpleDataStoreComponent } from "./demos/simple-data-store/simple-data-store.component";
 
 const appRoutes: Routes = [
   {
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     data: { title: "Demos" },
     children: [
       { path: "stateful", component: StatefulComponent },
+      { path: "simpleds", component: SimpleDataStoreComponent },
       { path: "evtbus", component: EvtBusComponent },
       { path: "ngrx", component: SimpleCalcComponent }
     ]

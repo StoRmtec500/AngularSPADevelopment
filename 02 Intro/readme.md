@@ -2,15 +2,16 @@
 
 [Angular CLI Reference](https://angular.io/cli)
 
-Update Project
+## Run an Angular project on a custom port
 
-```autong
-ng update  @angular/core @angular/cli
+```
+ng serve --port 4300
 ```
 
-# VS Code Debug Config
+## Debugging in VS Code
 
-launch.json
+Install [Debugger for Chrome Ext](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+Edit launch.json & make sure you execute `ng serve` bevor pressing F5 for debug
 
 ```
 {
@@ -42,16 +43,8 @@ launch.json
 }
 ```
 
-## Run an Angular project on a custom port
+## Update Project
 
-```
-ng serve --port 4300
-```
-
-# Yarn
-
-Set cache location
-
-```
-yarn config set cache-folder <path>
+```autong
+ng update  @angular/core @angular/cli [@angular/material ...]
 ```

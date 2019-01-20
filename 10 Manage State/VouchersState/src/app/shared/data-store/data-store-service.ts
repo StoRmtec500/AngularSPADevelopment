@@ -1,11 +1,10 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { map, filter, skip, count } from "rxjs/operators";
-
-import { lateVoucher } from "./late-voucher";
-import { VouchersService } from "../../vouchers/voucher.service";
-import { Voucher, BalanceAccount } from "..";
+import { map } from "rxjs/operators";
+import { BalanceAccount, Voucher } from "..";
 import { AccountsService } from "../../accounts/account.service";
+import { VouchersService } from "../../vouchers/voucher.service";
+import { lateVoucher } from "./late-voucher";
 
 @Injectable()
 export class DataStoreService {
@@ -44,16 +43,40 @@ export class DataStoreService {
     return this.vouchers.pipe(map(m => m.find(mi => mi.ID == id)));
   }
 
-  insertVoucher(v: Voucher): any {
-    throw new Error("Method not implemented.");
-  }
-  updateVoucher(v: Voucher): any {
-    throw new Error("Method not implemented.");
+  insertVoucher(v: Voucher): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.insertVoucher(v).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
   }
 
-  deleteVoucher(id: number) {
-    this.vs.deleteVoucher(id);
-    this.initVouchers();
+  updateVoucher(v: Voucher): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.updateVoucher(v).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
+  }
+
+  deleteVoucher(id: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.vs.deleteVoucher(id).subscribe(
+        () => {
+          this.initVouchers();
+          resolve();
+        },
+        err => reject(err)
+      );
+    });
   }
 
   //Accounts
@@ -77,13 +100,13 @@ export class DataStoreService {
     return this.accounts.pipe(map(m => m.find(mi => mi.ID == id)));
   }
 
-  saveAccount(account: BalanceAccount) {
-    console.log(account);
+  saveAccount(account: BalanceAccount): Observable<boolean> {
     if (account.ID == 0) {
       this.as.insertAccount(account);
     } else {
       this.as.updateAccount(account);
     }
     this.initAccounts();
+    return Observable.create(true);
   }
 }
