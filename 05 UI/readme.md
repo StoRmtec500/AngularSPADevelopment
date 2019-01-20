@@ -8,12 +8,21 @@
 
 https://webdesign.tutsplus.com/tutorials/tricks-with-flexbox-for-better-css-patterns--cms-19449
 
+# CSS Grid
+
+[Introduction to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+[CSS Grid - Subgrids](https://www.smashingmagazine.com/2018/07/css-grid-2/)
+
 # Angular Flex-Layout
 
-When your application uses Angular 6 and RxJS 6, you must install release 6.x of Flex Layout:
+Supports Flexbox & CSS Grid
+
+For Angular 7 install release 7.x of Flex Layout:
 
 ```
-npm i --save @angular/flex-layout@6.0.0-beta.15
+npm i --save @angular/flex-layout@7.0.0-beta.22
+
 ```
 
 ## Angular Flex Layout Api Documentation
