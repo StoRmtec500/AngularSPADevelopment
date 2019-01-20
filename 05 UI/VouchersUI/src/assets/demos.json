@@ -35,7 +35,11 @@
     "title": "Material Dialog",
     "component": "MaterialDialogComponent"
   },
-
+  {
+    "url": "fonts",
+    "title": "Using Webfonts",
+    "component": "GoogleFontsComponent"
+  },
   {
     "url": "dragdrop",
     "title": "Drag & Drop",

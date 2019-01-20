@@ -28,6 +28,7 @@ import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.componen
 import { DragDropComponent } from "./drag-drop/drag-drop.component";
 import { CalculatorComponent } from "./material-dialog/calculator/calculator.component";
 import { CurrencyService } from "./material-dialog/calculator/currency.service";
+import { GoogleFontsComponent } from './google-fonts/google-fonts.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { CurrencyService } from "./material-dialog/calculator/currency.service";
     FlexMediaQueryComponent,
     DragDropComponent,
     VirtualScrollComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    GoogleFontsComponent
   ],
   entryComponents: [MaterialDialogComponent, CalculatorComponent],
   providers: [DemoService, MovieService, PersonService, CurrencyService]

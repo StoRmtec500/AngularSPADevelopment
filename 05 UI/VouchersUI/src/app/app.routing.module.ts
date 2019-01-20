@@ -21,6 +21,7 @@ import { ChartingComponent } from "./demos/charting/charting.component";
 import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
 import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
 import { CssgridComponent } from "./demos/cssgrid/cssgrid.component";
+import { GoogleFontsComponent } from "./demos/google-fonts/google-fonts.component";
 
 const appRoutes: Routes = [
   {
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
       { path: "material", component: UsingMaterialComponent },
       { path: "material-table", component: MaterialTableComponent },
       { path: "material-dialog", component: MaterialDialogComponent },
+      { path: "fonts", component: GoogleFontsComponent },
       { path: "flexbox", component: FlexboxComponent },
       { path: "flexmediaq", component: FlexMediaQueryComponent },
       { path: "flexlayout", component: FlexLayoutComponent },
