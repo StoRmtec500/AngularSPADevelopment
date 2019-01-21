@@ -1,23 +1,4 @@
-# Testing
-
-## Jasmine
-
-[Jasmine Matchers](https://jasmine.github.io/api/edge/matchers.html)
-
-# Wallaby.js
-
-[Wallaby Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode)
-
-## Setup
-
-Install required packages
-
-`npm i --save-dev electron@4.0.1 wallaby-webpack@3.9.10`
-
-Add `wallaby.js` to root folder:
-
-```
-wallabyWebpack = require("wallaby-webpack");
+var wallabyWebpack = require("wallaby-webpack");
 var path = require("path");
 
 var compilerOptions = Object.assign(
@@ -118,44 +99,3 @@ module.exports = function(wallaby) {
     debug: true
   };
 };
-```
-
-Add `wallabyTest.ts` to src-folder
-
-```
-import './polyfills';
-
-import 'zone.js/dist/zone-testing';
-
-import { getTestBed } from '@angular/core/testing';
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} from '@angular/platform-browser-dynamic/testing';
-
-getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
-```
-
-# Cypress E2E Testing
-
-[Cypress Docs](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)
-
-## Setup
-
-Install packages: `npm i --save-dev cypress chance`
-
-Modify `package.json` and run using `npm run e2e`
-
-```
-"scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "cypress open"
-  },
-```
