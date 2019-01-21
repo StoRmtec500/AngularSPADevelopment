@@ -159,3 +159,7 @@ Modify `package.json` and run using `npm run e2e`
     "e2e": "cypress open"
   },
 ```
+
+# Server Side Testing in VS Code
+
+[Automatic Unit Testing in .NET Core plus Code Coverage in Visual Studio Code](https://www.hanselman.com/blog/AutomaticUnitTestingInNETCorePlusCodeCoverageInVisualStudioCode.aspx)
