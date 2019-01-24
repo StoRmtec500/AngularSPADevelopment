@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { FileUploadModule } from "ng2-file-upload";
-import { CKEditorComponent } from "ngx-ckeditor";
+import { CKEditorModule } from "ngx-ckeditor";
 import { MatchHeightDirective, NavbarComponent } from ".";
 import { MaterialModule } from "../material.module";
 import { AuthService } from "./auth/auth.service";
@@ -29,7 +29,6 @@ const sharedComponents = [
   CheckPipe,
   SidePanelComponent,
   KpiBarComponent,
-  CKEditorComponent,
   LoginComponent,
   RegisterComponent
 ];
@@ -40,7 +39,8 @@ const sharedComponents = [
     FormsModule,
     RouterModule,
     MaterialModule,
-    FileUploadModule
+    FileUploadModule,
+    CKEditorModule
   ],
   declarations: sharedComponents,
   exports: sharedComponents,

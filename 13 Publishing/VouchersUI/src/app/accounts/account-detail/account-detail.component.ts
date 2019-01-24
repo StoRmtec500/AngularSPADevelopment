@@ -77,7 +77,7 @@ export class AccountDetailComponent implements OnInit {
     });
   }
 
-  private saveAccount() {
+  saveAccount() {
     this.store
       .saveAccount(<BalanceAccount>this.acctForm.value)
       .then(() => this.sns.displayAlert("Accout saved", "Vouchers"));

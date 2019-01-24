@@ -31,6 +31,7 @@ import { VoucherDetailsListComponent } from "./vouchers/voucher/voucher-details-
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { environment } from "src/environments/environment";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 registerLocaleData(localeDe);
 
@@ -43,7 +44,8 @@ registerLocaleData(localeDe);
     VoucherComponent,
     VoucherDetailComponent,
     VoucherDetailsListComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
