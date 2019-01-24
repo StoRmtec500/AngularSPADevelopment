@@ -9,3 +9,5 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 ENTRYPOINT ["dotnet", "out/Vouchers.dll"]
+EXPOSE 8080/tcp
+ENV ASPNETCORE_URLS https://*:8080

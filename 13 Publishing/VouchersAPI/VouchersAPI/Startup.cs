@@ -113,8 +113,8 @@ namespace Vouchers
             VouchersDBContext dbcontext)
         {
             //Logging
-            loggerFactory.AddNLog();
-            env.ConfigureNLog("nlog.config");
+            // loggerFactory.AddNLog();
+            // env.ConfigureNLog("nlog.config");
 
             var jsnlogConfiguration = new JsnlogConfiguration();
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
