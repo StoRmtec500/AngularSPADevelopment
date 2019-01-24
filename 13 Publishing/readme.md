@@ -36,6 +36,16 @@ docker build -t voucherapp .
 
 docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
 
+## VM-Ware Compatibility
+
+Enable VM-Ware
+
+`bcdedit /set hypervisorlaunchtype off`
+
+Disable VM-Ware
+
+`bcdedit /set hypervisorlaunchtype auto`
+
 ## Readings
 
 [Hot to run Linux Containers on 2019 Server](https://www.altaro.com/msp-dojo/linux-containers-windows-server-2019/)
