@@ -1,6 +1,6 @@
 # Docker
 
-## Install Docker with Linux Containers (... on Windows Server 2016 / 2019)
+## Install Docker with Linux Containers on Windows Server 2019
 
 ```auto
 Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
@@ -10,7 +10,7 @@ Install-Module DockerProvider -Force
 Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
 ```
 
-## Switch to Linux Containers
+### Switch to Linux Containers
 
 ```auto
 [Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", "1", "Machine")
@@ -18,7 +18,7 @@ Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
 Restart-Service docker
 ```
 
-## Switch to Windows Containers
+### Switch to Windows Containers
 
 ```auto
 [Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", $null, "Machine")
@@ -26,17 +26,19 @@ Restart-Service docker
 Restart-Service docker
 ```
 
-## Test Windows Containers
+### Test Windows Containers
 
 docker container run hello-world:nanoserver
 
-## Build and run the Application with Docker for Linux containers
+### Build and run the Application with Docker for Linux containers
 
 docker build -t voucherapp .
 
 docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
 
-## VM-Ware Compatibility
+## Install Docker on Windows 10
+
+### VM-Ware Compatibility
 
 Enable VM-Ware
 
@@ -46,7 +48,19 @@ Disable VM-Ware
 
 `bcdedit /set hypervisorlaunchtype auto`
 
-## Readings
+## Change Location of Docker files
+
+Stop Docker Service: `stop-service docker`
+
+Open `C:\ProgramData\Docker\config\daemon.json`
+
+Edit `daemon.json`
+
+`{ "data-root": "F:\\DockerData" }`
+
+Start Docker Service: `start-service docker`
+
+# Readings
 
 [Hot to run Linux Containers on 2019 Server](https://www.altaro.com/msp-dojo/linux-containers-windows-server-2019/)
 
