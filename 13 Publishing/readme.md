@@ -40,11 +40,13 @@ docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
 
 ### VM-Ware Compatibility
 
-Enable VM-Ware
+Switch boot config using BCDEdit to support Hyper-V or VM-Ware
+
+Enable VM-Ware:
 
 `bcdedit /set hypervisorlaunchtype off`
 
-Disable VM-Ware
+Disable VM-Ware:
 
 `bcdedit /set hypervisorlaunchtype auto`
 
