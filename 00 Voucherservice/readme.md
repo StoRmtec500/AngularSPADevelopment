@@ -2,9 +2,9 @@
 
 ## .NET Core Setup
 
-Net Core 2.1 SDK
+Net Core 2.2 SDK
 
-https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300
+https://dotnet.microsoft.com/download
 
 Windows Hosting Bundle
 
@@ -71,3 +71,7 @@ Open to the folder where \*.csproj is located and run:
   ]
 }
 ```
+
+## SSL
+
+Add a trust for the Test Cert: `dotnet dev-certs https --trust`
