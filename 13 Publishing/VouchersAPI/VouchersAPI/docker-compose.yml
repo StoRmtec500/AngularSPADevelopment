@@ -5,4 +5,13 @@ services:
     image: vouchersapi
     build: .
     ports:
-      - 5000:80
+      - 8080:80
+    depends_on:
+      - db
+  db:
+    image: microsoft/mssql-server-linux
+    # ports:
+    #   - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Pa$$w0rd
