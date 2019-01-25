@@ -1,23 +1,22 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UploadComponent } from "./upload/upload.component";
-import { NavbarComponent } from ".";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { EditorComponent } from "./editor/editor.component";
+import { FileUploadModule } from "ng2-file-upload";
+import { CKEditorModule } from "ngx-ckeditor";
+import { NavbarComponent } from ".";
 import { MaterialModule } from "../material.module";
 import { CheckPipe } from "./checked/check.pipe";
+import { EditorComponent } from "./editor/editor.component";
 import { SidePanelComponent } from "./side-panel/side-panel.component";
-import { FormsModule } from "@angular/forms";
-import { CKEditorComponent } from "ngx-ckeditor";
-import { FileUploadModule } from "ng2-file-upload";
+import { UploadComponent } from "./upload/upload.component";
 
 const mods = [
   UploadComponent,
   NavbarComponent,
   EditorComponent,
   CheckPipe,
-  SidePanelComponent,
-  CKEditorComponent
+  SidePanelComponent
 ];
 
 @NgModule({
@@ -26,7 +25,8 @@ const mods = [
     FormsModule,
     RouterModule,
     MaterialModule,
-    FileUploadModule
+    FileUploadModule,
+    CKEditorModule
   ],
   declarations: mods,
   exports: mods
