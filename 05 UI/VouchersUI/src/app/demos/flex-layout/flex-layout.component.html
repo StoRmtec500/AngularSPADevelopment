@@ -8,7 +8,7 @@
     fxLayout.lt-md="column"
     fxLayoutAlign.lt-md="center center"
   >
-    <img mat-card-avatar [src]="current.imgUrl" />
+    <img mat-card-avatar *ngIf="current.imgUrl" [src]="current.imgUrl" />
     <mat-card-title>Angular Flex Layout</mat-card-title>
     <mat-card-subtitle
       >Notice the change of the image on mobile</mat-card-subtitle

@@ -13,12 +13,12 @@ export class ScreenService {
     this.ltmd
   );
 
-  constructor(private obsMedia: MediaObserver) {
+  constructor(private mediaObs: MediaObserver) {
     this.subscribeIsPhone();
   }
 
   subscribeIsPhone() {
-    this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
+    this.watcher = this.mediaObs.media$.subscribe((change: MediaChange) => {
       switch (change.mqAlias) {
         case "xs":
           this.ltmd = true;

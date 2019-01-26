@@ -14,15 +14,18 @@ export class FlexLayoutComponent implements OnInit {
     name: "",
     age: 0,
     gender: "female",
-    email: ""
+    email: "",
+    imgUrl: null
   };
 
   constructor(private ps: PersonService) {}
 
   ngOnInit(): void {
-    this.ps.getPersons().then(data => {
+    this.ps.getPersons().subscribe(data => {
       this.persons = data;
-      this.current = this.persons[0];
+      if (this.persons.length > 0) {
+        this.current = this.persons[0];
+      }
     });
   }
 }

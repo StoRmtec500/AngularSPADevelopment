@@ -31,25 +31,21 @@ a {
 
 //Mixins
 
-@mixin big-font {
-  font-size: 18px;
-}
-
 @mixin box {
   padding: 10px;
   margin: 10px;
 }
 
 .sectionPanelBlue {
-  @include big-font();
+  font-size: 18px;
   @include box();
   background-color: lightblue;
 }
 
-@mixin grid($flex) {
-  @if $flex {
-    @include flex;
-  } @else {
-    display: block;
-  }
-}
+// @mixin grid($flex) {
+//   @if $flex {
+//     @include flex;
+//   } @else {
+//     display: block;
+//   }
+// }
