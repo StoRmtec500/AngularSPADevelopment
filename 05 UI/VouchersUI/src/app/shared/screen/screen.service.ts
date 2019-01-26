@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Route, Router, RouterEvent } from "@angular/router";
 import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { ObservableMedia, MediaChange } from "@angular/flex-layout";
+import { MediaObserver, MediaChange } from "@angular/flex-layout";
 
 @Injectable({
   providedIn: "root"
@@ -14,12 +14,12 @@ export class ScreenService {
     this.ltmd
   );
 
-  constructor(private obsMedia: ObservableMedia) {
+  constructor(private obsMedia: MediaObserver) {
     this.subscribeIsPhone();
   }
 
   subscribeIsPhone() {
-    this.watcher = this.obsMedia.subscribe((change: MediaChange) => {
+    this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
       switch (change.mqAlias) {
         case "xs":
           this.ltmd = true;
