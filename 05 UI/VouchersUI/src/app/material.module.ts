@@ -36,11 +36,13 @@ import {
   MatStepperModule,
   MatTableModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatNativeDateModule
 } from "@angular/material";
 
 const mods = [
   MatAutocompleteModule,
+  MatNativeDateModule,
   MatBadgeModule,
   MatBottomSheetModule,
   MatButtonModule,
@@ -77,6 +79,7 @@ const mods = [
 @NgModule({
   imports: mods,
   declarations: [],
+  providers: [MatDatepickerModule],
   exports: mods
 })
 export class MaterialModule {}
