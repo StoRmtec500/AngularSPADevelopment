@@ -9,31 +9,7 @@ import { ScreenService } from "./shared/screen/screen.service";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  constructor(private screen: ScreenService) {}
+  constructor() {}
 
-  ngOnInit() {
-    // this.evalScreen();
-  }
-
-  // scaling: string;
-
-  // evalScreen() {
-  //   this.screen.lessThanMedium.subscribe(ltm =>
-  //     ltm
-  //       ? (this.scaling = "grid-template-columns: 1fr")
-  //       : (this.scaling = "grid-template-columns: 5fr 1fr")
-  //   );
-  // }
-
-  // setSideDivWidth() {
-  //   return this.isDemo ? "flexSideHidden" : "mainBox flexSide";
-  // }
-
-  // setSpacer() {
-  //   return this.isDemo ? "" : "spacer";
-  // }
-
-  // setMainDivWidth() {
-  //   return this.isDemo ? "flexMainBig" : "mainBox flexMain";
-  // }
+  ngOnInit() {}
 }
