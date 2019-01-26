@@ -1,15 +1,13 @@
-<mat-toolbar class="mainNav">
-  <div flxFlex="1 1 auto"><mat-icon color="accent">menu</mat-icon></div>
-  <div flxFlex="1 1 auto">
+<mat-toolbar class="mainNav" fxFlexFill fxLayoutGap="10px">
+  <div class="iconItem"><mat-icon color="accent">menu</mat-icon></div>
+  <div class="iconItem">
     <img width="50px" src="/assets/images/angular.svg" />
   </div>
-  <div flxFlex="2 1 auto" fxHide.lt-md="true">
-    <div class="navTitle">
-      smart Angular Single Page Application Development
-    </div>
+  <div fxHide.lt-md="true" class="navTitle">
+    smart Angular Single Page Application Development
   </div>
   <div
-    flxFlex="3 1 auto"
+    fxFlex="1 1 auto"
     fxLayout="row"
     fxLayoutAlign="end center"
     fxLayout.lt-sm="column"
@@ -25,5 +23,5 @@
       {{ route.data.title }}
     </div>
   </div>
-  <div flxFlex="1 1 auto"><mat-icon color="accent">apps</mat-icon></div>
+  <div class="iconItem"><mat-icon color="accent">apps</mat-icon></div>
 </mat-toolbar>
