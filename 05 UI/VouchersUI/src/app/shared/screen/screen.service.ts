@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Route, Router, RouterEvent } from "@angular/router";
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { MediaObserver, MediaChange } from "@angular/flex-layout";
+import { MediaChange, MediaObserver } from "@angular/flex-layout";
+import { BehaviorSubject, Subscription } from "rxjs";
 
 @Injectable({
   providedIn: "root"
