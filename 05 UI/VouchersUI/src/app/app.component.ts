@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { RouterEvent, Route } from "@angular/router";
+import { ScreenService } from "./shared/screen/screen.service";
 
 @Component({
   selector: "vouchers-app",
@@ -8,40 +9,31 @@ import { RouterEvent, Route } from "@angular/router";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  children: string[];
-  hideSideBarOnDemo: boolean = false;
-  isDemo: boolean;
-
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private screen: ScreenService) {}
 
   ngOnInit() {
-    this.evalScreen();
+    // this.evalScreen();
   }
 
-  evalScreen() {
-    if (this.hideSideBarOnDemo) {
-      this.children = this.router.config[0].children.map((item: Route) => {
-        return item.path;
-      });
-      this.router.events.subscribe((evt: RouterEvent) => {
-        if (evt.url != undefined) {
-          let isChildRoute =
-            this.children.find(item => evt.url.includes(item)) != undefined;
-          this.isDemo = evt.url == "/" || isChildRoute ? true : false;
-        }
-      });
-    }
-  }
+  // scaling: string;
 
-  setSideDivWidth() {
-    return this.isDemo ? "flexSideHidden" : "mainBox flexSide";
-  }
+  // evalScreen() {
+  //   this.screen.lessThanMedium.subscribe(ltm =>
+  //     ltm
+  //       ? (this.scaling = "grid-template-columns: 1fr")
+  //       : (this.scaling = "grid-template-columns: 5fr 1fr")
+  //   );
+  // }
 
-  setSpacer() {
-    return this.isDemo ? "" : "spacer";
-  }
+  // setSideDivWidth() {
+  //   return this.isDemo ? "flexSideHidden" : "mainBox flexSide";
+  // }
 
-  setMainDivWidth() {
-    return this.isDemo ? "flexMainBig" : "mainBox flexMain";
-  }
+  // setSpacer() {
+  //   return this.isDemo ? "" : "spacer";
+  // }
+
+  // setMainDivWidth() {
+  //   return this.isDemo ? "flexMainBig" : "mainBox flexMain";
+  // }
 }

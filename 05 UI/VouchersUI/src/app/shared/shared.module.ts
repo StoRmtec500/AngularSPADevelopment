@@ -10,13 +10,15 @@ import { CheckPipe } from "./checked/check.pipe";
 import { EditorComponent } from "./editor/editor.component";
 import { SidePanelComponent } from "./side-panel/side-panel.component";
 import { UploadComponent } from "./upload/upload.component";
+import { FooterComponent } from "./footer/footer.component";
 
 const mods = [
   UploadComponent,
   NavbarComponent,
   EditorComponent,
   CheckPipe,
-  SidePanelComponent
+  SidePanelComponent,
+  FooterComponent
 ];
 
 @NgModule({

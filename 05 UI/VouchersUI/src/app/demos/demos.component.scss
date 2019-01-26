@@ -7,11 +7,6 @@ a {
   padding-bottom: 3px;
 }
 
-// .panelBox {
-//     background-color: white;
-//     padding: 20px;
-// }
-
 .workbench {
   min-height: 300px;
   background-color: white;
@@ -22,14 +17,8 @@ a {
   vertical-align: middle;
 }
 
-.demoContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .demoMenu {
-  min-width: 190px;
+  min-width: 210px;
   flex: 1;
   flex-grow: 1;
 }

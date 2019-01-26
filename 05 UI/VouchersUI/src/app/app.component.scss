@@ -1,7 +1,15 @@
-.flexMainBig{    
-    flex-grow: 2;
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5% auto 5%;
+  height: 100vh;
 }
 
-.flexSideHidden{
-    display: none;   
+.footer {
+  align-self: end;
+}
+
+.sidenav {
+  min-width: 200px;
 }

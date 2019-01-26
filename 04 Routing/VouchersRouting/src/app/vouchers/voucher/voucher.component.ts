@@ -75,7 +75,7 @@ export class VoucherComponent implements OnInit {
   }
 
   useResolver() {
-    this.voucher = this.route.snapshot.data["voucher"];
+    this.voucher = this.route.snapshot.data["voucherData"];
     this.setDetail(this.voucher);
   }
 

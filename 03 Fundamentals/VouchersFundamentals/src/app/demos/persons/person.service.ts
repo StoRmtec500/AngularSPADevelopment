@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Person } from "./person";
 import { Observable, from, observable } from "rxjs";
+import { delay } from "rxjs/operators";
 
 @Injectable()
 export class PersonService {
   constructor() {}
 
   getPersons(): Observable<Person[]> {
+    let delayTime = 2000;
     let data = [
       {
         name: "Alexander",
@@ -20,6 +22,6 @@ export class PersonService {
     ];
     return Observable.create(observer => {
       observer.next(data);
-    });
+    }).pipe(delay(delayTime));
   }
 }
