@@ -38,9 +38,9 @@ docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
 
 ## Install Docker on Windows 10
 
-### VM-Ware Compatibility
+### VM-Ware Compatibility on Windows
 
-Switch boot config using BCDEdit to support Hyper-V or VM-Ware
+Switch Windows Boot Config using BCDEdit to support Hyper-V or VM-Ware
 
 Enable VM-Ware:
 
