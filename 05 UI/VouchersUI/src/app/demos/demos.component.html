@@ -19,8 +19,8 @@
 <mat-sidenav-container>
   <mat-sidenav
     #sidenav
-    [opened]="showSideNav"
-    [mode]="showSideNav ? 'side' : 'over'"
+    [opened]="showMenu"
+    [mode]="device == 'xs' ? 'over' : 'side'"
   >
     <h4>{{ title }}</h4>
     <div>

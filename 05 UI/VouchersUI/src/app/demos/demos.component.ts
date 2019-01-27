@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 import { DemoService } from "./demo.service";
 import { DemoItem } from "./demoItem";
+import { ViewEncapsulation } from "@angular/compiler/src/core";
+import { ScreenService } from "../shared/screen/screen.service";
 
 @Component({
   selector: "app-demos",
@@ -14,17 +16,37 @@ export class DemosComponent implements OnInit {
   demoName: string = "";
   componentName: string = "";
   demos: DemoItem[];
-  showSideNav = true;
+  device: string;
+  showMenu = true;
 
-  constructor(private route: ActivatedRoute, private demoService: DemoService) {
+  constructor(
+    private route: ActivatedRoute,
+    private demoService: DemoService,
+    private screen: ScreenService
+  ) {
     this.title = "Building the UI";
   }
 
   ngOnInit() {
+    this.setDemoMenu();
+    this.setDemoTitle();
+    this.subscribeScreen();
+  }
+
+  private subscribeScreen() {
+    this.screen.Device.subscribe(mq => {
+      this.device = mq;
+      this.showMenu = mq == "xs" ? false : true;
+    });
+  }
+
+  private setDemoMenu() {
     this.demoService.getItems().subscribe(result => {
       this.demos = result;
     });
+  }
 
+  private setDemoTitle() {
     this.route.queryParams.subscribe((params: Params) => {
       let c: DemoItem = this.getComponent(params["title"]);
       this.demoName =

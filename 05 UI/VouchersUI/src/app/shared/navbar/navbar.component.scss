@@ -1,12 +1,12 @@
 @import "../../../theme/style-vars.scss";
 
-:host {
-  margin-bottom: 1rem;
-}
-
 .mainNav {
   background-color: $darkBackground;
   min-height: 5vh;
+}
+
+:host {
+  margin-bottom: 1rem;
 }
 
 .navTitle {

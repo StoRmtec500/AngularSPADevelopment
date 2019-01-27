@@ -13,24 +13,30 @@ export class ScreenService {
     this.ltmd
   );
 
-  constructor(private mediaObs: MediaObserver) {
+  public Device: BehaviorSubject<string> = new BehaviorSubject("");
+
+  constructor(private mediaObserver: MediaObserver) {
     this.subscribeIsPhone();
   }
 
   subscribeIsPhone() {
-    this.watcher = this.mediaObs.media$.subscribe((change: MediaChange) => {
-      switch (change.mqAlias) {
-        case "xs":
-          this.ltmd = true;
-          break;
-        case "sm":
-          this.ltmd = true;
-          break;
-        default:
-          this.ltmd = false;
-          break;
+    this.watcher = this.mediaObserver.media$.subscribe(
+      (change: MediaChange) => {
+        this.Device.next(change.mqAlias);
+
+        switch (change.mqAlias) {
+          case "xs":
+            this.ltmd = true;
+            break;
+          case "sm":
+            this.ltmd = true;
+            break;
+          default:
+            this.ltmd = false;
+            break;
+        }
+        this.lessThanMedium.next(this.ltmd);
       }
-      this.lessThanMedium.next(this.ltmd);
-    });
+    );
   }
 }
