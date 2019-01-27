@@ -1,6 +1,5 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Cobalt2",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
@@ -17,13 +16,7 @@
   "css_peek.searchFileExtensions": [".css", ".scss"],
   "html-css-class-completion.enableEmmetSupport": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "githubPullRequests.hosts": [
-    {
-      "host": "https://github.com",
-      "username": "oauth",
-      "token": "system"
-    }
-  ],
   "emmet.triggerExpansionOnTab": true,
-  "workbench.editor.restoreViewState": false
+  "workbench.editor.restoreViewState": false,
+  "workbench.colorTheme": "Cobalt2"
 }
