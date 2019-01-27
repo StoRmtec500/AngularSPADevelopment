@@ -1,7 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RouterEvent, Route } from "@angular/router";
-import { ScreenService } from "./shared/screen/screen.service";
 
 @Component({
   selector: "vouchers-app",

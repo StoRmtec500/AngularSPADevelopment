@@ -4,6 +4,8 @@ import { DemoService } from "./demo.service";
 import { DemoItem } from "./demoItem";
 import { ViewEncapsulation } from "@angular/compiler/src/core";
 import { ScreenService } from "../shared/screen/screen.service";
+import { EventBusService } from "../shared/event-bus/event-bus.service";
+import { cmdToggleDemoMenu } from "../shared/event-bus/action.types";
 
 @Component({
   selector: "app-demos",
@@ -22,7 +24,8 @@ export class DemosComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private demoService: DemoService,
-    private screen: ScreenService
+    private screen: ScreenService,
+    private events: EventBusService
   ) {
     this.title = "Building the UI";
   }
@@ -31,6 +34,7 @@ export class DemosComponent implements OnInit {
     this.setDemoMenu();
     this.setDemoTitle();
     this.subscribeScreen();
+    this.listenEvents();
   }
 
   private subscribeScreen() {
@@ -55,6 +59,17 @@ export class DemosComponent implements OnInit {
               c != undefined ? c.component : ""
             }`
           : "Please select a demo";
+    });
+  }
+
+  private listenEvents() {
+    this.events.Panel.subscribe(action => {
+      switch (action) {
+        case cmdToggleDemoMenu:
+          this.showMenu = !this.showMenu;
+          break;
+          defaut: break;
+      }
     });
   }
 

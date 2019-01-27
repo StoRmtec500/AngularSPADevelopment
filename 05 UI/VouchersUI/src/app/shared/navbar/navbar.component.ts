@@ -1,5 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, Route } from "@angular/router";
+import { EventBusService } from "../event-bus/event-bus.service";
+import {
+  cmdToggleDemoMenu,
+  cmdToggleAppsMenu
+} from "../event-bus/action.types";
+import { SnackbarService } from "../snackbar/snackbar.service";
 
 @Component({
   selector: "app-navbar",
@@ -7,7 +13,11 @@ import { Router, Route } from "@angular/router";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private events: EventBusService,
+    private sns: SnackbarService
+  ) {}
 
   editorDisplayed: boolean;
   rootRoutes: Route[];
@@ -23,6 +33,10 @@ export class NavbarComponent implements OnInit {
     console.log(this.rootRoutes);
   }
 
+  toggleDemoMenu() {
+    this.events.triggerCmd(cmdToggleDemoMenu);
+  }
+
   toggleEditor() {
     this.editorDisplayed = !this.editorDisplayed;
     if (this.editorDisplayed) {
@@ -30,6 +44,11 @@ export class NavbarComponent implements OnInit {
     } else {
       this.router.navigate(["", { outlets: { sidebarOutlet: null } }]);
     }
+  }
+
+  toggleApps() {
+    // this.events.triggerCmd(cmdToggleAppsMenu);
+    this.sns.displayAlert("Apps-Bar", "Not implemented!");
   }
 
   showUpload() {

@@ -17,11 +17,7 @@
 </div> -->
 
 <mat-sidenav-container>
-  <mat-sidenav
-    #sidenav
-    [opened]="showMenu"
-    [mode]="device == 'xs' ? 'over' : 'side'"
-  >
+  <mat-sidenav #sidenav [opened]="showMenu" [mode]="showMenu ? 'over' : 'side'">
     <h4>{{ title }}</h4>
     <div>
       <a
