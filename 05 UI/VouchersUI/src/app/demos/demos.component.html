@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="10px" fx fxFlexFill>
+<!-- <div fxLayout="row" fxLayoutGap="10px" fx fxFlexFill>
   <div fxFlex="1 1 auto" class="panelBox demoMenu">
     <h4>{{ title }}</h4>
     <div>
@@ -14,4 +14,28 @@
     <h4>{{ demoName }}</h4>
     <div class="workbench"><router-outlet></router-outlet></div>
   </div>
-</div>
+</div> -->
+
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [opened]="showSideNav"
+    [mode]="showSideNav ? 'side' : 'over'"
+  >
+    <h4>{{ title }}</h4>
+    <div>
+      <a
+        *ngFor="let item of demos"
+        [routerLink]="['', item.url]"
+        [queryParams]="{ title: item.title }"
+        >{{ item.title }}</a
+      >
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxFlex="8 8 auto" class="panelBox workbenchContainer">
+      <h4>{{ demoName }}</h4>
+      <div class="workbench"><router-outlet></router-outlet></div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

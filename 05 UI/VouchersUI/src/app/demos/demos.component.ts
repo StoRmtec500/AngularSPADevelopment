@@ -14,6 +14,7 @@ export class DemosComponent implements OnInit {
   demoName: string = "";
   componentName: string = "";
   demos: DemoItem[];
+  showSideNav = true;
 
   constructor(private route: ActivatedRoute, private demoService: DemoService) {
     this.title = "Building the UI";

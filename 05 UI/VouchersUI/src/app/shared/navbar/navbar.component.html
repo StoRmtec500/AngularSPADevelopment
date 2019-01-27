@@ -1,8 +1,8 @@
 <mat-toolbar class="mainNav" fxFlexFill fxLayoutGap="10px">
-  <div><mat-icon color="accent">menu</mat-icon></div>
+  <div fxHide.gt-xs><mat-icon color="accent">apps</mat-icon></div>
   <div><img width="50px" src="/assets/images/angular.svg" /></div>
-  <div fxHide.lt-lg="true" class="navTitle">
-    smart Angular Single Page Application Development
+  <div fxHide.lt-md="true" class="navTitle">
+    Angular Single Page Application Development
   </div>
   <div
     fxFlex="1 1 auto"
@@ -22,5 +22,5 @@
       {{ route.data.title }}
     </div>
   </div>
-  <div fxHide.gt-md><mat-icon color="accent">apps</mat-icon></div>
+  <div fxHide.gt-md><mat-icon color="accent">menu</mat-icon></div>
 </mat-toolbar>
