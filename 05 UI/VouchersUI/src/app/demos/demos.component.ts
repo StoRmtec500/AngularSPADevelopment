@@ -6,6 +6,7 @@ import { ViewEncapsulation } from "@angular/compiler/src/core";
 import { ScreenService } from "../shared/screen/screen.service";
 import { EventBusService } from "../shared/event-bus/event-bus.service";
 import { cmdToggleDemoMenu } from "../shared/event-bus/action.types";
+import { SnackbarService } from "../shared/snackbar/snackbar.service";
 
 @Component({
   selector: "app-demos",
@@ -25,7 +26,8 @@ export class DemosComponent implements OnInit {
     private route: ActivatedRoute,
     private demoService: DemoService,
     private screen: ScreenService,
-    private events: EventBusService
+    private events: EventBusService,
+    private sns: SnackbarService
   ) {
     this.title = "Building the UI";
   }
