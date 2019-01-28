@@ -68,12 +68,16 @@ Cleanup: `--rm`
 
 Connect a pseudo Console - (Interactive): `-it`
 
-### Run a named Image
+### Run a named Image: ie SQL for Linux
 
 `docker run -d --name sql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
 
 ### Build and run the Application
 
-`docker build -t voucherapp .`
+Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
-`docker run -d -p 8080:8080 --link sql:sql vouchersapi:latest`
+Prefexing prod keeps Intellisense in file
+
+`docker build --rm -f "Dockerfile" -t vouchersapi:latest .`
+
+`docker run -d --rm -it -p 8080:8080 --link sql:sql vouchersapi:latest`
