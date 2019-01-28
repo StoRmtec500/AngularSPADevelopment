@@ -37,7 +37,7 @@ namespace Vouchers
             var configuration = cfgBuilder.Build();
             services.Configure<VouchersConfig>(configuration);
             services.AddSingleton(typeof(IConfigurationRoot), configuration);
-            var conStr = configuration["ConnectionStrings:SQLServerDBConnection"];
+            var conStr = configuration["ConnectionStrings:DockerConnection"];
 
             //EF
             services.AddEntityFrameworkSqlServer()

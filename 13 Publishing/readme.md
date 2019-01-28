@@ -60,15 +60,23 @@ Start Docker Service: `start-service docker`
 
 `docker pull microsoft/mssql-server-linux:latest`
 
+### Base Switches
+
+Detached: `-d`
+
+Cleanup: `--rm`
+
+Connect a pseudo Console - (Interactive): `-it`
+
 ### Run a named Image
 
-`docker run -d --name sql microsoft/mssql-server-linux:latest`
+`docker run -d --name sql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
 
 ### Build and run the Application
 
 `docker build -t voucherapp .`
 
-`docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp`
+`docker run -d -p 8080:8080 --link sql:sql vouchersapi:latest`
 
 # Readings
 
