@@ -1,6 +1,8 @@
 # Docker
 
-## Install Docker with Linux Containers on Windows Server 2019
+## Installation
+
+### Install Docker with Linux Containers on Windows Server 2019
 
 ```auto
 Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
@@ -10,7 +12,7 @@ Install-Module DockerProvider -Force
 Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
 ```
 
-### Switch to Linux Containers
+#### Switch to Linux Containers
 
 ```auto
 [Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", "1", "Machine")
@@ -18,7 +20,7 @@ Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
 Restart-Service docker
 ```
 
-### Switch to Windows Containers
+#### Switch to Windows Containers
 
 ```auto
 [Environment]::SetEnvironmentVariable("LCOW_SUPPORTED", $null, "Machine")
@@ -26,31 +28,21 @@ Restart-Service docker
 Restart-Service docker
 ```
 
-### Test Windows Containers
+#### Test Windows Containers
 
 docker container run hello-world:nanoserver
 
-### Build and run the Application with Docker for Linux containers
+### Install Docker on Windows 10
 
-docker build -t voucherapp .
-
-docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp
-
-## Install Docker on Windows 10
-
-### VM-Ware Compatibility on Windows
+#### VM-Ware Compatibility on Windows
 
 Switch Windows Boot Config using BCDEdit to support Hyper-V or VM-Ware
 
-Enable VM-Ware:
+Enable VM-Ware: `bcdedit /set hypervisorlaunchtype off`
 
-`bcdedit /set hypervisorlaunchtype off`
+Disable VM-Ware: `bcdedit /set hypervisorlaunchtype auto`
 
-Disable VM-Ware:
-
-`bcdedit /set hypervisorlaunchtype auto`
-
-## Change Location of Docker files
+### Change Location of Docker files
 
 Stop Docker Service: `stop-service docker`
 
@@ -61,6 +53,22 @@ Edit `daemon.json`
 `{ "data-root": "F:\\DockerData" }`
 
 Start Docker Service: `start-service docker`
+
+## Docker Basic Commands
+
+### Download an Image
+
+`docker pull microsoft/mssql-server-linux:latest`
+
+### Run a named Image
+
+`docker run -d --name sql microsoft/mssql-server-linux:latest`
+
+### Build and run the Application
+
+`docker build -t voucherapp .`
+
+`docker run -it --rm -p 8000:80 --name aspnetcore_sample aspnetapp`
 
 # Readings
 
