@@ -76,8 +76,14 @@ Connect a pseudo Console - (Interactive): `-it`
 
 Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
+Adjust Connection STring:
+
+`"DockerConnection": "Data Source=sql;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=Pa$$w0rd"`
+
 Prefexing prod keeps Intellisense in file
 
 `docker build --rm -f "Dockerfile" -t vouchersapi:latest .`
 
 `docker run -d --rm -it -p 8080:8080 --link sql:sql vouchersapi:latest`
+
+### Add Angular Frontend
