@@ -93,3 +93,13 @@ Set Environment:
 Create a Production Build:
 
 `ng build --prod`
+
+## Using Docker Compose
+
+Build your Network:
+
+`docker-compose build`
+
+Run Network
+
+`docker-compose up`
