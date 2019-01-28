@@ -11,14 +11,14 @@ services:
     networks:
       - vouchers-network
     depends_on:
-      - sql
-  sql:
+      - sqllinux
+  sqllinux:
     image: microsoft/mssql-server-linux
-    # ports:
-    #   - 1433:1433
+    ports:
+      - 1433:1433
     environment:
-      ACCEPT_EULA: Y
-      SA_PASSWORD: Pa$$w0rd
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "TiTp4SQL@dmin"
     networks:
       - vouchers-network
 networks:

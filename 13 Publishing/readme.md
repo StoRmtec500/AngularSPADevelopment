@@ -70,7 +70,7 @@ Connect a pseudo Console - (Interactive): `-it`
 
 ### Run a named Image: ie SQL for Linux
 
-`docker run -d --name sql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
+`docker run -d --name sqllinux -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
 
 ### Build and run the Application: ie .NET Core Web Api
 
@@ -78,13 +78,13 @@ Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
 Adjust Connection String:
 
-`"DockerConnection": "Data Source=sql;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=Pa$$w0rd"`
+`"DockerConnection": "Data Source=sqllinux;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=Pa$$w0rd"`
 
 Prefexing prod keeps Intellisense in file
 
 `docker build --rm -f "Dockerfile" -t vouchersapi:latest .`
 
-`docker run -d --rm -it -p 8080:8080 --link sql:sql vouchersapi:latest`
+`docker run -d --rm -it -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest`
 
 ### Build Angular Frontend
 
@@ -95,6 +95,8 @@ Create a Production Build:
 `ng build --prod`
 
 ## Using Docker Compose
+
+[Docker Compose Cheatsheet](https://devhints.io/docker-compose)
 
 Build your Network:
 
