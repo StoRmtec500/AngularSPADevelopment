@@ -72,7 +72,7 @@ Connect a pseudo Console - (Interactive): `-it`
 
 `docker run -d --name sql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
 
-### Build and run the Application
+### Build and run the Application: ie .NET Core Web Api
 
 Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
