@@ -77,11 +77,3 @@ Connect a pseudo Console - (Interactive): `-it`
 `docker build -t voucherapp .`
 
 `docker run -d -p 8080:8080 --link sql:sql vouchersapi:latest`
-
-# Readings
-
-[Hot to run Linux Containers on 2019 Server](https://www.altaro.com/msp-dojo/linux-containers-windows-server-2019/)
-
-[How to run Windows Server Hyper-V on VMware Workstation](https://www.sqlskills.com/blogs/tim/how-to-run-windows-server-2012-hyper-v-on-vmware-workstation/)
-
-[Change Docker Data Location on Windows Server 2019](https://www.deploycontainers.com/2018/02/27/change-docker-storage-data-folder-windows-server-2016/)
