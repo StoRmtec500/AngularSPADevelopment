@@ -70,7 +70,7 @@ Connect a pseudo Console - (Interactive): `-it`
 
 ### Run a named Image: ie SQL for Linux
 
-`docker run -d --name sqllinux -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd' microsoft/mssql-server-linux:latest`
+`docker run -d --name sqllinux -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=TiTp4SQL@dmin' microsoft/mssql-server-linux:latest`
 
 ### Build and run the Application: ie .NET Core Web Api
 
@@ -78,7 +78,7 @@ Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
 Adjust Connection String:
 
-`"DockerConnection": "Data Source=sqllinux;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=Pa$$w0rd"`
+`"DockerConnection": "Data Source=sqllinux;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=TiTp4SQL@dmin"`
 
 Prefexing prod keeps Intellisense in file
 
