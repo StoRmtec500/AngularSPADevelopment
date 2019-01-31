@@ -2,7 +2,11 @@
 
 ## Installation
 
+---
+
 ### Install Docker with Linux Containers on Windows Server 2019
+
+---
 
 ```auto
 Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
@@ -32,11 +36,17 @@ Restart-Service docker
 
 docker container run hello-world:nanoserver
 
+---
+
 ### Install Docker on Windows 10
 
 Download & Install from: `https://hub.docker.com/editions/community/docker-ce-desktop-windows`
 
+---
+
 ## Docker Basic Commands
+
+---
 
 Download an Image
 
@@ -50,9 +60,13 @@ Cleanup: `--rm`
 
 Map Ports `LocalPort:DockerPort` : `--p 8080:5000`
 
-Prefexing prod keeps Intellisense in file and allows you to have more than one Dockerfile.
+Mount Containers to allow Network Communication: `--link sqllinux:sqllinux`
 
-Example: `Dockerfile`, `anguarui.dockerfile`
+Prefexing prod keeps Intellisense in file and allows you to have more than one Dockerfile. Example:
+
+`Dockerfile` or `anguarui.dockerfile`
+
+---
 
 ## Containerize 3-Tier Application
 
@@ -67,6 +81,8 @@ Example: `Dockerfile`, `anguarui.dockerfile`
 ---
 
 ### Containerize .NET Core Web Api
+
+Execute in `..\13 Publishing\VouchersAPI\VouchersAPI\`
 
 ---
 
@@ -89,6 +105,8 @@ docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 
 [NGINX](https://www.nginx.com/) is a commonly used Web Server to serve static Apps like Angular
 
+Execute in `..\13 Publishing\VouchersUI\`
+
 ### Check NGINX image
 
 Look at `/config/nginx.conf`
@@ -105,6 +123,8 @@ Check `http://localhost:8080` for result
 ---
 
 #### Run Angular agains NGINX in watch mode
+
+---
 
 #### Run a Dev Build in Watch mode:
 
@@ -131,6 +151,12 @@ Use on Linux / Mac Host
 ---
 
 #### Create a Production Build:
+
+---
+
+sdf
+
+---
 
 ## Using Docker Compose
 
