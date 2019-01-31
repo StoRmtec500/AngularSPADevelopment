@@ -10,7 +10,10 @@ RUN npm run build -- --prod
 ##### Stage 2
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-COPY --from=node /app/dist/vouchersui /usr/share/nginx/html
+
+# Take from node-build
+COPY --from=node app/dist/vouchersui /usr/share/nginx/html
+# Take from proj folder
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 
 # docker build -t vouchers-ui -f anguarui.dockerfile .
