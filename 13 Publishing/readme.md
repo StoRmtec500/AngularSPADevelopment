@@ -84,15 +84,39 @@ Prefexing prod keeps Intellisense in file
 
 `docker build --rm -f "Dockerfile" -t vouchersapi:latest .`
 
-`docker run -d --rm -it -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest`
+`docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest`
+
+### Check NGINX image
+
+docker build -t vouchersui:1.0.0 -f dockerfile .
+
+docker run -d -p 8080:80/tcp vouchersui
+
+Check `http://localhost:8080` for result
 
 ### Build Angular Frontend
-
-Set Environment:
 
 Create a Production Build:
 
 `ng build --prod`
+
+Keep "dist"-folder when building:
+
+`ng build --watch --delete-output-path false`
+
+Build angular-nginx:
+
+`docker build -t --rm vouchersui -f dockerfile .`
+
+Run angular on nginx:
+
+Use on Windows Host
+
+`docker run -p 8080:80 -d -v ./dist/vouchersui:/usr/share/nginx/html vouchersui`
+
+Use on Linux Host
+
+`docker run -p 8080:80 -d -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
 ## Using Docker Compose
 
