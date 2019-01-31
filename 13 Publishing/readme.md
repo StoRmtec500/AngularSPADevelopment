@@ -42,13 +42,17 @@ Download an Image
 
 `docker pull microsoft/mssql-server-linux:latest`
 
-### Base Switches
+### Base Switches & Things to know
 
 Detached: `-d`
 
 Cleanup: `--rm`
 
-Connect a pseudo Console - (Interactive): `-it`
+Map Ports `LocalPort:DockerPort` : `--p 8080:5000`
+
+Prefexing prod keeps Intellisense in file and allows you to have more than one Dockerfile.
+
+Example: `Dockerfile`, `anguarui.dockerfile`
 
 ## Containerize 3-Tier Application
 
@@ -72,9 +76,7 @@ Adjust Connection String:
 
 `"DockerConnection": "Data Source=sqllinux;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=TiTp4SQL@dmin"`
 
-Prefexing prod keeps Intellisense in file
-
-```auto
+```
 docker build --rm -f "Dockerfile" -t vouchersapi:latest .
 docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 ```
