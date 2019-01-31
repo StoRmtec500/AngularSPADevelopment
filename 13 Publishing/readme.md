@@ -113,7 +113,7 @@ Look at `/config/nginx.conf`
 
 Execute
 
-```auto
+```
 docker build -t vouchersui:1.0.0 -f dockerfile .
 docker run -d -p 8080:80/tcp vouchersui
 ```
@@ -140,7 +140,9 @@ Check `http://localhost:8080` for result
 
 ##### Run angular on nginx using mapped drive to build:
 
-Use on Windows Host the mountend folder needs to be shared:
+Use on Windows Host the mountend folder needs to be shared on Windows and "Shared Devices" needs to be enabled in Docker Desktop
+
+![abc](_images/windows-share.png)
 
 `docker run -d -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
