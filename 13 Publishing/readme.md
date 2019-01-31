@@ -78,7 +78,7 @@ Check `http://localhost:8080` for result
 
 ### Build Angular Frontend
 
-Create a Production Build:
+#### Run a Dev Build:
 
 `ng build --prod`
 
@@ -96,9 +96,11 @@ Use on Windows Host the mountend folder needs to be shared:
 
 `docker run -d -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
-Use on Linux Host
+Use on Linux / Mac Host
 
 `docker run -p 8080:80 -d -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersui`
+
+#### Create a Production Build:
 
 ## Using Docker Compose
 
