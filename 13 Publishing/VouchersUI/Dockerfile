@@ -2,7 +2,8 @@ FROM nginx:alpine
 LABEL author="Alexander Pajer"
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 
-# # Create Initial
+# # Create Initial by me
+
 # FROM node:latest as node
 # WORKDIR /app
 # COPY . .

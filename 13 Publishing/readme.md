@@ -78,6 +78,8 @@ Prefexing prod keeps Intellisense in file and allows you to have more than one D
 
 `docker run -d --name sqllinux -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=TiTp4SQL@dmin' microsoft/mssql-server-linux:latest`
 
+Show running containers: `docker ps -a`
+
 ---
 
 ### Containerize .NET Core Web Api
@@ -144,11 +146,21 @@ Use on Windows Host the mountend folder needs to be shared on Windows and "Share
 
 ![abc](_images/windows-share.png)
 
+Run & Map local `dist/vouchersui` folder as `html` to nginx
+
 `docker run -d -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
 Use on Linux / Mac Host
 
 `docker run -d -p 8080:80 -d -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersui`
+
+Be aware that `nginx.conf` contains a route that redirects server side `404` to Angular's `index.html`
+
+```auto
+location / {
+    try_files $uri $uri/ /index.html =404;
+}
+```
 
 ---
 
