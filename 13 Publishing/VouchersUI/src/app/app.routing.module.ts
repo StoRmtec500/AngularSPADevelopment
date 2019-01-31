@@ -9,8 +9,13 @@ import { UploadComponent } from "./shared/upload/upload.component";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { VoucherComponent } from "./vouchers/voucher/voucher.component";
 import { VouchersListComponent } from "./vouchers/vouchers-list.component";
+import { HomeComponent } from "./home/home.component";
 
 const appRoutes: Routes = [
+  {
+    path: "",
+    component: HomeComponent
+  },
   {
     path: "vouchers",
     data: { title: "Vouchers" },
@@ -40,11 +45,11 @@ const appRoutes: Routes = [
     data: { title: "Admin" },
     canActivate: [RouteGuard]
   },
-  {
-    path: "",
-    redirectTo: "vouchers",
-    pathMatch: "full"
-  },
+  // {
+  //   path: "",
+  //   redirectTo: "vouchers",
+  //   pathMatch: "full"
+  // },
   { path: "showeditor", component: EditorComponent, outlet: "sidebarOutlet" },
   { path: "upload", component: UploadComponent, outlet: "sidebarOutlet" },
   { path: "**", component: DemosComponent }

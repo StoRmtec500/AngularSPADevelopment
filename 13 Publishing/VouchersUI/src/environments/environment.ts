@@ -6,6 +6,7 @@ export enum Provider {
 export const environment = {
   production: false,
   authEnabled: false,
+  initDataservice: false,
   apiUrl: "http://localhost:5000/",
   provider: Provider.Firebase,
   token: "",

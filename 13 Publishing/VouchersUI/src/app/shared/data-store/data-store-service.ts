@@ -5,13 +5,16 @@ import { BalanceAccount, Voucher } from "..";
 import { AccountsService } from "../../accounts/account.service";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { lateVoucher } from "./late-voucher";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class DataStoreService {
   constructor(private vs: VouchersService, private as: AccountsService) {
-    this.initVouchers();
-    this.initAccounts();
-    this.addLateVoucher();
+    if (environment.initDataservice) {
+      this.initVouchers();
+      this.initAccounts();
+      this.addLateVoucher();
+    }
   }
 
   //Vouchers
