@@ -34,25 +34,7 @@ docker container run hello-world:nanoserver
 
 ### Install Docker on Windows 10
 
-#### VM-Ware Compatibility on Windows
-
-Switch Windows Boot Config using BCDEdit to support Hyper-V or VM-Ware
-
-Enable VM-Ware: `bcdedit /set hypervisorlaunchtype off`
-
-Disable VM-Ware: `bcdedit /set hypervisorlaunchtype auto`
-
-### Change Location of Docker files
-
-Stop Docker Service: `stop-service docker`
-
-Open `C:\ProgramData\Docker\config\daemon.json`
-
-Edit `daemon.json`
-
-`{ "data-root": "F:\\DockerData" }`
-
-Start Docker Service: `start-service docker`
+Download & Install from: `https://hub.docker.com/editions/community/docker-ce-desktop-windows`
 
 ## Docker Basic Commands
 
@@ -108,11 +90,11 @@ Build angular-nginx:
 
 `docker build -t --rm vouchersui -f dockerfile .`
 
-Run angular on nginx:
+Run angular on nginx using mapped drive to build:
 
-Use on Windows Host
+Use on Windows Host the mountend folder needs to be shared:
 
-`docker run -p 8080:80 -d -v ./dist/vouchersui:/usr/share/nginx/html vouchersui`
+`docker run -d -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
 Use on Linux Host
 
