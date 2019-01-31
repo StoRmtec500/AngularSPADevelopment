@@ -154,7 +154,7 @@ Use on Linux / Mac Host
 
 `docker run -d -p 8080:80 -d -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersui`
 
-Be aware that `nginx.conf` contains a route that redirects server side `404` to Angular's `index.html`
+Be aware that `nginx.conf` contains a route that redirects Server Side `404 errors` to Angular's `index.html` for Angular Routing to detect the route.
 
 ```auto
 location / {
