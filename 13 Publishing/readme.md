@@ -68,9 +68,15 @@ Prefexing prod keeps Intellisense in file and allows you to have more than one D
 
 ---
 
-## Containerize 3-Tier Application
+## Containerize a 3-Tier Application
 
 ---
+
+![App](_images/app.png)
+
+Hosting
+
+![Architecture View](_images/docker-onion.png)
 
 ### Run SQL for Linux in Container
 
@@ -183,3 +189,9 @@ Build your Network:
 Run Network
 
 `docker-compose up`
+
+# Kubernetes
+
+## Setup
+
+Download & Install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
