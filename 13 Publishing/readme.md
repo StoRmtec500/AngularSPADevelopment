@@ -38,7 +38,7 @@ Download & Install from: `https://hub.docker.com/editions/community/docker-ce-de
 
 ## Docker Basic Commands
 
-### Download an Image
+Download an Image
 
 `docker pull microsoft/mssql-server-linux:latest`
 
@@ -50,15 +50,21 @@ Cleanup: `--rm`
 
 Connect a pseudo Console - (Interactive): `-it`
 
+## Containerize 3-Tier Application
+
 ---
 
-### Run a named Image: ie SQL for Linux
+### Run SQL for Linux in Container
+
+---
 
 `docker run -d --name sqllinux -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=TiTp4SQL@dmin' microsoft/mssql-server-linux:latest`
 
 ---
 
-### Build and run the Application: ie .NET Core Web Api
+### Containerize .NET Core Web Api
+
+---
 
 Specify Dockerfile for Build: -f ... Dockerfile | prod.dockerfile
 
@@ -68,25 +74,29 @@ Adjust Connection String:
 
 Prefexing prod keeps Intellisense in file
 
-`docker build --rm -f "Dockerfile" -t vouchersapi:latest .`
-
-`docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest`
+```auto
+docker build --rm -f "Dockerfile" -t vouchersapi:latest .
+docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
+```
 
 ---
 
-### Angular Frontend
+### Containerize Angular Frontend
+
+---
 
 [NGINX](https://www.nginx.com/) is a commonly used Web Server to serve static Apps like Angular
-
----
 
 ### Check NGINX image
 
 Look at `/config/nginx.conf`
 
-docker build -t vouchersui:1.0.0 -f dockerfile .
+Execute
 
+```auto
+docker build -t vouchersui:1.0.0 -f dockerfile .
 docker run -d -p 8080:80/tcp vouchersui
+```
 
 Check `http://localhost:8080` for result
 
