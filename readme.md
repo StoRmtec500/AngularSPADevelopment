@@ -104,8 +104,7 @@
 
 - Authentication / Authorization Basics in SPAs
 - Token based Auth: Understanding Jwt, OAuth 2.0 & OpenID Connect
-- Using Social / Cloud based Logins
-- Securing Angular Routes
+- Securing Angular Routes using Route Guards
 - Securing the Web Api
 
 ## Publishing Angular Apps
