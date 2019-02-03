@@ -1,5 +1,43 @@
 # Angular Single Page Application (SPA) Development
 
+## Kursbeschreibung
+
+Im Seminar "Angular Single Page Application Development” lernen Sie Angular gemeinsam mit Node.js / .NET Core einzusetzen und damit "Single Page Applications" (SPA's) zu erstellen. Beginnend mit Projektkonfiguration & Angular Basics vertiefen wir unsere Kenntnisse, um schließlich alle Teile des Angular Eco-Systems, inklusive Responsive UI Design, Security, Testing & Hosting zu behandeln.
+
+Nach Abschluss dieses Seminars haben die Teilnehmer Kenntnisse zu folgenden Themen:
+
+## Module
+
+- Environment & Tools Setup and Introduction
+- TypeScript Fundamentals
+- Angular Projektkonfiguration & CLI
+- Understanding Fundamentals & Completing Basic Tasks
+- Routing & Modularity
+- Implementing a Responsive User Interface
+- Form Design & Validation
+- Implementing & Consuming Data Models and REST APIs
+- Introduction to Observables & Reactive Programming
+- Managing State & Broadcasting Events
+- Testing & Securing the Application
+
+## Zielgruppe
+
+Dieses Seminar richtet sich an Web Entwickler welche Angular Anwendungen entwickeln möchten.
+
+## Vortragsart
+
+Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Module werden die erlernten Inhalte in eine durchgängige Anwendung integriert. Der Kurs wird mit Visual Studio Code gehalten.
+
+## Voraussetzungen
+
+- JavaScript und jQuery Basics (Kurs: Programming HTML5, JavaScript and CSS3)
+- Erfahrung mit Web Development
+- Kenntnis von Objektorientierten Sparchen
+
+## Dauer: 5 Tage
+
+# Inhalt
+
 ## Environment & Tools Setup and Introduction
 
 - Understanding Environment Setup
