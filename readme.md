@@ -1,79 +1,116 @@
-# Github Essentials
+# Angular Single Page Application (SPA) Development
 
-## Configuration
+## Environment & Tools Setup and Introduction
 
-Set User and E-Mail
+- Understanding Environment Setup
+- Visual Studio Code Essentials
+- Understanding Node.js, NPM, WebPack
 
-`git config --global user.name "Your Name"`
+## TypeScript Fundamentals
 
-`git config --global user.email "your.email@yourdomain.com`
+- TypeScript Overview, Configuration, Debugging
+- 3rd Party Libraries & Type Definitions
+- Types, Arrays & Functions
+- ECMA Script 6+ Essentials
+- Objects, Classes, Interfaces
+- Understanding Modules & Module Loading
+- Understanding Async Operations
 
-Unset Credentials
+## Angular Introduction & Setup
 
-`git config --global --unset credential.helper`
+- What is a SPA?
+- Overview and Version Comparison
+- Angular Command Line Interface – Angular CLI
+- Bootstrapping Angular / Project Konfiguration
+- Debugging Angular using Augury
 
-## Basic Git Commands
+## Understanding Fundamentals & Completing Basic Tasks
 
-Init Git: `git init`
+- Components, Expressions, Templates & Directives
+- String Interpolation, Property- & Event-Binding, Two-Way Binding
+- Understanding Component Lifecycle
+- Pipes & Internationalization
+- Custom Directives & Pipes
+- Databinding with Nested Components
+- Reusable Components using Local References & Content Projection
+- Organizing Angular Applications using Modules
 
-Add all files to Git: `git add .`
+## Angular Routing
 
-Add a specific file to Git: `git add file.txt | *.ts`
+- Routing Basics
+- Working with Parameterized Routes
+- Child- & Secondary Routes
+- Using Route Guards
+- Preloading Data
+- Module Lazy Loading
 
-Commit files: `git commit -m "your checkin comment"`
+## Implementing a Responsive User Interface
 
-Get a spcific Commit: `git checkout <sha1>`
+- Global & Component Styles
+- Using Sass (Synthetically Awesome Stylesheets)
+- Responssive Web Design Basics
+- Using Flexbox & CSS Grid
+- Responsive Layout using Angular Flex Layout
+- Angular Material Overview
+- Using Material Tables, Dialogs & Form Controls
+- Using Bootstrap JumpStart
+- Using 3rd Party Components (Charting, File Upload, Drag & Drop)
 
-## Status & Updates
+## Forms Design & Validation
 
-Show Commit logs: `git log`
+- Forms Introduction
+- Template Driven Forms
+- Reactive (Model Based) Forms
+- Validating Forms
+- Custom & Code Based Validation
 
-Check for remote updates: `git remote update`
+## Designing & Accessing Data Models
 
-Show Status (Adds/Delets/Changes): `git status`
+- Introduction Into .NET Core
+- Implementing Data Models using .NET Core and Entity Framework 2.0
+- Angular Project Configuration for Integration with .NET Core
+- Implementing the Client-Side Data Model
+- Comparison Http vs HttpClient
+- Consuming .NET Core RESTful APIs
+- Using Interceptors
 
-## Branching
+## Observables & Reactive Programming
 
-List Branches: `git branch -a`
+- Consuming REST Services: Observables vs. Promises
+- Observable, Observer & Subject
+- What are Reactive Extensions
+- Using Built-in Observables
+- Creating Observables from Scratch
+- Using Operators & Pipes
+- Capturing Mouse & DOM Events as Observables
+- Subscribing to Routes & Params, Flex Layout API
 
-Create a new Branch: `git checkout -b [name_of_your_new_branch]`
+## Managing State & Sharing Events
 
-Push new Branch to remote: `git push origin [name_of_your_new_branch]`
+- What is State Management
+- State Management Options
+- Stateless & Stateful Services
+- Sharing Data between deeply Nested Components
+- Implementing a Global Event Bus
 
-Switch to Branch: `git checkout [name_of_your_branch]`
+## Testing Basics
 
-Merge Branch: `git merge [branch_to_merge]`
+- Unit Tests vs Integration Tests
+- Karma & Jasmine Basics
+- Test Setup & Mocking
+- Testing Angular Components, Services and Forms
 
-## Remotes
+## Securing the Application using Token Based Auth
 
-Adding Remotes: `git remote add origin https://github.com/try-git/try_git.git`
+- Authentication / Authorization Basics in SPAs
+- Token based Auth: Understanding Jwt, OAuth 2.0 & OpenID Connect
+- Using Social / Cloud based Logins
+- Securing Angular Routes
+- Securing the Web Api
 
-Pull / Push from / to repository: `git pull / git push`
+## Publishing Angular Apps
 
-## Tags
-
-Create Lightweight tag : `git tag -l v1.1.0`
-
-Create Annotated tag : `git tag -a v2.0.1 -m "fixed Bug on replaced data layer. do not use v.2.0.0"`
-
-List all tags: `git tag`
-
-Show a specific tag: `git show v2.0.1`
-
-Push tags to Remote: `git push origin v2.0.1 | git push --tags`
-
-Delete tag: `git tag -d v2.0.1`
-
-Checkout tag: `git checkout 2.0.1`
-
-## Configure ignored files
-
-Add a `.gitignore` file to the root of your project. A valid `.gitignore` file can be generated at https://www.gitignore.io/
-
-# Markdown
-
-Add your own Comments using Markdown
-
-[Intro to Markdown - Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-[Markdown Shorcuts - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts)
+- Publishing Option Overview (Webserver, Docker, …)
+- Preperations for Deployment
+- Creating a Production Build
+- Hosting Angular Applications
