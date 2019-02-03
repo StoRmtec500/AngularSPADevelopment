@@ -74,11 +74,12 @@
 - Consuming .NET Core RESTful APIs
 - Using Interceptors
 
-## Observables & Reactive Programming
+## Introduction to Observables & Reactive Programming
 
 - Consuming REST Services: Observables vs. Promises
 - Observable, Observer & Subject
 - What are Reactive Extensions
+- Use Cases for Reactive Programming
 - Using Built-in Observables
 - Creating Observables from Scratch
 - Using Operators & Pipes
@@ -92,6 +93,7 @@
 - Stateless & Stateful Services
 - Sharing Data between deeply Nested Components
 - Implementing a Global Event Bus
+- Going beyond: Introduction to the Redux Pattern
 
 ## Testing Basics
 
