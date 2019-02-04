@@ -1,67 +1,85 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import "hammerjs";
 
 import {
-  MatTableModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSidenav,
-  MatSidenavContainer,
-  MatList,
-  MatToolbar,
-  MatSidenavModule,
-  MatListModule,
-  MatToolbarModule,
-  MatIconModule,
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
   MatButtonModule,
-  MatMenuModule,
+  MatButtonToggleModule,
   MatCardModule,
-  MatDialogModule,
-  MatDatepicker,
-  MatDatepickerToggle,
-  MatSelectModule,
-  MatOptionModule,
-  MatSlideToggle,
+  MatCheckboxModule,
+  MatChipsModule,
   MatDatepickerModule,
-  MatNativeDateModule,
-  MatSlideToggleModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
   MatRadioModule,
-  MatRadioButton,
-  MatRadioGroup
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatNativeDateModule
 } from "@angular/material";
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const mods = [
-  CommonModule,
-  BrowserModule,
-  BrowserAnimationsModule,
-  MatSidenavModule,
-  MatListModule,
-  MatToolbarModule,
+  MatAutocompleteModule,
+  MatNativeDateModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
   MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatMenuModule,
-  MatCardModule,
-  MatSelectModule,
-  MatOptionModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatNativeDateModule,
-  MatDialogModule,
-  MatDatepickerModule,
-  MatSlideToggleModule,
-  MatRadioModule,
-  FlexLayoutModule,
+  MatTooltipModule,
+  FlexLayoutModule
 ];
 
 @NgModule({
   imports: mods,
   declarations: [],
+  providers: [MatDatepickerModule],
   exports: mods
 })
-export class MaterialModule { }
+export class MaterialModule {}

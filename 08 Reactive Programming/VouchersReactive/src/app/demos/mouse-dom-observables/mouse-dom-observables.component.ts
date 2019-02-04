@@ -51,24 +51,4 @@ export class MouseDomObservablesComponent implements OnInit {
       console.log("Button Clicked")
     );
   }
-
-  // Just to show you -> OOB available from
-  // https://github.com/Reactive-Extensions/RxJS-DOM/tree/master/doc/operators
-  watchLocation(): Promise<Position> {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.watchPosition(
-        position => {
-          resolve(position);
-        },
-        () => {
-          reject("We could not get your location");
-        }
-      );
-    });
-  }
-
-  useWatchLocation() {
-    let obsLocation = from(this.watchLocation());
-    obsLocation.subscribe(data => console.log(data));
-  }
 }

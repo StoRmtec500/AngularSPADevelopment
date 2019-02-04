@@ -8,7 +8,7 @@ import { isArray } from "util";
 @Component({
   selector: "app-operators",
   templateUrl: "./operators.component.html",
-  styleUrls: ["./operators.component.css"]
+  styleUrls: ["./operators.component.scss"]
 })
 export class OperatorsComponent implements OnInit {
   constructor(private vs: VouchersService) {}

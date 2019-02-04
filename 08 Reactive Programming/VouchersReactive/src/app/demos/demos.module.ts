@@ -5,23 +5,19 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-
 import { MaterialModule } from "../material.module";
-import { CalculatorComponent } from "../shared/calculator/calculator.component";
 import { SharedModule } from "../shared/shared.module";
+import { CreatingObservableComponent } from "./creating-observables/creating-observable.component";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
-import { MovieService } from "./movie.service";
-import { PersonService } from "./person.service";
-
-import { ObservableCrudComponent } from "./observable-crud/observable-crud.component";
-
+import { FlexLayoutApiComponent } from "./flex-layout-api/flex-layout-api.component";
 import { MouseDomObservablesComponent } from "./mouse-dom-observables/mouse-dom-observables.component";
 import { MovieRendererComponent } from "./movie-renderer/movie-renderer.component";
-import { OperatorsComponent } from "./operators/operators.component";
-import { FlexLayoutApiComponent } from "./flex-layout-api/flex-layout-api.component";
-import { SimpleObservableComponent } from "./simple-observable/simple-observable.component";
+import { MovieService } from "./movie.service";
+import { ObservableCrudComponent } from "./observable-crud/observable-crud.component";
 import { ObservableStreamComponent } from "./observable-stream/observable-stream.component";
+import { OperatorsComponent } from "./operators/operators.component";
+import { PersonService } from "./person.service";
 
 @NgModule({
   imports: [
@@ -37,7 +33,7 @@ import { ObservableStreamComponent } from "./observable-stream/observable-stream
   ],
   declarations: [
     DemosComponent,
-    SimpleObservableComponent,
+    CreatingObservableComponent,
     ObservableCrudComponent,
     ObservableStreamComponent,
     MouseDomObservablesComponent,

@@ -10,8 +10,9 @@ import { CheckPipe } from "./checked/check.pipe";
 import { SidePanelComponent } from "./side-panel/side-panel.component";
 import { CurrencyService } from "./calculator/currency.service";
 import { FormsModule } from "@angular/forms";
-import { CKEditorComponent } from 'ngx-ckeditor';
+import { CKEditorComponent } from "ngx-ckeditor";
 import { FileUploadModule } from "ng2-file-upload";
+import { FooterComponent } from "./footer/footer.component";
 
 const mods = [
   UploadComponent,
@@ -21,11 +22,18 @@ const mods = [
   EditorComponent,
   CheckPipe,
   SidePanelComponent,
-  CKEditorComponent
+  CKEditorComponent,
+  FooterComponent
 ];
 
 @NgModule({
-  imports: [CommonModule, FormsModule, RouterModule, MaterialModule, FileUploadModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    MaterialModule,
+    FileUploadModule
+  ],
   declarations: mods,
   exports: mods,
   providers: [CurrencyService]

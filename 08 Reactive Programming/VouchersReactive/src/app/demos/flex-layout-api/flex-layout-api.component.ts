@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ObservableMedia, MediaChange } from "@angular/flex-layout";
+import { MediaChange, MediaObserver } from "@angular/flex-layout";
 
 @Component({
   selector: "app-flex-layout-api",
   templateUrl: "./flex-layout-api.component.html",
-  styleUrls: ["./flex-layout-api.component.css"]
+  styleUrls: ["./flex-layout-api.component.scss"]
 })
 export class FlexLayoutApiComponent implements OnInit {
-  constructor(private obsMedia: ObservableMedia) {
+  constructor(private obsMedia: MediaObserver) {
     this.subscribeIsPhone();
   }
 
@@ -21,7 +21,7 @@ export class FlexLayoutApiComponent implements OnInit {
   ngOnInit() {}
 
   subscribeIsPhone() {
-    this.watcher = this.obsMedia.subscribe((change: MediaChange) => {
+    this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
       switch (change.mqAlias) {
         case "xs":
           this.isPhone = true;

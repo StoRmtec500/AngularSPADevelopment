@@ -1,0 +1,21 @@
+<mat-card>Works with pure Mock Data</mat-card>
+
+<mat-card fxLayout="column" fxLayoutGap="10px">
+  <h4>Observable Basics</h4>
+  <a (click)="useObsCreate()">Use Observable.create()</a>
+  <a (click)="useObsFrom()">Use Observerable.from()</a>
+  <a (click)="wrappingCallbacks()">Wrapping Callbacks</a>
+  <a (click)="usePromiseToObs()">Promise to Observable</a>
+  <a (click)="useOperator()">Use Operator()</a>
+</mat-card>
+
+<mat-card>
+  <h5>Result: {{ fName }}</h5>
+  <br />
+  {{ nbrObs | async }}
+</mat-card>
+
+<mat-card>
+  <h5>Result: {{ fName }}</h5>
+  <pre> {{ result | json }} </pre></mat-card
+>

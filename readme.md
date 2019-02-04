@@ -31,13 +31,18 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 
 ## Voraussetzungen
 
-- JavaScript und jQuery Basics (Kurs: Programming HTML5, JavaScript and CSS3)
+- JavaScript und HTML Basics (Kurs: Programming HTML5, JavaScript and CSS3)
 - Erfahrung mit Web Development
 - Kenntnis von Objektorientierten Sparchen
+- Kenntnis von modernen CSS Technologien (Flexbox, CSS Grid, ..) hilfreich
 
-## Dauer: 5 Tage
+## Dauer
 
-# Inhalt
+5 Tage
+
+---
+
+# Module
 
 ## Environment & Tools Setup and Introduction
 
@@ -53,7 +58,6 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - ECMA Script 6+ Essentials
 - Objects, Classes, Interfaces
 - Understanding Modules & Module Loading
-- Understanding Async Operations
 
 ## Angular Introduction & Setup
 
@@ -73,15 +77,16 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Reusable Components using Local References & Content Projection
 - View Child, View Children
 
-## Angular Routing
+## Routing & Modularity
 
 - Routing Basics
 - Working with Parameterized Routes
-- Child- & Secondary Routes
+- Child- & Secondary (Auxiliary) Routes
 - Using Route Guards
-- Preloading Data
+- Preloading Component Data
 - Organizing Angular Applications using Modules
 - Module Lazy Loading
+- Preloading Feature Modules
 
 ## Implementing a Responsive User Interface
 
@@ -139,7 +144,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Stateless & Stateful Services
 - Sharing Data between deeply Nested Components
 - Sharing Events between deeply Nested Components
-- Going beyond: Introduction to the Redux Pattern
+- Going beyond: Overview of the Redux Pattern
 
 ## Testing Basics
 
