@@ -130,44 +130,4 @@ export class ObservableStreamComponent implements OnInit, OnDestroy {
       (this.movies = data), console.log(data);
     });
   }
-
-  useES6Filter() {
-    this.movies = [];
-    this.currentView = CurrentView.Dashboard;
-    this.movieObs = this.ms.getMovieStream();
-
-    this.movieObs.subscribe((data: Movie[]) => {
-      let dt = new Date();
-      this.playingArray = data.filter(item => {
-        return item.startTime < dt;
-      });
-      this.upcomingArray = data.filter(item => {
-        return item.startTime >= dt;
-      });
-    });
-  }
-
-  //Think about difference between this and ES6 Filter
-  useObsOperator() {
-    this.currentView = CurrentView.Dashboard;
-    this.movieObs = this.ms.getMoviesBS();
-    let dt = new Date();
-
-    this.movieObs
-      .pipe(map(mis => mis.filter(mi => mi.startTime < dt)))
-      .subscribe(data => (this.playingArray = data));
-
-    this.movieObs
-      .pipe(map(mis => mis.filter(mi => mi.startTime >= dt)))
-      .subscribe(data => (this.upcomingArray = data));
-
-    setTimeout(() => (this.addMovieVisible = true), 8000);
-  }
-
-  addMovie() {
-    this.ms.addMovie(<Movie>{
-      title: "The added Movie",
-      startTime: new Date()
-    });
-  }
 }
