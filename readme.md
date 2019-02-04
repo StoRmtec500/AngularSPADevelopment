@@ -34,9 +34,13 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Erfahrung mit Web Development
 - Kenntnis von Objektorientierten Sparchen
 
-## Dauer: 5 Tage
+## Dauer
 
-# Inhalt
+5 Tage
+
+---
+
+# Module
 
 ## Environment & Tools Setup and Introduction
 
