@@ -17,6 +17,7 @@ Nach Abschluss dieses Seminars haben die Teilnehmer Kenntnisse zu folgenden Them
 - Form Design & Validation
 - Implementing & Consuming Data Models and REST APIs
 - Introduction to Observables & Reactive Programming
+- Nesting Components
 - Managing State & Broadcasting Events
 - Testing & Securing the Application
 
@@ -71,11 +72,10 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Components, Expressions, Templates & Directives
 - String Interpolation, Property- & Event-Binding, Two-Way Binding
 - Understanding Component Lifecycle
-- Pipes & Internationalization
+- Pipes & Localization
 - Custom Directives & Pipes
-- Databinding with Nested Components
 - Reusable Components using Local References & Content Projection
-- Organizing Angular Applications using Modules
+- View Child, View Children
 
 ## Angular Routing
 
@@ -84,6 +84,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Child- & Secondary Routes
 - Using Route Guards
 - Preloading Data
+- Organizing Angular Applications using Modules
 - Module Lazy Loading
 
 ## Implementing a Responsive User Interface
@@ -128,13 +129,20 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Capturing Mouse & DOM Events as Observables
 - Subscribing to Routes & Params, Flex Layout API
 
+# Nesting Components
+
+- Why Nesting
+- Databinding & Events with Nested Components
+- Container vs Presentational Components
+- Introduction to Angular Change Detection
+
 ## Managing State & Sharing Events
 
 - What is State Management
 - State Management Options
 - Stateless & Stateful Services
 - Sharing Data between deeply Nested Components
-- Implementing a Global Event Bus
+- Sharing Events between deeply Nested Components
 - Going beyond: Introduction to the Redux Pattern
 
 ## Testing Basics
