@@ -130,6 +130,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Why Nesting
 - Databinding & Events with Nested Components
 - Container vs Presentational Components
+- Introduction to Angular Change Detection
 
 ## Managing State & Sharing Events
 
