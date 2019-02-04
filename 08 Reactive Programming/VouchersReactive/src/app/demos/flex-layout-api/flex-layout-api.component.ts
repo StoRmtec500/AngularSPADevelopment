@@ -5,7 +5,7 @@ import { MediaChange, MediaObserver } from "@angular/flex-layout";
 @Component({
   selector: "app-flex-layout-api",
   templateUrl: "./flex-layout-api.component.html",
-  styleUrls: ["./flex-layout-api.component.css"]
+  styleUrls: ["./flex-layout-api.component.scss"]
 })
 export class FlexLayoutApiComponent implements OnInit {
   constructor(private obsMedia: MediaObserver) {

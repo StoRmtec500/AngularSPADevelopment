@@ -16,8 +16,8 @@ import { ObservableCrudComponent } from "./demos/observable-crud/observable-crud
 import { MouseDomObservablesComponent } from "./demos/mouse-dom-observables/mouse-dom-observables.component";
 import { OperatorsComponent } from "./demos/operators/operators.component";
 import { FlexLayoutApiComponent } from "./demos/flex-layout-api/flex-layout-api.component";
-import { SimpleObservableComponent } from "./demos/simple-observable/simple-observable.component";
 import { ObservableStreamComponent } from "./demos/observable-stream/observable-stream.component";
+import { CreatingObservableComponent } from "./demos/creating-observables/creating-observable.component";
 
 const appRoutes: Routes = [
   {
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     data: { title: "Demos" },
     children: [
       { path: "observables", component: ObservableStreamComponent },
-      { path: "simple", component: SimpleObservableComponent },
+      { path: "creating", component: CreatingObservableComponent },
       { path: "observablescurd", component: ObservableCrudComponent },
       { path: "mousedomobs", component: MouseDomObservablesComponent },
       { path: "operators", component: OperatorsComponent },

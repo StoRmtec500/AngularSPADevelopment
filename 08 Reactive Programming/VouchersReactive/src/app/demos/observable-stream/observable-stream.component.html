@@ -1,9 +1,8 @@
-<div class="section">
-  <h4>Works with Mock Data - No Service needed</h4>
-  <br />
-</div>
+<mat-card>
+  Works with Mock Data - No Service needed
+</mat-card>
 
-<div class="section" fxLayout="column" fxLayoutGap="10px">
+<mat-card fxLayout="column" fxLayoutGap="10px">
   <h4>Using Observables</h4>
 
   <div>
@@ -20,18 +19,14 @@
   <a (click)="useObsOperator()">Use Observalbe Operator</a>
   <a (click)="addMovie()" *ngIf="addMovieVisible">Add Movie</a> <br />Also watch
   console for output
-</div>
+</mat-card>
 
-<div [ngSwitch]="currentView">
-  <div
-    *ngSwitchCase="view.SingletonObservable"
-    class="section"
-    style="padding: 20px 20px"
-  >
+<mat-card [ngSwitch]="currentView">
+  <div *ngSwitchCase="view.SingletonObservable" style="padding: 20px 20px">
     {{ (MovieSingleton | async)?.title }}
   </div>
 
-  <div *ngSwitchCase="view.Array" fxLayout="column" class="section">
+  <div *ngSwitchCase="view.Array" fxLayout="column">
     <h4>createArrayObservable()</h4>
     <div fxLayout="row wrap">
       <app-movie-renderer
@@ -42,7 +37,7 @@
     </div>
   </div>
 
-  <div *ngSwitchCase="view.Dashboard" class="section">
+  <div *ngSwitchCase="view.Dashboard">
     <div><h4>Now Playing</h4></div>
     <div fxLayout="row wrap">
       <app-movie-renderer
@@ -61,4 +56,4 @@
       ></app-movie-renderer>
     </div>
   </div>
-</div>
+</mat-card>

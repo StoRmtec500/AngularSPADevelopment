@@ -5,9 +5,9 @@
     "component": "ObservableCrudComponent"
   },
   {
-    "url": "simple",
-    "title": "Simple Observalbles",
-    "component": "SimpleObservableComponent"
+    "url": "creating",
+    "title": "Creating Observables",
+    "component": "CreatingObservableComponent"
   },
   {
     "url": "observables",

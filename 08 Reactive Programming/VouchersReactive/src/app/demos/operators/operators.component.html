@@ -1,12 +1,9 @@
-<div class="section">
-  <h4>
-    Make sure API is running: VouchersAPI -> src folder -> dotnet watch run
-  </h4>
-  <br />
-</div>
+<mat-card>
+  Make sure API is running: VouchersAPI -> src folder -> dotnet watch run
+</mat-card>
 
-<div class="section" fxLayout="column" fxLayoutGap="10px">
-  <h4>Using Observable Operators</h4>
+<mat-card fxLayout="column" fxLayoutGap="10px"
+  ><h4>Using Observable Operators</h4>
   <a (click)="useMap()">Use map()</a>
   <a (click)="usePipeMapAndTap()">Use pipe(), map() & tap()</a>
   <a (click)="errHandling()">With error handling</a>
@@ -14,11 +11,11 @@
   <a (click)="useFilter()">Use filter() to return an Array</a>
   <a (click)="useTake()">Use useTake() to return an Array</a>
   <hr />
-  <a (click)="unsbscribe()">Click to clear Subscription</a>
-</div>
+  <a (click)="unsbscribe()">Click to clear Subscription</a></mat-card
+>
 
-<div class="section" fxLayout="column" fxLayoutGap="10px">
+<mat-card fxLayout="column" fxLayoutGap="10px">
   <mat-card *ngFor="let v of vouchers">{{
     v.Label != null ? v.Label : v.Text
   }}</mat-card>
-</div>
+</mat-card>

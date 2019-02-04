@@ -5,10 +5,10 @@ import { Voucher } from "../../shared/index";
 
 @Component({
   selector: "app-simple-observable",
-  templateUrl: "./simple-observable.component.html",
-  styleUrls: ["./simple-observable.component.scss"]
+  templateUrl: "./creating-observable.component.html",
+  styleUrls: ["./creating-observable.component.scss"]
 })
-export class SimpleObservableComponent implements OnInit {
+export class CreatingObservableComponent implements OnInit {
   fName: string;
   url = "/assets/vouchers.json";
   numbers = [2, 5, 9, 12, 22];
