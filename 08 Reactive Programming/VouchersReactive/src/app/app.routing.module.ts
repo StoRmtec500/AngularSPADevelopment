@@ -23,6 +23,7 @@ const appRoutes: Routes = [
   {
     path: "",
     component: DemosComponent,
+    data: { title: "Demos" },
     children: [
       { path: "observables", component: ObservableStreamComponent },
       { path: "simple", component: SimpleObservableComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   },
   {
     path: "vouchers",
+    data: { title: "Vouchers" },
     component: VouchersListComponent
   },
   {
@@ -49,7 +51,7 @@ const appRoutes: Routes = [
   {
     path: "admin",
     loadChildren: "./admin/admin.module#AdminModule",
-    data: { title: "The protected Admin page, lazy loaded as Module" },
+    data: { title: "Admin" },
     canActivate: [RouteGuard]
   },
   { path: "showeditor", component: EditorComponent, outlet: "sidebarOutlet" },
