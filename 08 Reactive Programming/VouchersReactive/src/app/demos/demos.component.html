@@ -4,8 +4,11 @@
     [opened]="showMenu"
     [mode]="this.device == 'xs' ? 'over' : 'side'"
   >
-    <h4>{{ title }}</h4>
-    <div>
+    <mat-toolbar color="accent">
+      <h4>{{ title }}</h4>
+    </mat-toolbar>
+
+    <div class="demoMenu">
       <a
         *ngFor="let item of demos"
         [routerLink]="['', item.url]"
@@ -15,8 +18,10 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div fxFlex="8 8 auto" class="panelBox workbenchContainer">
-      <h4>{{ demoName }}</h4>
+    <div fxFlex="8 8 auto" class="workbenchContainer">
+      <mat-toolbar color="accent">
+        <h4>{{ demoName }}</h4>
+      </mat-toolbar>
       <div class="workbench"><router-outlet></router-outlet></div>
     </div>
   </mat-sidenav-content>

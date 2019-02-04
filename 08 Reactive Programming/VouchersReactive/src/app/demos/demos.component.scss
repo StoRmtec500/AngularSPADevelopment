@@ -6,7 +6,7 @@ a {
 }
 
 .demoMenu {
-  min-width: 250px;
+  margin: 15px;
 }
 
 .workbenchContainer {
@@ -15,7 +15,7 @@ a {
 }
 
 .workbench {
-  background-color: white;
+  background-color: lightgray;
 }
 
 .mat-sidenav-container {
@@ -23,6 +23,5 @@ a {
 }
 
 .mat-sidenav {
-  padding: 0.5rem;
-  width: 185px;
+  width: 220px;
 }
