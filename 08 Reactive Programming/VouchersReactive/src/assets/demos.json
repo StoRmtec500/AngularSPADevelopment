@@ -28,10 +28,5 @@
     "url": "operators",
     "title": "Observable Operators",
     "component": "OperatorsComponent"
-  },
-  {
-    "url": "unsubscribing",
-    "title": "Unsubscribing",
-    "component": "UnsubscribingComponent"
   }
 ]

@@ -19,7 +19,8 @@ a {
 }
 
 .mat-sidenav-container {
-  height: 88vh;
+  // app.components.css:  grid-template-rows: 5vh auto 5vh; -> 90vh - 2x 10px gap
+  height: calc(90vh - 20px);
 }
 
 .mat-sidenav {

@@ -23,7 +23,7 @@ a {
 }
 
 .mat-sidenav-container {
-  height: 88vh;
+  height: calc(90vh - 20px);
 }
 
 .mat-sidenav {
