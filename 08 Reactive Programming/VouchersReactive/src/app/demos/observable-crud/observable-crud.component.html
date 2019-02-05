@@ -3,29 +3,50 @@
 </mat-card>
 
 <mat-card>
-  <div fxLayout="row" fxLayout.xs="column">
-    <div fxLayoutGap="10px" fxLayout="column" fxFlex="33">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="1.5rem">
+    <div fxLayoutGap="1.5rem" fxLayout="column" fxFlex="33">
       <h4>Vouchers</h4>
-      <a (click)="getVouchers()">Get Vouchers</a>
-      <a (click)="getVouchersTask()">Get Vouchers Task</a>
-      <a (click)="getVoucher()">Get Voucher</a>
-      <a (click)="insertVoucher()">Insert Voucher</a>
-      <a (click)="updateVoucher()">Update Voucher</a>
-      <a (click)="deleteVoucher()">Delete Voucher</a>
+      <a
+        mat-raised-button
+        color="accent"
+        mat-raised-button
+        color="accent"
+        (click)="getVouchers()"
+        >Get Vouchers</a
+      >
+      <a mat-raised-button color="accent" (click)="getVouchersTask()"
+        >Get Vouchers Task</a
+      >
+      <a mat-raised-button color="accent" (click)="getVoucher()">Get Voucher</a>
+      <a mat-raised-button color="accent" (click)="insertVoucher()"
+        >Insert Voucher</a
+      >
+      <a mat-raised-button color="accent" (click)="updateVoucher()"
+        >Update Voucher</a
+      >
+      <a mat-raised-button color="accent" (click)="deleteVoucher()"
+        >Delete Voucher</a
+      >
     </div>
-    <div fxLayoutGap="10px" fxLayout="column" fxFlex="33">
+    <div fxLayoutGap="1.5rem" fxLayout="column" fxFlex="33">
       <h4>Custom Routes</h4>
-      <a (click)="getSum()">Custom Get Route, getSum()</a>
-      <a (click)="getVM()">View Model, getVM()</a>
-      <a (click)="doSave()">Custom Post Route, doSave()</a>
+      <a mat-raised-button color="accent" (click)="getSum()"
+        >Custom Get Route, getSum()</a
+      >
+      <a mat-raised-button color="accent" (click)="getVM()"
+        >View Model, getVM()</a
+      >
+      <a mat-raised-button color="accent" (click)="doSave()"
+        >Custom Post Route, doSave()</a
+      >
     </div>
-    <div fxLayoutGap="10px" fxLayout="column" fxFlex="33">
+    <div fxLayoutGap="1.5rem" fxLayout="column" fxFlex="33">
       <h4>Accounts</h4>
-      <a>Get Accounts</a>
-      <a>Get Account</a>
-      <a>Insert Account</a>
-      <a>Update Account</a>
-      <a>Delete Account</a>
+      <a mat-raised-button color="accent">Get Accounts</a>
+      <a mat-raised-button color="accent">Get Account</a>
+      <a mat-raised-button color="accent">Insert Account</a>
+      <a mat-raised-button color="accent">Update Account</a>
+      <a mat-raised-button color="accent">Delete Account</a>
     </div>
   </div>
 </mat-card>

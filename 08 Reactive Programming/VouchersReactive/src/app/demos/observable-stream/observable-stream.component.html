@@ -5,14 +5,18 @@
 <mat-card fxLayout="column" fxLayoutGap="10px">
   <h4>Using Observables</h4>
 
-  <div>
-    <a (click)="createSingletonObservable()">Get Movie Singleton Observable</a>
-    | <a (click)="unsubscribeSingletonObservable()">Unsubscribe</a>
-  </div>
-  <a (click)="createArrayObservable()"
+  <a mat-raised-button color="accent" (click)="createSingletonObservable()"
+    >Get Movie Singleton Observable</a
+  >
+
+  <a mat-raised-button color="accent" (click)="unsubscribeSingletonObservable()"
+    >Unsubscribe</a
+  >
+
+  <a mat-raised-button color="accent" (click)="createArrayObservable()"
     >Get Movie Array Observable - Simulate Stream</a
   >
-  <a (click)="getArrayObservableFromService()"
+  <a mat-raised-button color="accent" (click)="getArrayObservableFromService()"
     >Get Movie Array Observable from Service</a
   >
 </mat-card>

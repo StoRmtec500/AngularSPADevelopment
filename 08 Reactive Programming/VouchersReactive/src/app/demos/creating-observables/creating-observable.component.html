@@ -2,11 +2,19 @@
 
 <mat-card fxLayout="column" fxLayoutGap="10px">
   <h4>Observable Basics</h4>
-  <a (click)="useObsCreate()">Use Observable.create()</a>
-  <a (click)="useObsFrom()">Use Observerable.from()</a>
-  <a (click)="wrappingCallbacks()">Wrapping Callbacks</a>
-  <a (click)="usePromiseToObs()">Promise to Observable</a>
-  <a (click)="useOperator()">Use Operator()</a>
+  <a mat-raised-button color="accent" (click)="useObsCreate()"
+    >Use Observable.create()</a
+  >
+  <a mat-raised-button color="accent" (click)="useObsFrom()"
+    >Use Observerable.from()</a
+  >
+  <a mat-raised-button color="accent" (click)="wrappingCallbacks()"
+    >Wrapping Callbacks</a
+  >
+  <a mat-raised-button color="accent" (click)="usePromiseToObs()"
+    >Promise to Observable</a
+  >
+  <a mat-raised-button color="accent" (click)="useOperator()">Use Operator()</a>
 </mat-card>
 
 <mat-card>
