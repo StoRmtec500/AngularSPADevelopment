@@ -98,11 +98,15 @@ export class OperatorsComponent implements OnInit {
       .getVouchers()
       .pipe(take(3))
       .subscribe(data => this.log("useTake", data));
+  }
 
+  useInterval() {
     interval(1000)
       .pipe(take(3))
       .subscribe(x => console.log(x));
   }
+
+  useDelay() {}
 
   useConcat() {
     const sourceOne = of(1, 2, 3);
@@ -113,7 +117,11 @@ export class OperatorsComponent implements OnInit {
     concated.subscribe(nbr => console.log(nbr));
   }
 
-  useTakeWhile() {}
-
   useSwitchMap() {}
+
+  useMergeMap() {}
+
+  forJoin() {}
+
+  searchDebounced() {}
 }
