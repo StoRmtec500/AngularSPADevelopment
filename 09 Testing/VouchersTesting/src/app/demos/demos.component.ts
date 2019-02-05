@@ -28,7 +28,7 @@ export class DemosComponent implements OnInit {
     private events: EventBusService,
     private sns: SnackbarService
   ) {
-    this.title = "Building the UI";
+    this.title = "Testing";
   }
 
   ngOnInit() {

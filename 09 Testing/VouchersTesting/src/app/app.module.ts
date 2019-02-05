@@ -1,4 +1,8 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClient
+} from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -31,7 +35,6 @@ import { LoginComponent } from "./shared/login/login.component";
 import { HerosComponent } from "./hero/hero/heros.component";
 import { HeroComponent } from "./hero/hero/hero.component";
 import { HeroService } from "./hero/hero.service";
-
 registerLocaleData(localeDe);
 
 @NgModule({

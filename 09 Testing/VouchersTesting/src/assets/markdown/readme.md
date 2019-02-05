@@ -16,7 +16,7 @@ Install required packages
 
 Add `wallaby.js` to root folder:
 
-```
+```typescript
 wallabyWebpack = require("wallaby-webpack");
 var path = require("path");
 

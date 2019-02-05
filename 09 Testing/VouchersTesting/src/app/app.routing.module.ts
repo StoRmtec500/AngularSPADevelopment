@@ -11,13 +11,17 @@ import { VoucherResolver } from "./vouchers/voucher/voucher-resolver.service";
 import { AccountResolver } from "./accounts/account-resolver.service";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { HerosComponent } from "./hero/hero/heros.component";
+import { UnitTestingComponent } from "./demos/unit-testing/unit-testing.component";
 
 const appRoutes: Routes = [
   {
     path: "",
     component: DemosComponent,
     data: { title: "Demos" },
-    children: [{ path: "heros", component: HerosComponent }]
+    children: [
+      { path: "unittesting", component: UnitTestingComponent },
+      { path: "heros", component: HerosComponent }
+    ]
   },
   {
     path: "vouchers",
