@@ -1,13 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { Subscription, throwError, interval, of } from "rxjs";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import {
+  Subscription,
+  throwError,
+  interval,
+  of,
+  Observable,
+  fromEvent
+} from "rxjs";
 import {
   map,
   tap,
   catchError,
   finalize,
-  find,
   take,
-  concat
+  concat,
+  delay,
+  debounceTime
 } from "rxjs/operators";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { Voucher } from "../../shared";
@@ -22,8 +30,14 @@ export class OperatorsComponent implements OnInit {
   constructor(private vs: VouchersService) {}
 
   sub: Subscription = null;
+  searchterm: string = "";
+  debounceSearch: boolean = true;
 
-  ngOnInit() {}
+  @ViewChild("searchBoxRef") searchBoxRef: ElementRef;
+
+  ngOnInit() {
+    this.attachDebouncedSearch();
+  }
 
   // assignToArr = items => (this.movies = items);
   unsbscribe = () => (this.sub != null ? this.sub.unsubscribe() : null);
@@ -32,9 +46,22 @@ export class OperatorsComponent implements OnInit {
   vouchers: Voucher[] = null;
 
   log = (msg: string, data: any) => {
-    console.log(`executing ${msg}, 'data' is Array: ${isArray(data)}`, data);
+    console.log(`executing: ${msg}, 'data' is Array: ${isArray(data)}`, data);
     this.vouchers = isArray(data) ? data : [data];
   };
+
+  private attachDebouncedSearch() {
+    fromEvent(this.searchBoxRef.nativeElement, "keyup")
+      .pipe(
+        debounceTime(1000),
+        map((kEvt: KeyboardEvent) => {
+          return (<HTMLInputElement>kEvt.srcElement).value;
+        })
+      )
+      .subscribe(val => {
+        console.log("Currently your searching debounced for", val);
+      });
+  }
 
   useMap() {
     this.vs
@@ -53,12 +80,10 @@ export class OperatorsComponent implements OnInit {
   }
 
   usePipeMapAndTap() {
-    //RxJS 6 pattern
-    // tap() is the RxJS replacement for do() to ensure ES compatibility
     this.vs
       .getVouchers()
       .pipe(
-        tap(data => console.log("logged by tap(): ", data)),
+        tap(data => console.log("logged using tap() operator: ", data)),
         map(vs => vs.map(this.setLabel))
       )
       .subscribe(data => this.log("use pipe(), map() & tap()", data));
@@ -106,14 +131,16 @@ export class OperatorsComponent implements OnInit {
       .subscribe(x => console.log(x));
   }
 
-  useDelay() {}
+  useDelay() {
+    var fakeObservable = of(["hund", "katze", "maus"]).pipe(delay(5000));
+    console.log("before delay execution - waiting 5 secs");
+    fakeObservable.subscribe(data => console.log(data));
+  }
 
   useConcat() {
     const sourceOne = of(1, 2, 3);
     const sourceTwo = of(4, 5, 6);
-    //emit values from sourceOne, when complete, subscribe to sourceTwo
     const concated = sourceOne.pipe(concat(sourceTwo));
-
     concated.subscribe(nbr => console.log(nbr));
   }
 
@@ -123,5 +150,10 @@ export class OperatorsComponent implements OnInit {
 
   forJoin() {}
 
-  searchDebounced() {}
+  // doSearch() {
+  //   if (this.debounceSearch) {
+  //   } else {
+  //     console.log("Serching:", this.searchterm);
+  //   }
+  // }
 }
