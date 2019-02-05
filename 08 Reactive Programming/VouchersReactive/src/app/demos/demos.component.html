@@ -10,6 +10,8 @@
 
     <div class="demoMenu">
       <a
+        mat-raised-button
+        color="accent"
         *ngFor="let item of demos"
         [routerLink]="['', item.url]"
         [queryParams]="{ title: item.title }"
