@@ -1,61 +1,42 @@
 import { Injectable } from "@angular/core";
-import { Route, Router, RouterEvent } from "@angular/router";
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { ObservableMedia, MediaChange } from "@angular/flex-layout";
+import { MediaChange, MediaObserver } from "@angular/flex-layout";
+import { BehaviorSubject, Subscription } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ScreenService {
-  //isDemo
-  private demo: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  isDemo: Observable<boolean> = this.demo.asObservable();
-
-  //isPhone
   watcher: Subscription;
 
-  isPhone: boolean;
-  isTablet: boolean;
+  private ltmd: boolean;
+  public lessThanMedium: BehaviorSubject<boolean> = new BehaviorSubject(
+    this.ltmd
+  );
 
-  constructor(private router: Router, private obsMedia: ObservableMedia) {
-    this.subscribeDemo();
+  public Device: BehaviorSubject<string> = new BehaviorSubject("");
+
+  constructor(private mediaObserver: MediaObserver) {
     this.subscribeIsPhone();
   }
 
-  subscribeDemo() {
-    let children = this.router.config[0].children.map((item: Route) => {
-      return item.path;
-    });
-
-    this.router.events.subscribe((evt: RouterEvent) => {
-      if (evt.url != undefined) {
-        let isChildRoute =
-          children.find(item => evt.url.includes(item)) != undefined;
-
-        evt.url == "/" || isChildRoute
-          ? this.demo.next(true)
-          : this.demo.next(false);
-      }
-    });
-  }
-
   subscribeIsPhone() {
-    this.watcher = this.obsMedia.subscribe((change: MediaChange) => {
-      console.log("Current Device Screen: " + change.mqAlias);
-      switch (change.mqAlias) {
-        case "xs":
-          this.isPhone = true;
-          this.isTablet = false;
-          break;
-        case "sm":
-          this.isPhone = false;
-          this.isTablet = true;
-          break;
-        default:
-          this.isPhone = false;
-          this.isTablet = false;
-          break;
-      }
+    this.watcher = this.mediaObserver.media$.subscribe(
+      (change: MediaChange) => {
+        this.Device.next(change.mqAlias);
 
-      this.isPhone = change.mqAlias === "xs";
-    });
+        switch (change.mqAlias) {
+          case "xs":
+            this.ltmd = true;
+            break;
+          case "sm":
+            this.ltmd = true;
+            break;
+          default:
+            this.ltmd = false;
+            break;
+        }
+        this.lessThanMedium.next(this.ltmd);
+      }
+    );
   }
 }

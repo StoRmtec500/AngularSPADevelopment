@@ -1,12 +1,11 @@
-<div fxLayout="column" fxLayoutGap="15px" class="masterContainer">
-  <app-navbar></app-navbar>
-  <div fxLayout="row" fxLayoutGap="1vw" class="mainScreen">
-    <div [fxFlex]="getMainFlex()">
-      <router-outlet></router-outlet>
-    </div>
-    <div [fxFlex]="'22vw'" fxHide.lt-md="true" [fxHide]="isDemo" class="sidebox">
+<div class="grid">
+  <div class="header"><app-navbar></app-navbar></div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="5 1 auto"><router-outlet></router-outlet></div>
+    <div fxFlex="1 1 auto" fxHide.lt-lg class="sidenav">
       <app-side-panel></app-side-panel>
       <router-outlet name="sidebarOutlet"></router-outlet>
     </div>
   </div>
+  <div class="footer"><app-footer></app-footer></div>
 </div>

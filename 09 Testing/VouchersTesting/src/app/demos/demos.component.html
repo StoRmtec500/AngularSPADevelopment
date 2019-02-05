@@ -1,22 +1,30 @@
-<div fxLayout="row" fxLayoutGap="15px" [MatchHeight]="'panelBox'">
-    <div>
-        <mat-toolbar color="accent">
-            <mat-toolbar-row>
-                <span class="toolbarHeading">{{title}}</span>
-            </mat-toolbar-row>
-        </mat-toolbar>
-        <div class='panelBox demoMenu'>
-            <a *ngFor="let item of demos" [routerLink]="['', item.url]" [queryParams]="{title: item.title}">{{item.title}}</a>
-        </div>
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [opened]="showMenu"
+    [mode]="this.device == 'xs' ? 'over' : 'side'"
+  >
+    <mat-toolbar color="accent">
+      <h4>{{ title }}</h4>
+    </mat-toolbar>
+
+    <div class="demoMenu">
+      <a
+        mat-raised-button
+        color="accent"
+        *ngFor="let item of demos"
+        [routerLink]="['', item.url]"
+        [queryParams]="{ title: item.title }"
+        >{{ item.title }}</a
+      >
     </div>
-    <div class='demoWorkbench'>
-        <mat-toolbar color="accent">
-            <mat-toolbar-row>
-                <span class="toolbarHeading">{{demoName}}</span>
-            </mat-toolbar-row>
-        </mat-toolbar>
-        <div class="workbench panelBox">
-            <router-outlet></router-outlet>
-        </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxFlex="8 8 auto" class="workbenchContainer">
+      <mat-toolbar color="accent">
+        <h4>{{ demoName }}</h4>
+      </mat-toolbar>
+      <div class="workbench"><router-outlet></router-outlet></div>
     </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
