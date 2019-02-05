@@ -5,7 +5,7 @@
         <span class="toolbarHeading">Vouchers</span>
       </div>
       <div fxFlex="30" class="rightCell">
-        <button mat-fab routerLink="/vouchers/0">
+        <button mat-mini-fab routerLink="/vouchers/0">
           <mat-icon fxFlexAlign="center" class="cmdIcon">add_circle</mat-icon>
         </button>
       </div>
@@ -15,13 +15,13 @@
   <div class="panelBox">
     <table class="table table-striped">
       <colgroup>
-        <col style="width: 10%">
-        <col style="width: 34%">
-        <col style="width: 20%">
-        <col style="width: 10%">
-        <col style="width: 10%">
-        <col style="width: 13%">
-        <col style="width: 13%">
+        <col style="width: 10%" />
+        <col style="width: 34%" />
+        <col style="width: 20%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+        <col style="width: 13%" />
+        <col style="width: 13%" />
       </colgroup>
       <thead>
         <tr>
@@ -36,9 +36,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let v of vouchers" (click)="showVoucher(v.ID)">
-          <td>{{v.Date | date:'shortDate'}}</td>
-          <td>{{v.Text}}</td>
-          <td class="rightCell">{{v.Amount | currency:'EUR':true}} </td>
+          <td>{{ v.Date | date: "shortDate" }}</td>
+          <td>{{ v.Text }}</td>
+          <td class="rightCell">{{ v.Amount | currency: "EUR":true }}</td>
           <td [innerHTML]="v.Expense | checked" class="centeredCell"></td>
           <td [innerHTML]="v.Paid | checked" class="centeredCell"></td>
           <td class="rightCell">
@@ -47,7 +47,7 @@
             </a>
           </td>
           <td class="rightCell">
-            <a mat-mini-fab [routerLink]="[ '/vouchers', v.ID ]">
+            <a mat-mini-fab [routerLink]="['/vouchers', v.ID]">
               <i class="material-icons cmdIcon">mode_edit</i>
             </a>
           </td>
