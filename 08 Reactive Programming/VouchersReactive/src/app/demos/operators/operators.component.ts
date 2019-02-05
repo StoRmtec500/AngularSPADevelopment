@@ -144,16 +144,23 @@ export class OperatorsComponent implements OnInit {
     concated.subscribe(nbr => console.log(nbr));
   }
 
-  useSwitchMap() {}
+  useSwitchMap() {
+    // https://brianflove.com/2018/03/21/master-rxjs-operators/
+  }
 
   useMergeMap() {}
 
-  forJoin() {}
-
-  // doSearch() {
-  //   if (this.debounceSearch) {
-  //   } else {
-  //     console.log("Serching:", this.searchterm);
-  //   }
-  // }
+  forJoin() {
+    //   this.hero = this.activatedRoute.paramMap
+    //   .pipe(
+    //     const id = +paramMap.get('id');
+    //     switchMap(paramMap => this.heroesService.getHero(id)
+    //   );
+    // this.powers = this.hero
+    //   .pipe(
+    //     mergeMap(hero => forkJoin(
+    //       hero.powers.map(id => this.powersService.getPower(id))
+    //     ))
+    //   );
+  }
 }
