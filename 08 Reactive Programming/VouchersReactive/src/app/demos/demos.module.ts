@@ -18,6 +18,7 @@ import { ObservableCrudComponent } from "./observable-crud/observable-crud.compo
 import { ObservableStreamComponent } from "./observable-stream/observable-stream.component";
 import { OperatorsComponent } from "./operators/operators.component";
 import { PersonService } from "./person.service";
+import { UnsubscribingComponent } from './unsubscribing/unsubscribing.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { PersonService } from "./person.service";
     MouseDomObservablesComponent,
     MovieRendererComponent,
     OperatorsComponent,
-    FlexLayoutApiComponent
+    FlexLayoutApiComponent,
+    UnsubscribingComponent
   ],
   providers: [DemoService, MovieService, PersonService]
 })

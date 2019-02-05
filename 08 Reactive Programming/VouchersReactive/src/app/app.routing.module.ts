@@ -1,23 +1,21 @@
-import { DemosComponent } from "./demos/demos.component";
-import { VouchersListComponent } from "./vouchers/vouchers-list.component";
-import { VoucherComponent } from "./vouchers/voucher/voucher.component";
-import { AccountsComponent } from "./accounts/accounts.component";
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { NgModule, ViewChild } from "@angular/core";
-import { AdminComponent } from "./admin/admin.component";
+import { AccountResolver } from "./accounts/account-resolver.service";
+import { AccountsComponent } from "./accounts/accounts.component";
+import { CreatingObservableComponent } from "./demos/creating-observables/creating-observable.component";
+import { DemosComponent } from "./demos/demos.component";
+import { FlexLayoutApiComponent } from "./demos/flex-layout-api/flex-layout-api.component";
+import { MouseDomObservablesComponent } from "./demos/mouse-dom-observables/mouse-dom-observables.component";
+import { ObservableCrudComponent } from "./demos/observable-crud/observable-crud.component";
+import { ObservableStreamComponent } from "./demos/observable-stream/observable-stream.component";
+import { OperatorsComponent } from "./demos/operators/operators.component";
+import { UnsubscribingComponent } from "./demos/unsubscribing/unsubscribing.component";
 import { RouteGuard } from "./route.guard.service";
 import { EditorComponent } from "./shared/editor/editor.component";
 import { UploadComponent } from "./shared/upload/upload.component";
 import { VoucherResolver } from "./vouchers/voucher/voucher-resolver.service";
-import { AccountResolver } from "./accounts/account-resolver.service";
-
-import { ObservableCrudComponent } from "./demos/observable-crud/observable-crud.component";
-
-import { MouseDomObservablesComponent } from "./demos/mouse-dom-observables/mouse-dom-observables.component";
-import { OperatorsComponent } from "./demos/operators/operators.component";
-import { FlexLayoutApiComponent } from "./demos/flex-layout-api/flex-layout-api.component";
-import { ObservableStreamComponent } from "./demos/observable-stream/observable-stream.component";
-import { CreatingObservableComponent } from "./demos/creating-observables/creating-observable.component";
+import { VoucherComponent } from "./vouchers/voucher/voucher.component";
+import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 
 const appRoutes: Routes = [
   {
@@ -30,7 +28,8 @@ const appRoutes: Routes = [
       { path: "observablescurd", component: ObservableCrudComponent },
       { path: "mousedomobs", component: MouseDomObservablesComponent },
       { path: "operators", component: OperatorsComponent },
-      { path: "flexlayoutapi", component: FlexLayoutApiComponent }
+      { path: "flexlayoutapi", component: FlexLayoutApiComponent },
+      { path: "unsubscribing", component: UnsubscribingComponent }
     ]
   },
   {

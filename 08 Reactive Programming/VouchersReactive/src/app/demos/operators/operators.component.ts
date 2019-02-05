@@ -1,6 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { Subscription, Observable, throwError, interval } from "rxjs";
-import { map, tap, catchError, finalize, find, take } from "rxjs/operators";
+import { Subscription, throwError, interval, of } from "rxjs";
+import {
+  map,
+  tap,
+  catchError,
+  finalize,
+  find,
+  take,
+  concat
+} from "rxjs/operators";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { Voucher } from "../../shared";
 import { isArray } from "util";
@@ -70,7 +78,7 @@ export class OperatorsComponent implements OnInit {
       .subscribe(data => this.log("errHandling", data));
   }
 
-  getByID() {
+  useFind() {
     this.vs
       .getVouchers()
       .pipe(map(v => v.find((v: Voucher) => v.ID == 3)))
@@ -95,4 +103,17 @@ export class OperatorsComponent implements OnInit {
       .pipe(take(3))
       .subscribe(x => console.log(x));
   }
+
+  useConcat() {
+    const sourceOne = of(1, 2, 3);
+    const sourceTwo = of(4, 5, 6);
+    //emit values from sourceOne, when complete, subscribe to sourceTwo
+    const concated = sourceOne.pipe(concat(sourceTwo));
+
+    concated.subscribe(nbr => console.log(nbr));
+  }
+
+  useTakeWhile() {}
+
+  useSwitchMap() {}
 }

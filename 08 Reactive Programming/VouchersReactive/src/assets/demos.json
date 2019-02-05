@@ -28,5 +28,10 @@
     "url": "flexlayoutapi",
     "title": "Flex Layout Api",
     "component": "FlexLayoutApiComponent"
+  },
+  {
+    "url": "unsubscribing",
+    "title": "Unsubscribing",
+    "component": "UnsubscribingComponent"
   }
 ]

@@ -4,14 +4,29 @@
 
 <mat-card fxLayout="column" fxLayoutGap="10px"
   ><h4>Using Observable Operators</h4>
-  <a (click)="useMap()">Use map()</a>
-  <a (click)="usePipeMapAndTap()">Use pipe(), map() & tap()</a>
-  <a (click)="errHandling()">With error handling</a>
-  <a (click)="getByID()">Using find() to filter by ID returning Singleton</a>
-  <a (click)="useFilter()">Use filter() to return an Array</a>
-  <a (click)="useTake()">Use useTake() to return an Array</a>
+  <a mat-raised-button color="accent" (click)="useMap()">Use map()</a>
+  <a mat-raised-button color="accent" (click)="usePipeMapAndTap()"
+    >Use pipe(), map() & tap()</a
+  >
+  <a mat-raised-button color="accent" (click)="errHandling()"
+    >With error handling</a
+  >
+  <a mat-raised-button color="accent" (click)="useFind()"
+    >Using find() to filter by ID returning Singleton</a
+  >
+  <a mat-raised-button color="accent" (click)="useFilter()"
+    >Use filter() to return an Array</a
+  >
+  <a mat-raised-button color="accent" (click)="useTake()"
+    >Use take() to return an Array</a
+  >
+  <a mat-raised-button color="accent" (click)="useConcat()"
+    >Use concat() to combine two Observables</a
+  >
   <hr />
-  <a (click)="unsbscribe()">Click to clear Subscription</a></mat-card
+  <a mat-raised-button color="accent" (click)="unsbscribe()"
+    >Click to clear Subscription</a
+  ></mat-card
 >
 
 <mat-card fxLayout="column" fxLayoutGap="10px">
