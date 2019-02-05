@@ -59,7 +59,7 @@ export class OperatorsComponent implements OnInit {
         })
       )
       .subscribe(val => {
-        console.log("Currently your searching debounced for", val);
+        console.log("Currently your searching debounced for:", val);
       });
   }
 

@@ -15,11 +15,6 @@
     "component": "ObservableStreamComponent"
   },
   {
-    "url": "operators",
-    "title": "Observable Operators",
-    "component": "OperatorsComponent"
-  },
-  {
     "url": "mousedomobs",
     "title": "Mouse & DOM Events",
     "component": "MouseDomObservablesComponent"
@@ -28,6 +23,11 @@
     "url": "flexlayoutapi",
     "title": "Flex Layout Api",
     "component": "FlexLayoutApiComponent"
+  },
+  {
+    "url": "operators",
+    "title": "Observable Operators",
+    "component": "OperatorsComponent"
   },
   {
     "url": "unsubscribing",

@@ -3,21 +3,18 @@
 </mat-card>
 
 <mat-card fxLayout="column" fxLayoutGap="10px">
-  <div>signPad - Mouse Moved at {{ result | async }}</div>
   <a mat-raised-button color="accent" (click)="useMouse()"
-    >Captcha Mouse Events as Observable in the SignPad</a
+    >Capture Mouse Events as Observable in the SignPad</a
   >
   <canvas class="signPad"></canvas>
+  <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
   <a mat-raised-button color="accent" (click)="unsubscribeMouseEvt()"
     >Unsubscribe Mouse Events</a
   >
 </mat-card>
 
 <mat-card fxLayout="column" fxLayoutGap="10px">
-  <a mat-raised-button color="accent" (click)="handleClick()"
-    >Activate Handle Click as Observable</a
-  >
-  <a mat-raised-button color="accent"
-    >Click me to handle click using Observable</a
-  >
+  <mat-form-field>
+    <input matInput placeholder="Enter some Text and watch console" #inputRef />
+  </mat-form-field>
 </mat-card>
