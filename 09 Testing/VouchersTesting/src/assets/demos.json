@@ -1,8 +1,43 @@
 [
   {
     "url": "unittesting",
-    "title": "Unit Testing",
+    "title": "Into Unit Testing",
     "component": "UnitTestingComponent"
+  },
+  {
+    "url": "testpipe",
+    "title": "Test Pipe",
+    "component": "TestPipeComponent"
+  },
+  {
+    "url": "simpleservice",
+    "title": "Simple Service",
+    "component": "SimpleServiceComponent"
+  },
+  {
+    "url": "simpleservice",
+    "title": "Simple Service",
+    "component": "SimpleServiceComponent"
+  },
+  {
+    "url": "simplecomp",
+    "title": "Simple Component",
+    "component": "SimpleServiceComponent"
+  },
+  {
+    "url": "compinteract",
+    "title": "Interaction Test",
+    "component": "CompInteractionComponent"
+  },
+  {
+    "url": "shallowint",
+    "title": "Shallow Integration T.",
+    "component": "ShallowIntegrationComponent"
+  },
+  {
+    "url": "deepint",
+    "title": "Deep Integration T.",
+    "component": "DeepIntegrationComponent"
   },
   {
     "url": "heros",

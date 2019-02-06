@@ -1,4 +1,4 @@
-import { SimpleMessageService } from "./simple-message.service";
+import { SimpleMessageService } from "./simple.service";
 
 describe("Testing a simple Service: SimpleMessageService", () => {
   let service: SimpleMessageService;

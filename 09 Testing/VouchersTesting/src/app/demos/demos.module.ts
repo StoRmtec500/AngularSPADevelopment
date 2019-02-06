@@ -14,7 +14,13 @@ import { PersonService } from "./person.service";
 import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from "ngx-markdown";
 import { HttpClient } from "@angular/common/http";
-import { SimpleMessageComponent } from './simple-message/simple-message.component';
+import { TestPipeComponent } from "./test-pipe/test-pipe.component";
+import { TestPipePipe } from "./test-pipe/test-pipe.pipe";
+import { SimpleServiceComponent } from "./simple-service/simple-service.component";
+import { SimpleCompComponent } from './simple-comp/simple-comp.component';
+import { CompInteractionComponent } from './comp-interaction/comp-interaction.component';
+import { ShallowIntegrationComponent } from './shallow-integration/shallow-integration.component';
+import { DeepIntegrationComponent } from './deep-integration/deep-integration.component';
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -50,7 +56,17 @@ export function markedOptions(): MarkedOptions {
       loader: HttpClient
     })
   ],
-  declarations: [DemosComponent, UnitTestingComponent, SimpleMessageComponent],
+  declarations: [
+    DemosComponent,
+    UnitTestingComponent,
+    TestPipeComponent,
+    TestPipePipe,
+    SimpleServiceComponent,
+    SimpleCompComponent,
+    CompInteractionComponent,
+    ShallowIntegrationComponent,
+    DeepIntegrationComponent
+  ],
   providers: [DemoService, MovieService, PersonService]
 })
 export class DemosModule {}

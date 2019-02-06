@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { SimpleMessageService } from "../demos/simple-message/simple-message.service";
 import { Hero } from "./hero";
+import { SimpleMessageService } from "../demos/simple-service/simple.service";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
