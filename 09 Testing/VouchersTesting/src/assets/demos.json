@@ -40,6 +40,11 @@
     "component": "DeepIntegrationComponent"
   },
   {
+    "url": "introe2e",
+    "title": "Intro E2E Tests",
+    "component": "IntroE2eComponent"
+  },
+  {
     "url": "heros",
     "title": "Heros Component",
     "component": "HerosComponent"

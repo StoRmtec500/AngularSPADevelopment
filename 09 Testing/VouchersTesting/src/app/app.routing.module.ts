@@ -18,6 +18,7 @@ import { SimpleCompComponent } from "./demos/simple-comp/simple-comp.component";
 import { CompInteractionComponent } from "./demos/comp-interaction/comp-interaction.component";
 import { ShallowIntegrationComponent } from "./demos/shallow-integration/shallow-integration.component";
 import { DeepIntegrationComponent } from "./demos/deep-integration/deep-integration.component";
+import { IntroE2eComponent } from "./demos/intro-e2e/intro-e2e.component";
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
       { path: "compinteract", component: CompInteractionComponent },
       { path: "shallowint", component: ShallowIntegrationComponent },
       { path: "deepint", component: DeepIntegrationComponent },
+      { path: "introe2e", component: IntroE2eComponent },
       { path: "heros", component: HerosComponent }
     ]
   },

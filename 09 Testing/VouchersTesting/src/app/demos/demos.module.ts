@@ -21,6 +21,7 @@ import { SimpleCompComponent } from './simple-comp/simple-comp.component';
 import { CompInteractionComponent } from './comp-interaction/comp-interaction.component';
 import { ShallowIntegrationComponent } from './shallow-integration/shallow-integration.component';
 import { DeepIntegrationComponent } from './deep-integration/deep-integration.component';
+import { IntroE2eComponent } from './intro-e2e/intro-e2e.component';
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -65,7 +66,8 @@ export function markedOptions(): MarkedOptions {
     SimpleCompComponent,
     CompInteractionComponent,
     ShallowIntegrationComponent,
-    DeepIntegrationComponent
+    DeepIntegrationComponent,
+    IntroE2eComponent
   ],
   providers: [DemoService, MovieService, PersonService]
 })
