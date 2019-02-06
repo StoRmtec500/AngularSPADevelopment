@@ -17,7 +17,7 @@ export class DemosComponent implements OnInit {
   device: string;
   demos: DemoItem[] = [];
   currentItem: DemoItem;
-  mdpath: string;
+  mdpath: string | null;
 
   constructor(
     private router: Router,
@@ -52,12 +52,21 @@ export class DemosComponent implements OnInit {
         {
           if (evt.url == "/") {
             this.currentItem = null;
-            this.mdpath = `${environment.markdownPath}${"intro.md"}`;
+            this.mdpath = null;
           } else {
-            this.currentItem = this.getDemoItem(evt.url.substring(1));
-            // this.mdpath = `${environment.markdownPath}${
-            //   this.currentItem.markdown
-            // }.md`;
+            let part = evt.url.substring(evt.url.lastIndexOf("/") + 1);
+            this.currentItem = this.getDemoItem(part);
+            if (
+              this.currentItem != null &&
+              (this.currentItem.markdown != undefined ||
+                this.currentItem.markdown != null)
+            ) {
+              this.mdpath = `${environment.markdownPath}${
+                this.currentItem.markdown
+              }.md`;
+            } else {
+              this.mdpath = null;
+            }
           }
         }
       }

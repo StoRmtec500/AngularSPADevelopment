@@ -34,8 +34,8 @@
         </h4>
       </mat-toolbar>
 
-      <mat-accordion>
-        <mat-expansion-panel [expanded]="true">
+      <mat-accordion *ngIf="currentItem">
+        <mat-expansion-panel [expanded]="true" *ngIf="mdpath">
           <mat-expansion-panel-header>
             <mat-panel-title color="accent">
               Instructions
@@ -43,7 +43,7 @@
           </mat-expansion-panel-header>
           <markdown [src]="mdpath"> </markdown>
         </mat-expansion-panel>
-        <mat-expansion-panel [expanded]="false">
+        <mat-expansion-panel [expanded]="mdpath == null">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Demos
