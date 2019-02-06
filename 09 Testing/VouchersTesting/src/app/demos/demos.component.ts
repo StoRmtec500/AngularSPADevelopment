@@ -1,11 +1,9 @@
-import { DemoItem } from "./demoItem";
-import { DemoService } from "./demo.service";
-import { ActivatedRoute, Params, Router, RouterState } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { SnackbarService } from "../shared/snackbar/snackbar.service";
-import { EventBusService } from "../shared/event-bus/event-bus.service";
+import { ActivatedRoute, Params } from "@angular/router";
+import { DemoService } from "./demo.service";
+import { DemoItem } from "./demoItem";
+import { environment } from "src/environments/environment";
 import { ScreenService } from "../shared/screen/screen.service";
-import { cmdToggleDemoMenu } from "../shared/event-bus/action.types";
 
 @Component({
   selector: "app-demos",
@@ -15,18 +13,18 @@ import { cmdToggleDemoMenu } from "../shared/event-bus/action.types";
 })
 export class DemosComponent implements OnInit {
   title: string = "";
-  demoName: string = "";
+  demoTitle: string = "";
   componentName: string = "";
-  demos: DemoItem[];
-  device: string;
   showMenu = true;
+  device: string;
+  demos: DemoItem[];
+  demoRoot: boolean = true;
+  mdpath: string = environment.markdownPath + "intro.md";
 
   constructor(
     private route: ActivatedRoute,
     private demoService: DemoService,
-    private screen: ScreenService,
-    private events: EventBusService,
-    private sns: SnackbarService
+    private screen: ScreenService
   ) {
     this.title = "Testing";
   }
@@ -35,7 +33,6 @@ export class DemosComponent implements OnInit {
     this.setDemoMenu();
     this.setDemoTitle();
     this.subscribeScreen();
-    this.listenEvents();
   }
 
   private subscribeScreen() {
@@ -53,23 +50,17 @@ export class DemosComponent implements OnInit {
 
   private setDemoTitle() {
     this.route.queryParams.subscribe((params: Params) => {
-      let c: DemoItem = this.getComponent(params["title"]);
-      this.demoName =
-        params["title"] != null
-          ? `Demo: ${params["title"]} - Component: ${
-              c != undefined ? c.component : ""
-            }`
-          : "Please select a demo";
-    });
-  }
+      let demo = params["title"];
+      let item: DemoItem = this.getComponent(demo);
 
-  private listenEvents() {
-    this.events.Panel.subscribe(action => {
-      switch (action) {
-        case cmdToggleDemoMenu:
-          this.showMenu = !this.showMenu;
-          break;
-          defaut: break;
+      if (demo != null) {
+        this.demoTitle = `Demo: ${demo} - Component: ${
+          item != undefined ? item.component : ""
+        }`;
+        this.demoRoot = false;
+      } else {
+        this.demoTitle = "Please select a demo";
+        this.demoRoot = true;
       }
     });
   }

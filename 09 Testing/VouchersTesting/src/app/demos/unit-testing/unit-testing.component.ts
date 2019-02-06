@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { MarkdownService } from "ngx-markdown";
 import { environment } from "src/environments/environment";
 
 @Component({
@@ -8,9 +7,9 @@ import { environment } from "src/environments/environment";
   styleUrls: ["./unit-testing.component.scss"]
 })
 export class UnitTestingComponent implements OnInit {
-  constructor(private markdownService: MarkdownService) {}
+  constructor() {}
 
-  mdPath: string = environment.markdownPath + "unit-testing.md";
+  mdpath: string = environment.markdownPath;
 
   ngOnInit() {}
 }
