@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
-import { DemoService } from "./demo.service";
-import { DemoItem } from "./demoItem";
+import { NavigationEnd, Router } from "@angular/router";
 import { environment } from "src/environments/environment";
 import { ScreenService } from "../shared/screen/screen.service";
+import { DemoService } from "./demo.service";
+import { DemoItem } from "./demoItem";
 
 @Component({
   selector: "app-demos",
@@ -13,16 +13,14 @@ import { ScreenService } from "../shared/screen/screen.service";
 })
 export class DemosComponent implements OnInit {
   title: string = "";
-  demoTitle: string = "";
-  componentName: string = "";
   showMenu = true;
   device: string;
-  demos: DemoItem[];
-  demoRoot: boolean = true;
-  mdpath: string = environment.markdownPath + "intro.md";
+  demos: DemoItem[] = [];
+  currentItem: DemoItem;
+  mdpath: string;
 
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
     private demoService: DemoService,
     private screen: ScreenService
   ) {
@@ -49,26 +47,27 @@ export class DemosComponent implements OnInit {
   }
 
   private setDemoTitle() {
-    this.route.queryParams.subscribe((params: Params) => {
-      let demo = params["title"];
-      let item: DemoItem = this.getComponent(demo);
-
-      if (demo != null) {
-        this.demoTitle = `Demo: ${demo} - Component: ${
-          item != undefined ? item.component : ""
-        }`;
-        this.demoRoot = false;
-      } else {
-        this.demoTitle = "Please select a demo";
-        this.demoRoot = true;
+    this.router.events.subscribe(evt => {
+      if (evt instanceof NavigationEnd) {
+        {
+          if (evt.url == "/") {
+            this.currentItem = null;
+            this.mdpath = `${environment.markdownPath}${"intro.md"}`;
+          } else {
+            this.currentItem = this.getDemoItem(evt.url.substring(1));
+            // this.mdpath = `${environment.markdownPath}${
+            //   this.currentItem.markdown
+            // }.md`;
+          }
+        }
       }
     });
   }
 
-  getComponent(val): DemoItem {
-    if (this.demos != undefined && this.demos != null) {
+  getDemoItem(url: string): DemoItem {
+    if (this.demos.length > 0) {
       return this.demos.find(el => {
-        return el.title === val;
+        return el.url.toLowerCase() === url.toLowerCase();
       });
     }
   }

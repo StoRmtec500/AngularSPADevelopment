@@ -19,7 +19,7 @@
       [routerLinkActiveOptions]="{ exact: true }"
       class="navLink"
     >
-      {{ route.data.title }}
+      {{ route.data != null ? route.data.title : "" }}
     </div>
   </div>
   <div fxHide.gt-md (click)="toggleApps()" class="clickable">

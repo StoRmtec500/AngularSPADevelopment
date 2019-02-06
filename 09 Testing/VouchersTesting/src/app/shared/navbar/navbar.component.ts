@@ -1,10 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, Route } from "@angular/router";
+import { Route, Router } from "@angular/router";
+import { cmdToggleDemoMenu } from "../event-bus/action.types";
 import { EventBusService } from "../event-bus/event-bus.service";
-import {
-  cmdToggleDemoMenu,
-  cmdToggleAppsMenu
-} from "../event-bus/action.types";
 import { SnackbarService } from "../snackbar/snackbar.service";
 
 @Component({
@@ -19,11 +16,14 @@ export class NavbarComponent implements OnInit {
     private sns: SnackbarService
   ) {}
 
-  editorDisplayed: boolean;
+  editorDisplayed: boolean = false;
   rootRoutes: Route[];
 
   ngOnInit() {
-    this.editorDisplayed = false;
+    this.getRoutes();
+  }
+
+  private getRoutes() {
     this.rootRoutes = this.router.config.filter(
       item =>
         item.path.includes("/") == false &&
@@ -47,7 +47,6 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleApps() {
-    // this.events.triggerCmd(cmdToggleAppsMenu);
     this.sns.displayAlert("Apps-Bar", "Not implemented!");
   }
 

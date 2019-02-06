@@ -13,23 +13,47 @@
         mat-raised-button
         color="accent"
         *ngFor="let item of demos"
-        [routerLink]="['', item.url]"
-        [queryParams]="{ title: item.title }"
-        >{{ item.title }}</a
+        [routerLink]="[item.url]"
+      >
+        {{ item.title }}</a
       >
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div fxFlex="8 8 auto" class="workbenchContainer">
       <mat-toolbar color="accent">
-        <h4>{{ demoTitle }}</h4>
+        <h4>
+          {{
+            currentItem == null
+              ? "Please select a Demo"
+              : "Demo:" +
+                currentItem.title +
+                " - Component: 
+            currentItem.component"
+          }}
+        </h4>
       </mat-toolbar>
-      <div *ngIf="!demoRoot" class="workbench">
-        <router-outlet></router-outlet>
-      </div>
-      <mat-card *ngIf="demoRoot">
-        <markdown [src]="mdpath"> </markdown>
-      </mat-card>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title color="accent">
+              Instructions
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <markdown [src]="mdpath"> </markdown>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Demos
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="workbench">
+            <router-outlet></router-outlet>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

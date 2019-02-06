@@ -1,58 +1,81 @@
-import 'hammerjs';
-
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import {
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
   MatButtonModule,
+  MatButtonToggleModule,
   MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
   MatDatepickerModule,
   MatDialogModule,
-  MatFormFieldModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
-  MatOptionModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
   MatRadioModule,
   MatSelectModule,
   MatSidenavModule,
+  MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatToolbarModule,
-} from '@angular/material';
+  MatTooltipModule
+} from "@angular/material";
+import "hammerjs";
 
 const mods = [
-  CommonModule,
-  MatSidenavModule,
-  MatListModule,
-  MatToolbarModule,
+  MatAutocompleteModule,
+  MatNativeDateModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
   MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatIconModule,
-  MatMenuModule,
-  MatCardModule,
-  MatSelectModule,
-  MatOptionModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatNativeDateModule,
-  MatSnackBarModule,
-  MatDialogModule,
-  MatDatepickerModule,
-  MatSlideToggleModule,
-  MatRadioModule,
-  FlexLayoutModule,
+  MatTooltipModule,
+  FlexLayoutModule
 ];
 
 @NgModule({
   imports: mods,
   declarations: [],
+  providers: [MatDatepickerModule],
   exports: mods
 })
-export class MaterialModule { }
+export class MaterialModule {}

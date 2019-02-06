@@ -1,27 +1,25 @@
 import { CommonModule } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from "ngx-markdown";
 import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
+import { CompInteractionComponent } from "./comp-interaction/comp-interaction.component";
+import { DeepIntegrationComponent } from "./deep-integration/deep-integration.component";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
+import { IntroE2eComponent } from "./intro-e2e/intro-e2e.component";
 import { MovieService } from "./movie.service";
 import { PersonService } from "./person.service";
-import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
-import { MarkdownModule, MarkedOptions, MarkedRenderer } from "ngx-markdown";
-import { HttpClient } from "@angular/common/http";
+import { ShallowIntegrationComponent } from "./shallow-integration/shallow-integration.component";
+import { SimpleCompComponent } from "./simple-comp/simple-comp.component";
+import { SimpleServiceComponent } from "./simple-service/simple-service.component";
 import { TestPipeComponent } from "./test-pipe/test-pipe.component";
 import { TestPipePipe } from "./test-pipe/test-pipe.pipe";
-import { SimpleServiceComponent } from "./simple-service/simple-service.component";
-import { SimpleCompComponent } from './simple-comp/simple-comp.component';
-import { CompInteractionComponent } from './comp-interaction/comp-interaction.component';
-import { ShallowIntegrationComponent } from './shallow-integration/shallow-integration.component';
-import { DeepIntegrationComponent } from './deep-integration/deep-integration.component';
-import { IntroE2eComponent } from './intro-e2e/intro-e2e.component';
+import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -42,15 +40,31 @@ export function markedOptions(): MarkedOptions {
   };
 }
 
+const demoRoutes: Routes = [
+  {
+    path: "",
+    component: DemosComponent,
+    children: [
+      { path: "unittesting", component: UnitTestingComponent },
+      { path: "testpipe", component: TestPipeComponent },
+      { path: "simpleservice", component: SimpleServiceComponent },
+      { path: "simplecomp", component: SimpleCompComponent },
+      { path: "compinteract", component: CompInteractionComponent },
+      { path: "shallowint", component: ShallowIntegrationComponent },
+      { path: "deepint", component: DeepIntegrationComponent },
+      { path: "introe2e", component: IntroE2eComponent }
+    ]
+  }
+];
+
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
+    RouterModule.forChild(demoRoutes),
     MaterialModule,
     NgxChartsModule,
     MarkdownModule.forRoot({

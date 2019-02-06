@@ -30,11 +30,9 @@ import { VouchersListComponent } from "./vouchers/vouchers-list.component";
 import { VouchersInterceptor } from "./demos/voucher.interceptor";
 import { StatisticsComponent } from "./statistics/statistics.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-import { ChartingService } from "./shared/charting/charting.service";
 import { LoginComponent } from "./shared/login/login.component";
-import { HerosComponent } from "./hero/hero/heros.component";
-import { HeroComponent } from "./hero/hero/hero.component";
-import { HeroService } from "./hero/hero.service";
+import { HomeComponent } from "./home/home.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 registerLocaleData(localeDe);
 
 @NgModule({
@@ -47,8 +45,8 @@ registerLocaleData(localeDe);
     VoucherDetailsListComponent,
     StatisticsComponent,
     LoginComponent,
-    HerosComponent,
-    HeroComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
@@ -70,9 +68,7 @@ registerLocaleData(localeDe);
     VouchersService,
     // {provide: HTTP_INTERCEPTORS, useClass: VouchersInterceptor, multi: true},
     VoucherResolver,
-    AccountResolver,
-    ChartingService,
-    HeroService
+    AccountResolver
   ],
   bootstrap: [AppComponent]
 })

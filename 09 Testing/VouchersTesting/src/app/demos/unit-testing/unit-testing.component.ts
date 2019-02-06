@@ -8,8 +8,5 @@ import { environment } from "src/environments/environment";
 })
 export class UnitTestingComponent implements OnInit {
   constructor() {}
-
-  mdpath: string = environment.markdownPath;
-
   ngOnInit() {}
 }
