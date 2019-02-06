@@ -1,6 +1,6 @@
-### Simple Unit Test using a Class
+### Simple Unit Test 
 
-Run `ng test` and switch to Component folder `\demos\unit-testing`
+Navigate to folder `\demos\unit-testing`
 
 Investigate `SimpleClass.ts` and `SimpleClass.spec.ts`
 
