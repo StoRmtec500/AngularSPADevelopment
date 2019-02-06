@@ -1,3 +1,4 @@
+<!-- <mat-sidenav-container class="alternativeTheme"> -->
 <mat-sidenav-container>
   <mat-sidenav
     #sidenav
@@ -34,7 +35,7 @@
         </h4>
       </mat-toolbar>
 
-      <mat-accordion *ngIf="currentItem">
+      <mat-accordion *ngIf="currentItem" class="accordTheme">
         <mat-expansion-panel [expanded]="true" *ngIf="mdpath">
           <mat-expansion-panel-header>
             <mat-panel-title color="accent">
