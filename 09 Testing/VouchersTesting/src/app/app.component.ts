@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "vouchers-app",
@@ -6,7 +7,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  showSidePanel = false;
+
+  ngOnInit() {
+    this.router.events.subscribe(evt => {
+      if (evt instanceof NavigationEnd) {
+        this.showSidePanel = evt.url != "/";
+      }
+    });
+  }
 }

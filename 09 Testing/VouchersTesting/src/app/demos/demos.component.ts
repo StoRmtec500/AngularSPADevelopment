@@ -29,7 +29,7 @@ export class DemosComponent implements OnInit {
 
   ngOnInit() {
     this.setDemoMenu();
-    this.setDemoTitle();
+    this.setMetadata();
     this.subscribeScreen();
   }
 
@@ -46,7 +46,7 @@ export class DemosComponent implements OnInit {
     });
   }
 
-  private setDemoTitle() {
+  private setMetadata() {
     this.router.events.subscribe(evt => {
       if (evt instanceof NavigationEnd) {
         {
