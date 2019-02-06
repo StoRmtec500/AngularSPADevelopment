@@ -130,7 +130,7 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Capturing Mouse & DOM Events as Observables
 - Subscribing to Routes & Params, Flex Layout API
 
-# Nesting Components
+## Nesting Components
 
 - Why Nesting
 - Databinding & Events with Nested Components
@@ -152,6 +152,8 @@ Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Mo
 - Karma & Jasmine Basics
 - Test Setup & Mocking
 - Testing Angular Components, Services and Forms
+- In Short: End to End Testing
+
 
 ## Securing the Application using Token Based Auth
 
