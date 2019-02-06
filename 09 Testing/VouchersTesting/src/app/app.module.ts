@@ -12,6 +12,7 @@ import { RouterModule } from "@angular/router";
 import { registerLocaleData } from "@angular/common";
 import localeDe from "@angular/common/locales/de";
 import { LOCALE_ID, NgModule } from "@angular/core";
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from "ngx-markdown";
 
 import { AccountResolver } from "./accounts/account-resolver.service";
 import { AccountsComponent } from "./accounts/accounts.component";
@@ -60,7 +61,9 @@ registerLocaleData(localeDe);
     NgxChartsModule,
     MaterialModule,
     SharedModule,
-    DemosModule
+    MarkdownModule.forRoot({
+      loader: HttpClient
+    })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "de-DE" },
