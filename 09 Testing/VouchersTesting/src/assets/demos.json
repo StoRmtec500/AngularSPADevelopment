@@ -8,7 +8,8 @@
   {
     "url": "testpipe",
     "title": "Test Pipe",
-    "component": "TestPipeComponent"
+    "component": "TestPipeComponent",
+    "markdown": "pipe"
   },
   {
     "url": "simpleservice",

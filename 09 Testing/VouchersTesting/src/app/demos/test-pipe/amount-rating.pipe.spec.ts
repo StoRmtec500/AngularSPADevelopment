@@ -1,7 +1,5 @@
 import { AmountRatingPipe } from "./amount-rating.pipe";
 
-// Jasmine Matches: https://jasmine.github.io/api/edge/matchers.html
-
 // var p;
 
 beforeEach(() => {

@@ -1,8 +1,10 @@
-### Simple Unit Test 
+### Simple Unit Test
 
 Navigate to folder `\demos\unit-testing`
 
 Investigate `SimpleClass.ts` and `SimpleClass.spec.ts`
+
+Find a list of matches at [Jasmine Docs](https://jasmine.github.io/api/edge/matchers.html)
 
 Notice the First Test:
 
