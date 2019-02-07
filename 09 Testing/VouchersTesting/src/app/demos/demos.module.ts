@@ -18,8 +18,8 @@ import { ShallowIntegrationComponent } from "./shallow-integration/shallow-integ
 import { SimpleCompComponent } from "./simple-comp/simple-comp.component";
 import { SimpleServiceComponent } from "./simple-service/simple-service.component";
 import { TestPipeComponent } from "./test-pipe/test-pipe.component";
-import { TestPipePipe } from "./test-pipe/test-pipe.pipe";
 import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
+import { AmountRatingPipe } from './test-pipe/amount-rating.pipe';
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -75,13 +75,13 @@ const demoRoutes: Routes = [
     DemosComponent,
     UnitTestingComponent,
     TestPipeComponent,
-    TestPipePipe,
     SimpleServiceComponent,
     SimpleCompComponent,
     CompInteractionComponent,
     ShallowIntegrationComponent,
     DeepIntegrationComponent,
-    IntroE2eComponent
+    IntroE2eComponent,
+    AmountRatingPipe
   ],
   providers: [DemoService, MovieService, PersonService]
 })
