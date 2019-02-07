@@ -12,6 +12,10 @@ export class SimpleMessageService {
     this.messages.push(message);
   }
 
+  delete(msg: string) {
+    this.messages = this.messages.filter(item => item != msg);
+  }
+
   clear() {
     this.messages = [];
   }
