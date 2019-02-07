@@ -3,24 +3,28 @@
     "url": "unittesting",
     "title": "Into Unit Testing",
     "component": "UnitTestingComponent",
-    "markdown": "unit-testing"
+    "markdown": "unit-testing",
+    "mdonly": true
   },
   {
     "url": "testpipe",
     "title": "Test Pipe",
     "component": "TestPipeComponent",
-    "markdown": "pipe"
+    "markdown": "pipe",
+    "mdonly": true
   },
   {
     "url": "simpleservice",
     "title": "Simple Service",
     "component": "SimpleServiceComponent",
-    "markdown": "simpleservice"
+    "markdown": "simpleservice",
+    "mdonly": true
   },
   {
     "url": "simplecomp",
     "title": "Simple Component",
-    "component": "SimpleServiceComponent"
+    "component": "SimpleServiceComponent",
+    "markdown": "simplecomp"
   },
   {
     "url": "compinteract",

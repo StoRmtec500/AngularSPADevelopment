@@ -1,5 +1,5 @@
 export class DemoItem {
-  constructor(private mdOnly: boolean = false) {}
+  constructor(private mdonly: boolean = false) {}
 
   url: string;
   title: string;
