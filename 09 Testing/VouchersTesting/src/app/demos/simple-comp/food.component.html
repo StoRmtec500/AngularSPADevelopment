@@ -1,0 +1,4 @@
+<h4>Food Component - Click to remove</h4>
+<div *ngFor="let f of food" (click)="onRemove(f)" class="hoverclick">
+  {{ f.name }}
+</div>

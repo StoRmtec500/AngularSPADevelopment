@@ -15,11 +15,12 @@ import { IntroE2eComponent } from "./intro-e2e/intro-e2e.component";
 import { MovieService } from "./movie.service";
 import { PersonService } from "./person.service";
 import { ShallowIntegrationComponent } from "./shallow-integration/shallow-integration.component";
-import { SimpleCompComponent } from "./simple-comp/simple-comp.component";
 import { TestPipeComponent } from "./test-pipe/test-pipe.component";
 import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
 import { AmountRatingPipe } from "./test-pipe/amount-rating.pipe";
 import { SimpleServiceComponent } from "./simple-service/simple-service.component";
+import { FoodComponent } from "./simple-comp/food.component";
+import { BrowserModule } from "@angular/platform-browser";
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -48,7 +49,7 @@ const demoRoutes: Routes = [
       { path: "unittesting", component: UnitTestingComponent },
       { path: "testpipe", component: TestPipeComponent },
       { path: "simpleservice", component: SimpleServiceComponent },
-      { path: "simplecomp", component: SimpleCompComponent },
+      { path: "simplecomp", component: FoodComponent },
       { path: "compinteract", component: CompInteractionComponent },
       { path: "shallowint", component: ShallowIntegrationComponent },
       { path: "deepint", component: DeepIntegrationComponent },
@@ -76,7 +77,7 @@ const demoRoutes: Routes = [
     UnitTestingComponent,
     TestPipeComponent,
     SimpleServiceComponent,
-    SimpleCompComponent,
+    FoodComponent,
     CompInteractionComponent,
     ShallowIntegrationComponent,
     DeepIntegrationComponent,
