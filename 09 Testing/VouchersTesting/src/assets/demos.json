@@ -14,12 +14,8 @@
   {
     "url": "simpleservice",
     "title": "Simple Service",
-    "component": "SimpleServiceComponent"
-  },
-  {
-    "url": "simpleservice",
-    "title": "Simple Service",
-    "component": "SimpleServiceComponent"
+    "component": "SimpleServiceComponent",
+    "markdown": "simpleservice"
   },
   {
     "url": "simplecomp",
