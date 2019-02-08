@@ -10,7 +10,7 @@ export class RatingPipe implements PipeTransform {
       case value <= 0:
         throw new Error("Invalid param");
       case value == 1:
-        result = "na oiada";
+        result = "na oida";
         break;
       case value == 2:
         result = "geht so";

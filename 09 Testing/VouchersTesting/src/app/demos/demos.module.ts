@@ -19,6 +19,7 @@ import { SimpleServiceComponent } from "./simple-service/simple-service.componen
 import { FoodComponent } from "./simple-comp/food.component";
 import { TestPipeComponent } from "./pipe/test-pipe.component";
 import { RatingPipe } from "./pipe/rating.pipe";
+import { FoodRowComponent } from './shallow-integration/food-row/food-row.component';
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -78,7 +79,8 @@ const demoRoutes: Routes = [
     ShallowIntegrationComponent,
     DeepIntegrationComponent,
     IntroE2eComponent,
-    RatingPipe
+    RatingPipe,
+    FoodRowComponent
   ],
   providers: [DemoService, MovieService, PersonService]
 })

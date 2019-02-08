@@ -2,10 +2,8 @@
 <div
   *ngFor="let f of food"
   (click)="deleteFood(f)"
-  class="hoverclick"
   fxLayout="row"
   fxLayoutGap="10px"
 >
-  <div>{{ f.name }}:</div>
-  <div>{{ f.rating | rating }}</div>
+  <app-food-row [food]="f"></app-food-row>
 </div>
