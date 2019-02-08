@@ -14,7 +14,7 @@ describe("RatingPipe", function() {
 
   it("returns cheap whe 50 is passed", function() {
     let p = new RatingPipe();
-    expect(p.transform(3)).toEqual("geht so");
+    expect(p.transform(2)).toEqual("geht so");
   });
 
   it("throws an err when a negative value is passed", function() {

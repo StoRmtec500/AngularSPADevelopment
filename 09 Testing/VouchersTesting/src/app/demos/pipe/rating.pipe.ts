@@ -13,19 +13,19 @@ export class RatingPipe implements PipeTransform {
         result = "na oiada";
         break;
       case value == 2:
-        result = "na ja";
+        result = "geht so";
         break;
       case value == 3:
-        result = "geht so";
+        result = "ok";
         break;
       case value == 4:
         result = "leiwand";
         break;
       case value == 5:
-        result = "oiada!";
+        result = "pipi fein";
         break;
       default:
-        result = "expensive";
+        throw new Error("Argument out of range");
         break;
     }
     return result;
