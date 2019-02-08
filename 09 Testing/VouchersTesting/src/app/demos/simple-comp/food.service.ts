@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { FoodItem } from "./food-items";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -21,8 +21,8 @@ export class FoodService {
     return this.Items;
   }
 
-  delete(item: FoodItem) {
+  deleteItem(item: FoodItem): Observable<boolean> {
     this.items = this.items.filter(f => f != item);
-    this.Items.next(this.items);
+    return of(true);
   }
 }

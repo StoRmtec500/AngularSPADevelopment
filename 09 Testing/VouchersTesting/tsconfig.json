@@ -13,5 +13,5 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"]
   },
-  "exclude": ["test.ts", "wallabyTest.ts", "**/*.spec.ts"]
+  "exclude": ["test.ts", "wallabyTest.ts"]
 }

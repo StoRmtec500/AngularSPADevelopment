@@ -1,3 +1,3 @@
 Navigate to folder `\demos\simple-comp`
 
-Investigate `simple-comp.component.ts` and `simple-comp.component.spec.ts`
+Investigate `food.component.ts`, `food.service.ts` and `food.component.spec.ts`

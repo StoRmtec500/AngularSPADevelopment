@@ -44,7 +44,10 @@
           </mat-expansion-panel-header>
           <markdown [src]="mdpath"> </markdown>
         </mat-expansion-panel>
-        <mat-expansion-panel [expanded]="mdpath == null">
+        <mat-expansion-panel
+          [expanded]="mdpath == null"
+          *ngIf="!currentItem.mdonly"
+        >
           <mat-expansion-panel-header>
             <mat-panel-title>
               Demos
