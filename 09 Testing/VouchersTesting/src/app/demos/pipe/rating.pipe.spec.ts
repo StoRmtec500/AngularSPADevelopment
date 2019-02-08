@@ -1,24 +1,24 @@
-import { AmountRatingPipe } from "./amount-rating.pipe";
+import { RatingPipe } from "./rating.pipe";
 
 // var p;
 
 beforeEach(() => {
-  //   p = new AmountRatingPipe();
+  //   p = new RatingPipe();
 });
 
-describe("AmountRatingPipe", function() {
+describe("RatingPipe", function() {
   it("creates an instance", function() {
-    let p = new AmountRatingPipe();
+    let p = new RatingPipe();
     expect(p).toBeTruthy();
   });
 
   it("returns cheap whe 50 is passed", function() {
-    let p = new AmountRatingPipe();
-    expect(p.transform(50)).toEqual("cheap");
+    let p = new RatingPipe();
+    expect(p.transform(3)).toEqual("geht so");
   });
 
   it("throws an err when a negative value is passed", function() {
-    let p = new AmountRatingPipe();
+    let p = new RatingPipe();
     expect(() => {
       p.transform(-1);
     }).toThrowError("Invalid param");

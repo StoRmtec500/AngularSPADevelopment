@@ -33,6 +33,18 @@ export class DemosComponent implements OnInit {
     this.subscribeScreen();
   }
 
+  showDemo(goTo) {
+    let current = this.router.url.substring(
+      this.router.url.lastIndexOf("/") + 1
+    );
+
+    if (goTo == current) {
+      this.setMetadata();
+    } else {
+      this.router.navigate(["/demos", goTo]);
+    }
+  }
+
   private subscribeScreen() {
     this.screen.Device.subscribe(mq => {
       this.device = mq;

@@ -7,7 +7,6 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from "ngx-markdown";
 import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
-import { CompInteractionComponent } from "./comp-interaction/comp-interaction.component";
 import { DeepIntegrationComponent } from "./deep-integration/deep-integration.component";
 import { DemoService } from "./demo.service";
 import { DemosComponent } from "./demos.component";
@@ -15,12 +14,11 @@ import { IntroE2eComponent } from "./intro-e2e/intro-e2e.component";
 import { MovieService } from "./movie.service";
 import { PersonService } from "./person.service";
 import { ShallowIntegrationComponent } from "./shallow-integration/shallow-integration.component";
-import { TestPipeComponent } from "./test-pipe/test-pipe.component";
 import { UnitTestingComponent } from "./unit-testing/unit-testing.component";
-import { AmountRatingPipe } from "./test-pipe/amount-rating.pipe";
 import { SimpleServiceComponent } from "./simple-service/simple-service.component";
 import { FoodComponent } from "./simple-comp/food.component";
-import { BrowserModule } from "@angular/platform-browser";
+import { TestPipeComponent } from "./pipe/test-pipe.component";
+import { RatingPipe } from "./pipe/rating.pipe";
 
 export function markedOptions(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -50,7 +48,6 @@ const demoRoutes: Routes = [
       { path: "testpipe", component: TestPipeComponent },
       { path: "simpleservice", component: SimpleServiceComponent },
       { path: "simplecomp", component: FoodComponent },
-      { path: "compinteract", component: CompInteractionComponent },
       { path: "shallowint", component: ShallowIntegrationComponent },
       { path: "deepint", component: DeepIntegrationComponent },
       { path: "introe2e", component: IntroE2eComponent }
@@ -78,11 +75,10 @@ const demoRoutes: Routes = [
     TestPipeComponent,
     SimpleServiceComponent,
     FoodComponent,
-    CompInteractionComponent,
     ShallowIntegrationComponent,
     DeepIntegrationComponent,
     IntroE2eComponent,
-    AmountRatingPipe
+    RatingPipe
   ],
   providers: [DemoService, MovieService, PersonService]
 })

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { FoodItem } from "./food-items";
+import { FoodItem } from "../simple-comp/food-items";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable, of } from "rxjs";
 

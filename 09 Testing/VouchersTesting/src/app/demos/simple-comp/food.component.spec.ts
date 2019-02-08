@@ -18,7 +18,6 @@ describe("FoodComponent:", () => {
     { name: "Butter Chicken", rating: 5 },
     { name: "Cannelloni", rating: 4 }
   ];
-  debugger;
 
   beforeEach(() => {
     mockFS = jasmine.createSpyObj(["getItems", "deleteItem"]);
