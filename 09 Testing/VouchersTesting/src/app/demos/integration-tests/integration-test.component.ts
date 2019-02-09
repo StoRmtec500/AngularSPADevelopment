@@ -3,11 +3,11 @@ import { FoodItem } from "../model/food-items";
 import { FoodService } from "../foodService/food.service";
 
 @Component({
-  selector: "app-shallow-integration",
-  templateUrl: "./shallow-integration.component.html",
-  styleUrls: ["./shallow-integration.component.scss"]
+  selector: "app-integration-test",
+  templateUrl: "./integration-test.component.html",
+  styleUrls: ["./integration-test.component.scss"]
 })
-export class ShallowIntegrationComponent implements OnInit {
+export class IntegrationTestComponent implements OnInit {
   food: FoodItem[] | null;
 
   constructor(private fs: FoodService) {}

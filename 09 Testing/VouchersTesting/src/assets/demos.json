@@ -27,15 +27,10 @@
     "markdown": "simplecomp"
   },
   {
-    "url": "shallowint",
-    "title": "Shallow Integration T.",
+    "url": "integrationtests",
+    "title": "Integration Tests",
     "component": "ShallowIntegrationComponent",
     "markdown": "shallow"
-  },
-  {
-    "url": "deepint",
-    "title": "Deep Integration T.",
-    "component": "DeepIntegrationComponent"
   },
   {
     "url": "introe2e",
