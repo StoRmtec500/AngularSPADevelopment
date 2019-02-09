@@ -1,10 +1,6 @@
 import { VoucherValidator } from "./voucher.validator";
 
 describe("Testing a simple Calss: VoucherValidator", function() {
-  var voucherSum;
-  var gooddetails;
-  var baddetails;
-  var voucherhead;
   var goodvoucher;
   var badvoucher;
   var nullVoucher;
@@ -86,8 +82,8 @@ describe("Testing a simple Calss: VoucherValidator", function() {
     expect(VoucherValidator.validate(badvoucher)).toEqual(false);
   });
 
-  // it("returns false when null is passed as Details", function() {
-  //   debugger;
-  //   expect(VoucherValidator.validate(nullVoucher)).toEqual(false);
-  // });
+  it("returns false when null is passed as Details", function() {
+    debugger;
+    expect(VoucherValidator.validate(nullVoucher)).toEqual(false);
+  });
 });

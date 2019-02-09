@@ -1,25 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FoodRowComponent } from "./food-row.component";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { RatingPipe } from "../../pipe/rating.pipe";
 
-import { FoodRowComponent } from './food-row.component';
+describe("Food Row Integration Test", () => {
+  let testModule = {
+    declarations: [FoodRowComponent, RatingPipe],
+    schemas: [NO_ERRORS_SCHEMA]
+  };
 
-describe('FoodRowComponent', () => {
-  let component: FoodRowComponent;
   let fixture: ComponentFixture<FoodRowComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FoodRowComponent ]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
+    TestBed.configureTestingModule(testModule);
     fixture = TestBed.createComponent(FoodRowComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it("should have the correct food item", () => {
+    fixture.componentInstance.food = { name: "Pad Thai", rating: 5 };
+    expect(fixture.componentInstance.food.name).toEqual("Pad Thai");
   });
 });

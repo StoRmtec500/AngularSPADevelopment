@@ -5,5 +5,5 @@
   fxLayout="row"
   fxLayoutGap="10px"
 >
-  <app-food-row [food]="f"></app-food-row>
+  <app-food-row [food]="f" (delete)="deleteFood($event)"></app-food-row>
 </div>

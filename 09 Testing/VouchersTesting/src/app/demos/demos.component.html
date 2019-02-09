@@ -35,7 +35,7 @@
         </h4>
       </mat-toolbar>
 
-      <mat-accordion *ngIf="currentItem" class="accordTheme">
+      <mat-accordion *ngIf="currentItem">
         <mat-expansion-panel [expanded]="true" *ngIf="mdpath">
           <mat-expansion-panel-header>
             <mat-panel-title color="accent">
@@ -53,7 +53,7 @@
               Demos
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <div class="workbench">
+          <div>
             <router-outlet></router-outlet>
           </div>
         </mat-expansion-panel>
