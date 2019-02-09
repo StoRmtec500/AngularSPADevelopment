@@ -1,50 +1,56 @@
-// import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-// import { ShallowIntegrationComponent } from "./shallow-integration.component";
-// import { of } from "rxjs";
-// import { FoodItem } from "../model/food-items";
-// import { RatingPipe } from "../pipe/rating.pipe";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { of } from "rxjs";
+import { FoodService } from "../foodService/food.service";
+import { RatingPipe } from "../pipe/rating.pipe";
+import { FoodRowComponent } from "./food-row/food-row.component";
+import { IntegrationTestComponent } from "./integration-test.component";
 
-// describe("Shallow Integration Test:", () => {
-//   // let comp: ShallowIntegrationComponent;
-//   let foodData: FoodItem[];
-//   let mockFS;
-//   foodData = [
-//     { name: "Pad Thai", rating: 5 },
-//     { name: "Butter Chicken", rating: 5 },
-//     { name: "Cannelloni", rating: 4 },
-//     { name: "Cordon Bleu", rating: 2 }
-//   ];
+describe("Integration Test:", () => {
+  let mockFS;
+  let foodData = [
+    { name: "Pad Thai", rating: 5 },
+    { name: "Butter Chicken", rating: 5 },
+    { name: "Cannelloni", rating: 4 },
+    { name: "Cordon Bleu", rating: 2 }
+  ];
 
-//   let serviceResult = [
-//     { name: "Pad Thai", rating: 5 },
-//     { name: "Butter Chicken", rating: 5 },
-//     { name: "Cannelloni", rating: 4 }
-//   ];
+  let serviceResult = [
+    { name: "Pad Thai", rating: 5 },
+    { name: "Butter Chicken", rating: 5 },
+    { name: "Cannelloni", rating: 4 }
+  ];
 
-//   let testModule = {
-//     declarations: [ShallowIntegrationComponent]
-//   };
+  let fixture: ComponentFixture<IntegrationTestComponent>;
 
-//   let fixture: ComponentFixture<ShallowIntegrationComponent>;
+  beforeEach(() => {
+    mockFS = jasmine.createSpyObj(["getItems", "deleteItem"]);
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule(testModule);
-//     fixture = TestBed.createComponent(ShallowIntegrationComponent);
-//   });
+    let testModule = {
+      declarations: [IntegrationTestComponent, FoodRowComponent, RatingPipe],
+      providers: [{ provide: FoodService, useValue: mockFS }],
+      schemas: [NO_ERRORS_SCHEMA]
+    };
 
-//   it("removes the item from the list", () => {
-//     comp.food = foodData;
-//     mockFS.deleteItem.and.returnValue(of(serviceResult));
-//     comp.deleteFood(foodData[3]);
+    TestBed.configureTestingModule(testModule);
+    fixture = TestBed.createComponent(IntegrationTestComponent);
+    // fixture.detectChanges();
+  });
 
-//     expect(comp.food.length).toBe(3);
-//   });
+  //Test Test-Setup
 
-//   it("should call deleteHero", () => {
-//     comp.food = foodData;
-//     mockFS.deleteItem.and.returnValue(of(serviceResult));
+  //   it("should be true", ()=>{
+  //       expect(true).toBe(true);
+  //   })
 
-//     comp.deleteFood(foodData[3]);
-//     expect(mockFS.deleteItem).toHaveBeenCalledWith(foodData[3]);
-//   });
-// });
+  it("should render each FoodItem as FoodItemRow", () => {
+    mockFS.getItems.and.returnValue(of(foodData));
+    mockFS.deleteItem.and.returnValue(of(serviceResult));
+    fixture.detectChanges();
+
+    const rows = fixture.debugElement.queryAll(By.directive(FoodRowComponent));
+    expect(rows.length).toEqual(4);
+    expect(rows[0].componentInstance.food.name).toEqual("Pad Thai");
+  });
+});
