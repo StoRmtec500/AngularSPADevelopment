@@ -1,5 +1,5 @@
 <div class="hoverclick" fxLayout="row" fxLayoutGap="10px">
-  <div>{{ food.name }}:</div>
+  <span id="bogus">{{ food.name }}:</span>
   <div>{{ food.rating | rating }}</div>
   <div (click)="deleteFood(this.food)">
     <mat-icon fxFlexAlign="center" class="cmdIcon">delete</mat-icon>
