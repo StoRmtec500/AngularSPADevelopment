@@ -1,0 +1,63 @@
+<!-- <mat-sidenav-container class="alternativeTheme"> -->
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [opened]="showMenu"
+    [mode]="this.device == 'xs' ? 'over' : 'side'"
+  >
+    <mat-toolbar color="accent">
+      <h4>{{ title }}</h4>
+    </mat-toolbar>
+
+    <div class="demoMenu">
+      <a
+        mat-raised-button
+        color="accent"
+        *ngFor="let item of demos"
+        (click)="showDemo(item.url)"
+      >
+        {{ item.title }}</a
+      >
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxFlex="8 8 auto" class="workbenchContainer">
+      <mat-toolbar color="accent">
+        <h4>
+          {{
+            currentItem == null
+              ? "Please select a Demo"
+              : "Demo: " +
+                currentItem.title +
+                " - Component: " +
+                currentItem.component
+          }}
+        </h4>
+      </mat-toolbar>
+
+      <mat-accordion *ngIf="currentItem">
+        <mat-expansion-panel [expanded]="true" *ngIf="mdpath">
+          <mat-expansion-panel-header>
+            <mat-panel-title color="accent">
+              Instructions
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <markdown [src]="mdpath"> </markdown>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]="mdpath == null"
+          *ngIf="!currentItem.mdonly"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Demos
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <router-outlet></router-outlet>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

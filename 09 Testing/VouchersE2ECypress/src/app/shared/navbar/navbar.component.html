@@ -1,0 +1,28 @@
+<mat-toolbar class="mainNav" fxFlexFill fxLayoutGap="10px">
+  <div fxHide.gt-xs (click)="toggleDemoMenu()" class="clickable">
+    <mat-icon color="accent">apps</mat-icon>
+  </div>
+  <div><img width="50px" src="/assets/images/angular.svg" /></div>
+  <div fxHide.lt-md="true" class="navTitle">
+    Angular Single Page Application Development
+  </div>
+  <div
+    fxFlex="1 1 auto"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutGap="25px"
+  >
+    <div
+      *ngFor="let route of rootRoutes"
+      routerLink="{{ '/' + route.path }}"
+      routerLinkActive="navLink-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="navLink"
+    >
+      {{ route.data != null ? route.data.title : "" }}
+    </div>
+  </div>
+  <div fxHide.gt-md (click)="toggleApps()" class="clickable">
+    <mat-icon color="accent">menu</mat-icon>
+  </div>
+</mat-toolbar>

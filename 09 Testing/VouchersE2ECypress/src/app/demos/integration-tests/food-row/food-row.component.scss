@@ -1,0 +1,10 @@
+.hoverclick {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  color: white;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

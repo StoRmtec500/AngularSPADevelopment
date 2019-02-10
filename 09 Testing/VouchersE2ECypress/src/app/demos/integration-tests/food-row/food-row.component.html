@@ -1,0 +1,10 @@
+<div class="hoverclick" fxLayout="row" fxLayoutGap="10px">
+  <span id="bogus">{{ food.name }}:</span>
+  <div>{{ food.rating | rating }}</div>
+  <div (click)="deleteFood(this.food)">
+    <mat-icon fxFlexAlign="center" class="cmdIcon">delete</mat-icon>
+  </div>
+  <div [routerLink]="['/path']">
+    <mat-icon fxFlexAlign="center" class="cmdIcon">edit</mat-icon>
+  </div>
+</div>

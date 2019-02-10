@@ -1,0 +1,9 @@
+<h4>Food Component - Click to remove</h4>
+<div
+  *ngFor="let f of food"
+  (click)="deleteFood(f)"
+  fxLayout="row"
+  fxLayoutGap="10px"
+>
+  <app-food-row [food]="f" (delete)="deleteFood($event)"></app-food-row>
+</div>

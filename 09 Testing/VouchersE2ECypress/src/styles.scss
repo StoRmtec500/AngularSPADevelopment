@@ -1,0 +1,19 @@
+@import "./theme/resets.scss";
+@import "./theme/style-vars.scss";
+@import "./theme/mat-overrides.scss";
+@import "./theme/bars.scss";
+@import "./theme/flex.scss";
+@import "./theme/form.scss";
+@import "./theme/boxes.scss";
+
+body {
+  background-color: $lightBackground;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.rightCell {
+  text-align: right;
+}

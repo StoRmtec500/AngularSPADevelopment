@@ -1,0 +1,31 @@
+a {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
+.demoMenu {
+  margin: 15px;
+
+  a {
+    margin: 0.5rem 0;
+  }
+}
+
+.workbenchContainer {
+  min-width: 400px;
+  margin-left: 10px;
+}
+
+.workbench {
+  background-color: lightgray;
+}
+
+.mat-sidenav-container {
+  height: calc(90vh - 20px);
+}
+
+.mat-sidenav {
+  width: 220px;
+}
