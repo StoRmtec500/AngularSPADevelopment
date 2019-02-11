@@ -219,6 +219,6 @@ When running for the first time
 
 ---
 
-# Server Side Testing in VS Code
+# .NET Core Testing in VS Code
 
 [Automatic Unit Testing in .NET Core plus Code Coverage in Visual Studio Code](https://www.hanselman.com/blog/AutomaticUnitTestingInNETCorePlusCodeCoverageInVisualStudioCode.aspx)
