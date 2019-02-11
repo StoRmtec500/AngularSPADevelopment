@@ -4,15 +4,17 @@
 
 [Jasmine Matchers](https://jasmine.github.io/api/edge/matchers.html)
 
+---
+
 # Wallaby.js Unit Testing
 
-[Wallaby Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode)
+[Wallaby VS Code Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode)
 
 ## Setup
 
 Install required packages
 
-`npm i --save-dev electron@4.0.1 wallaby-webpack@3.9.10`
+`npm i --save-dev electron@4.0.1 wallaby-webpack@3.9.10 angular2-template-loader`
 
 Add `wallaby.js` to root folder:
 
@@ -139,9 +141,48 @@ getTestBed().initTestEnvironment(
 );
 ```
 
-# Server Side Testing in VS Code
+---
 
-[Automatic Unit Testing in .NET Core plus Code Coverage in Visual Studio Code](https://www.hanselman.com/blog/AutomaticUnitTestingInNETCorePlusCodeCoverageInVisualStudioCode.aspx)
+# Protractor
+
+[Protractor Home](https://www.protractortest.org/)
+
+Navigate to `e2e/src/app.po.ts` & investigate code:
+
+```
+import { browser, by, element } from 'protractor';
+
+export class AppPage {
+  navigateTo() {
+    return browser.get('/');
+  }
+
+  getParagraphText() {
+    return element(by.css('app-root h1')).getText();
+  }
+}
+```
+
+Navigate to `e2e/src/app.e2e-spec.ts` & investigate spec:
+
+```
+import { AppPage } from "./app.po";
+
+describe("workspace-project App", () => {
+  let page: AppPage;
+
+  beforeEach(() => {
+    page = new AppPage();
+  });
+
+  it("should display welcome message", () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual("Angular Testing");
+  });
+});
+```
+
+---
 
 # Cypress E2E Testing
 
@@ -163,3 +204,21 @@ Modify `package.json` and run using `npm run e2e`
     "e2e": "cypress open"
   },
 ```
+
+Execute: `npm run e2e`
+
+When running for the first time
+
+- cypress is installed,
+- a popup is shown
+- the cypress folder in the project is created
+
+![cypers](./_images/cypress.png)
+
+![cypers](./_images/cypress-popup.png)
+
+---
+
+# Server Side Testing in VS Code
+
+[Automatic Unit Testing in .NET Core plus Code Coverage in Visual Studio Code](https://www.hanselman.com/blog/AutomaticUnitTestingInNETCorePlusCodeCoverageInVisualStudioCode.aspx)
