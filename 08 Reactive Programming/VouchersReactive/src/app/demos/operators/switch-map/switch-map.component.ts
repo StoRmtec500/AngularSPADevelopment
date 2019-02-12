@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { switchMap, debounceTime } from 'rxjs/operators';
 import { FoodService } from './food.service';
@@ -24,6 +24,8 @@ export class SwitchMapComponent implements OnInit {
 	attachSearch() {
 		this.fcFoodName.valueChanges
 			.pipe(debounceTime(500), switchMap((name) => this.fs.getItem(name)))
-			.subscribe((item) => (this.foundFood = item));
+			.subscribe((item) => {
+				this.foundFood = item;
+			});
 	}
 }

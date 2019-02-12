@@ -1,11 +1,8 @@
-import { VouchersService } from "./voucher.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Voucher } from "../shared/model/model";
 import { Component, OnInit } from "@angular/core";
-import { DataStoreService } from "../shared/data-store/data-store-service";
-import { EventBusService } from "../shared/event-bus/event-bus.service";
-import { VOUCHER_ADD } from "../shared/event-bus/action.types";
-import { IconAdd } from "../shared/table/cmd.type";
+import { MatTableDataSource } from "@angular/material";
+import { Router } from "@angular/router";
+import { Voucher } from "../shared/model/model";
+import { VouchersService } from "./voucher.service";
 
 @Component({
   selector: "app-vouchers-list",
@@ -13,34 +10,34 @@ import { IconAdd } from "../shared/table/cmd.type";
   styleUrls: ["./vouchers-list.component.scss"]
 })
 export class VouchersListComponent implements OnInit {
-  vouchers: Voucher[];
+  dataSource: MatTableDataSource<Voucher>;
+  displayedColumns = ["ID", "Text", "Date", "Amount", "Delete", "Edit"];
 
-  constructor(
-    private router: Router,
-    private ds: DataStoreService,
-    private ebus: EventBusService
-  ) {}
+  constructor(private vs: VouchersService, private router: Router) {}
 
   ngOnInit() {
     this.initVouchers();
-    this.ebus.setCmds([
-      { title: "Add Voucher", action: VOUCHER_ADD, icon: IconAdd }
-    ]);
-    this.ebus.Panel.subscribe(this.evalAction);
-    this.router.navigate(["", { outlets: { sidebarOutlet: null } }]);
   }
 
-  initVouchers() {
-    this.ds.getAllVouchers().subscribe(data => (this.vouchers = data));
+  private initVouchers() {
+    this.vs.getVouchers().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
-  evalAction(action: string) {}
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
-  showVoucher(id: number) {
-    this.router.navigate(["/vouchers/" + id]);
+  editItem(v: Voucher) {
+    console.log("Edit Row", v);
+    this.router.navigate(["/vouchers/" + v.ID]);
   }
 
   deleteVoucher(id: number) {
-    this.ds.deleteVoucher(id);
+    this.vs.deleteVoucher(id);
+    this.initVouchers();
   }
 }
