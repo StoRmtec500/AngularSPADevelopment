@@ -9,12 +9,8 @@ export class DoublerService {
 	constructor() {}
 
 	double(nr: number): Observable<number> {
-		let del = this.getRandomInt();
+		let del = Math.floor(Math.random() * Math.floor(2500));
 		console.log('delaying for: ', del);
 		return of(nr * 2).pipe(delay(del));
-	}
-
-	getRandomInt() {
-		return Math.floor(Math.random() * Math.floor(2500));
 	}
 }
