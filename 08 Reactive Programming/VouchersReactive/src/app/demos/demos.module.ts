@@ -19,6 +19,9 @@ import { ObservableStreamComponent } from "./observable-stream/observable-stream
 import { OperatorsComponent } from "./operators/operators.component";
 import { PersonService } from "./person.service";
 import { UnsubscribingComponent } from './unsubscribing/unsubscribing.component';
+import { SwitchMapComponent } from './operators/switch-map/switch-map.component';
+import { ForkJoinComponent } from './operators/fork-join/fork-join.component';
+import { DebouncedSearchComponent } from './operators/debounced-search/debounced-search.component';
 
 @NgModule({
   imports: [
@@ -41,7 +44,10 @@ import { UnsubscribingComponent } from './unsubscribing/unsubscribing.component'
     MovieRendererComponent,
     OperatorsComponent,
     FlexLayoutApiComponent,
-    UnsubscribingComponent
+    UnsubscribingComponent,
+    SwitchMapComponent,
+    ForkJoinComponent,
+    DebouncedSearchComponent
   ],
   providers: [DemoService, MovieService, PersonService]
 })

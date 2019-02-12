@@ -1,166 +1,103 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import {
-  Subscription,
-  throwError,
-  interval,
-  of,
-  Observable,
-  fromEvent
-} from "rxjs";
-import {
-  map,
-  tap,
-  catchError,
-  finalize,
-  take,
-  concat,
-  delay,
-  debounceTime
-} from "rxjs/operators";
-import { VouchersService } from "../../vouchers/voucher.service";
-import { Voucher } from "../../shared";
-import { isArray } from "util";
+import { Component, OnInit } from '@angular/core';
+import { interval, of, Subscription, throwError } from 'rxjs';
+import { catchError, concat, delay, finalize, map, take, tap } from 'rxjs/operators';
+import { isArray } from 'util';
+import { Voucher } from '../../shared';
+import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
-  selector: "app-operators",
-  templateUrl: "./operators.component.html",
-  styleUrls: ["./operators.component.scss"]
+	selector: 'app-operators',
+	templateUrl: './operators.component.html',
+	styleUrls: [ './operators.component.scss' ]
 })
 export class OperatorsComponent implements OnInit {
-  constructor(private vs: VouchersService) {}
+	constructor(private vs: VouchersService) {}
 
-  sub: Subscription = null;
-  searchterm: string = "";
-  debounceSearch: boolean = true;
+	sub: Subscription = null;
 
-  @ViewChild("searchBoxRef") searchBoxRef: ElementRef;
+	ngOnInit() {}
 
-  ngOnInit() {
-    this.attachDebouncedSearch();
-  }
+	// assignToArr = items => (this.movies = items);
+	unsbscribe = () => (this.sub != null ? this.sub.unsubscribe() : null);
+	setLabel = (v) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
-  // assignToArr = items => (this.movies = items);
-  unsbscribe = () => (this.sub != null ? this.sub.unsubscribe() : null);
-  setLabel = v => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
+	vouchers: Voucher[] = null;
 
-  vouchers: Voucher[] = null;
+	log = (msg: string, data: any) => {
+		console.log(`executing: ${msg}, 'data' is Array: ${isArray(data)}`, data);
+		this.vouchers = isArray(data) ? data : [ data ];
+	};
 
-  log = (msg: string, data: any) => {
-    console.log(`executing: ${msg}, 'data' is Array: ${isArray(data)}`, data);
-    this.vouchers = isArray(data) ? data : [data];
-  };
+	useMap() {
+		this.vs
+			.getVouchers()
+			.pipe(
+				//Obs Operator map()
+				map((vs) => {
+					//ES6 array.map()
+					return vs.map((v) => ({
+						...v,
+						Label: `${v.Text} costs € ${v.Amount}`
+					}));
+				})
+			)
+			.subscribe((data) => this.log('use map() - RxJS 5 pattern', data));
+	}
 
-  private attachDebouncedSearch() {
-    fromEvent(this.searchBoxRef.nativeElement, "keyup")
-      .pipe(
-        debounceTime(1000),
-        map((kEvt: KeyboardEvent) => {
-          return (<HTMLInputElement>kEvt.srcElement).value;
-        })
-      )
-      .subscribe(val => {
-        console.log("Currently your searching debounced for:", val);
-      });
-  }
+	usePipeMapAndTap() {
+		this.vs
+			.getVouchers()
+			.pipe(tap((data) => console.log('logged using tap() operator: ', data)), map((vs) => vs.map(this.setLabel)))
+			.subscribe((data) => this.log('use pipe(), map() & tap()', data));
+	}
 
-  useMap() {
-    this.vs
-      .getVouchers()
-      .pipe(
-        //Obs Operator map()
-        map(vs => {
-          //ES6 array.map()
-          return vs.map(v => ({
-            ...v,
-            Label: `${v.Text} costs € ${v.Amount}`
-          }));
-        })
-      )
-      .subscribe(data => this.log("use map() - RxJS 5 pattern", data));
-  }
+	errHandling() {
+		this.vs
+			.getVouchers()
+			.pipe(
+				tap((data) => console.log('logged by tap(): ', data)),
+				map((vs) => vs.map(this.setLabel)),
+				catchError((err) => {
+					return throwError('Err happened while processing vouchers');
+				}),
+				finalize(() => console.log('finalizing ...'))
+			)
+			.subscribe((data) => this.log('errHandling', data));
+	}
 
-  usePipeMapAndTap() {
-    this.vs
-      .getVouchers()
-      .pipe(
-        tap(data => console.log("logged using tap() operator: ", data)),
-        map(vs => vs.map(this.setLabel))
-      )
-      .subscribe(data => this.log("use pipe(), map() & tap()", data));
-  }
+	useFind() {
+		this.vs
+			.getVouchers()
+			.pipe(map((v) => v.find((v: Voucher) => v.ID == 3)))
+			.subscribe((data) => this.log('getByID - using find()', data));
+	}
 
-  errHandling() {
-    this.vs
-      .getVouchers()
-      .pipe(
-        tap(data => console.log("logged by tap(): ", data)),
-        map(vs => vs.map(this.setLabel)),
-        catchError(err => {
-          return throwError("Err happened while processing vouchers");
-        }),
-        finalize(() => console.log("finalizing ..."))
-      )
-      .subscribe(data => this.log("errHandling", data));
-  }
+	useFilterArray() {
+		this.vs
+			.getVouchers()
+			.pipe(map((v) => v.filter((v: Voucher) => v.Paid)))
+			.subscribe((data) => this.log('useFilter', data));
+	}
 
-  useFind() {
-    this.vs
-      .getVouchers()
-      .pipe(map(v => v.find((v: Voucher) => v.ID == 3)))
-      .subscribe(data => this.log("getByID - using find()", data));
-  }
+	//Compare the two outputs
+	useTake() {
+		this.vs.getVouchers().pipe(take(3)).subscribe((data) => this.log('useTake', data));
+	}
 
-  useFilter() {
-    this.vs
-      .getVouchers()
-      .pipe(map(v => v.filter((v: Voucher) => v.Paid)))
-      .subscribe(data => this.log("useFilter", data));
-  }
+	useInterval() {
+		interval(1000).pipe(take(3)).subscribe((x) => console.log(x));
+	}
 
-  //Compare the two outputs
-  useTake() {
-    this.vs
-      .getVouchers()
-      .pipe(take(3))
-      .subscribe(data => this.log("useTake", data));
-  }
+	useDelay() {
+		var fakeObservable = of([ 'hund', 'katze', 'maus' ]).pipe(delay(5000));
+		console.log('before delay execution - waiting 5 secs');
+		fakeObservable.subscribe((data) => console.log(data));
+	}
 
-  useInterval() {
-    interval(1000)
-      .pipe(take(3))
-      .subscribe(x => console.log(x));
-  }
-
-  useDelay() {
-    var fakeObservable = of(["hund", "katze", "maus"]).pipe(delay(5000));
-    console.log("before delay execution - waiting 5 secs");
-    fakeObservable.subscribe(data => console.log(data));
-  }
-
-  useConcat() {
-    const sourceOne = of(1, 2, 3);
-    const sourceTwo = of(4, 5, 6);
-    const concated = sourceOne.pipe(concat(sourceTwo));
-    concated.subscribe(nbr => console.log(nbr));
-  }
-
-  useSwitchMap() {
-    // https://brianflove.com/2018/03/21/master-rxjs-operators/
-  }
-
-  useMergeMap() {}
-
-  forJoin() {
-    //   this.hero = this.activatedRoute.paramMap
-    //   .pipe(
-    //     const id = +paramMap.get('id');
-    //     switchMap(paramMap => this.heroesService.getHero(id)
-    //   );
-    // this.powers = this.hero
-    //   .pipe(
-    //     mergeMap(hero => forkJoin(
-    //       hero.powers.map(id => this.powersService.getPower(id))
-    //     ))
-    //   );
-  }
+	useConcat() {
+		const sourceOne = of(1, 2, 3);
+		const sourceTwo = of(4, 5, 6);
+		const concated = sourceOne.pipe(concat(sourceTwo));
+		concated.subscribe((nbr) => console.log(nbr));
+	}
 }

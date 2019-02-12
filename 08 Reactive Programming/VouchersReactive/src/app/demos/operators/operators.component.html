@@ -7,7 +7,7 @@
   <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Operator Examples
+        Simple Operator Examples
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div fxLayout="row wrap" class="cmdItems">
@@ -21,8 +21,8 @@
       <a mat-raised-button color="accent" (click)="useFind()"
         >Using find() to filter by ID returning Singleton</a
       >
-      <a mat-raised-button color="accent" (click)="useFilter()"
-        >Use filter() to return an Array</a
+      <a mat-raised-button color="accent" (click)="useFilterArray()"
+        >Use filter() to return on Array</a
       >
       <a mat-raised-button color="accent" (click)="useTake()"
         >Use take() to return an Array</a
@@ -35,16 +35,7 @@
       >
       <a mat-raised-button color="accent" (click)="useConcat()"
         >Use concat() to combine two Observables</a
-      >
-      <a mat-raised-button color="accent" (click)="forJoin()"
-        >Use forJoin() to combine two Observables</a
-      >
-      <a mat-raised-button color="accent" (click)="useSwitchMap()"
-        >Use switchMap() to combine two Observables</a
-      >
-      <a mat-raised-button color="accent" (click)="useMergeMap()"
-        >Use mergeMap() to combine two Observables</a
-      >
+      >   
     </div>
     <div fxLayout="row nowrap" class="clearSubs">
       <a mat-raised-button color="accent" (click)="unsbscribe()"
@@ -58,17 +49,24 @@
         Debounced Search
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-card fxLayout="row">
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter your Search Term - Seach execute automatically"
-          #searchBoxRef
-        />
-      </mat-form-field>
-      <mat-slide-toggle [checked]="debounceSearch">Debounce</mat-slide-toggle>
-    </mat-card>
+  <app-debounced-search></app-debounced-search>
   </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Use switchMap
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+   <app-switch-map></app-switch-map>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Use app-fork-join
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+     <app-fork-join></app-fork-join>>
+    </mat-expansion-panel>
 </mat-accordion>
 
 <mat-card fxLayout="column" fxLayoutGap="10px">
