@@ -1,7 +1,8 @@
-import { VouchersService } from "./voucher.service";
+import { Component, OnInit } from "@angular/core";
+import { MatTableDataSource } from "@angular/material";
 import { Router } from "@angular/router";
 import { Voucher } from "../shared/model/model";
-import { Component, OnInit } from "@angular/core";
+import { VouchersService } from "./voucher.service";
 
 @Component({
   selector: "app-vouchers-list",
@@ -9,15 +10,34 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./vouchers-list.component.scss"]
 })
 export class VouchersListComponent implements OnInit {
-  vouchers: Voucher[];
+  dataSource: MatTableDataSource<Voucher>;
+  displayedColumns = ["ID", "Text", "Date", "Amount", "Delete", "Edit"];
 
-  constructor(private router: Router, private vs: VouchersService) {}
+  constructor(private vs: VouchersService, private router: Router) {}
 
   ngOnInit() {
-    this.vs.getVouchers().then(data => (this.vouchers = data));
+    this.initVouchers();
   }
 
-  showVoucher(id: number) {
-    this.router.navigate(["/vouchers/" + id]);
+  private initVouchers() {
+    this.vs.getVouchers().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+
+  editItem(v: Voucher) {
+    console.log("Edit Row", v);
+    this.router.navigate(["/vouchers/" + v.ID]);
+  }
+
+  deleteVoucher(id: number) {
+    this.vs.deleteVoucher(id);
+    this.initVouchers();
   }
 }

@@ -1,9 +1,8 @@
-tr{
-    cursor: pointer;
+mat-form-field {
+  width: 100%;
 }
 
-
-.tblCMD{
-    color: black;
-    font-weight: bold;    
+.mat-row:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
