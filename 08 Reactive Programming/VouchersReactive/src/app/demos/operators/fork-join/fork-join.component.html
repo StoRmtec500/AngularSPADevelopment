@@ -1,3 +1,5 @@
-<p>
-  fork-join works!
-</p>
+<mat-card fxLayout="column" fxLayoutGap="10px">
+  <button mat-raised-button (click)="doAction()">Get VM</button>
+  <div>Result from forkJoin():  {{response| json}}</div>
+  
+</mat-card>

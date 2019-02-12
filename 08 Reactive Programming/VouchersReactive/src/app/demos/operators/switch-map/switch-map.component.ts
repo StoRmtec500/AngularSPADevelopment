@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodItem } from '../../foodItem';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { debounceTime } from 'rxjs/internal/operators/debounceTime';
-import { switchMap } from 'rxjs/operators';
-import { FoodService } from '../../food.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { switchMap, debounceTime } from 'rxjs/operators';
+import { FoodService } from './food.service';
+import { FoodItem } from './foodItem';
 
 @Component({
 	selector: 'app-switch-map',
