@@ -162,7 +162,7 @@ Use on Linux / Mac Host
 
 Be aware that `nginx.conf` contains a route that redirects Server Side `404 errors` to Angular's `index.html` for Angular Routing to detect the route.
 
-```auto
+```
 location / {
     try_files $uri $uri/ /index.html =404;
 }
@@ -174,7 +174,7 @@ location / {
 
 ---
 
-sdf
+docker build --rm -f "app.anguarui.dockerfile" -t vouchersui:latest .
 
 ---
 
