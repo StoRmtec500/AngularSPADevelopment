@@ -1,4 +1,4 @@
-##### Stage 1
+##### Stage 1 - Create the build-image 
 FROM node:latest as node
 LABEL author="Alexander Pajer"
 WORKDIR /app
@@ -7,7 +7,7 @@ RUN npm install
 COPY . .
 RUN npm run build -- --prod
 
-##### Stage 2
+##### Stage 2 - Create the run-time-image 
 FROM nginx:alpine
 VOLUME /var/cache/nginx
 
