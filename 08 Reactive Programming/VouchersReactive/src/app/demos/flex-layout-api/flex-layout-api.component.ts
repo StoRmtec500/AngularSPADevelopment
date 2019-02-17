@@ -1,47 +1,50 @@
-import { Component, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
-import { MediaChange, MediaObserver } from "@angular/flex-layout";
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: "app-flex-layout-api",
-  templateUrl: "./flex-layout-api.component.html",
-  styleUrls: ["./flex-layout-api.component.scss"]
+	selector: 'app-flex-layout-api',
+	templateUrl: './flex-layout-api.component.html',
+	styleUrls: [ './flex-layout-api.component.scss' ]
 })
 export class FlexLayoutApiComponent implements OnInit {
-  constructor(private obsMedia: MediaObserver) {
-    this.subscribeIsPhone();
-  }
+	constructor(private obsMedia: MediaObserver) {
+		this.subscribeIsPhone();
+	}
 
-  //isPhone
-  watcher: Subscription;
+	//isPhone
+	mdpath: string | null = environment.markdownPath + 'flexlayout.md';
+	watcher: Subscription;
 
-  isPhone: boolean;
-  isTablet: boolean;
+	mq: string;
+	isPhone: boolean;
+	isTablet: boolean;
 
-  ngOnInit() {}
+	ngOnInit() {}
 
-  subscribeIsPhone() {
-    this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
-      switch (change.mqAlias) {
-        case "xs":
-          this.isPhone = true;
-          this.isTablet = false;
-          break;
-        case "sm":
-          this.isPhone = false;
-          this.isTablet = true;
-          break;
-        default:
-          this.isPhone = false;
-          this.isTablet = false;
-          break;
-      }
+	subscribeIsPhone() {
+		this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
+			this.mq = change.mqAlias;
+			switch (change.mqAlias) {
+				case 'xs':
+					this.isPhone = true;
+					this.isTablet = false;
+					break;
+				case 'sm':
+					this.isPhone = false;
+					this.isTablet = true;
+					break;
+				default:
+					this.isPhone = false;
+					this.isTablet = false;
+					break;
+			}
+			this.isPhone = change.mqAlias === 'xs';
+		});
+	}
 
-      this.isPhone = change.mqAlias === "xs";
-
-      console.log("Current Device Screen: ", change.mqAlias);
-      console.log("isPhone: ", this.isPhone);
-      console.log("isTablet: ", this.isTablet);
-    });
-  }
+	getClass() {
+		return this.isPhone ? 'phoneClass' : 'notPhoneClass';
+	}
 }

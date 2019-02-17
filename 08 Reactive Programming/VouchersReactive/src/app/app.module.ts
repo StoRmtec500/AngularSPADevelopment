@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,38 +24,42 @@ import { VoucherResolver } from './vouchers/voucher/voucher-resolver.service';
 import { VoucherComponent } from './vouchers/voucher/voucher.component';
 import { VouchersListComponent } from './vouchers/vouchers-list.component';
 import { VouchersInterceptor } from './demos/voucher.interceptor';
+import { MarkdownModule } from 'ngx-markdown';
 
 registerLocaleData(localeDe);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    VouchersListComponent,
-    AccountsComponent,
-    VoucherComponent,
-    VoucherDetailComponent,
-    VoucherDetailsListComponent  
-  ],
-  imports: [
-    FormsModule,
-    HttpModule,
-    HttpClientModule,
-    BrowserModule,
-    RouterModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,    
-    MaterialModule,
-    SharedModule,
-    DemosModule
-  ],
-  providers: [
-    { provide: LOCALE_ID, useValue: "de-DE" },
-    RouteGuard,
-    VouchersService,
-    // {provide: HTTP_INTERCEPTORS, useClass: VouchersInterceptor, multi: true},
-    VoucherResolver,
-    AccountResolver,
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		VouchersListComponent,
+		AccountsComponent,
+		VoucherComponent,
+		VoucherDetailComponent,
+		VoucherDetailsListComponent
+	],
+	imports: [
+		FormsModule,
+		HttpModule,
+		HttpClientModule,
+		BrowserModule,
+		RouterModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MaterialModule,
+		SharedModule,
+		DemosModule,
+		MarkdownModule.forRoot({
+			loader: HttpClient
+		})
+	],
+	providers: [
+		{ provide: LOCALE_ID, useValue: 'de-DE' },
+		RouteGuard,
+		VouchersService,
+		// {provide: HTTP_INTERCEPTORS, useClass: VouchersInterceptor, multi: true},
+		VoucherResolver,
+		AccountResolver
+	],
+	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
