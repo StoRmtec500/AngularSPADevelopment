@@ -1,3 +1,3 @@
 Flex Layout Api
 
-Resize Window & See console for output
+Resize Window & notice changes

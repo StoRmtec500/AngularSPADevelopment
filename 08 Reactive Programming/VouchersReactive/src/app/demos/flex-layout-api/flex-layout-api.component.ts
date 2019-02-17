@@ -13,7 +13,6 @@ export class FlexLayoutApiComponent implements OnInit {
 		this.subscribeIsPhone();
 	}
 
-	//isPhone
 	mdpath: string | null = environment.markdownPath + 'flexlayout.md';
 	watcher: Subscription;
 
@@ -40,7 +39,6 @@ export class FlexLayoutApiComponent implements OnInit {
 					this.isTablet = false;
 					break;
 			}
-			this.isPhone = change.mqAlias === 'xs';
 		});
 	}
 

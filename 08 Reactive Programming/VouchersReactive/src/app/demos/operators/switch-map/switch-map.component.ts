@@ -16,9 +16,13 @@ export class SwitchMapComponent implements OnInit {
 	//Most of the time you initialize with a model prop - here we want it empty
 	fcFoodName = new FormControl();
 	foodForm: FormGroup = this.fb.group({ fcFoodName: this.fcFoodName });
+	status: any;
 
 	ngOnInit() {
 		this.attachSearch();
+		this.fcFoodName.statusChanges.subscribe((s) => {
+			this.status = s;
+		});
 	}
 
 	attachSearch() {
