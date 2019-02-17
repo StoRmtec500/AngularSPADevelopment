@@ -1,32 +1,37 @@
 [
-  {
-    "url": "observablescurd",
-    "title": "Observables CRUD",
-    "component": "ObservableCrudComponent"
-  },
-  {
-    "url": "creating",
-    "title": "Creating Observables",
-    "component": "CreatingObservableComponent"
-  },
-  {
-    "url": "observables",
-    "title": "Observable Streams",
-    "component": "ObservableStreamComponent"
-  },
-  {
-    "url": "mousedomobs",
-    "title": "Mouse & DOM Events",
-    "component": "MouseDomObservablesComponent"
-  },
-  {
-    "url": "flexlayoutapi",
-    "title": "Flex Layout Api",
-    "component": "FlexLayoutApiComponent"
-  },
-  {
-    "url": "operators",
-    "title": "Observable Operators",
-    "component": "OperatorsComponent"
-  }
+	{
+		"url": "observablescurd",
+		"title": "Observables CRUD",
+		"component": "ObservableCrudComponent"
+	},
+	{
+		"url": "creating",
+		"title": "Creating Observables",
+		"component": "CreatingObservableComponent"
+	},
+	{
+		"url": "observables",
+		"title": "Observable Streams",
+		"component": "ObservableStreamComponent"
+	},
+	{
+		"url": "mousedomobs",
+		"title": "Mouse & DOM Events",
+		"component": "MouseDomObservablesComponent"
+	},
+	{
+		"url": "flexlayoutapi",
+		"title": "Flex Layout Api",
+		"component": "FlexLayoutApiComponent"
+	},
+	{
+		"url": "operators",
+		"title": "Observable Operators",
+		"component": "OperatorsComponent"
+	},
+	{
+		"url": "unsubscribe",
+		"title": "Unsubscribing",
+		"component": "UnsubscribingComponent"
+	}
 ]

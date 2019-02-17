@@ -1,3 +1,14 @@
+
 <mat-card>
-  Unsbscribe using TakeUntil
-</mat-card>
+    Works with Mock Data - No Service needed <br>
+    Just move the mouse over the pad
+  </mat-card>
+  
+  <mat-card fxLayout="column" fxLayoutGap="10px">
+
+    <canvas class="signPad"></canvas>
+    <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
+    <a mat-raised-button color="accent" (click)="unsubscribeMouseEvt()"
+      >Unsubscribe Mouse Events</a
+    >
+  </mat-card>

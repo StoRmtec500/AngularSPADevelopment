@@ -1,58 +1,62 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Observable, Subscription, fromEvent, pipe, from } from "rxjs";
-import { map } from "rxjs/operators";
-import { Movie } from "../movie";
-import { MovieService } from "../movie.service";
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Observable, Subscription, fromEvent, pipe, from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 @Component({
-  selector: "app-mouse-dom-observables",
-  templateUrl: "./mouse-dom-observables.component.html",
-  styleUrls: ["./mouse-dom-observables.component.scss"]
+	selector: 'app-mouse-dom-observables',
+	templateUrl: './mouse-dom-observables.component.html',
+	styleUrls: [ './mouse-dom-observables.component.scss' ]
 })
-export class MouseDomObservablesComponent implements OnInit {
-  @ViewChild("inputRef") inputRef: ElementRef;
+export class MouseDomObservablesComponent implements OnInit, OnDestroy {
+	@ViewChild('inputRef') inputRef: ElementRef;
 
-  media: Observable<Movie[]>;
-  playing: Observable<Movie[]>;
-  upcoming: Observable<Movie[]>;
+	media: Observable<Movie[]>;
+	playing: Observable<Movie[]>;
+	upcoming: Observable<Movie[]>;
 
-  mouseSubs: Subscription;
+	mouseSubs: Subscription;
 
-  result: { X: number; Y: number } = { X: 0, Y: 0 };
+	result: { X: number; Y: number } = { X: 0, Y: 0 };
 
-  constructor(private ms: MovieService) {}
+	constructor(private ms: MovieService) {}
 
-  ngOnInit() {
-    this.attachInputDOMEvt();
-  }
+	ngOnInit() {
+		this.attachInputDOMEvt();
+	}
 
-  useMouse() {
-    let pad = document.querySelector(".signPad");
-    let mouse = fromEvent(pad, "mousemove").pipe(
-      map((evt: MouseEvent) => {
-        return { X: evt.clientX, Y: evt.clientY };
-      })
-    );
+	ngOnDestroy() {
+		this.mouseSubs.unsubscribe();
+	}
 
-    var drawpad = <HTMLCanvasElement>document.querySelector(".signPad");
+	useMouse() {
+		let pad = document.querySelector('.signPad');
+		let mouse = fromEvent(pad, 'mousemove').pipe(
+			map((evt: MouseEvent) => {
+				return { X: evt.clientX, Y: evt.clientY };
+			})
+		);
 
-    this.mouseSubs = mouse.subscribe(point => {
-      this.result = point;
-      console.log("Mouse Moved @: ", point);
-      // If you like take this demo as a starte to implement your own signature pad
-      // that you all know from delivery services
-      // http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
-    });
-  }
+		var drawpad = <HTMLCanvasElement>document.querySelector('.signPad');
 
-  unsubscribeMouseEvt() {
-    this.mouseSubs.unsubscribe();
-    console.log("unsubscribed from Mouse Event");
-  }
+		this.mouseSubs = mouse.subscribe((point) => {
+			this.result = point;
+			console.log('Mouse Moved @: ', point);
+			// If you like take this demo as a starte to implement your own signature pad
+			// that you all know from delivery services
+			// http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
+		});
+	}
 
-  attachInputDOMEvt() {
-    fromEvent(this.inputRef.nativeElement, "keyup").subscribe(val => {
-      console.log("Val received from Evt:", val);
-    });
-  }
+	unsubscribeMouseEvt() {
+		this.mouseSubs.unsubscribe();
+		console.log('unsubscribed from Mouse Event');
+	}
+
+	attachInputDOMEvt() {
+		fromEvent(this.inputRef.nativeElement, 'keyup').subscribe((val) => {
+			console.log('Val received from Evt:', val);
+		});
+	}
 }
