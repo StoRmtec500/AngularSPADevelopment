@@ -38,14 +38,9 @@ export class MouseDomObservablesComponent implements OnInit, OnDestroy {
 			})
 		);
 
-		var drawpad = <HTMLCanvasElement>document.querySelector('.signPad');
-
 		this.mouseSubs = mouse.subscribe((point) => {
 			this.result = point;
 			console.log('Mouse Moved @: ', point);
-			// If you like take this demo as a starte to implement your own signature pad
-			// that you all know from delivery services
-			// http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
 		});
 	}
 

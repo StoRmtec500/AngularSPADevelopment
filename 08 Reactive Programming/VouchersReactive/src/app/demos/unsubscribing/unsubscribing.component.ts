@@ -16,14 +16,14 @@ export class UnsubscribingComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.destroying.next(false);
-		this.subscribeMouse();
+		this.subscribeScreen();
 	}
 
 	ngOnDestroy() {
 		this.destroying.next(true);
 	}
 
-	subscribeMouse() {
+	subscribeScreen() {
 		let pad = document.querySelector('.signPad');
 		let mouse = fromEvent(pad, 'mousemove').pipe(
 			map((evt: MouseEvent) => {
