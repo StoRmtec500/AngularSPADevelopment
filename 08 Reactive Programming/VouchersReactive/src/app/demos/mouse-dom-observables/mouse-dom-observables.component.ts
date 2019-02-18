@@ -9,13 +9,12 @@ import { MovieService } from '../movie.service';
 	templateUrl: './mouse-dom-observables.component.html',
 	styleUrls: [ './mouse-dom-observables.component.scss' ]
 })
-export class MouseDomObservablesComponent implements OnInit, OnDestroy {
+export class MouseDomObservablesComponent implements OnInit {
 	@ViewChild('inputRef') inputRef: ElementRef;
 
 	media: Observable<Movie[]>;
 	playing: Observable<Movie[]>;
 	upcoming: Observable<Movie[]>;
-
 	mouseSubs: Subscription;
 
 	result: { X: number; Y: number } = { X: 0, Y: 0 };
@@ -24,10 +23,6 @@ export class MouseDomObservablesComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.attachInputDOMEvt();
-	}
-
-	ngOnDestroy() {
-		this.mouseSubs.unsubscribe();
 	}
 
 	useMouse() {

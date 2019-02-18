@@ -8,14 +8,15 @@ import { map, takeUntil } from 'rxjs/operators';
 	styleUrls: [ './unsubscribing.component.scss' ]
 })
 export class UnsubscribingComponent implements OnInit, OnDestroy {
-	constructor() {}
+	constructor() {
+		this.destroying.next(false);
+	}
 
 	mouseSubs: Subscription;
 	result: { X: number; Y: number } = { X: 0, Y: 0 };
-	destroying: BehaviorSubject<boolean>;
+	destroying: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
 	ngOnInit() {
-		this.destroying.next(false);
 		this.subscribeScreen();
 	}
 
