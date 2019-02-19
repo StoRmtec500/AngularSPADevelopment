@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { VouchersService } from '../../vouchers/voucher.service';
 import { Voucher } from '../../shared/index';
 
 @Component({
@@ -10,7 +9,7 @@ import { Voucher } from '../../shared/index';
 	styleUrls: [ './observable-crud.component.scss' ]
 })
 export class ObservableCrudComponent implements OnInit {
-	constructor(private httpClient: HttpClient, private http: Http, private vs: VouchersService) {}
+	constructor(private httpClient: HttpClient, private http: Http) {}
 
 	result: any;
 	fname: string;
@@ -38,7 +37,6 @@ export class ObservableCrudComponent implements OnInit {
 
 		this.httpClient.get<Voucher[]>('http://localhost:5000/api/vouchers/asyncArray').subscribe((data) => {
 			this.result = data;
-			console.log('getVouchers()', this.result);
 		});
 	}
 

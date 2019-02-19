@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class FlexLayoutApiComponent implements OnInit {
 	constructor(private obsMedia: MediaObserver) {
-		this.subscribeIsPhone();
+		this.subscribeScreen();
 	}
 
 	mdpath: string | null = environment.markdownPath + 'flexlayout.md';
@@ -22,7 +22,7 @@ export class FlexLayoutApiComponent implements OnInit {
 
 	ngOnInit() {}
 
-	subscribeIsPhone() {
+	subscribeScreen() {
 		this.watcher = this.obsMedia.media$.subscribe((change: MediaChange) => {
 			this.mq = change.mqAlias;
 			switch (change.mqAlias) {

@@ -9,12 +9,13 @@ import { MovieService } from '../movie.service';
 	templateUrl: './mouse-dom-observables.component.html',
 	styleUrls: [ './mouse-dom-observables.component.scss' ]
 })
-export class MouseDomObservablesComponent implements OnInit {
+export class MouseDomObservablesComponent implements OnInit, OnDestroy {
 	@ViewChild('inputRef') inputRef: ElementRef;
 
 	media: Observable<Movie[]>;
 	playing: Observable<Movie[]>;
 	upcoming: Observable<Movie[]>;
+
 	mouseSubs: Subscription;
 
 	result: { X: number; Y: number } = { X: 0, Y: 0 };
@@ -25,6 +26,10 @@ export class MouseDomObservablesComponent implements OnInit {
 		this.attachInputDOMEvt();
 	}
 
+	ngOnDestroy() {
+		// this.mouseSubs.unsubscribe();
+	}
+
 	useMouse() {
 		let pad = document.querySelector('.signPad');
 		let mouse = fromEvent(pad, 'mousemove').pipe(
@@ -33,15 +38,20 @@ export class MouseDomObservablesComponent implements OnInit {
 			})
 		);
 
+		var drawpad = <HTMLCanvasElement>document.querySelector('.signPad');
+
 		this.mouseSubs = mouse.subscribe((point) => {
 			this.result = point;
 			console.log('Mouse Moved @: ', point);
+			// If you like take this demo as a starte to implement your own signature pad
+			// that you all know from delivery services
+			// http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
 		});
 	}
 
 	unsubscribeMouseEvt() {
-		this.mouseSubs.unsubscribe();
-		console.log('unsubscribed from Mouse Event');
+		// this.mouseSubs.unsubscribe();
+		// console.log('unsubscribed from Mouse Event');
 	}
 
 	attachInputDOMEvt() {
