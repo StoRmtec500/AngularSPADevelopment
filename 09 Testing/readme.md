@@ -225,6 +225,8 @@ When running for the first time
 
 ## Write a Test
 
+[Writing your first test](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html)
+
 - Start your App using `ng serve`
 
 - Create a new file "vouchers.spec.js" in `/cypress/integration/`
