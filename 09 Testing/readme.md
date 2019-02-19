@@ -147,6 +147,8 @@ getTestBed().initTestEnvironment(
 
 [Protractor Home](https://www.protractortest.org/)
 
+[Locators Reference](https://www.protractortest.org/#/locators)
+
 Navigate to `e2e/src/app.po.ts` & investigate code:
 
 ```
@@ -201,9 +203,13 @@ Modify `package.json` and run using `npm run e2e`
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "cypress open"
+    "cypress": "cypress open"
   },
 ```
+
+Examine sample tests in `/cypress/integration/examples`:
+
+## Starting Cypress
 
 Execute: `npm run e2e`
 
@@ -216,6 +222,32 @@ When running for the first time
 ![cypers](./_images/cypress.png)
 
 ![cypers](./_images/cypress-popup.png)
+
+## Write a Test
+
+- Start your App using `ng serve`
+
+- Create a new file "vouchers.spec.js" in `/cypress/integration/`
+
+- Add a reference to cypress to the top of the page
+
+```
+/// <reference types="Cypress" />
+```
+
+- Add the following structure to the file below the import
+
+```
+context('Demos', () => {
+	beforeEach(() => {
+		cy.visit('http://localhost:4200/demos');
+	});
+
+  //Add test here later
+  
+});
+```
+
 
 ---
 
