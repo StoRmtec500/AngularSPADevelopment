@@ -10,8 +10,7 @@
 		"url": "testpipe",
 		"title": "Test Pipe",
 		"component": "TestPipeComponent",
-		"markdown": "pipe",
-		"mdonly": true
+		"markdown": "pipe"
 	},
 	{
 		"url": "simpleservice",
