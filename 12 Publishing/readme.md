@@ -180,7 +180,13 @@ location / {
 
 ---
 
-docker build --rm -f "app.anguarui.dockerfile" -t vouchersui:latest .
+Build vouchersui image:
+
+`docker build --rm -f "app.prod.dockerfile" -t vouchersui .`
+
+Run vouchersui:
+
+`docker run -p 8080:80 vouchersui`
 
 ---
 
