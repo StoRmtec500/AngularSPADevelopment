@@ -74,10 +74,6 @@ Prefexing prod keeps Intellisense in file and allows you to have more than one D
 
 ![App](_images/app.png)
 
-Hosting
-
-![Architecture View](_images/docker-onion.png)
-
 ### Run SQL for Linux in Container
 
 ---
