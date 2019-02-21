@@ -115,7 +115,7 @@ docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 
 Execute in `..\13 Publishing\VouchersUI\`
 
-### Check NGINX image
+### Build & check NGINX
 
 Look at `/config/nginx.conf`
 
