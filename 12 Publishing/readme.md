@@ -194,6 +194,43 @@ Run vouchersui:
 
 [Docker Compose Cheatsheet](https://devhints.io/docker-compose)
 
+### 3-Tier Farm - docker-compose.yml
+
+```
+version: "2.1"
+
+services:
+  vouchersui:
+    build:
+      context: .
+      dockerfile: app.prod.dockerfile
+    ports:
+      - 8085:80
+    networks:
+      - vouchers-network
+    depends_on:
+      - vouchersapi
+  vouchersapi:
+    image:
+    ports:
+      - 8080:5000
+    networks: vouchersapi
+      - vouchers-network
+    depends_on:
+      - sqllinux
+  sqllinux:
+    image: microsoft/mssql-server-linux
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "TiTp4SQL@dmin"
+    networks:
+      - vouchers-network
+networks:
+  vouchers-network:
+    driver: bridge
+```
 Build your Network:
 
 `docker-compose build`
