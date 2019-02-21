@@ -122,8 +122,8 @@ Look at `/config/nginx.conf`
 Execute
 
 ```
-docker build -t vouchersui:1.0.0 -f app.dockerfile .
-docker run -d -p 8080:80/tcp vouchersui
+docker build -t nginxtest -f app.nginx.dockerfile .
+docker run -d -p 8080:80/tcp nginxtest
 ```
 
 Check `http://localhost:8080` for result
