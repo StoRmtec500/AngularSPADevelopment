@@ -115,7 +115,7 @@ docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 
 Execute in `..\13 Publishing\VouchersUI\`
 
-### Build & check NGINX
+#### Build & check NGINX
 
 Look at `/config/nginx.conf`
 
@@ -128,17 +128,27 @@ docker run -d -p 8080:80/tcp nginxtest
 
 Check `http://localhost:8080` for result
 
+--- 
+#### Build & run a simple Angular Docker Container
 ---
 
-#### Run Angular agains NGINX in watch mode
+`docker build --rm -t voucherssimple -f app.simple.angularui.dockerfile .`
+
+`docker run -it -p 8080:80 voucherssimple`
+
+Inspect running container. Are the files in the right folder?
 
 ---
 
+### Run Angular agains NGINX in watch mode
+
+---
+<!-- 
 #### Run a Dev Build in Watch mode:
 
-`ng build --prod`
+`ng build --prod` -->
 
-##### Keep "dist"-folder when building:
+##### Build App & keep "dist"-folder when building:
 
 `ng build --watch --delete-output-path false`
 
