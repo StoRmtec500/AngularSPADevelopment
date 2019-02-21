@@ -88,7 +88,7 @@ Show running containers: `docker ps -a`
 
 ---
 
-### Containerize .NET Core Web Api
+### Containerize .NET Core Web Api - Dockerfile
 
 Execute in `..\13 Publishing\VouchersAPI\VouchersAPI\`
 
@@ -101,7 +101,7 @@ Adjust Connection String:
 `"DockerConnection": "Data Source=sqllinux;Initial Catalog=VoucherDockerDB;;User ID=sa;Password=TiTp4SQL@dmin"`
 
 ```
-docker build --rm -f "Dockerfile" -t vouchersapi:latest .
+docker build --rm -f Dockerfile -t vouchersapi:latest .
 docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 ```
 
@@ -115,7 +115,7 @@ docker run -d --rm -p 8080:8080 --link sqllinux:sqllinux vouchersapi:latest
 
 Execute in `..\13 Publishing\VouchersUI\`
 
-#### Build & check NGINX
+### Build & check NGINX - app.nginx.dockerfile
 
 Look at `/config/nginx.conf`
 
@@ -129,7 +129,7 @@ docker run -d -p 8080:80/tcp nginxtest
 Check `http://localhost:8080` for result
 
 --- 
-#### Build & run a simple Angular Docker Container
+### Build & run a simple Angular Docker Container - app.simple.angularui.dockerfile
 ---
 
 `docker build --rm -t voucherssimple -f app.simple.angularui.dockerfile .`
@@ -140,35 +140,31 @@ Inspect running container. Are the files in the right folder?
 
 ---
 
-### Run Angular agains NGINX in watch mode
+### Run Angular agains NGINX in watch mode - app.dev.dockerfile
 
 ---
-<!-- 
-#### Run a Dev Build in Watch mode:
 
-`ng build --prod` -->
-
-##### Build App & keep "dist"-folder when building:
-
-`ng build --watch --delete-output-path false`
-
-##### Build angular-nginx:
-
-`docker build --rm -t vouchersui -f app.dockerfile .`
-
-##### Run angular on nginx using mapped drive to build:
-
-Use on Windows Host the mountend folder needs to be shared on Windows and "Shared Devices" needs to be enabled in Docker Desktop
+On Windows Host the mountend folder needs to be shared on Windows and "Shared Devices" needs to be enabled in Docker Desktop
 
 ![abc](_images/windows-share.png)
 
-Run & Map local `dist/vouchersui` folder as `html` to nginx
+Build App & keep "dist"-folder when building:
 
-`docker run -d -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersui`
+`ng build --watch --delete-output-path false`
+
+Build the dev container:
+
+`docker build --rm -t vouchersdev -f app.dev.dockerfile .`
+
+Run & Map local `dist/vouchersui` folder as `html` to nginx:
+
+Use on Windows:
+
+`docker run -p 8080:80 -v ${PWD}/dist/vouchersui:/usr/share/nginx/html vouchersdev`
 
 Use on Linux / Mac Host
 
-`docker run -d -p 8080:80 -d -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersui`
+`docker run -p 8080:80 -v $(pwd)/dist/vouchersui:/usr/share/nginx/html vouchersdev`
 
 Be aware that `nginx.conf` contains a route that redirects Server Side `404 errors` to Angular's `index.html` for Angular Routing to detect the route.
 
