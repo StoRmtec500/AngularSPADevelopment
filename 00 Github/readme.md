@@ -34,9 +34,9 @@ Show Status (Adds/Delets/Changes): `git status`
 
 ## Branching
 
-List Branches: `git branch -a`
+List Branches: `git branch -l`
 
-Create a new Branch: `git checkout -b [name_of_your_new_branch]`
+Create Branch: git branch feature/myfeature
 
 Push new Branch to remote: `git push origin [name_of_your_new_branch]`
 
