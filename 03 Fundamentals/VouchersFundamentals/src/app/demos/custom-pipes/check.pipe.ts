@@ -1,11 +1,11 @@
-import { Pipe, PipeTransform, ElementRef } from "@angular/core";
+import { Pipe, PipeTransform, ElementRef } from '@angular/core';
 
 @Pipe({
-  name: "checked"
+	name: 'toChecked'
 })
 export class CheckPipe implements PipeTransform {
-  transform(checked: boolean): any {
-    let result: string = checked ? '<i class="material-icons">check</i>' : "";
-    return result;
-  }
+	transform(checked: boolean): any {
+		let result: string = checked ? '<i class="material-icons">check</i>' : '';
+		return result;
+	}
 }

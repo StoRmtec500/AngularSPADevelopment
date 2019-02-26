@@ -1,5 +1,5 @@
 <div class="section">
   <h4>List of Persons - Parent - Child</h4>
   <app-persons-list [persons]="persons" (personSelected)="onPersonSelected($event)"></app-persons-list>
-  <app-person-edit *ngIf="current!=null" [person]="current" [edit]="true" (savePerson)="onPersonSaved($event)"></app-person-edit>
+  <app-person-edit *ngIf="current!=null" [person]="current" [editMode]="true" (savePerson)="onPersonSaved($event)"></app-person-edit>
 </div>

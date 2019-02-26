@@ -2,7 +2,7 @@
   <h4>List of Employees - Nested</h4>
   <ul>
     <li *ngFor="let p of persons">
-      <app-person-edit [person]="p" [edit]="false" #personRef (savePerson)="savePersonToDB($event)"></app-person-edit>
+      <app-person-edit [person]="p" [editMode]="false" #personRef (savePerson)="savePersonToDB($event)"></app-person-edit>
       <a (click)='personRef.doDelete()'>Delete Person</a>
       <hr>
     </li>

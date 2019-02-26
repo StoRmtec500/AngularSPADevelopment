@@ -1,4 +1,4 @@
-<div *ngIf="selectedPerson != null">
+<div >
   <div class="section">
     <h4>Simple Person Card - One way binding</h4>
     <div>
@@ -15,7 +15,7 @@
 
   <div class="section">
     <h4>Binding Nullable Types - {{ latePerson?.name }} Arriving Late</h4>
-    <div *ngIf="latePerson?.name">
+    <div *ngIf="latePerson">
       <pre>{{ latePerson | json }}</pre>
     </div>
   </div>
@@ -93,7 +93,7 @@
 
   <div class="section">
     <h4>Bindings Checkboxes</h4>
-    <input type="checkbox" name="isActive" [(ngModel)]="isActive" /> <br />
+    <input type="checkbox" [(ngModel)]="isActive" /> <br />
     Current State: {{ isActive }}
   </div>
 </div>

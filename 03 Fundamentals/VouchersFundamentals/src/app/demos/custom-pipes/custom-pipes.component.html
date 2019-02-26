@@ -1,8 +1,8 @@
 <div class="section">
   <h4>Checked Pipe</h4>
-  <label>Is Checked:</label> <input type="checkbox" [(ngModel)]="checked" />
+  <label>Is Checked:</label> <input type="checkbox" [(ngModel)]="isChecked" />
   <hr />
-  <span>Is selected: </span><span [innerHTML]="checked | checked"></span>
+  <span>Is selected: </span><span [innerHTML]="isChecked | toChecked"></span>
 </div>
 
 <div class="section">

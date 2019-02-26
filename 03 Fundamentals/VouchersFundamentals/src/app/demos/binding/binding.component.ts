@@ -1,40 +1,47 @@
-import { Component, OnInit } from "@angular/core";
-import { Person } from "../persons/person";
-import { PersonService } from "../persons/person.service";
+import { Component, OnInit } from '@angular/core';
+import { Person } from '../persons/person';
+import { PersonService } from '../persons/person.service';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
-  selector: "app-binding",
-  templateUrl: "./binding.component.html",
-  styleUrls: ["./binding.component.css"]
+	selector: 'app-binding',
+	templateUrl: './binding.component.html',
+	styleUrls: [ './binding.component.css' ]
 })
 export class BindingComponent implements OnInit {
-  constructor(private ps: PersonService) {}
+	constructor(private ps: PersonService) {}
 
-  hide: boolean = false;
-  persons: Person[];
-  selectedPerson: Person;
-  latePerson: Person;
-  isActive: boolean = false;
+	hide: boolean = false;
+	persons: Person[];
+	selectedPerson: Person = { name: '', age: 0, gender: '' };
+	latePerson: Person;
+	isActive: boolean = false;
 
-  ngOnInit() {
-    this.ps.getPersons().subscribe(data => {
-      this.persons = data;
-      this.selectedPerson = this.persons[0];
-    });
-    setTimeout(() => {
-      this.latePerson = { name: "Heidi", age: 13, gender: "female" };
-    }, 4000);
-  }
+	ngOnInit() {
+		this.ps.getPersons().subscribe((data) => {
+			this.persons = data;
+			this.selectedPerson = this.persons[0];
+		});
 
-  toggleDisplay() {
-    this.hide = !this.hide;
-  }
+		of({ name: 'Heidi', age: 13, gender: 'female' })
+			.pipe(delay(4000))
+			.subscribe((data: Person) => (this.latePerson = data));
 
-  handleChange(p: Person) {
-    console.log("value received from eventbinding", p);
-  }
+		// setTimeout(() => {
+		// 	this.latePerson = { name: 'Heidi', age: 13, gender: 'female' };
+		// }, 4000);
+	}
 
-  logChange(val) {
-    console.log(val);
-  }
+	toggleDisplay() {
+		this.hide = !this.hide;
+	}
+
+	handleChange(p: Person) {
+		console.log('value received from eventbinding', p);
+	}
+
+	logChange(val) {
+		console.log(val);
+	}
 }

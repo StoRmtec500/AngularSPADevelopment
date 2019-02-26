@@ -17,3 +17,8 @@
   </h4>
   <div><div [ngClass]="getClass()"></div></div>
 </div>
+
+<div class= "section">
+  <a (click)="toggleInput()">Click to enable the input</a><br>
+  <input type="text" [disabled]="disabled" placeholder="Enter name">
+</div>
