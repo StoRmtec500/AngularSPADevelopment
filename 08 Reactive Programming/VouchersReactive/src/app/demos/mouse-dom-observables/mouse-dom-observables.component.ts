@@ -50,8 +50,8 @@ export class MouseDomObservablesComponent implements OnInit, OnDestroy {
 	}
 
 	unsubscribeMouseEvt() {
-		// this.mouseSubs.unsubscribe();
-		// console.log('unsubscribed from Mouse Event');
+		this.mouseSubs.unsubscribe();
+		console.log('unsubscribed from Mouse Event');
 	}
 
 	attachInputDOMEvt() {
