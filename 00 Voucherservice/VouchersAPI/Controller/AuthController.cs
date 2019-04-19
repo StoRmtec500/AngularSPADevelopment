@@ -11,6 +11,7 @@ namespace Vouchers.Auth
     [Route("auth")]
     public class AuthController : Microsoft.AspNetCore.Mvc.Controller
     {
+        [HttpGet]
         [Route("signin")]
         public IActionResult SignIn()
         {

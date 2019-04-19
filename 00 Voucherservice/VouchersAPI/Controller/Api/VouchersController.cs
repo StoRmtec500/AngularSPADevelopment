@@ -32,35 +32,7 @@ namespace Vouchers.Api
             return vouchers;
         }
 
-        // http://localhost:PORT/api/vouchers/usingRepository 
-        [HttpGet]
-        [Route("usingRepository")]
-        public IEnumerable<Voucher> UsingRepository()
-        {
-            return rep.GetAllVouchers();
-        }
-
-        // Get implemented using Task Pattern - should be default
-        // http://localhost:PORT/api/vouchers/asyncArray        
-        [HttpGet]
-        [Route("asyncArray")]
-        [ProducesResponseType(typeof(Voucher[]), 200)]
-        [ProducesResponseType(typeof(ApiResponse), 400)]
-        public async Task<ActionResult> GetResponse()
-        {
-            try
-            {
-                var vouchers = await ctx.Vouchers.OrderByDescending(v => v.Date).ToArrayAsync();
-                return Ok(vouchers);
-            }
-            catch (Exception exp)
-            {
-                return BadRequest(new ApiResponse { Status = false, Data = exp.Message });
-            }
-        }
-
-
-        // http://localhost:PORT/vouchers/3
+         // http://localhost:PORT/vouchers/3
         [HttpGet("{id}")]
         public Voucher Get(int id)
         {
@@ -126,9 +98,37 @@ namespace Vouchers.Api
             return Ok();
         }
 
+        // http://localhost:PORT/api/vouchers/usingRepository 
+        [HttpGet]
+        [Route("usingRepository")]
+        public IEnumerable<Voucher> UsingRepository()
+        {
+            return rep.GetAllVouchers();
+        }
+
+        // Get implemented using Task Pattern - should be default
+        // http://localhost:PORT/api/vouchers/asyncArray        
+        [HttpGet]
+        [Route("asyncArray")]
+        [ProducesResponseType(typeof(Voucher[]), 200)]
+        [ProducesResponseType(typeof(ApiResponse), 400)]
+        public async Task<ActionResult> GetResponse()
+        {
+            try
+            {
+                var vouchers = await ctx.Vouchers.OrderByDescending(v => v.Date).ToArrayAsync();
+                return Ok(vouchers);
+            }
+            catch (Exception exp)
+            {
+                return BadRequest(new ApiResponse { Status = false, Data = exp.Message });
+            }
+        }
+
         //Custom Routes
 
         // GET: http://localhost:PORT/api/vouchers/getsum/false | true
+        [HttpGet]
         [Route("GetSum/{expenses}")]
         public async Task<string> GetSum(bool expenses)
         {
@@ -138,6 +138,7 @@ namespace Vouchers.Api
         }
 
         // GET: http://localhost:PORT/api/vouchers/getvm/1
+        [HttpGet]
         [Route("getvm/{id}")]
         public async Task<VoucherViewModel> GetVoucherViewModelAsync(int ID)
         {

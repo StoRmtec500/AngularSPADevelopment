@@ -16,6 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using NLog.Extensions.Logging;
 using NLog.Web;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Vouchers
 {
@@ -65,28 +66,7 @@ namespace Vouchers
                     ValidateLifetime = true
                 };
             });
-
-            //Identity 
-            //
-            //services.AddIdentity<VoucherUser, VoucherRole>()
-            //    .AddEntityFrameworkStores<VouchersDBContext>()
-            //    .AddDefaultTokenProviders();
-
-            //PWD Options
-            //SetPasswordOptions(services);
-
-            //Facebook Auth
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
-            //    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //}).AddFacebook(options =>
-            //{
-            //    options.AppId = configuration["Authentication:Facebook:AppId"];
-            //    options.AppSecret = configuration["Authentication:Facebook:AppSecret"];
-            //}).AddCookie();
-
+         
             //CORS
             //Required if you develop Angular on a seperate proj
             // For specific URL ie. your Angular CLI Frontend use: 
@@ -100,6 +80,12 @@ namespace Vouchers
                         .AllowAnyHeader()
                         .AllowAnyOrigin()
                         .AllowCredentials());
+            });
+
+            //Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Vouchers API", Version = "v1" });
             });
 
             //Serialization Options
@@ -128,10 +114,10 @@ namespace Vouchers
 
             //Startup File for serving a *.html as default
 
-            DefaultFilesOptions options = new DefaultFilesOptions();
-            options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("crud.html");
-            app.UseDefaultFiles(options);
+            // DefaultFilesOptions options = new DefaultFilesOptions();
+            // options.DefaultFileNames.Clear();
+            // options.DefaultFileNames.Add("crud.html");
+            // app.UseDefaultFiles(options);
 
             if (env.IsDevelopment())
             {
@@ -153,32 +139,17 @@ namespace Vouchers
             //Cors
             app.UseCors("AllowAll");
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vouchers API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             //Auth
             // app.UseAuthentication();
 
             app.UseMvc();
-        }
-
-        private static void SetPasswordOptions(IServiceCollection services)
-        {
-            services.Configure<IdentityOptions>(options =>
-            {
-                // Password settings
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 0;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequiredUniqueChars = 1;
-
-                // Lockout settings
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
-                options.Lockout.MaxFailedAccessAttempts = 10;
-                options.Lockout.AllowedForNewUsers = true;
-
-                // User settings
-                options.User.RequireUniqueEmail = true;
-            });
         }
     }
 }
