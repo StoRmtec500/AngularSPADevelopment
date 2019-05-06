@@ -1,6 +1,8 @@
-#Typescript
+# Typescript
 
 [Javascript Reference](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference)
+
+[ES6 Functions](http://es6-features.org/#Constants)
 
 ## Debugging in VS Code using launch.json - Angular Projects
 
