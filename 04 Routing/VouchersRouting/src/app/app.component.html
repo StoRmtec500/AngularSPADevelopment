@@ -1,4 +1,4 @@
-<div class="flexCol">  
+<div class="flexCol">
   <app-navbar></app-navbar>
   <div class="flexRow" [MatchHeight]="'panel'">
     <div [class]="setMainDivWidth()">
@@ -7,7 +7,7 @@
     <div [class]="setSpacer()"></div>
     <div [class]="setSideDivWidth()">
       <app-side-panel></app-side-panel>
-      <router-outlet name="editoroutlet"></router-outlet>
+      <router-outlet name="sidebaroutlet"></router-outlet>
     </div>
-  </div>  
+  </div>
 </div>

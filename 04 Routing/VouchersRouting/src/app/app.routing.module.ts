@@ -50,11 +50,11 @@ const appRoutes: Routes = [
     redirectTo: "vouchers",
     pathMatch: "full"
   },
-  { path: "showeditor", component: EditorComponent, outlet: "editoroutlet" },
+  { path: "showeditor", component: EditorComponent, outlet: "sidebaroutlet" },
   {
     path: "showuploader",
     component: UploaderComponent,
-    outlet: "editoroutlet"
+    outlet: "sidebaroutlet"
   },
   { path: "**", component: PageNotFoundComponent }
 ];
