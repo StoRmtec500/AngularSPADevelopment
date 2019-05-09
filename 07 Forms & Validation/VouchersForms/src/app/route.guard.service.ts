@@ -5,9 +5,9 @@ import {
   Router,
   CanActivateChild
 } from "@angular/router";
-import { Observable } from "rxjs/Observable";
 import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class RouteGuard implements CanActivate, CanActivateChild {
