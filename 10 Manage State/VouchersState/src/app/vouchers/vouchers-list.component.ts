@@ -3,6 +3,7 @@ import { MatTableDataSource } from "@angular/material";
 import { Router } from "@angular/router";
 import { Voucher } from "../shared/model/model";
 import { VouchersService } from "./voucher.service";
+import { DataStoreService } from "../shared/data-store/data-store-service";
 
 @Component({
   selector: "app-vouchers-list",
@@ -13,14 +14,18 @@ export class VouchersListComponent implements OnInit {
   dataSource: MatTableDataSource<Voucher>;
   displayedColumns = ["ID", "Text", "Date", "Amount", "Delete", "Edit"];
 
-  constructor(private vs: VouchersService, private router: Router) {}
+  constructor(
+    private vs: VouchersService,
+    private router: Router,
+    private state: DataStoreService
+  ) {}
 
   ngOnInit() {
     this.initVouchers();
   }
 
   private initVouchers() {
-    this.vs.getVouchers().subscribe(data => {
+    this.state.getAllVouchers().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
   }

@@ -26,7 +26,6 @@ export class TemplateDrivenComponent implements OnInit {
   ngOnInit() {}
 
   savePerson(formValues) {
-    console.log("saving person with values: ");
-    console.log(formValues);
+    console.log("saving person with values: ", formValues);
   }
 }

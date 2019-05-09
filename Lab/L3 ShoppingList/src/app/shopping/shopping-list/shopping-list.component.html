@@ -1,4 +1,4 @@
-<mat-card fxLayout="column">
+<mat-card fxLayout="column" *ngIf="current">
   <mat-form-field>
       <input matInput placeholder="Type Item to add and press enter" [(ngModel)]="current.name" >
   </mat-form-field>
