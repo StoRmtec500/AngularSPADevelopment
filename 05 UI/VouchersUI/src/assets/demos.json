@@ -4,7 +4,7 @@
     "title": "CSS Basics",
     "component": "CSSBindingComponent"
   },
-  { "url": "flexbox", "title": "CSS Flexbox", "component": "FlexboxComponent" },
+  { "url": "flexbox", "title": "Flexbox", "component": "FlexboxComponent" },
   {
     "url": "flexmediaq",
     "title": "Flexbox Media Query",
@@ -19,6 +19,11 @@
     "url": "cssgrid",
     "title": "CSS Grid",
     "component": "CssgridComponent"
+  },
+  {
+    "url": "cssgrid-flex",
+    "title": "CSS Grid Flex Layout",
+    "component": "CssgridFlexlayoutComponent"
   },
   {
     "url": "material",

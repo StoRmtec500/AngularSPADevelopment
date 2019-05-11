@@ -22,6 +22,7 @@ import { DragDropComponent } from "./demos/drag-drop/drag-drop.component";
 import { VirtualScrollComponent } from "./demos/virtual-scroll/virtual-scroll.component";
 import { CssgridComponent } from "./demos/cssgrid/cssgrid.component";
 import { GoogleFontsComponent } from "./demos/google-fonts/google-fonts.component";
+import { CssgridFlexlayoutComponent } from "./demos/cssgrid-flexlayout/cssgrid-flexlayout.component";
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
       { path: "cssbasics", component: CSSBindingComponent },
       { path: "bootstrap", component: UsingBootstrapComponent },
       { path: "cssgrid", component: CssgridComponent },
+      { path: "cssgrid-flex", component: CssgridFlexlayoutComponent },
       { path: "material", component: UsingMaterialComponent },
       { path: "material-table", component: MaterialTableComponent },
       { path: "material-dialog", component: MaterialDialogComponent },

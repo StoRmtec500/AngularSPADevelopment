@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-slide-toggle [(ngModel)]="useFlexLayout"
+    >Use Flex Layout</mat-slide-toggle
+  >
+</mat-card>
+
+<mat-card class="sample" *ngIf="!useFlexLayout">
+  <div>Using CSS Grid</div>
+  <div class="cardInner">
+    <div class="header">
+      Header
+    </div>
+    <div class="side">
+      Side
+    </div>
+    <div class="content">
+      Content
+    </div>
+    <div class="footer">
+      Footer
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="sample" *ngIf="useFlexLayout">
+  <div>Using CSS Grid & Angular Flex Layout</div>
+  <div
+    gdAreas="header header | side content | footer footer"
+    gdGap="16px"
+    gdRows="auto auto auto"
+    gdAreas.lt-md="header | side | content | footer"
+    gdRows.lt-md="auto auto auto auto"
+  >
+    <div gdArea="header">
+      Header
+    </div>
+    <div gdArea="side">
+      Side
+    </div>
+    <div gdArea="content">
+      Content
+    </div>
+    <div gdArea="footer">
+      Footer
+    </div>
+  </div>
+</mat-card>
