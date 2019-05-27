@@ -16,13 +16,13 @@
   <a mat-raised-button color="accent" (click)="createArrayObservable()"
     >Get Movie Array Observable - Simulate Stream</a
   >
-  <a mat-raised-button color="accent" (click)="getArrayObservableFromService()"
+  <!-- <a mat-raised-button color="accent" (click)="getArrayObservableFromService()"
     >Get Movie Array Observable from Service</a
-  >
+  > -->
 </mat-card>
 
 <mat-card [ngSwitch]="currentView">
-  <h5>Result: </h5>
+  <h5>Result:</h5>
   <div *ngSwitchCase="view.SingletonObservable" style="padding: 20px 20px">
     {{ (MovieSingleton | async)?.title }}
   </div>

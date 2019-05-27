@@ -19,7 +19,7 @@
         >With error handling</a
       >
       <a mat-raised-button color="accent" (click)="useFind()"
-        >Using find() to filter by ID returning Singleton</a
+        >Using find() to return first Singleton that matches</a
       >
       <a mat-raised-button color="accent" (click)="useFilterArray()"
         >Use filter() to return on Array</a
@@ -33,9 +33,6 @@
       <a mat-raised-button color="accent" (click)="useDelay()"
         >Use delay() to wait for a periode</a
       >
-      <a mat-raised-button color="accent" (click)="useConcat()"
-        >Use concat() to combine two Observables</a
-      >   
     </div>
     <div fxLayout="row nowrap" class="clearSubs">
       <a mat-raised-button color="accent" (click)="unsbscribe()"
@@ -49,24 +46,8 @@
         Debounced Search
       </mat-panel-title>
     </mat-expansion-panel-header>
-  <app-debounced-search></app-debounced-search>
+    <app-debounced-search></app-debounced-search>
   </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Use switchMap
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-   <app-switch-map></app-switch-map>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Use app-fork-join
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-     <app-fork-join></app-fork-join>>
-    </mat-expansion-panel>
 </mat-accordion>
 
 <mat-card fxLayout="column" fxLayoutGap="10px">

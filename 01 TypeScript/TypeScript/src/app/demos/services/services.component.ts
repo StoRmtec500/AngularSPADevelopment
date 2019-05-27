@@ -48,7 +48,8 @@ export class ServicesComponent implements OnInit {
       dataType: "json"
     })
       .then(data => console.log("Data received from jQuery: ", data))
-      .catch(err => console.log("Error received from jQuery: ", err));
+      .catch(err => console.log("Error received from jQuery: ", err))
+      .done(() => console.log("done"));
   }
 
   logPipe = (msg: string, data: any) => {
@@ -113,7 +114,7 @@ export class ServicesComponent implements OnInit {
     fetch(this.url)
       .then<Voucher[]>((resp: Response) => {
         console.log("Response received from fetch", resp);
-        return resp.json();
+        return resp.json(); //Notice Response Object
       })
       .then((data: Voucher[]) => {
         console.log("Data received from fetch", data);
