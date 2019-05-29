@@ -13,7 +13,7 @@ import { AlertComponent } from "./alert/alert.component";
   styleUrls: ["./view-child.component.css"]
 })
 export class ViewChildComponent implements AfterViewInit {
-  @ViewChild("title") title: ElementRef;
+  @ViewChild("title", { static: true }) title: ElementRef;
   @ViewChildren(AlertComponent) alerts: AlertComponent[];
 
   constructor() {}
