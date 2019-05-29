@@ -1,6 +1,5 @@
-<div id="demoContainer" class="container-fluid row">
-  <!-- <div class="row"> -->
-  <div class="panel col-3 imgCell">
+<div class="demoContainer">
+  <div class="panelBox demoMenu">
     <h4>{{ title }}</h4>
     <div>
       <a
@@ -11,12 +10,9 @@
       >
     </div>
   </div>
-
-  <div class="panel col-8">
+  <div class="spacer"></div>
+  <div class="panelBox demoWorkbench">
     <h4>{{ demoName }}</h4>
-    <div class="workbench">
-      <router-outlet></router-outlet>
-    </div>
+    <div class="workbench"><router-outlet></router-outlet></div>
   </div>
-  <!-- </div> -->
 </div>
