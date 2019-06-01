@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   },
   {
     path: "admin",
-    loadChildren: "./admin/admin.module#AdminModule",
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     data: { title: "The protected Admin page, lazy loaded as Module" },
     canActivate: [RouteGuard]
   },

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<!-- <nav class="navbar navbar-inverse">
   <div class="navbar-header">
     <a class="navbar-brand">
       <div class="row">
@@ -12,34 +12,36 @@
         </div>
       </div>
     </a>
-  </div>
+  </div> -->
 
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-      <li>
-        <a
-          [routerLink]="'/'"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Demos</a
-        >
-      </li>
-      <li>
-        <a routerLink="/vouchers" routerLinkActive="active">Vouchers</a>
-      </li>
-      <li>
-        <a routerLink="/accounts" routerLinkActive="active">Accounts</a>
-      </li>
-      <li>
-        <a routerLink="/admin" routerLinkActive="active">Admin</a>
-      </li>
-    </ul>
-    <div class="navbar-header navbar-right">
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="glyphicon glyphicon-edit" (click)="toggelSidebar()"></a>
-        </li>
-      </ul>
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <img width="50" src="/assets/images/angular.svg" />
+  <a class="navbar-brand" href="#"
+    >smart Angular Single Page Application Development</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a
+        [routerLink]="'/'"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Demos</a
+      >
+      <a routerLink="/vouchers" routerLinkActive="active">Vouchers</a>
+      <a routerLink="/accounts" routerLinkActive="active">Accounts</a>
+      <a routerLink="/admin" routerLinkActive="active">Admin</a>
+      <a class="glyphicon glyphicon-edit" (click)="toggelSidebar()"></a>
     </div>
   </div>
 </nav>

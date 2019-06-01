@@ -5,25 +5,24 @@ a {
   padding-bottom: 3px;
 }
 
-.panel {
+.spacer {
+  min-width: 15px;
+}
+
+.panelBox {
   background-color: white;
   padding: 20px;
-  border: none;
 }
 
 .workbench {
   min-height: 300px;
-}
-
-.imgCell {
-  padding-top: 5px;
-  vertical-align: middle;
+  background-color: white;
 }
 
 .demoContainer {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .demoMenu {
@@ -36,9 +35,4 @@ a {
   min-width: 400px;
   flex: 4;
   flex-grow: 4;
-}
-
-.spacer {
-  background-color: #669900;
-  min-width: 15px;
 }
