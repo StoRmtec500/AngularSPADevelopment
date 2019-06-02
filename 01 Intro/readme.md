@@ -2,7 +2,7 @@
 
 [Angular CLI Reference](https://angular.io/cli)
 
-## Run an Angular project on a custom port
+Run an Angular project on a custom port
 
 ```
 ng serve --port 4300
@@ -11,7 +11,8 @@ ng serve --port 4300
 ## Debugging in VS Code
 
 Install [Debugger for Chrome Ext](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-Edit launch.json & make sure you execute `ng serve` bevor pressing F5 for debug
+
+Edit `launch.json` in folder `.vscode` & make sure you execute `ng serve` bevor pressing F5 for debug
 
 ```
 {
@@ -43,7 +44,7 @@ Edit launch.json & make sure you execute `ng serve` bevor pressing F5 for debug
 }
 ```
 
-## Update Project
+## Update Angular
 
 ```autong
 ng update  @angular/core @angular/cli [@angular/material ...]
