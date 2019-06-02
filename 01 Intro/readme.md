@@ -2,6 +2,12 @@
 
 [Angular CLI Reference](https://angular.io/cli)
 
+Install Angular CLI
+
+```
+npm i -g @angular/cli
+```
+
 Run an Angular project on a custom port
 
 ```

@@ -1,20 +1,18 @@
-# Angular CLI
+# Angular Fundamentals
 
-```
-npm i -g @angular/cli
-```
-
-## Sample angular.json setting Sass & default spec options
+## Dealing with `*.spec` files
 
 Method 1:
 
-You can also disable spec generation at the time of creating things using Angular-cli by adding "--no-spec"
+You can disable spec generation at the time of creating things using Angular-cli by adding "--no-spec"
 
 ```
 ng generate component my-component --no-spec
 ```
 
-Method 2: Permanently disable in `angular.json` file. You can edit the schematics for your project.
+Method 2:
+
+Permanently disable in `angular.json` file. You can edit the schematics for your project.
 
 ```
 "schematics": {
