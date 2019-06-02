@@ -22,20 +22,13 @@
 
 Supports Flexbox & CSS Grid
 
-For Angular 7 install release 7.x of Flex Layout:
+[Angular Flex Layout Api Documentation](https://github.com/angular/flex-layout/wiki/Declarative-API-Overview)
+
+For Angular 8 install release 8.x of Flex Layout:
 
 ```
-npm i --save @angular/flex-layout@7.0.0-beta.22
-
+npm i --save @angular/flex-layout@.0.0-beta.26
 ```
-
-## Angular Flex Layout Api Documentation
-
-https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
-
-### Readings
-
-http://recurship.com/blog/responsive-layouts-with-angular/flex-layout
 
 # Angular Material
 
