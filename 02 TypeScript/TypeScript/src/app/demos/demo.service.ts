@@ -1,16 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
-import { DemoItem } from './demoItem';
+import { DemoItem } from "./demoItem";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class DemoService {
+  constructor(private httpClient: HttpClient) {}
 
-    private items: DemoItem [] ;
-
-    constructor(private httpClient: HttpClient) { }
-
-    getItems() : Promise<any> {
-        return this.httpClient.get('/assets/demos.json').toPromise();          
-    }
+  getItems(): Observable<DemoItem[]> {
+    return this.httpClient.get<DemoItem[]>("/assets/demos.json");
+  }
 }

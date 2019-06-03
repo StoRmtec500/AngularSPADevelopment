@@ -2,6 +2,8 @@
 
 [Angular CLI Reference](https://angular.io/cli)
 
+[Angular Augury](https://augury.rangle.io/)
+
 Install Angular CLI
 
 ```
