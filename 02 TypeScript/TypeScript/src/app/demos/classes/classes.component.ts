@@ -90,13 +90,7 @@ export class ClassesComponent implements OnInit {
     console.log(dog.breed);
 
     class Invoice {
-      text: string;
-      paid: boolean;
-
-      constructor(Text: string = "", Paid: boolean = false) {
-        this.text = Text;
-        this.paid = Paid;
-      }
+      constructor(public text: string = "", public paid: boolean = false) {}
     }
 
     var b1: Invoice = new Invoice("Car Purchase");
@@ -281,9 +275,7 @@ export class ClassesComponent implements OnInit {
     var nbrSTring: string = String(nbr);
   }
 
-  composition(){
-    
-  }
+  composition() {}
 
   abstractClasses() {
     debugger; //Classes used see blow
