@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+
 import { MaterialModule } from "../material.module";
 import { SharedModule } from "../shared/shared.module";
 import { CSSBindingComponent } from "./cssbinding/binding.component";
@@ -26,8 +28,8 @@ import { VirtualScrollComponent } from "./virtual-scroll/virtual-scroll.componen
 import { DragDropComponent } from "./drag-drop/drag-drop.component";
 import { CalculatorComponent } from "./material-dialog/calculator/calculator.component";
 import { CurrencyService } from "./material-dialog/calculator/currency.service";
-import { GoogleFontsComponent } from "./google-fonts/google-fonts.component";
-import { CssgridFlexlayoutComponent } from "./cssgrid-flexlayout/cssgrid-flexlayout.component";
+import { GoogleFontsComponent } from './google-fonts/google-fonts.component';
+import { CssgridFlexlayoutComponent } from './cssgrid-flexlayout/cssgrid-flexlayout.component';
 
 @NgModule({
   imports: [
