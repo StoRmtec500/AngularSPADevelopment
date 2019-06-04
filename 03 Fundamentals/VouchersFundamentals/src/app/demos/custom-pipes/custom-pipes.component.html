@@ -24,7 +24,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let v of (vouchers | VoucherFilter: currentFilter:'Text')"
+        *ngFor="let v of vouchers | VoucherFilter: currentFilter:'Text'"
         (click)="showVoucher(v.ID)"
       >
         <td>{{ v.ID }}</td>

@@ -11,7 +11,7 @@ export class PipesComponent implements OnInit {
     name: "Soi",
     age: 6,
     imgUrl: "",
-    salery: 2000,
+    salary: 2000,
     dateOfBirth: new Date(2010, 13, 2, 15, 0)
   };
 
