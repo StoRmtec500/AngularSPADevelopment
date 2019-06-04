@@ -1,0 +1,32 @@
+//Provides Theme funcitonality
+@import "~@angular/material/theming";
+
+//Mixin for common styles
+@include mat-core();
+
+//Pick colors here:
+// https://material.io/color/ or here:
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+
+$custom-primary: mat-palette($mat-brown, 600);
+$custom-accent: mat-palette($mat-grey, 400);
+$custom-warn: mat-palette($mat-red);
+
+$custom-fg: mat-palette($mat-red);
+$custom-bg: mat-palette($mat-red);
+
+//Build theme
+$custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
+
+//Include theme
+@include angular-material-theme($custom-theme);
+
+$alt-primary: mat-palette($mat-brown, 600);
+$alt-accent: mat-palette($mat-grey, 400);
+$alt-warn: mat-palette($mat-red);
+
+$alt-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
+
+.alternativeTheme {
+  @include angular-material-theme($alt-theme);
+}

@@ -24,7 +24,7 @@ export class TypesComponent implements OnInit {
     var age: number;
     var weight: number = 83.12;
     var dogWeight = 25.4;
-    // dogWeight = "heavy"
+    // dogWeight = "heavy";
     var rand = Math.random();
 
     var numbers: number[] = [];
@@ -88,6 +88,7 @@ export class TypesComponent implements OnInit {
 
     //Template Literals using Backticks
     var tl = `http://server/${category}/${productID}`;
+
     console.log(tl);
 
     //startswith
@@ -281,6 +282,7 @@ export class TypesComponent implements OnInit {
     var cherry = fruits.find(function(fruit) {
       return fruit.name === "cherries";
     });
+
     console.log(cherry);
 
     //filter -> returns array

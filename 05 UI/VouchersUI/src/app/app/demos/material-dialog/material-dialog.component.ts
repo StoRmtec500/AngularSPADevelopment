@@ -10,7 +10,7 @@ import { CalculatorComponent } from "./calculator/calculator.component";
 })
 export class MaterialDialogComponent implements OnInit {
   ngOnInit(): void {}
-  @ViewChild("stepper") stepper: MatStepper;
+  @ViewChild("stepper", { static: true }) stepper: MatStepper;
 
   amount: number = 100;
   name: string;

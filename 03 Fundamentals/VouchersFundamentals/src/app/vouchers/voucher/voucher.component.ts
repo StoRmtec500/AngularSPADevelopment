@@ -1,12 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { BalanceAccount, Voucher, VoucherDetail } from "../../shared/index";
 import { VouchersService } from "../voucher.service";
+import { ActivatedRoute } from "@angular/router";
+import { PersonService } from "../../demos/persons/person.service";
 
 @Component({
   selector: "app-voucher",
   templateUrl: "./voucher.component.html",
-  styleUrls: ["./voucher.component.css"]
+  styleUrls: ["./voucher.component.css"],
+  providers: [PersonService]
 })
 export class VoucherComponent implements OnInit {
   voucher: Voucher;

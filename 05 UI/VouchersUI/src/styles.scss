@@ -1,19 +1,4 @@
-@import "./theme/resets.scss";
-@import "./theme/style-vars.scss";
-@import "./theme/mat-overrides.scss";
-@import "./theme/bars.scss";
-@import "./theme/flex.scss";
-@import "./theme/form.scss";
-@import "./theme/boxes.scss";
+/* You can add global styles to this file, and also import other style files */
 
-body {
-  background-color: $lightBackground;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-.rightCell {
-  text-align: right;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
