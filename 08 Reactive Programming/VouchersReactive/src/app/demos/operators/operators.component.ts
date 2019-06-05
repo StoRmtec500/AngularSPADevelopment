@@ -7,11 +7,14 @@ import {
   finalize,
   map,
   take,
-  tap
+  tap,
+  flatMap
 } from "rxjs/operators";
 import { isArray } from "util";
 import { Voucher } from "../../shared";
 import { VouchersService } from "../../vouchers/voucher.service";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-operators",
@@ -19,7 +22,7 @@ import { VouchersService } from "../../vouchers/voucher.service";
   styleUrls: ["./operators.component.scss"]
 })
 export class OperatorsComponent implements OnInit {
-  constructor(private vs: VouchersService) {}
+  constructor(private vs: VouchersService, private httpClient: HttpClient) {}
 
   sub: Subscription = null;
 
@@ -108,5 +111,20 @@ export class OperatorsComponent implements OnInit {
     var fakeObservable = of(["hund", "katze", "maus"]).pipe(delay(5000));
     console.log("before delay execution - waiting 5 secs");
     fakeObservable.subscribe(data => console.log(data));
+  }
+
+  useFlatMap() {
+    let url = `${environment.apiUrl}api/vouchers/2`;
+    this.httpClient
+      .get<Voucher>(url)
+      .pipe(
+        flatMap(data => {
+          let acctID = data.Details[0].AccountID;
+          return this.httpClient.get<Account>(
+            `${environment.apiUrl}api/accounts/${acctID}`
+          );
+        })
+      )
+      .subscribe(acct => console.log("acct", acct));
   }
 }
