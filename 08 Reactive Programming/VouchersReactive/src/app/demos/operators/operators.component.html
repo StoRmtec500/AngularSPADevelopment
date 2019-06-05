@@ -36,11 +36,17 @@
       <a mat-raised-button color="accent" (click)="useFlatMap()"
         >Use flatMap() to chain Subscriptions</a
       >
+      <a mat-raised-button color="accent" (click)="useForkJoin()"
+        >Use forkJoin() to join Observables</a
+      >
     </div>
     <div fxLayout="row nowrap" class="clearSubs">
       <a mat-raised-button color="accent" (click)="unsbscribe()"
         >Click to clear Subscription</a
       >
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      Result: {{ response | json }}
     </div>
   </mat-expansion-panel>
   <mat-expansion-panel>

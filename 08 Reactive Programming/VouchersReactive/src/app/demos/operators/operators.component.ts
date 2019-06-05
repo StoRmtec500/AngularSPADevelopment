@@ -1,5 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { interval, of, Subscription, throwError } from "rxjs";
+import {
+  interval,
+  of,
+  Subscription,
+  throwError,
+  Observable,
+  forkJoin
+} from "rxjs";
 import {
   catchError,
   concat,
@@ -15,6 +22,7 @@ import { Voucher } from "../../shared";
 import { VouchersService } from "../../vouchers/voucher.service";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
+import { DoublerService } from "./doubler.service";
 
 @Component({
   selector: "app-operators",
@@ -22,9 +30,14 @@ import { environment } from "../../../environments/environment";
   styleUrls: ["./operators.component.scss"]
 })
 export class OperatorsComponent implements OnInit {
-  constructor(private vs: VouchersService, private httpClient: HttpClient) {}
+  constructor(
+    private vs: VouchersService,
+    private httpClient: HttpClient,
+    private ds: DoublerService
+  ) {}
 
   sub: Subscription = null;
+  response: any;
 
   ngOnInit() {}
 
@@ -126,5 +139,18 @@ export class OperatorsComponent implements OnInit {
         })
       )
       .subscribe(acct => console.log("acct", acct));
+  }
+
+  public requestMockVM(): Observable<number[]> {
+    let response1 = this.ds.double(3);
+    let response2 = this.ds.double(9);
+    let response3 = this.ds.double(2);
+    return forkJoin([response1, response2, response3]);
+  }
+
+  useForkJoin() {
+    this.requestMockVM().subscribe(arr => {
+      this.response = arr;
+    });
   }
 }
