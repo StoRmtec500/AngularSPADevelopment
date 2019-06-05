@@ -22,7 +22,7 @@
       {{ route.data.title }}
     </div>
   </div>
-  <div fxHide.gt-md (click)="toggleApps()" class="clickable">
+  <div fxHide fxShow.lt-lg (click)="toggleApps()" class="clickable">
     <mat-icon color="accent">menu</mat-icon>
   </div>
 </mat-toolbar>

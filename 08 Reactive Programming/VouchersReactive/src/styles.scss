@@ -1,11 +1,11 @@
-@import "./theme/resets.scss";
-@import "./theme/style-vars.scss";
-@import "./theme/theme.scss";
-@import "./theme/mat-overrides.scss";
-@import "./theme/bars.scss";
-@import "./theme/flex.scss";
-@import "./theme/form.scss";
-@import "./theme/boxes.scss";
+@import "resets.scss";
+@import "style-vars.scss";
+@import "theme.scss";
+@import "mat-overrides.scss";
+@import "bars.scss";
+@import "flex.scss";
+@import "form.scss";
+@import "boxes.scss";
 
 body {
   background-color: $lightBackground;
