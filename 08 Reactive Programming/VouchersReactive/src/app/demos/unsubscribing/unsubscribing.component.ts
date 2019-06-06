@@ -10,7 +10,7 @@ import { map } from "rxjs/operators";
 export class UnsubscribingComponent implements OnInit, OnDestroy {
   constructor() {}
 
-  mouse$: Subscription;
+  mouseSubs: Subscription;
   result: { X: number; Y: number } = { X: 0, Y: 0 };
 
   ngOnInit() {
@@ -18,7 +18,7 @@ export class UnsubscribingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.mouse$.unsubscribe();
+    this.mouseSubs.unsubscribe();
     console.log("Mouse Subscription unsubscribed");
   }
 
@@ -30,14 +30,14 @@ export class UnsubscribingComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.mouse$ = mouse.subscribe(point => {
+    this.mouseSubs = mouse.subscribe(point => {
       this.result = point;
       console.log("Mouse Moved @: ", point);
     });
   }
 
   unsubscribeMouseEvt() {
-    this.mouse$.unsubscribe();
+    this.mouseSubs.unsubscribe();
     console.log("unsubscribed from Mouse Event");
   }
 }

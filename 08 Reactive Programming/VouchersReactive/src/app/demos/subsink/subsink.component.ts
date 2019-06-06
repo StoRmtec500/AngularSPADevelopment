@@ -43,9 +43,4 @@ export class SubsinkComponent implements OnInit, OnDestroy {
     //   })
     // );
   }
-
-  unsubscribeMouseEvt() {
-    this.mouse$.unsubscribe();
-    console.log("unsubscribed from Mouse Event");
-  }
 }
