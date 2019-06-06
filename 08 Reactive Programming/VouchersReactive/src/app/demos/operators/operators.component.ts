@@ -1,27 +1,26 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import {
+  forkJoin,
   interval,
+  Observable,
   of,
   Subscription,
-  throwError,
-  Observable,
-  forkJoin
+  throwError
 } from "rxjs";
 import {
   catchError,
-  concat,
   delay,
   finalize,
+  flatMap,
   map,
   take,
-  tap,
-  flatMap
+  tap
 } from "rxjs/operators";
 import { isArray } from "util";
+import { environment } from "../../../environments/environment";
 import { Voucher } from "../../shared";
 import { VouchersService } from "../../vouchers/voucher.service";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../environments/environment";
 import { DoublerService } from "./doubler.service";
 
 @Component({
