@@ -9,11 +9,7 @@ import { SnackbarService } from "../../snackbar/snackbar.service";
   styleUrls: ["./register.component.scss"]
 })
 export class RegisterComponent implements OnInit {
-  constructor(
-    public fbAuth: AngularFireAuth,
-    public as: AuthService,
-    private sns: SnackbarService
-  ) {}
+  constructor(public as: AuthService, private sns: SnackbarService) {}
 
   ngOnInit() {}
 

@@ -12,7 +12,7 @@ import { SidePanelComponent } from "./side-panel/side-panel.component";
 import { UploadComponent } from "./upload/upload.component";
 import { FooterComponent } from "./footer/footer.component";
 
-const mods = [
+const comps = [
   UploadComponent,
   NavbarComponent,
   EditorComponent,
@@ -30,7 +30,7 @@ const mods = [
     FileUploadModule,
     CKEditorModule
   ],
-  declarations: mods,
-  exports: mods
+  declarations: comps,
+  exports: comps
 })
 export class SharedModule {}
